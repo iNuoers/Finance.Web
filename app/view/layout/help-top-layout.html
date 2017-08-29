@@ -1,0 +1,29 @@
+<div class="help-search search-top">
+    <div class="main-section">
+        <div class="search-box">
+            <div class="search-bar">
+                <a href="javascript:;" id="search-link" style="visibility: hidden; height: 1px; width: 1px;"></a>
+                <input type="text" class="search input" placeholder="请输入问题关键词 例如:提现">
+                <div class="search-btn">
+                    <i class="fa fa-search"></i>
+                </div>
+                <div class="s-history history">
+                    <ul></ul>
+                </div>
+                <script type="text/template" id="history-list">
+                    {{#grid}}
+                    <li><a href="{{url}}" target="_blank">{{QTitle}}</a></li>
+                    {{/grid}}
+                </script>
+            </div>
+            <div class="keywords">
+                <ul class="f-cb keywords-list"></ul>
+                <script type="text/template" id="keywords-list">
+                    {{#HelpTypeList}}
+                    <li><a href="{{url}}" target="_blank">{{Title}}</a></li>
+                    {{/HelpTypeList}}
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

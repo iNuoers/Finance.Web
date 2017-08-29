@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
+	<%= require('html-loader!./layout/head-common.html')%>
+</head>
+
+<body>
+    <%= require('html-loader!./layout/nav.html')%>
+    <%= require('html-loader!./layout/header.html')%>
+    <div class="main-wrap">
+        <div class="main-layout">
+            <%= require('html-loader!./layout/help-top-layout.html')%>
+            <div class="help-wrap main-section">
+                <%= require('html-loader!./layout/help-left-layout.html')%>
+                <div class="right">
+                    <input class="mark-keywords" type="hidden" value="海外">
+                    <div class="list-box">
+                        <div class="head-bar">
+                            <span class="title">关于“海外”一共搜出13个结果</span>
+                            <!-- <span class="title">很抱歉,没有找到关于"提现"的帮助内容</span> -->
+                        </div>
+                        <div class="s-content">
+                            <div class="questions">
+                                <ul>
+                                    <li class="q-item">
+                                        <div class="q-title">
+                                            <span>我在凤凰金融上进行海外投资安全么？</span>
+                                            <i class="fa fa-angle-right"></i>
+                                        </div>
+                                        <div class="line"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= require('html-loader!./layout/footer.html')%>
+</body>
+
+</html>

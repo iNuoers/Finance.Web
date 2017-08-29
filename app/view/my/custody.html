@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>
+        <%= htmlWebpackPlugin.options.title%> - 房金网</title>
+    <%= require('html-loader!../layout/head-common.html')%>
+</head>
+
+<body>
+    <%= require('html-loader!../layout/nav.html')%>
+        <%= require('html-loader!../layout/header.html')%>
+            <div class="main-wrap">
+                <div class="main-section">
+                    <div class="my-main-frame">
+                        <%= require('html-loader!../layout/my-left-layout.html')%>
+                            <div class="my-main-c ml20 w950">
+                                <div class="sr-cont">
+                                    <div class="sr-cont-inner">
+                                        <div class="ci-title">
+                                            <!--普通的title条 S-->
+                                            <div class="ci-title-inner">
+                                                <h2>账户安全</h2>
+                                                <!--标题放这里-->
+                                                <b class="line"></b>
+                                            </div>
+                                            <!--普通的title条 E-->
+                                        </div>
+                                        <div class="set-safe-info">
+                                            <ul>
+                                                <li>
+                                                    <div class="safe-levelBox">
+                                                        <span class="set-safe-title fl fz18">安全等级</span>
+                                                        <!--低等级红色调用【low-level】，中等级蓝色调用【medium-level】，高等级绿色调用【height-level】 S-->
+
+                                                        <div class="safe-level medium-level">
+                                                            <div class="safe-fraction"><strong class="vam">-</strong> <span class="vam">分</span></div>
+                                                            <div class="safe-level-bar">
+                                                                <div class="progress-level">
+                                                                    <div class="progress-level-in" data-score="70"><i class="icon-safeLevel"></i></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="safe-level-tips">存在<span>2</span>项风险 <span>1</span>项可升级</div>
+                                                        </div>
+                                                        <!--低等级红色调用【low-level】，中等级蓝色调用【medium-level】，高等级绿色调用【height-level】 E-->
+                                                        <div></div>
+
+                                                    </div>
+                                                    <p class="set-safeTxt no-paddingL">上次登录：2017-08-05 20:23:26</p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span class="set-safe-title"><i class="icon-set-approve"></i>高级认证</span>
+                                                        <span class="set-noApprove"><i class="icon-warn-s"></i>审核不通过</span>
+                                                    </p>
+                                                    <p class="set-safeTxt">上传身份证照片完成高级认证，可享众安保险无限额极速理赔服务</p>
+                                                    <div class="btn-setSafeBox">
+                                                        <a href="https://www.xiaoying.com/my/uploadIdCard" class="btn-setSafe">升级</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span class="set-safe-title"><i class="icon-set-phone"></i>手机号码  138******41</span>
+                                                    </p>
+                                                    <p class="set-safeTxt">资金变动及敏感操作短信通知</p>
+                                                    <div class="btn-setSafeBox">
+                                                        <a href="https://www.xiaoying.com/my/changeMobile" class="btn-setSafe">更换</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span class="set-safe-title"><i class="icon-set-email"></i>电子邮箱</span>
+                                                        <span class="set-noApprove"><i class="icon-warn-s"></i>未绑定</span>
+                                                    </p>
+                                                    <p class="set-safeTxt">可用于接收投资电子保单</p>
+                                                    <div class="btn-setSafeBox">
+                                                        <a href="https://www.xiaoying.com/my/bindEmail" class="btn-setSafe">绑定</a>
+                                                    </div>
+
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span class="set-safe-title"><i class="icon-set-loginPsw"></i>登录密码</span>
+                                                    </p>
+                                                    <p class="set-safeTxt">用于保护帐号信息和登录安全，建议每6个月更换1次</p>
+                                                    <div class="btn-setSafeBox">
+                                                        <a href="https://www.xiaoying.com/my/changePassword" class="btn-setSafe">修改</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span class="set-safe-title"><i class="icon-set-psw"></i>交易密码</span>
+                                                    </p>
+                                                    <p class="set-safeTxt">账户资金变动和修改账户信息时，需先校验交易密码</p>
+                                                    <div class="btn-setSafeBox">
+                                                        <a href="https://www.xiaoying.com/my/changeTradePassword?mobile=13816436641" class="btn-setSafe">修改</a>
+                                                        <a href="https://www.xiaoying.com/my/findTradePassword" class="btn-setSafe">找回</a>
+                                                    </div>
+
+
+                                                </li>
+                                                <li class="last">
+                                                    <p>
+                                                        <span class="set-safe-title"><i class="icon-set-proPsw"></i>密码保护</span>
+                                                        <span class="set-noApprove"><i class="icon-warn-s"></i>未设置</span>
+                                                    </p>
+                                                    <p class="set-safeTxt">用于找回交易密码</p>
+                                                    <div class="btn-setSafeBox">
+                                                        <a href="https://www.xiaoying.com/my/createProtect" class="btn-setSafe">设置</a>
+                                                    </div>
+
+                                                </li>
+                                                <li class="last">
+                                                    <p>
+                                                        <span class="set-safe-title"><i class="icon-set-rating"></i>风险测评</span>
+                                                        <span class="set-tag blue">保守型</span> </p>
+                                                    <p class="set-safeTxt">适合购买较低、低、基本无风险级别产品</p>
+                                                    <div class="btn-setSafeBox">
+                                                        <a href="https://www.xiaoying.com/riskEvaluate/evaluate?fromUrl=https%3A%2F%2Fwww.xiaoying.com%2Fmy%2Fsettings" class="btn-setSafe">重新测评</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- 账户安全模块 E -->
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <%= require('html-loader!../layout/footer.html')%>
+</body>
+
+</html>

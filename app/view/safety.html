@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
+	<%= require('html-loader!./layout/head-common.html')%>
+</head>
+<body>
+    <%= require('html-loader!./layout/nav.html')%>
+    <%= require('html-loader!./layout/header.html')%>
+    <div class="main-wrap">
+        <div class="safetyTop">
+            <div class="main-section">
+                <div class="safetyBanner">
+                    <div class="icon" id="icon1"></div>
+                    <div class="icon" id="icon2"></div>
+                    <div class="icon" id="icon3"></div>
+                    <div class="icon" id="icon4"></div>
+                    <div class="icon" id="icon5"></div>
+                    <div class="icon" id="icon6"></div>
+                    <div class="icon" id="icon7"></div>
+                </div>
+            </div>
+        </div>
+        <div class="safety-section-blue pt50">
+            <div class="main-section">
+                <div class="safety-section-title" id="tweenTitle1">产品模式</div>
+                <div class="main-section">
+                    <div class="safety-section-left pt100" id="tween1">房金网所有产品均采用“风险保障计划”,“风险保障计划”是指房金网与各商业银行或各大金融机构达成合作， 若最终发生融资方支付逾期，房金网将通过优先垫付的方式向投资人垫付逾期本息。产品发布后，房金网风控团队对产品实行跟踪管理，对产品合作机构进行风控、经营监管，对收益情况进行数据统计分析。</div>
+                    <div class="safety-section-right pt50" id="tween2"><img src=<%= require('../image/safety_section_Icon1.png') %>></div>
+                </div>
+            </div>
+        </div>
+        <div class="safety-section-white">
+            <div class="main-section pt50">
+                <div class="safety-section-title" id="tweenTitle2">项目筛选</div>
+                <div class="safety-section-left pt50" id="tween3"><img src=<%= require('../image/safety_section_Icon2.png') %>></div>
+                <div class="safety-section-right pt100" id="tween4">
+                    <p>房金网理财产品是由专业运营团队定期考察一线城市黄金地段，经过专业风控投资团队的计算和分析，稽核抵押率低的一线资产债权项目。</p>
+                    <p>在分析过程中，专家团队对房金网产品的选择和筛选有着近乎苛刻的审核标准，产品的最终通过率仅仅只有5%！</p>
+                </div>
+            </div>
+        </div>
+        <div class="safety-section-blue pt50">
+            <div class="main-section">
+                <div class="safety-section-title" id="tweenTitle3">风险控制</div>
+                <div class="main-section">
+                    <div class="safety-section-left pt50" id="tween5">
+                        <p>拒绝非法集资，拒绝自融</p>
+                        <p>拒绝资金池，携手第三方支付平台对接银行存管，严格分离平台自由资金与用户资金，资金流向更清晰透明； 推动债权项目公示，杜绝虚假债权项目，信息公开，定期对外披露重要运营数据，包括但不限于投资额、投资人数。</p>
+                        <p>风险前置，平台更安全多重风控审核</p>
+                        <p>合作机构承诺对平台每个债权项目到期本息回购并进行实地考察监督，且平台内部专业风控进行二次审核，再次确保债权项目安全。</p>
+                    </div>
+                    <div class="safety-section-right pt50" id="tween6"><img src=<%= require('../image/safety_section_Icon3.png') %>></div>
+                </div>
+            </div>
+        </div>
+        <div class="safety-section-white">
+            <div class="main-section pt50">
+                <div class="safety-section-title" id="tweenTitle4">风险储备制度</div>
+                <div class="safety-section-left pt50" id="tween7"><img src=<%= require('../image/safety_section_Icon4.png') %>></div>
+                <div class="safety-section-right pt100" id="tween8">
+                   本金保障：当投资人投资的一线资产相关项目出现严重逾期时，房金网将向投资人垫付此笔投资未归还的剩余本金和利息（具体情况视投资标的类型的具体垫付规则为准），从而为投资人营造一个安全的投资环境。
+                    数据安全：房金网IT团队来自国内各大银行，在信息安全和数据安全方面有着非常丰富的经验；三层防火墙隔离系统的访问层、应用层和数据层集群；有效的入侵防范及容灾备份。
+                </div>
+            </div>
+        </div>
+        <div class="safety-section-blue pt50">
+            <div class="main-section">
+                <div class="safety-section-title" id="tweenTitle5">资金和隐私安全</div>
+                <div class="main-section pt50">
+                    <div class="safety-section-b" id="tween9">
+                        <p>资金安全</p>
+                        <ul class="mt50">
+                            <li>1、资金只能转出到认证及绑定过的银行账户。</li>
+                            <li>2、每笔项目成交后公布转账流水记录。</li>
+                            <li>3、内部严格的资金管理流程和完善安全的系统。</li>
+                            <li>4、网站采用领先的系统加密及保护技术24小时监控。</li>
+                        </ul>
+                    </div>
+                    <div class="safety-section-b safety-section-b_right" id="tween10">
+                        <p>隐私安全</p>
+                        <ul class="mt50">
+                            <li>1、严格遵守国家相关法律法规，对用户隐私进行严格保护。</li>
+                            <li>2、采用先进的加密技术，用户信息进行高强度的加密处理。</li>
+                            <li>3、严格的安全系统，未经允许不可获取您的相关信息。</li>
+                            <li>4、绝不会将您的个人信息以任何形式透露给第三方。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="safety-footer">
+            <div class="main-section" id="tween11">
+                <p class="pt100">准备好踏上安全稳定高收益的财富之路了吗？</p>
+                <div id="button">立即注册领取大礼包</div>
+            </div>
+        </div>
+    </div>
+    <%= require('html-loader!./layout/footer.html')%>
+</body>
+</html>

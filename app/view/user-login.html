@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
+	<%= require('html-loader!./layout/head-common.html')%>
+</head>
+<body>
+	<%= require('html-loader!./layout/nav.html')%>
+	<%= require('html-loader!./layout/header.html')%>
+	<div class="main-wrap f-login">
+		<div class="main-section">
+			<div class="login-box-page">
+				<h2 class="login-title">用户登录</h2>
+				<form class="form login-form" onsubmit="return false">
+					<div class="form-item">
+						<input name="phone" id="phone" type="text" autocomplete="off" class="input input-auto input-underline username" placeholder="请输入手机号">
+					</div>
+					<div class="form-item">
+						<input name="password" id="password" type="password" autocomplete="off" class="input input-auto input-underline password" placeholder="请输入密码">
+					</div>
+					<div class="form-item form-item-captch">
+						<input name="valicode" type="text" autocomplete="off" class="input input-small input-underline captch" placeholder="请输入验证码">
+						<img class="img-captch" title="点击获取验证码" alt="点击获取验证码" src="https://www.itouzi.com/apiService/captcha/login?t=0.8737529212909079">
+					</div>
+					<div class="form-item form-item-remember">
+						<span class="forget-pass-register">
+							<a class="forget-pass" href="./user-pass-reset.html">忘记密码</a>&nbsp;&nbsp;
+							<a class="register" href="./user-register.html">免费注册</a>
+						</span>
+					</div>
+					<div class="form-item form-item-login-btn">
+						<button class="btn btn-info loginbtn">立即登录</button>
+						<div class="error"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<%= require('html-loader!./layout/footer.html')%>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<%for(i = 0; i < grid.length; i ++) {%>
+    <% var data = grid[i]; %>
+    <li data-id="<%=data.Id%>">
+        <a href="./detail.html?id=<%=data.Id%>" title="<%=data.Title%>" target="_blank" class="link-detail"></a>
+        <dl class="ctn f-cb row">
+            <dd class="f-fl name col-lg-6">
+                <div class="tit f-nowrap">                    
+                    <%if(data.ProductTypeParentId==1){%>
+                        <i class="u-tag u-tag-fixed">活期</i>
+                    <%}else if(data.ProductTypeParentId==2){%>
+                        <i class="u-tag u-tag-fixed">定期</i>
+                    <%}%>
+                    <a href="./detail.html?id=<%=data.Id%>" title="<%=data.Title%>" target="_blank"><%=data.Title%></a>
+                </div>
+                <div class="dec">
+                    <%if(data.ActivityType==1){%>
+                        <i class="u-tag u-tag-feature">活动产品</i>
+                    <%}%>
+                    <%if(data.ProductTypeParentId==1){%>
+                        <i class="u-tag u-tag-feature">天天收益</i>
+                    <%}%>
+                    <%if(data.IsPlusInCome==1){%>
+                        <i class="u-tag u-tag-rate">加息</i>
+                    <%}%>
+                    <%if(data.IsCash==1){%>
+                        <i class="u-tag u-tag-money">现金</i>
+                    <%}%>
+                </div>
+            </dd>
+
+            <dd class="f-fl rate col-lg-3-5">
+                <div class="tit">
+                    <span><%=(data.IncomeRate).toFixed(2)%>%</span>
+                </div>
+                <div class="dec">
+                    预期年化收益率
+                </div>
+            </dd>
+
+            <dd class="f-fl day col-lg-3-5">
+                <div class="tit">
+                    <span><%=data.TimeLimit%></span>
+                </div>
+                <div class="dec">
+                    投资期限
+                </div>
+            </dd>
+
+            <dd class="f-fl money col-lg-3-5">
+                <div class="tit">
+                    <%if(data.StartBuyPrice >= 10000){%>
+                        <span><%=data.StartBuyPrice/10000%>万元</span>
+                    <%}else{%>
+                        <span><%=data.StartBuyPrice%>元</span>
+                    <%}%>
+                </div>
+                <div class="dec">
+                    起投金额
+                </div>
+            </dd>
+            <%if(data.ProductTypeId==3){%>
+                <dd class="f-fl col-lg-3-5">
+                    <div class="tit">
+                        <span>充裕</span>
+                    </div>
+                    <div class="dec">
+                        剩余份额
+                    </div>
+                </dd>
+            <%}else if(data.ProductTypeId==9){%>
+                <dd class="f-fl col-lg-3-5">
+                    <div class="tit">
+                        <%if(data.MaxBuyPrice >= 10000){%>
+                            <span><%=data.MaxBuyPrice/10000%>万元</span>
+                        <%}else{%>
+                            <span><%=data.MaxBuyPrice%>元</span>
+                        <%}%>
+                    </div>
+                    <div class="dec">
+                        最高可购买
+                    </div>
+                </dd>
+            <%}else{%>
+                <dd class="f-fl process col-lg-3-5">
+                    <div class="tit">
+                        <p>
+                            <span class="process-txt"><%=Math.floor((data.TotalShares - data.RemainingShares) / data.TotalShares * 100)%>%</span>
+                        </p>
+                        <i class="process-bar">
+                            <img style="width:<%=(data.TotalShares - data.RemainingShares) / data.TotalShares * 100%>%" src="../../image/process.png"/>
+                        </i>
+                    </div>
+                    <div class="dec">
+                        投资进度
+                    </div>
+                </dd>
+            <%}%>
+            <dd class="f-fr oper col-lg-4">
+                <div class="timer"></div>
+                <%if(data.Status==3){%>
+                    <div class="btn">
+                        <span>已售罄</span>
+                    </div>
+                <%}else{%>
+                    <div class="buy btn btn-primary">
+                        <span>立即投资</span>
+                    </div>
+                <%}%>
+            </dd>
+        </dl>
+    </li>
+<%}%>

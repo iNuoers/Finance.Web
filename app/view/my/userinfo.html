@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>
+        <%= htmlWebpackPlugin.options.title%> - 房金网</title>
+    <%= require('html-loader!../layout/head-common.html')%>
+</head>
+
+<body>
+    <%= require('html-loader!../layout/nav.html')%>
+        <%= require('html-loader!../layout/header.html')%>
+            <div class="main-wrap">
+                <div class="main-section uc_main">
+                    <div class="uc_main_frame">
+                        <%= require('html-loader!../layout/my-left-layout.html')%>
+                        <div class="uc_main_c">
+                        
+                        </div>
+                    </div>
+                    <div class="sr-cont">
+                        <div class="sr-cont-inner">
+                            <div class="ci-title">
+                                <!--普通的title条 S-->
+                                <div class="ci-title-inner">
+                                    <h2>个人信息</h2>
+                                    <!--标题放这里-->
+                                    <b class="line"></b>
+                                </div>
+                                <!--普通的title条 E-->
+                            </div>
+                            <div class="settings-info-box">
+                                <div class="settings-l">
+                                    <h3 class="mb10"><i class="icon-set-preson"></i>个人资料</h3>
+                                    <div class="setting-l-box ">
+                                        <table class="settings-info">
+                                            <tbody>
+                                                <tr id="showNick">
+                                                    <td class="row-1">用户昵称：</td>
+                                                    <td id="nickNameShow" class="row-2">138******41</td>
+                                                    <td class="row-3"><a href="javascript:void(0);" class="link" id="modifyNickName">修改</a></td>
+                                                </tr>
+                                                <tr id="modifyNick" style="display: none">
+                                                    <td class="row-1">用户昵称：</td>
+                                                    <td class="row-2"><input id="nickName" class="i-text" type="text" value=""></td>
+                                                    <td class="row-3"><a href="javascript:void(0);" class="btn btn-1" title="确定" id="submitNickName">确定</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- 个人信息 S -->
+                                        <table class="settings-info">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-1">真实姓名：</td>
+                                                    <td class="row-2">肖**</td>
+                                                    <td class="row-3" rowspan="4">
+                                                        <!-- 说明：如果未认证，则直接更换文字与ICON：icon-err-s-->
+                                                        <div class="msg-box">
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="row-1">身份证号：</td>
+                                                    <td class="row-2">3203**************</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <!-- 个人信息未认证 E -->
+
+                                    </div>
+                                </div>
+                                <div class="settings-r">
+                                    <h3 class="mb20"><i class="icon-set-card"></i>我的银行卡</h3>
+                                    <ul class="adds-bankcard">
+                                        <!--
+                            说明：如果有多张卡，selected则为选中态，有icon-select-white类的标签则出现
+                         -->
+                                        <li>
+                                            <a class="add-crad" title="添加银行卡" href="https://www.xiaoying.com/my/bindSecureBank">
+                                    <i class="icon-cross-w"><em></em><b></b></i>
+                                    <span>添加银行卡</span>
+                                </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sr-cont-inner">
+                        <div class="ci-title">
+                            <!--普通的title条 S-->
+                            <div class="ci-title-inner">
+                                <h2>个人信息</h2>
+                                <!--标题放这里-->
+                                <b class="line"></b>
+                            </div>
+                            <!--普通的title条 E-->
+                        </div>
+                        <div class="settings-info-box">
+                            <div class="settings-l">
+                                <h3 class="mb10"><i class="icon-set-preson"></i>个人资料</h3>
+                                <div class="setting-l-box ">
+                                    <table class="settings-info">
+                                        <tbody>
+                                            <tr id="showNick">
+                                                <td class="row-1">用户昵称：</td>
+                                                <td id="nickNameShow" class="row-2">138******41</td>
+                                                <td class="row-3"><a href="javascript:void(0);" class="link" id="modifyNickName">修改</a></td>
+                                            </tr>
+                                            <tr id="modifyNick" style="display: none">
+                                                <td class="row-1">用户昵称：</td>
+                                                <td class="row-2"><input id="nickName" class="i-text" type="text" value=""></td>
+                                                <td class="row-3"><a href="javascript:void(0);" class="btn btn-1" title="确定" id="submitNickName">确定</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- 个人信息 S -->
+                                    <table class="settings-info">
+                                        <tbody>
+                                            <tr>
+                                                <td class="row-1">真实姓名：</td>
+                                                <td class="row-2">肖**</td>
+                                                <td class="row-3" rowspan="4">
+                                                    <!-- 说明：如果未认证，则直接更换文字与ICON：icon-err-s-->
+                                                    <div class="msg-box">
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="row-1">身份证号：</td>
+                                                <td class="row-2">3203**************</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <!-- 个人信息未认证 E -->
+
+                                </div>
+                            </div>
+                            <div class="settings-r">
+                                <h3 class="mb20"><i class="icon-set-card"></i>我的银行卡</h3>
+                                <ul class="adds-bankcard">
+                                    <!--
+                            说明：如果有多张卡，selected则为选中态，有icon-select-white类的标签则出现
+                         -->
+                                    <li>
+                                        <a class="add-crad" title="添加银行卡" href="https://www.xiaoying.com/my/bindSecureBank">
+                                    <i class="icon-cross-w"><em></em><b></b></i>
+                                    <span>添加银行卡</span>
+                                </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <%= require('html-loader!../layout/footer.html')%>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>
+        <%= htmlWebpackPlugin.options.title%> - 房金网
+    </title>
+    <%= require('html-loader!./layout/head-common.html')%>
+</head>
+
+<body>
+    <%= require('html-loader!./layout/nav.html')%>
+    <%= require('html-loader!./layout/header.html')%>
+    <div class="main-wrap main-section">
+        <div class="main-section">
+            <!--新手引导区-->
+            <div class="mb40">
+                <div class="newer-list">
+                    <ul>
+                        <li class="newer-reward shadowAnimate">
+                            <a class="link-cover" target="_blank" href="http://active.wsloan.com/pc/2017/newcomer/index.html">
+                                <p class="newer-reward-text">新人专享礼包</p>
+                                <p class="newer-reward-sub-text"><span>15000</span>体验金+<span>518</span>现金券+<span>5%</span>加息劵</p>
+                            </a>
+                        </li>
+
+                        <li class="newer-bid shadowAnimate" id="J_newer_bid_content">
+                            <a href="../invest-detail/?id=38730&amp;type=7" target="_blank">
+                                <div class="newer-bid-title">
+                                    新人专享礼包
+                                </div>
+                                <div class="newer-bid-content">
+                                    <div class="cell rate">
+                                        <p class="text rate-text">16.00<em>%</em></p>
+                                        <p class="label">预期年化收益率</p>
+                                    </div>
+                                    <div class="cell period">
+                                        <!-- <p class="text period-text">1<em>个月</em></p> -->
+                                        <p class="text period-text">
+                                            <span>随存随取</span>
+                                        </p>
+                                        <p class="label">投资期限</p>
+                                    </div>
+                                    <div class="cell limit">
+                                        <p class="text limit-text">100元</p>
+                                        <p class="label">起投金额</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="video shadowAnimate">
+                            <div class="video-thumb" id="J_show_video">
+                                <img src="https://www.fangjinnet.com/static/images/index-newcomerBg.jpg" alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb40 index-ads">
+                <div class="f-cb pro tb">
+                    <div class="proleft" style="background: url(https://www.fangjinnet.com/static/images/index-describe.png) center center no-repeat">
+                        <div class="contb conbg">
+                            <div class="titbg">
+                                <a href="" target="_blank">
+                                    开启财富之旅<br>
+                                    一线优质资产项目<br>
+                                    多样选择，简单投资<br>
+                                    收益情况随时查
+                                </a>
+                            </div>
+                            <div class="linkcon">
+                                <a href="" target="_blank"> <span>立即抢购</span> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="proright right tb-list">
+                        <ul class="f-cb producttwo producttb">
+                            <li class="" >
+                                <a href="" target="_blank" class=""></a>
+                                <p class="title">
+                                    <a href="" target="_blank" title="房金月宝">房金月宝</a>
+                                </p>
+                                <a href="" target="_blank" title="">
+                                    <p class="" title="">
+                                        
+                                    </p>
+                                    <p class="">
+                                        ￥<span class="value">136.00</span>起
+                                    </p>
+                                </a>
+                                <a href="" target="_blank" title=" ">
+                                    <img class="product" src="" alt="">
+                                </a>
+                            </li>                            
+                            <li class="" >
+                                <a href="" target="_blank" class=""></a>
+                                <p class="title">
+                                    <a href="" target="_blank" title="房金月宝">房金月宝</a>
+                                </p>
+                                <a href="" target="_blank" title="">
+                                    <p class="" title="">
+                                        
+                                    </p>
+                                    <p class="">
+                                        ￥<span class="value">136.00</span>起
+                                    </p>
+                                </a>
+                                <a href="" target="_blank" title=" ">
+                                    <img class="product" src="" alt="">
+                                </a>
+                            </li>                            
+                            <li class="" >
+                                <a href="" target="_blank" class=""></a>
+                                <p class="title">
+                                    <a href="" target="_blank" title="房金月宝">房金月宝</a>
+                                </p>
+                                <a href="" target="_blank" title="">
+                                    <p class="" title="">
+                                        
+                                    </p>
+                                    <p class="">
+                                        ￥<span class="value">136.00</span>起
+                                    </p>
+                                </a>
+                                <a href="" target="_blank" title=" ">
+                                    <img class="product" src="" alt="">
+                                </a>
+                            </li>                            
+                            <li class="" >
+                                <a href="" target="_blank" class=""></a>
+                                <p class="title">
+                                    <a href="" target="_blank" title="房金月宝">房金月宝</a>
+                                </p>
+                                <a href="" target="_blank" title="">
+                                    <p class="" title="">
+                                        
+                                    </p>
+                                    <p class="">
+                                        ￥<span class="value">136.00</span>起
+                                    </p>
+                                </a>
+                                <a href="" target="_blank" title=" ">
+                                    <img class="product" src="" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= require('html-loader!./layout/footer.html')%>
+</body>
+
+</html>
