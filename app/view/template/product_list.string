@@ -96,14 +96,22 @@
                 </dd>
             <%}%>
             <dd class="f-fr oper col-lg-4">
-                <div class="timer"></div>
+                <%if(data.CountDown>0){%>
+                    <div class="timer">
+                        <span class="product-time" timer="<%= data.CountDown %>">
+                            <i class="product-timer">
+                                <i class="hour">00</i>:<i class="minute">00</i>:<i class="second">00</i>
+                            </i>
+                        </span>
+                    </div>
+                <%}%>
                 <%if(data.Status==3){%>
                     <div class="btn">
                         <span>已售罄</span>
                     </div>
                 <%}else{%>
                     <div class="buy btn btn-primary">
-                        <span>立即投资</span>
+                        <span><%= data.CountDown > 0 ? "即将开售" : "立即投资"%></span>
                     </div>
                 <%}%>
             </dd>

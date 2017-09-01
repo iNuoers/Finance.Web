@@ -86,7 +86,7 @@
 .f-products li dd.oper .buy.btn-primary:hover{color:#fff;background-color:#4ab5ff;border-color:#1ca2ff}
 .f-products li dd.oper .timer{min-height:8px;font-family:sans-serif}
 .f-products li dd.oper .timer .product-timer i{color:#fff;background:#f60;-webkit-border-radius:3px;border-radius:3px;padding:1px 2px;margin:0 2px}
-.f-products li dd.oper .timer .product-timer:after{content:'å¼€æŠ¢';background:0 0;color:#f60}
+.f-products li dd.oper .timer .product-timer:after{content:'';background:0 0;color:#f60}
 .f-products li .product-time{position:relative;display:block;margin-top:-10px;color:#f60}
 .f-products li .product-tag{display:inline-block;padding:0 5px;line-height:18px;font-size:12px;color:#7c9fe3;border:1px solid #7c9fe3}
 .f-products .insur-hq .rate .dec{font-size:12px}

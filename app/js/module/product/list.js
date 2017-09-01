@@ -5,6 +5,7 @@ require('../../../css/product/list.css');
 var _api = require('../../lib/f.data.js');
 var _head = require('../../lib/f.head.js');
 var _core = require('../../lib/f.core.js');
+var _time = require('../../lib/f.time.js');
 var _product = require('../../service/product-service.js');
 var _template = require('../../plugins/template/template.js');
 
@@ -90,6 +91,12 @@ var page = {
             // 渲染html
             html = _template(itemTpl, data);
             $listCon.html(html);
+
+            $.countdown($('.product-time'), {
+                callback: function (ele) {
+                    $(ele).remove();
+                }
+            });
 
             // 处理分页数据
 
