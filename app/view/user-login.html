@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="zh-cn">
+﻿<!doctype html>
+<html lang="zh-CN">
 <head>
 	<title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
 	<%= require('html-loader!./layout/head-common.html')%>
@@ -14,6 +14,7 @@
 				<form class="form login-form" onsubmit="return false">
 					<div class="form-item">
 						<input name="phone" id="phone" type="text" autocomplete="off" class="input input-auto input-underline username" placeholder="请输入手机号">
+						<label>Name</label>
 					</div>
 					<div class="form-item">
 						<input name="password" id="password" type="password" autocomplete="off" class="input input-auto input-underline password" placeholder="请输入密码">

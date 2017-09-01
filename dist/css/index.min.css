@@ -1,0 +1,48 @@
+.newer-list { height: 222px }
+.newer-list ul li { float: left; width: 275px; height: 222px; background: #fff; margin-left: 20px }
+.newer-list ul li:first-child { margin-left: 0 }
+.newer-list ul li.newer-reward { position: relative; background: url(//static.wsloan.com/dist/images/newer-redpack-new-82270b52.png); text-align: center; line-height: 1 }
+.newer-list ul li.newer-reward .newer-reward-text { margin-top: 30px; font-size: 21px; color: #333 }
+.newer-list ul li.newer-reward .newer-reward-sub-text { font-size: 16px; color: #9e9e9e; margin-top: 10px }
+.newer-list ul li.newer-reward .newer-reward-sub-text span { color: #fb6e52 }
+.newer-list ul li.newer-bid { width: 590px }
+.newer-list ul li.newer-bid .newer-bid-title { padding-top: 25px; padding-left: 30px; font-size: 18px; color: #000 }
+.newer-list ul li.newer-bid .newer-bid-title span { font-size: 14px; color: #bbb; margin-left: 15px }
+.newer-list ul li.newer-bid .newer-bid-content { height: 81px; margin-top: 40px }
+.newer-list ul li.newer-bid .newer-bid-content .cell { float: left; text-align: center }
+.newer-list ul li.newer-bid .newer-bid-content .cell.rate { padding-left: 40px; width: 190px; text-align: left; }
+.newer-list ul li.newer-bid .newer-bid-content .cell.period { width: 200px }
+.newer-list ul li.newer-bid .newer-bid-content .cell.limit { width: 150px }
+.newer-list ul li.newer-bid .newer-bid-content .text { height: 60px; line-height: 60px; font-size: 45px }
+.newer-list ul li.newer-bid .newer-bid-content .text em { font-size: 16px }
+.newer-list ul li.newer-bid .newer-bid-content .text.rate-text { color: #ff5500; }
+.newer-list ul li.newer-bid .newer-bid-content .text.period-text { color: #000223 }
+.newer-list ul li.newer-bid .newer-bid-content .text.period-text span { font-size: 30px; }
+.newer-list ul li.newer-bid .newer-bid-content .text.limit-text { font-size: 20px; color: #000223 }
+.newer-list ul li.newer-bid .newer-bid-content .label { font-size: 14px; color: #9e9e9e }
+.newer-list ul li.newer-bid .newer-bid-content .process-bar { width: 160px; line-height: 20px }
+.newer-list ul li.newer-bid .newer-bid-content .process-bar .process { height: 8px; width: 100px; background: #eeeef4; border-radius: 3px; float: left; margin-top: 8px; display: inline-block }
+.newer-list ul li.newer-bid .newer-bid-content .process-bar .process-current { display: inline-table; margin: 0; height: 8px; background: #fecb25; border-radius: 3px; position: absolute }
+.newer-list ul li.newer-bid .newer-bid-content .process-bar .process-num { color: #999; font-size: 14px; margin-left: 6px; position: relative; top: 3px }
+.newer-list ul li.newer-bid .newer-bid-content .operation { text-align: left; margin-left: 15px; padding-top: 5px }
+.newer-list ul li.newer-bid .newer-bid-content .operation-btn { display: block; cursor: pointer; color: #fff; background: #ff6561; text-align: center; width: 124px; height: 38px; line-height: 38px; font-size: 16px; margin-top: 15px; border-radius: 3px }
+.newer-list ul li.video .video-title { text-align: center; font-size: 21px; color: #9e9e9e; line-height: 21px }
+.newer-list ul li.video .video-title span { color: #282828 }
+.newer-list ul li.video .video-title img { margin-top: 5px }
+.newer-list ul li.video .video-thumb img { display: block; width: 280px; height: 220px; }
+
+.index-ads .proleft, .index-ads .proright { height: 360px }
+.index-ads .pro .proleft { width: 290px; float: left; cursor: pointer }
+.index-ads .pro .proleft .conbg { text-align: center }
+.index-ads .tb .proleft .conbg { padding-top: 60px }
+
+.index-ads .pro .proleft .conbg .titbg { font-size: 24px }
+.index-ads .pro .proleft .conbg .titbg a, .index-ads .pro .proleft .conbg .titbg a:hover { color: #fff }
+.index-ads .pro .proleft .conbg .linkcon { padding-top: 17px }
+.index-ads .pro .proleft .conbg .linkcon a { display: block; width: 180px; text-align: center; border: 1px solid #fff; margin: 0 auto; position: relative }
+.index-ads .pro .proleft .conbg .linkcon a span { display: block; font-size: 16px; font-weight: 500; color: #fff; height: 40px; line-height: 40px; position: relative; z-index: 2; transition: color .2s,background-color .2s }
+.index-ads .pro .proleft .conbg .linkcon a:after { position: absolute; display: block; content: ''; width: 100%; height: 0; background: #fff; transition: height .2s ease; -webkit-transition: height .2s ease; bottom: 0; left: 0 }
+.index-ads .pro .proleft .conbg .linkcon a:hover span { color: #25211E }
+.index-ads .pro .proleft .conbg .linkcon a:hover::after { height: 100%; color: #25211E }
+.index-ads .pro .proleft:hover { -webkit-box-shadow: 0 0 24px #D9D9D9; box-shadow: 0 0 24px #D9D9D9 }
+.index-ads .pro .proright { width: 890px; float: right }

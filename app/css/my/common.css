@@ -1,0 +1,18 @@
+.my-main *{box-sizing:content-box}
+.my-main-frame{margin:0 auto;min-height:750px;padding-top:20px;padding-bottom:20px;font-size:14px}
+.my-main-frame:before{content:'';display:table;clear:both}
+.my-main-frame:after{content:'';display:table;clear:both}
+.my-main-l{display:inline-block;height:auto}
+.my-main-c{display:inline-block;vertical-align:top;}
+.my-nav-list{width:200px;border:1px solid #f2f5f7;background:#fff;font-size:14px;color:#1b2b46;-moz-box-shadow:3px 3px 6px #f2f5f7;-webkit-box-shadow:3px 3px 6px #f2f5f7;box-shadow:3px 3px 6px #f2f5f7}
+.my-nav-list .nav-list-item{float:left;width:100%}
+.my-nav-list .nav-list-title{overflow:hidden;padding-top:20px;margin-left:37px;font-size:14px;opacity:.5;color:#1b2b46;border-top:1px solid #f3f4f6}
+.my-nav-list .nav-list-title i{width:12px;height:12px;margin:0 10px;float:left}
+.my-nav-list .nav-list-title span{float:left;line-height:1}
+.my-nav-list .nav-list-con{padding-top:16px}
+.my-nav-list .nav-list-con li{margin-bottom:20px;padding-left:70px;font-size:14px;height:30px;line-height:30px}
+.my-nav-list .nav-list-con li.active{text-indent:-2px;color:#007ddb;border-left:2px solid #007ddb}
+.my-nav-list .nav-list-con li:hover{color:#007ddb}
+
+.my-box-wrap{padding:0 20px;background:#fff}
+.my-box-title{color:#1b2b46;font-size:16px;line-height:55px;overflow:hidden;border-bottom:1px solid #f2f5f7}

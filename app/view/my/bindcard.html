@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!-- 参考 https://www.lmlc.com/web/page/login/my_bank_card.html -->
+
+<!doctype html>
+<html lang="zh-CN">
 <head>
     <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
 	<%= require('html-loader!../layout/head-common.html')%>
@@ -8,8 +10,174 @@
     <%= require('html-loader!../layout/nav.html')%>
     <%= require('html-loader!../layout/header.html')%>
     <div class="main-wrap">
-        <div class="main-section">
-
+        <div class="main-section my-main">
+            <div class="my-main-frame">
+                <%= require('html-loader!../layout/my-left-layout.html')%>
+                <div class="my-main-c ml20 w950">
+                    <!-- <div class="my-box-wrap pd15">
+                        <div class="my-box-title f-cb">
+                            <span>绑定银行卡</span>
+                        </div>
+                        <div class="my-box-wrap pt20 pb20">
+                            <div class="item f-cb name">
+                                <h4 class="title f-fl">姓名：</h4>
+                                <div class="info f-fl">
+                                    <div class="f-cb inputctn">
+                                        <input class="inputbox J-nameInput f-fl" type="text" value="" maxlength="30" placeholder="请输入持卡人真实姓名" autocomplete="off">
+                                    </div>
+                                    <p>
+                                        <i class="J-tip"></i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item f-cb cid">
+                                <h4 class="title f-fl">身份证号：</h4>
+                                <div class="info f-fl">
+                                    <div class="f-cb inputctn">
+                                        <input class="inputbox J-cidInput J-idInput f-fl" type="text" value="" maxlength="18" placeholder="仅支持中国大陆身份证号" autocomplete="off">
+                                    </div>
+                                    <p>
+                                        <i class="J-tip"></i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item f-cb bank">
+                                <h4 class="title f-fl">银行卡号：</h4>
+                                <div class="info f-fl">
+                                    <div class="f-cb inputctn">
+                                        <input class="inputbox J-bankInput J-numberInput f-fl" type="text" value="" maxlength="19" placeholder="请输入储蓄卡卡号" autocomplete="off">
+                                        <span class="poptip">支持银行</span>
+                                        <div class="bankdetail J-bankDetail f-hide">6217 0012 1004 4543 930</div>
+                                    </div>
+                                    <p>
+                                        <i class="J-tip"></i>
+                                        <span class="icon-bank-notext icon-bank-CCB"></span>
+                                        <span class="backIcon">建设银行&nbsp;储蓄卡&nbsp;单笔支付限额：50万元；每日支付限额：500万元</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item f-cb bank">
+                                <h4 class="title f-fl">所属银行：</h4>
+                                <div class="info f-fl">
+                                    <div class="controller-bank f-cb">
+                                        <span class="select-bank-icon"></span>
+                                        <span class="select-bank-name">请选择所属银行</span>
+                                        <i class="fa fa-angle-down"></i>
+                                        <ul class="bank-list sel-check">
+                                            银行logo  名称  限额
+                                            <li data-val="1">工商银行</li>
+                                            <li data-val="2">建设银行</li>
+                                            <li data-val="3">农业银行</li>
+                                            <li data-val="4">招商银行</li>
+                                            <li data-val="5">中国银行</li>
+                                            <li data-val="6">邮储银行</li>
+                                            <li data-val="7">交通银行</li>
+                                            <li data-val="8">光大银行</li>
+                                            <li data-val="9">中信银行</li>
+                                            <li data-val="10">民生银行</li>
+                                        </ul>
+                                    </div>
+                                    <p>
+                                        <i class="J-tip"></i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item f-cb bank">
+                                <h4 class="title f-fl">开户支行：</h4>
+                                <div class="info f-fl">
+                                    <div class="f-cb inputctn">
+                                        <input class="inputbox J-bankInput J-numberInput f-fl" type="text" value="" maxlength="19" placeholder="请输入储蓄卡卡号" autocomplete="off">
+                                    </div>
+                                    <p>
+                                        <i class="J-tip"></i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item f-cb tel">
+                                <h4 class="title f-fl">
+                                    银行预留手机：
+                                </h4>
+                                <div class="info f-fl">
+                                    <div class="f-cb inputctn">
+                                        <input class="inputbox J-telInput J-numberInput f-fl" type="text" value="" maxlength="11" placeholder="请输入银行预留手机号，用于接收短信验证码">
+                                    </div>
+                                    <p>
+                                        <i class="J-tip"></i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item f-cb code">
+                                <h4 class="title f-fl">验证码：</h4>
+                                <div class="info f-fl">
+                                    <div class="f-cb inputctn">
+                                        <button class="btn btn-normal f-fr">获取短信验证码</button>
+                                        <input class="inputbox J-codeInput J-numberInput f-fl" type="text" value="" maxlength="6" placeholder="请输入6位数字验证码" autocomplete="off">
+                                    </div>
+                                    <p>
+                                        <i class="J-tip error"></i>
+                                        <span class="codeinfo J-infoTip"></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item f-cb bind">
+                                <h4 class="title f-fl"></h4>
+                                <div class="info f-fl">
+                                    <p>
+                                        <i class="J-tip"></i>
+                                    </p>
+                                    <button class="btn btn-primary J-step">确认绑定</button>
+                                </div>
+                            </div>
+                            <div class="ctnbottom">
+                                <img src="//www.lmlc.com/cdn/desktop/user/account/bank/bind/img/about.81b8b86b3c.png" height="71" width="1023">
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="my-box-wrap pd15">
+                        <div class="my-box-title f-cb">
+                            <span>我的银行卡</span>
+                        </div>
+                        <div class="my-box-wrap">
+                            <ul class="my-cards f-cb">
+                                <li class="card-con f-fl">
+                                    <div class="card-info">
+                                        <span class="icon-bank icon-bank-CCB f-fl"></span>
+                                        <span class="cerdnumw f-fr">
+                                            <!--尾号：-->3930&nbsp;|储蓄卡
+                                        </span>
+                                    </div>
+                                    <div class="card-name">
+                                        持卡人：**保<br>
+                                    </div>
+                                    <div class="card-limit">
+                                        单笔限额50万元，单日限额500万元
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2 class="m-title">
+                        绑卡常见问题
+                    </h2>
+                    <div class="my-box-wrap">
+                        <dl class="m-help">
+                            <dt>1. 我可以绑定哪些银行的银行卡？</dt>
+                            <dd>
+                                <p>可以绑定工商银行、农业银行、中国银行、建设银行、交通银行、邮储银行、招商银行、兴业银行、光大银行、浦发银行、平安银行、中信银行、民生银行的银行卡。</p>
+                            </dd>
+                            <dt>2. 每个账号可绑定几张银行卡？</dt>
+                            <dd>
+                                <p>目前房金网仅支持绑定1张银行卡（不支持绑定信用卡）。</p>
+                                <p>该卡同时适用于房金网APP，已绑定的银行卡可以更换，不支持解绑；如需更换，请联系客服。</p>
+                            </dd>
+                            <dt>3. 是否可以在多个账号下绑定同一张银行卡？</dt>
+                            <dd>
+                                <p>不可以。平台的账号与用户实名信息、银行卡为一一对应关系。为了资金安全，平台需要实名认证，认证信息只能关联到一个账号下，银行卡也只能绑定在自己实名认证的账号下。</p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <%= require('html-loader!../layout/footer.html')%>

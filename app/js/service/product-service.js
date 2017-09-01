@@ -1,12 +1,12 @@
 'use strict';
 
-var template = require('../lib/template/template.js')
-var _f = require('../lib/fjw.js');
+var _api = require('../lib/f.data.js');
+var _core = require('../lib/f.core.js');
 
 var _product = {
     productList: function (param, resolve, reject) {
-        _f.request({
-            url: _f.config.serverHost,
+        _core.request({
+            url: _api.host,
             data: param,
             method: 'POST',
             success: resolve,
@@ -14,8 +14,8 @@ var _product = {
         });
     },
     productDetail: function (productId, resolve, reject) {
-        _f.request({
-            url: _f.config.serverHost,
+        _core.request({
+            url: _api.host,
             data: {
                 productId: productId
             },
@@ -24,8 +24,8 @@ var _product = {
         });
     },
     productBuyRecord: function (productId, resolve, reject) {
-        _f.request({
-            url: _f.config.serverHost,
+        _core.request({
+            url: _api.host,
             data: {
                 productId: productId
             },
@@ -34,8 +34,8 @@ var _product = {
         });
     },
     productBuyRank: function (productId, resolve, reject) {
-        _f.request({
-            url: _f.config.serverHost,
+        _core.request({
+            url: _api.host,
             data: {
                 productId: productId
             },
@@ -44,15 +44,12 @@ var _product = {
         });
     },
     productTypeList: function (param, resolve, reject) {
-        _f.request({
-            url: _f.config.serverHost,
+        _core.request({
+            url: _api.host,
             data: {},
             success: resolve,
             error: reject
         });
     },
 }
-module.exports = {
-    template: template,
-    product: _product
-};
+module.exports = _product;

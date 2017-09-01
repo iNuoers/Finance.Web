@@ -34,3 +34,7 @@ a:active, a:focus, a:link, a:visited,button:active { text-decoration: none; outl
 a:hover { color: #4990E2; text-decoration: none; outline: 0; }
 a.link { color: #0a6feb; }
 a.link:hover { color: #4990E2; }
+::-webkit-scrollbar { height: 10px; width: 7px; background: rgba(0,0,0,.1); }
+::-webkit-scrollbar:hover { background: rgba(0,0,0,.2); }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,.3); -webkit-border-radius: 6px; -moz-border-radius: 6px; -ms-border-radius: 6px; -o-border-radius: 6px; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,.25); -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,.25); -ms-box-shadow: inset 1px 1px 1px rgba(0,0,0,.25); -o-box-shadow: inset 1px 1px 1px rgba(0,0,0,.25); box-shadow: inset 1px 1px 1px rgba(0,0,0,.25); background-color: rgba(0,0,0,.4); }

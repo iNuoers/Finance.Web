@@ -1,0 +1,120 @@
+.my-userinfo-wrap{background:#fff}
+.my-userinfo{position:relative;padding:20px 0;margin:0 20px;overflow:hidden}
+.my-userinfo .my-baseinfo{margin:10px 300px 0 0}
+.my-userinfo .s-suggest{font-size:13px}
+
+/* my basic info */
+.my-baseinfo{position:relative;height:72px}
+.my-baseinfo .my-avatar{width:72px;height:72px;overflow:hidden;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%}
+.my-baseinfo .my-avatar img{width:100%;height:100%;vertical-align:bottom}
+.my-baseinfo .my-info{margin:0 0 5px 0;padding:12px 0 0 0}
+.my-baseinfo .my-info .my-phone{margin-right:10px;font-size:16px;vertical-align:middle}
+.my-baseinfo .my-prestige{height:22px;font-size:0}
+.my-baseinfo .my-prestige .sp-img{position:relative;margin-right:5px;width:22px;height:22px;background:url(/dist/imgs/account_icon.f6550408.png) no-repeat;overflow:hidden;display:inline-block;vertical-align:middle}
+.my-baseinfo .my-prestige .sp-img.my-name{background-position:-46px 0}
+.my-baseinfo .my-prestige .sp-img.my-name.tip{background-position:-46px -23px}
+.my-baseinfo .my-prestige .sp-img.my-phone{background-position:-69px 0}
+.my-baseinfo .my-prestige .sp-img.my-phone.tip{background-position:-69px -23px}
+.my-baseinfo .my-prestige .sp-img.my-addr{background-position:-92px 0}
+.my-baseinfo .my-prestige .sp-img.my-addr.tip{background-position:-92px -23px}
+.my-baseinfo .my-prestige .sp-img.my-tpsw{background-position:-115px 0}
+.my-baseinfo .my-prestige .sp-img.my-tpsw.tip{background-position:-115px -23px}
+.my-baseinfo .my-prestige .sp-img.tip b{display:block}
+.my-baseinfo .my-prestige .sp-img b{position:absolute;bottom:0;right:0;width:9px;height:9px;background:url(/dist/imgs/account_icon.f6550408.png) no-repeat -138px 0;display:none;overflow:hidden}
+.my-baseinfo .my-coupon{position:absolute;top:0;left:320px}
+.my-baseinfo .my-coupon{overflow:hidden}
+.my-baseinfo .my-coupon li{float:left;margin-right:30px}
+.my-baseinfo .my-coupon li.last-item,.my-coupon li:last-child{margin-right:0}
+.my-baseinfo .my-coupon li p{margin-bottom:5px;color:#999;font-size:14px}
+.my-baseinfo .my-coupon li h4{font-size:18px}
+.my-baseinfo .my-coupon li h4 a{color:#333}
+
+/* my stuff info  */
+.my-userinfo .my-stuffs{position:relative;width:300px;height:100%;border-left:1px solid #ededed}
+.my-userinfo .my-stuffs .stu-in{padding:0 0 0 40px}
+.my-userinfo .my-stuffs .stu-title{margin:10px 0;color:#999;font-size:14px}
+.my-userinfo .my-stuffs .stu-point{line-height:1.2;color:#333;font-size:28px}
+.my-userinfo .my-stuffs .stu-btnarea{font-size:0}
+.my-userinfo .my-stuffs .stu-btnarea .btn{margin-right:19px;width:117px;height:36px;line-height:36px;color:#fff;font-size:14px}
+.my-userinfo .my-stuffs .stu-btnarea .btn-line{margin-right:0;width:115px;border-color:#ed702c;color:#ed702c}
+.my-userinfo .my-stuffs .stu-tool{position:absolute;top:12px;right:30px}
+.my-userinfo .my-stuffs .stu-tool .eye{font-size:0;width:22px;height:22px;background:url(/dist/imgs/account_icon.f6550408.png) no-repeat;display:block;overflow:hidden;-moz-transition:all 0s ease;-o-transition:all 0s ease;-webkit-transition:all 0s ease;transition:all 0s ease}
+.my-userinfo .my-stuffs .stu-tool .eye:hover{background-position:0 -23px}
+.my-userinfo .my-stuffs .stu-tool .eye.close{background-position:-23px -23px}
+.my-userinfo .my-stuffs .stu-tool .eye.close:hover{background-position:-23px -23px}
+
+/* 我的投资统计  */
+.my-box-wrap{padding:0 20px;background:#fff}
+.my-box-title{color:#1b2b46;font-size:16px;line-height:55px;overflow:hidden;border-bottom:1px solid #f2f5f7}
+.my-box-interest{padding:40px 19px 48px;font-size:14px;color:#666}
+.my-box-interest dl{float:left}
+.my-box-interest dt{margin-bottom:14px}
+.my-box-interest .yes-interest,.my-box-interest .wait-interest{width:270px}
+.my-box-interest .money-num strong{font-size:30px}
+.my-box-interest .wait-interest .money-num,.my-box-interest .total-interest .money-num{color:#1b2b46}
+.my-box-capital{padding-bottom:12px;border:1px solid #ebf0f9;border-top:0;margin-bottom:19px}
+.my-box-capital .capital-con{background:#ebf0f9;margin-bottom:42px}
+.my-box-capital .capital-con li{float:left;font-size:20px;color:#1b2b46;border-top:2px solid #ebf0f9}
+.my-box-capital li.current{background:#fff;border-top:2px solid #007ddb}
+.my-box-capital li.current span.capital-num{color:#007ddb}
+.capital-account{width:170px}
+.capital-account strong{font-weight:400}
+.capital-account span{display:block;line-height:48px;text-indent:20px}
+.capital-account span.capital-type{font-size:12px;line-height:1;margin-top:18px;color:#666}
+.acc-type{cursor:pointer}
+.capital-sym{width:32px;margin-top:42px;text-align:center;font-weight:700}
+
+
+/* 我的投资类型 */
+.capital-container1,.capital-container2{font-size:14px}
+.my-protype-map{position:relative;width:230px;height:150px!important}
+.my-protype-map div{font-size:14px;color:#999;text-align:center;line-height:24px;padding-top:50px}
+.my-protype-money{width:540px}
+.my-protype-money li{float:left;width:260px;margin-bottom:15px;height:30px;line-height:30px}
+.my-protype-money li span.dot{float:left;width:9px;height:9px;border-radius:50%;margin-top:12px;background:#eee}
+.my-protype-money-name{float:left;text-indent:8px;margin-right:20px;font-size:14px;color:#666}
+.my-protype-money-value{float:left;color:#1b2b46;font-size:14px}
+
+/* 回款日历 */
+.my-refund-wrap{height:60px;line-height:60px;background:#fff}
+.my-refund-wrap div{color:#999;float:left;font-size:14px;margin-left:30px}
+.my-refund-wrap div span{color:#333}
+.my-calendar-wrap{min-height:488px;padding:0 20px;background:#fff}
+.arrived-today{position:absolute;left:20px;top:20px;width:80px;height:30px;line-height:30px;border:1px solid #e6e6e6;text-align:center;cursor:pointer}
+.sel-ul{top:50px;right:90px;width:81px}
+.month-list,.sel-ul{position:absolute;background:#fff;border:1px solid #F3F3F3;border-top:none;padding:0;overflow:hidden;overflow-y:auto;-webkit-box-shadow:1px 1px 2px #eee;box-shadow:1px 1px 2px #eee;height:200px;z-index:11;display:none}
+.month-list li,.sel-ul li{height:30px;line-height:30px;color:#323232;font-size:12px;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.month-list li:hover,.sel-ul li:hover{background:#fafafa;cursor:pointer}
+.month-list{right:0;top:29px;width:65px}
+.calendar-content .calendar-head{position:relative;border:1px solid #F3F3F3;border-bottom:none}
+.calendar-content .calendar-head button{width:30px;height:30px;text-align:center;background:0 0;border:1px solid #e6e6e6}
+.calendar-content .calendar-head button i.fa{position:relative;top:-1px}
+.calendar-content .calendar-head button:hover{background-color:#FAFAFA}
+.calendar-content .calendar-head button[disabled]{background-color:#e6e6e6}
+.calendar-content .calendar-head span.select-year{padding:0 10px;font-size:14px;color:#323232}
+.calendar-content .calendar-head .controller-year{text-align:center;margin:16px auto 0;height:50px;padding-top:4px}
+.calendar-content .calendar-head .controller-year .year-sel{position:absolute;right:90px;top:20px;border:1px solid #F3F3F3;cursor:pointer;height:30px;line-height:30px}
+.calendar-content .calendar-head .controller-month i,.calendar-content .calendar-head .controller-year i{padding-right:0}
+.calendar-content .calendar-head .controller-month .sel-1,.calendar-content .calendar-head .controller-year .sel-1{font-size:14px;color:#323232}
+.calendar-content .calendar-head .controller-month{position:absolute;right:20px;top:20px;height:30px;line-height:30px;border:1px solid #F3F3F3;cursor:pointer;width:66px}
+.calendar-content .calendar-head .controller-month button{border:none;width:18px;height:18px}
+.calendar-content .calendar-head .controller-month span.select-month{display:inline-block;padding-left:10px;font-size:14px;color:#323232;height:19px;line-height:18px}
+.cc-calendar-container{width:auto;height:auto}
+.xk-calendar{height:auto;overflow:auto}
+.calendar-wrap{width:auto;float:left}
+.loading-calendar{width:760px;height:400px;line-height:300px;text-align:center;font-size:15px}
+.xk-calendar ul.xk-calendar-week{display:block;width:auto;height:auto;background:0 0;border-left:1px solid #F3F3F3;border-right:1px solid #F3F3F3;overflow:hidden;background:0 0;clear:both;margin:0}
+.xk-calendar ul.xk-calendar-week li,ul.xk-calendar-date-column li{width:12.27999%;line-height:44px;float:left;text-align:center;cursor:pointer}
+.xk-calendar ul.xk-calendar-week li{display:inline-block;height:44px;border:1px solid #ccc;border-left:none;border:none;color:#323232;text-align:left;padding-left:10px;color:#999}
+.day-wrap{font-size:12px}
+.xk-calendar .xk-calendar-data-container,ul.xk-calendar-date-column{height:auto;overflow:hidden}
+ul.xk-calendar-date-column{display:block}
+.calendar-wrap ul,.cc-calendar-container .xk-calendar ul{padding:0;margin:0}
+ul.xk-calendar-date-column{display:block}
+ul.xk-calendar-date-column li{display:inline-block;height:44px;border:1px solid #f3f3f3;border-left:none;border-top:none;color:#222;background:#fff}
+.xk-calendar ul li.xk-bd-first{border-left:1px #f3f3f3 solid}
+ul.xk-calendar-date-column li:hover{background-color:#ddd}
+ul li.next-month,ul li.prev-month{color:#999}
+ul li.current-day{background:#f5f5f5}
+ul li.selected,ul li.selected:hover{background:#37a77e;font-size:22px;font-weight:700;color:#fff}
+.xk-calendar-data-container{border-top:1px solid #F3F3F3}

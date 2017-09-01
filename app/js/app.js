@@ -2,4 +2,4 @@
 
 require('../css/reset.css')
 require('../css/core.css')
-require('../css/fonts/font-awesome.min.css')
+require('node_modules/font-awesome/css/font-awesome.min.css');

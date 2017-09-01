@@ -1,0 +1,123 @@
+.f-product-list{position:relative;font-size:30px;height:320px;color:#FFF}
+.f-product-list .swiper-container{position:absolute;top:0;left:0;width:800px;height:100%;z-index:10}
+.f-product-list .swiper-control{display:none}
+.f-product-list .swiper-container:hover .swiper-control{display:block}
+.f-product-list .swiper-wrapper{display:block;width:800px;height:320px;overflow:hidden}
+.f-product-list .item-ctn{display:block;width:800px;height:320px;background-position:center top;background-repeat:no-repeat}
+.f-product-list .swiper-indicators{position:absolute;left:50%;bottom:5%;width:60%;margin-left:-30%;text-align:center;list-style:none;line-height:0;font-size:0;z-index:1000;padding:10px}
+.f-product-list .swiper-indicators li{-webkit-border-radius:0;border-radius:0;display:inline-block;width:20px;height:4px;margin-right:5px;opacity:.3;filter:alpha(opacity=30);cursor:pointer;background:#999}
+.f-product-list .swiper-indicators li:hover{opacity:.8;filter:alpha(opacity=80)}
+.f-product-list .swiper-indicators .active{opacity:.6;filter:alpha(opacity=60);background:#4567cc}
+.f-product-list .swiper-control{background-image:none;position:absolute;z-index:1000;top:50%;height:40px;width:60px;margin-top:-20px;font-size:0;line-height:0;text-align:center;color:#FFF;cursor:pointer}
+.f-product-list .swiper-control .bg{position:absolute;top:0;left:0;width:100%;height:100%;background:#333;opacity:.4;filter:alpha(opacity=40);-webkit-transition:all .4s ease;transition:all .4s ease}
+.f-product-list .swiper-control .bg:hover{opacity:.6;filter:alpha(opacity=60)}
+.f-product-list .swiper-control .bg img{position:absolute;width:10px;height:17px;top:12px;left:25px}
+.f-product-list .swiper-button-prev{left:0}
+.f-product-list .swiper-button-next{right:0}
+.f-product-list .features{background:#fff;width:360px;height:100%;padding:0 10px}
+.f-product-list .features:hover{-webkit-box-shadow:0 0 24px #d1d1d1;box-shadow:0 0 24px #d1d1d1}
+.f-product-list .features>div{padding:20px;border-bottom:1px solid #e6e6e6}
+.f-product-list .features>div i{background:transparent url(/dist/imgs/features.dadbd7d3.png) center no-repeat;-webkit-background-size:100% 100%;background-size:100%;width:60px;height:60px}
+.f-product-list .features>div div{width:220px;padding-top:10px;margin-left:20px}
+.f-product-list .features>div div h1{font-size:18px;color:#4567cc}
+.f-product-list .features>div div p{font-size:14px;color:#999}
+.f-product-list .features .strength i{background-position:0 0}
+.f-product-list .features .safe i{background-position:0 -60px}
+.f-product-list .features .creative{border-bottom:0 solid #e6e6e6}
+.f-product-list .features .creative i{background-position:0 -120px}
+.g-mn{-webkit-box-shadow:0 0 12px #d9d9d9;box-shadow:0 0 12px #d9d9d9}
+.section{background-color:#fff;margin-top:20px}
+.section h3{border-bottom:1px solid #e5ebf0;height:60px;line-height:60px;font-size:18px;color:#46525e}
+.section h3 a{float:right;font-size:14px;color:#46525e}
+.section h3 a:hover{color:#007ddb}
+.section .no-border{border:none}
+.section .hot{padding-left:20px}
+.section .hot span{margin-right:70px;display:inline-block;height:100%;cursor:pointer}
+.section .hot span:hover{color:#007ddb}
+.section .hot span.active{color:#007ddb;position:relative}
+.section .hot span.active::before{content:'';position:absolute;left:50%;bottom:2px;margin-left:-5px;width:0;height:0;border-width:0 6px 5px 6px;border-style:solid;border-color:transparent transparent #007ddb transparent}
+.section .hot span.active::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:2px;background-color:#007ddb}
+.borrow-list-title{padding:0 20px 0;background:#FFF;height:60px;color:#1b2b46;line-height:60px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid #e5ebf0}
+.borrow-list-title div{font-size:14px}
+.borrow-list-title dd.borrow-apr,.borrow-list-title dd.borrow-name{text-align:left}
+.borrow-list-title .rank-default{position:relative;padding-right:8px;display:inline-block;vertical-align:middle;color:#999}
+.borrow-list-title .rank-default b{position:absolute;top:-8px}
+.borrow-list-title .rank-default i{position:absolute;bottom:-7px}
+.borrow-list-title .rank-default.down b{color:#0086e5;}
+.borrow-list-title .rank-default.up i{color:#0086e5;}
+.f-products{min-height:191px}
+.borrow-list-title .col-lg-3-5,.f-products .col-lg-3-5{width:14.58%}
+.f-products .btn{width:98px;line-height:38px;font-size:16px}
+.f-products .u-tag{-webkit-border-radius:2px;border-radius:2px}
+.f-products .u-tag-rate{border:1px solid #4990e2;color:#4990e2;line-height:1.4}
+.f-products .u-tag-feature{margin-right:4px;line-height:1.4;border:1px solid #ff4c4d;color:#ff4c4d}
+.f-products .u-tag-money{border:1px solid #ff884c;color:#ff884c;line-height:1.4}
+.f-products .paging-bar .current{background:#4567cc}
+.f-products li{padding:26px 20px 24px;background:#FFF;height:60px;font-size:14px;border-bottom:1px solid #e5ebf0;position:relative;overflow:hidden}
+.f-products li .link-detail{position:absolute;height:100%;width:100%;top:0;left:0;z-index:9}
+.f-products li:hover{z-index:1;-webkit-box-shadow:0 0 24px #e5e5e5;box-shadow:0 0 24px #e5e5e5}
+.f-products li:hover .oper .buy.btn-primary{color:#fff;background-color:#1ca2ff;box-shadow: 0 2px 10px #1ca2ff;}
+.f-products li:hover .oper .buy.btn-default.disabled{border-color:#abb2b8;color:#fff;border:none;background-color:#dedede;opacity:1}
+.f-products li .ver-align{vertical-align:middle}
+.f-products li dd{text-align:center;font-size:12px}
+.f-products li dd .tit{color:#46525e;line-height:1;height:34px;line-height:34px}
+.f-products li dd .tit em{font-family:Arial;font-size:28px}
+.f-products li dd .tit span{font-size:18px}
+.f-products li dd .tit a{vertical-align:middle}
+.f-products li dd .tit a:hover{color:#4567cc}
+.f-products li dd .tit .u-tag{vertical-align:middle;margin-right:4px}
+.f-products li dd .tit .u-tag-fixed{color:#FFF;background-color:#0095ff}
+.f-products li dd .dec{margin-top:4px;color:#999}
+.f-products li dd .note{overflow:hidden;width:100%;height:34px;display:table}
+.f-products li dd .note .mid{display:table-cell;vertical-align:middle;font-size:14px;line-height:1.4}
+.f-products li .process-bar{display:inline-block;width:64px;height:5px;overflow:hidden;background:#e8e7e0;line-height:0;font-size:0;text-align:left}
+.f-products li .process-bar img{height:5px;width:0}
+.f-products li dd.name{margin:0;font-size:16px;text-align:left;color:#46525e}
+.f-products li dd.name .dec{margin:0;line-height:1}
+.f-products li dd.rate{text-align:left}
+.f-products li dd.rate .tit{color:#ff884c;background-image:-webkit-gradient(linear,0 0,0 bottom,from(#ff8707),to(rgba(255,23,37,.9)));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:3px 6px 15px rgba(245,47,62,.4)}
+.f-products li dd.rate .tit span{font-size:24px}
+.f-products li dd.day .tit{color:#46525e}
+.f-products li dd.money .tit{font-size:18px}
+.f-products li dd.process .tit{color:#46525e;line-height:1}
+.f-products li dd.process .tit span{font-size:14px}
+.f-products li dd.oper{padding:0}
+.f-products li dd.oper .buy{width:98px;height:36px;line-height:36px;font-size:16px;color:#333;background-color:transparent;border-color:transparent;-webkit-border-radius:2px;border-radius:2px;margin-top:6px}
+.f-products li dd.oper .buy.btn-primary:hover{color:#fff;background-color:#4ab5ff;border-color:#1ca2ff}
+.f-products li dd.oper .timer{min-height:8px;font-family:sans-serif}
+.f-products li dd.oper .timer .product-timer i{color:#fff;background:#f60;-webkit-border-radius:3px;border-radius:3px;padding:1px 2px;margin:0 2px}
+.f-products li dd.oper .timer .product-timer:after{content:'\E5\BC\20AC\E6\160\A2';background:0 0;color:#f60}
+.f-products li .product-time{position:relative;display:block;margin-top:-10px;color:#f60}
+.f-products li .product-tag{display:inline-block;padding:0 5px;line-height:18px;font-size:12px;color:#7c9fe3;border:1px solid #7c9fe3}
+.f-products .insur-hq .rate .dec{font-size:12px}
+.f-products .paging-bar,.f-products .paging-tip{background:#FFF}
+.f-products .paging-loading{padding:0;padding-top:70px}
+.f-products.paging-mask .paging-tip{background:0 0}
+.f-partner{background:0 0}
+.f-partner .section{padding:0;padding-bottom:30px;background-color:transparent}
+.f-partner .rel{position:relative}
+.f-partner .ctn{background:0 0}
+.f-partner .partner-outer{padding:0 53px;overflow:hidden;position:relative;background:#fff}
+.f-partner .partner-ctrl{position:absolute;width:1170px;height:100%;top:0;left:5px}
+.f-partner .partner-ctrl .icon{display:none;position:absolute;width:25px;height:40px;line-height:40px;text-align:center;top:50%;margin-top:-20px;cursor:pointer;color:#333;z-index:1;background:#FFF;-webkit-box-shadow:0 -1px 10px #eee,1px 0 10px #eee,0 1px 10px #eee,-1px 0 10px #eee;box-shadow:0 -1px 10px #eee,1px 0 10px #eee,0 1px 10px #eee,-1px 0 10px #eee}
+.f-partner .partner-ctrl .icon:hover{-webkit-box-shadow:0 0 24px #d1d1d1;box-shadow:0 0 24px #d1d1d1}
+.f-partner .partner-ctrl .icon-left{right:0}
+.f-partner .partner-ctrl .icon-right{left:0}
+.f-partner .partner-ctrl .disabled{background-color:#eee;-webkit-box-shadow:0 0 0 #eee;box-shadow:0 0 0 #eee;color:#fff;cursor:auto}
+.f-partner .partner-ctrl .disabled:hover{-webkit-box-shadow:none;box-shadow:none}
+.f-partner .partner{overflow:hidden;position:relative}
+.f-partner .partner dl{width:1060px;position:relative}
+.f-partner dd{width:191px;height:54px;float:left;text-align:center;line-height:60px;margin-right:20px;margin-bottom:18px}
+.f-partner dd i{display:inline-block;vertical-align:middle;font-size:0;line-height:0;background:url(/dist/imgs/partner.25a00f09.png) no-repeat}
+.f-partner dd span{display:block;width:100%;height:100%}
+.f-partner dd span i{width:191px;height:54px}
+.f-partner .partner1{background-position:0 0}
+.f-partner .partner2{background-position:0 -54px}
+.f-partner .partner3{background-position:0 -108px}
+.f-partner .partner4{background-position:0 -162px}
+.f-partner .partner5{background-position:0 -216px}
+.f-partner .partner6{background-position:0 -270px}
+.f-partner .partner7{background-position:0 -324px}
+.f-partner .partner8{background-position:0 -378px}
+.f-partner .partner9{background-position:0 -432px}
+.f-partner .partner10{background-position:0 -486px}

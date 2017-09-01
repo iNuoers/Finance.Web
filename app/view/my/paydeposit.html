@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html lang="zh-CN">
 <head>
     <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
 	<%= require('html-loader!../layout/head-common.html')%>
@@ -9,7 +9,79 @@
     <%= require('html-loader!../layout/header.html')%>
     <div class="main-wrap">
         <div class="main-section">
-
+            <div class="my-main-frame">
+                <%= require('html-loader!../layout/my-left-layout.html')%>
+                <div class="my-main-c ml20 w950">
+                    <!-- 可用余额等信息 S -->
+                    <div class="my-box-wrap">
+                        <div class="my-box-title f-cb">
+                            <span>充值提现</span>
+                        </div>
+                        <div class="stats-items">
+                            <dl class="stats-item">
+                                <dt><b>账户余额(元)：</b></dt>
+                                <dd>
+                                    <strong>￥0</strong>
+                                </dd>
+                            </dl>
+                            <dl class="stats-item">
+                                <dt><b>本月充值(元)：</b></dt>
+                                <dd>
+                                    <strong>￥0</strong>
+                                </dd>
+                            </dl>
+                            <dl class="stats-item">
+                                <dt><b>本月提现(元)：</b></dt>
+                                <dd>
+                                    <strong>￥0</strong>
+                                </dd>
+                            </dl>
+                            <div class="clear"></div>
+        
+                            <!-- 充值提现 S -->
+                            <div class="my-current-tool">
+                                <div class="stu-btnarea mt15">
+                                    <a href="" target="_blank" class="btn btn-primary" title="充值">充值</a>
+                                    <a href="" class="btn btn-line" title="提现">提现</a>
+                                </div>
+                            </div>
+                            <!-- 充值提现 E -->
+                        </div>
+                    </div>
+                    
+                    <div class="my-box-wrap f-cb bg-fff">
+                        <!-- 搜索时间模块 S -->
+                        <div class="record-search-date mt20">
+                            <div class="rsd-time-title f-fl">起止日期：</div>
+                            <div class="rsd-time-cont f-fl">
+                                <div class="quick-input-date f-fl">
+                                    <input type="text" id="start_time" class="date-search-input" value="" onfocus="startTimeChange()" readonly="">
+                                    <span class="separator-pd">-</span>
+                                    <input type="text" id="end_time" class="date-search-input" value="" onfocus="endTimeChange()" readonly="">
+                                    <!-- 报错提示，默认隐藏 S-->
+                                    <p id="time_error_tip" class="tiptext mt10" style="display: none;">
+                                        <i class="icon icon-warn-s"></i>
+                                        <span>开始日期不能晚于结束日期，请重新选择。</span>
+                                    </p>
+                                    <!-- 报错提示，默认隐藏 E-->
+                                </div>
+                                <div class="quick-link-date f-fl">
+                                    <div class="list-dots" id="period_type">
+                                        <span><a href="javascript:void(0);" data-id="ALL">全部</a></span>
+                                        <span><a href="javascript:void(0);" data-id="1">今天</a></span>
+                                        <span class="current"><a href="javascript:void(0);" data-id="30">最近1个月</a></span>
+                                        <span><a href="javascript:void(0);" data-id="90">3个月</a></span>
+                                        <span><a href="javascript:void(0);" data-id="365">一年</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <!-- 搜索时间模块 E -->
+                    </div>
+                    <!-- 可用余额等信息 E -->
+                </div>
+            </div>
         </div>
     </div>
     <%= require('html-loader!../layout/footer.html')%>

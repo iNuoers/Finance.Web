@@ -1,0 +1,35 @@
+.item .title{width:148px;padding-right:28px;text-align:right;height:44px;line-height:44px;font-size:16px;}
+.item .info{position:relative;}
+.item .info .bankdetail{position:absolute;z-index:1;left:0;top:-44px;width:340px;height:44px;line-height:44px;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:#f8fafe;font-size:18px;border:1px solid #0a6feb;border-bottom:none;text-indent:12px;}
+.item .info .inputbox{display:block;width:340px;height:44px;line-height:44px;text-indent:12px;-webkit-box-sizing:border-box;box-sizing:border-box;border:1px solid #d1d1d1}
+.item .info .inputbox.error{border:1px solid #ff4242;text-indent:12px;background-color:transparent}
+.item .info .inputbox.disabled{border:1px solid transparent;text-indent:0;background-color:transparent}
+.item .info p{overflow:auto;height:30px;line-height:30px;}
+.item .info p .error{color:#ff4242}
+.item .info .btn{display:block;width:340px;height:44px;line-height:44px;-webkit-box-sizing:border-box;box-sizing:border-box;margin:0}
+.code .info .btn{width:165px;margin-left:10px}
+.code .info .inputbox{width:165px}
+.poptip{position:relative;top:10px;margin-left:10px;cursor:pointer;color:#0a6feb}
+
+.controller-bank{height:44px;line-height:44px;border:1px solid #d1d1d1;cursor:pointer;width:340px}
+.controller-bank span.select-bank-name{display:inline-block;padding-left:10px;font-size:14px;color:gray;height:19px;line-height:18px}
+.controller-bank i{position:absolute;right:10px;top:12px;font-size:20px}
+.bank-list,.sel-ul{position:absolute;background:#fff;border:1px solid #d1d1d1;overflow-y:auto;-webkit-box-shadow:1px 1px 2px #eee;box-shadow:1px 1px 2px #eee;height:300px;z-index:11;display:none}
+.bank-list li,.sel-ul li{height:44px;line-height:44px;color:#323232;font-size:12px;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.bank-list li:hover,.sel-ul li:hover{background:#d1d1d1;cursor:pointer}
+.bank-list{right:0;top:45px;width:340px}
+
+.my-cards{width:100%;margin:30px 0 0 30px}
+.my-cards .card-con{display:block;overflow:hidden;width:245px;height:135px;margin-bottom:29px;margin-right:22px;padding:0 10px 0 10px;border:1px solid #b3bbc1;-webkit-border-radius:10px;border-radius:10px;color:#46525e;-webkit-box-shadow:0 3px #f0f4f7;box-shadow:0 3px #f0f4f7}
+.my-cards .card-info{margin-top:20px;height:24px;font-family:"微软雅黑";font-size:14px;font-weight:400}
+.my-cards .card-info span{display: inline-block}
+.my-cards .card-name{margin-top: 35px;color: #46525e;font-family: "微软雅黑";font-size:14px;font-weight:400;line-height: 14px}
+.my-cards .card-limit{margin-top: 17px;color: #a3b5c8;font-family: "微软雅黑";font-size:12px;font-weight:400;line-height: 14px}
+
+.ctnbottom{margin-top:58px;padding-top:34px;border-top:1px solid #f1f1f1}
+.ctnbottom img{margin:0 auto;display:block;width:100%}
+
+.m-title{-webkit-box-sizing:border-box;box-sizing:border-box;padding:20px;font-size:18px;color:#666;background-color:transparent}
+.m-help{padding:20px 0;-webkit-box-sizing:border-box;box-sizing:border-box}
+.m-help dt{margin:20px 0;font-size:14px}
+.m-help dd{padding:20px;font-size:14px;background-color:#f8f8f8;line-height:21px;overflow:hidden;}
