@@ -60,7 +60,7 @@ const config = {
     },
     output: {
         path        : __dirname + '/dist/',
-        publicPath  : 'dev' === WEBPACK_ENV ? '/dist/' : 'http://192.168.1.53:8010/dist/',
+        publicPath  : 'dev' === WEBPACK_ENV ? '/dist/' : 'https://www.fangjinnet.com/pc/dist/',
         filename    : 'js/[name].[hash:8].min.js'
     },
     externals: {
@@ -163,7 +163,7 @@ const config = {
 };
 
 if('dev' === WEBPACK_ENV){
-    config.entry.common.push('webpack-dev-server/client?http://192.168.1.53:8010/');
+    //config.entry.common.push('webpack-dev-server/client?http://192.168.1.53:8010/');
 }
 
 module.exports = config;

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "set WEBPACK_ENV=dev && webpack-dev-server --inline --colors --progress --watch --display-error-details --port 8010 --hot --host 192.168.1.53",
-    "dist": "set WEBPACK_ENV=online && webpack -p"
+    "dist": "set WEBPACK_ENV=online && webpack -p --colors --progress"
   },
   "author": "mr.ben",
   "license": "ISC",
