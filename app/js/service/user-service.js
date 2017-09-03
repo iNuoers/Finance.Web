@@ -95,11 +95,8 @@ var _user = {
         _core.cookie.remove('F.phone');
         _core.cookie.remove('F.avator');
 
-    },
-    getUserInfo:function(){
-        
     }
-}
+};
 
 _user.checkLogin();
 

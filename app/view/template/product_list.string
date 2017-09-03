@@ -1,7 +1,7 @@
 <%for(i = 0; i < grid.length; i ++) {%>
     <% var data = grid[i]; %>
     <li data-id="<%=data.Id%>">
-        <a href="./detail.html?id=<%=data.Id%>" title="<%=data.Title%>" target="_blank" class="link-detail"></a>
+        <a href="./detail.html?id=<%=data.Id%>" title="<%=data.Title%>" class="link-detail"></a>
         <dl class="ctn f-cb row">
             <dd class="f-fl name col-lg-6">
                 <div class="tit f-nowrap">                    
@@ -10,7 +10,7 @@
                     <%}else if(data.ProductTypeParentId==2){%>
                         <i class="u-tag u-tag-fixed">定期</i>
                     <%}%>
-                    <a href="./detail.html?id=<%=data.Id%>" title="<%=data.Title%>" target="_blank"><%=data.Title%></a>
+                    <a href="./detail.html?id=<%=data.Id%>" title="<%=data.Title%>"><%=data.Title%></a>
                 </div>
                 <div class="dec">
                     <%if(data.ActivityType==1){%>
