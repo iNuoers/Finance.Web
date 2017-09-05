@@ -43,6 +43,12 @@ var page = {
 
             $('.p-cont-top').html(html);
 
+            $.countdown($('.F-buy'), {
+                callback: function (ele) {
+                    
+                }
+            });
+
             _this.listenEvent();
 
         }, function () {

@@ -33,9 +33,9 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="d2"><span>可投余额：</span><strong>0.00元</strong></td>
+                                                <td class="d2"><span>剩余份额：</span><strong>0.00元</strong></td>
                                             </tr>
-                                            <tr>
+                                            <tr class="f-hide">
                                                 <td class="d4">
                                                     <span>可用余额：</span>
                                                     <b>0.00元</b>
@@ -45,7 +45,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div class="dr-inputbar symbol-model">
+                                    <div class="dr-inputbar symbol-model f-hide">
                                         <input id="investAmount" type="text" class="i-text" placeholder="100元起投" maxlength="10">
                                         <span class="symbol">￥</span>
                                         <span id="ticketDesc" class="coupon-tag">
@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="dr-tips">
                                         <!-- tips的模板扔这里 -->
-                                        <div class="msg-box jInlineMsgBox">
+                                        <div class="msg-box jInlineMsgBox f-hide">
                                             <div class="msg-weak msg-inline">
                                                 <i class="icon-info-s"></i>
                                                 <div class="msg-cnt">您还未登录&nbsp;&nbsp;<a href="https://www.xiaoying.com/user/login" class="link" title="立即登录">立即登录</a></div>
@@ -64,7 +64,7 @@
                                             <div id="expectedProfit" style="display: none"></div>
                                         </div>
                                         <!-- coupon selector -->
-                                        <div class="dr-coupon hide">
+                                        <div class="dr-coupon f-hide">
                                             <div class="drc-change"><a id="ticketSelector" href="javascript:;">选择卡券<i class="arr"></i></a></div>
                                             <div id="ticketContainer" class="drc-main f-hide">
                                                 <ul class="drc-list">
@@ -74,7 +74,7 @@
                                         </div>
                                     </div>
                                     <div class="dr-btnbar">
-                                        <a href="javascript:;" class="btn btn-info btn-disable" title="立即加入">立即加入</a>
+                                        <a href="javascript:;" class="btn btn-info disabled" title="立即购买">立即购买</a>
                                     </div>
                                 </div>
                             </div>
@@ -123,22 +123,6 @@
                                             <span>房金网金额只显示小数点后两位，所有金额计算按小数点后六位计算！</span>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-cont mb15">
-                        <div class="cont-inner">
-                            <div class="p-title">
-                                <div class="p-title-inner">
-                                    <h2>购买规则</h2>
-                                </div>
-                            </div>
-                            <div class="p-cont">
-                                <div style="padding: 25px 20px;color: #555;">
-                                    <p style="font-size: 14px;line-height: 24px;color: #555;">（活期）的理财产品当天申购成功，当天产生收益，次日7:00前发放所产生收益。</p>
-                                    <p class="mb20">（定期）的理财产品在到期当日8:00前本息全部到账。</p>
-                                    <p>房金网金额只显示小数点后两位，所有金额计算按小数点后六位计算！</p>
                                 </div>
                             </div>
                         </div>

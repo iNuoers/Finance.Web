@@ -138,53 +138,91 @@ var F = {
             return result;
         }
     },
-    // 网络请求
-    request: function (param) {
-        var _this = this;
-        $.ajax({
-            url: param.url || '',
-            data: param.data || '',
-            type: param.method || 'get',
-            async: param.async || true,
-            cache: param.cache || true,
-            dataType: param.type || 'json',
-            complete: param.complete,
-            beforeSend: param.beforeSend,
-            crossDomin: true,
-            xhrFields: {
-                withCredentials: false
-            },
-            timeout: param.timeout || 1000 * 60 * 10,
-            success: function (res) {
-                // 请求成功
-                if (0 === res.s) {
-                    typeof param.success === 'function' && param.success(res.d, res.es);
-                }
-                // 没有登录状态，需要强制登录
-                else if (101 === res.status) {
-                    //跳转 登录页
-                }
-                // 请求数据错误
-                else if (1 === res.s) {
-                    typeof param.error === 'function' && param.error(res.es);
-                } else {
-                    typeof param.hideLoading === 'function' && param.hideLoading();
-                }
-            },
-            error: function (err, status) {
-                //如果出现timeout，不做处理
-                if (status === "timeout") {
-                    if (console) {
-                        console.log("ajax超时！  url=" + param.url);
+    ajax: {
+        // 网络请求
+        request: function (param) {
+            var _this = this;
+
+            F.ajax.ajaxSet();
+
+            $.ajax({
+                url: param.url || '',
+                data: param.data || '',
+                type: param.method || 'get',
+                async: param.async || true,
+                cache: param.cache || true,
+                dataType: param.type || 'json',
+                complete: param.complete,
+                beforeSend: param.beforeSend,
+                crossDomin: true,
+                xhrFields: {
+                    withCredentials: false
+                },
+                timeout: param.timeout || 1000 * 60 * 10,
+                success: function (res) {
+                    // 请求成功
+                    if (0 === res.s) {
+                        typeof param.success === 'function' && param.success(res.d, res.es);
                     }
-                } else if (status === "abort") {
-                    if (console) {
-                        console.log("ajax客户端终止请求！  url=" + param.url);
+                    // 没有登录状态，需要强制登录
+                    else if (101 === res.s) {
+                        //跳转 登录页
+                        window.user.isLogin = false;
+                        F.storage.delItem($.base64.btoa('f.ui.cache'));
+
+                        F.cookie.remove($.base64.btoa('F.token'));
+                        F.cookie.remove($.base64.btoa('F.phone'));
+                        F.cookie.remove($.base64.btoa('F.avator'));
+                    }
+                    // 请求数据错误
+                    else if (1 === res.s) {
+                        typeof param.error === 'function' && param.error(res.es);
+                    } else {
+                        typeof param.hideLoading === 'function' && param.hideLoading();
+                    }
+                },
+                error: function (err, status) {
+                    //如果出现timeout，不做处理
+                    if (status === "timeout") {
+                        if (console) {
+                            console.log("ajax超时！  url=" + param.url);
+                        }
+                    } else if (status === "abort") {
+                        if (console) {
+                            console.log("ajax客户端终止请求！  url=" + param.url);
+                        }
+                    }
+                    typeof param.error === 'function' && param.error(err.statusText);
+                }
+            });
+        },
+        ajaxSet: function () {
+            var _this = this;
+
+            $.ajaxSetup({
+                contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                timeout: 1000 * 60 * 10,
+                cache: false
+            });
+
+            /**
+             * ajax请求开始时执行函数
+             * event    - 包含 event 对象
+             * xhr      - 包含 XMLHttpRequest 对象
+             * options  - 包含 AJAX 请求中使用的选项
+             */
+            $(document).ajaxSend(function (event, xhr, opt) {
+                if (opt.type.toLowerCase() === "post") {
+                    if (opt.data != null && opt.data !== "" && typeof (opt.data) !== "undefined") {
+                        var data = JSON.parse(opt.data);
+                        data.P = 3;
+                        data.IE = false;
+                        data.T = F.cookie.get($.base64.btoa('F.token'));
+                        opt.data = JSON.stringify(data);
                     }
                 }
-                typeof param.error === 'function' && param.error(err.statusText);
-            }
-        });
+            });
+        },
     },
     // 字段的验证，支持非空、手机、邮箱的判断
     validate: function (value, type) {

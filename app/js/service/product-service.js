@@ -5,7 +5,7 @@ var _core = require('../lib/f.core.js');
 
 var _product = {
     productList: function (param, resolve, reject) {
-        _core.request({
+        _core.ajax.request({
             url: _api.host,
             data: param,
             method: 'POST',
@@ -14,7 +14,7 @@ var _product = {
         });
     },
     productDetail: function (param, resolve, reject) {
-        _core.request({
+        _core.ajax.request({
             url: _api.host,
             data: param,
             method: 'POST',
@@ -23,7 +23,7 @@ var _product = {
         });
     },
     productBuyRecord: function (param, resolve, reject) {
-        _core.request({
+        _core.ajax.request({
             url: _api.host,
             data: param,
             method: 'POST',
@@ -32,7 +32,7 @@ var _product = {
         });
     },
     productBuyRank: function (productId, resolve, reject) {
-        _core.request({
+        _core.ajax.request({
             url: _api.host,
             data: param,
             method: 'POST',
@@ -41,7 +41,7 @@ var _product = {
         });
     },
     productTypeList: function (param, resolve, reject) {
-        _core.request({
+        _core.ajax.request({
             url: _api.host,
             data: param,
             method: 'POST',

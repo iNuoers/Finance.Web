@@ -7,6 +7,8 @@
         progress = 1;
     }
     progress = Math.floor(progress);
+
+    var userInfo = window.user;
 %>
 <div class="p-title">
     <div class="p-title-inner">
@@ -28,46 +30,72 @@
                     <tr>
                         <td class="d2"><span>剩余份额：</span><strong><%= RemainingShares %>元</strong></td>
                     </tr>
-                    <tr>
-                        <td class="d4">
-                            <span>可用余额：</span>
-                            <b>0元</b>
-                            <a href="" class="link">充值</a>
-                            <a href="javascript:void (0)" class="link ml15" id="all">余额全部买入</a>
-                        </td>
-                    </tr>
+                    <%if(window.user.isLogin){%>
+                        <tr>
+                            <td class="d4">
+                                <span>可用余额：</span>
+                                <b><%= Math.floor(window.user.balance * 100) / 100 %>元</b>
+                                <a href="" class="link">充值</a>
+                                <a href="javascript:void (0)" class="link ml15" id="all">余额全部买入</a>
+                            </td>
+                        </tr>
+                    <%}%>
                 </tbody>
             </table>
-            <div class="dr-inputbar symbol-model">
-                <input id="investAmount" type="text" class="i-text" placeholder="最低购买金额<%= StartBuyPrice %>元" maxlength="10">
-                <span class="symbol">￥</span>
-                <span id="ticketDesc" class="coupon-tag">
-                    <span class="ctag-info jInfo"><i>+</i>-%</span>
-                    <a href="javascript:;" class="ctag-close jClose" title="删除"></a>
-                    <span class="clear"></span>
-                </span>
-            </div>
+
+            <%if(window.user.isLogin){%>
+                <div class="dr-inputbar symbol-model">
+                    <input id="investAmount" type="text" class="i-text" placeholder="最低购买金额<%= StartBuyPrice %>元" maxlength="10">
+                    <span class="symbol">￥</span>
+                    <span id="ticketDesc" class="coupon-tag" style="display: none;">
+                        <span class="ctag-info jInfo"><i>+</i>-%</span>
+                        <a href="javascript:;" class="ctag-close jClose" title="删除"></a>
+                        <span class="clear"></span>
+                    </span>
+                </div>
+            <%}%>
+
             <div class="dr-tips">
                 <!-- tips的模板扔这里 -->
                 <div class="msg-box jInlineMsgBox">
-                    <div class="msg-weak msg-inline">
-                        <i class="icon-info-s"></i>
-                        <div class="msg-cnt">您还未登录&nbsp;&nbsp;<a href="javascript:;" data-needlogin="true" class="link" title="立即登录">立即登录</a></div>
-                    </div>
-                    <div id="expectedProfit" style="display: none"></div>
+                    <%if(!window.user.isLogin){%>
+                        <div class="msg-weak msg-inline">
+                            <i class="fa fa-warning"></i>
+                            <div class="msg-cnt">您还未登录&nbsp;&nbsp;<a href="javascript:;" data-href="./user-login.html" data-needlogin="true" class="link" title="立即登录">立即登录</a></div>
+                        </div>
+                        <div id="expectedProfit" style="display: none"></div>
+                    <%}%>
                 </div>
-                <!-- coupon selector -->
-                <div class="dr-coupon hide">
-                    <div class="drc-change"><a id="ticketSelector" href="javascript:;">选择卡券<i class="arr"></i></a></div>
-                    <div id="ticketContainer" class="drc-main f-hide">
-                        <ul class="drc-list">
-                            <li class="drc-null">您没适用于当前项目的券</li>
-                        </ul>
+
+                <%if(window.user.isLogin){%>
+                    <!-- coupon selector -->
+                    <div class="dr-coupon <%= (IsPlusInCome == 1 || IsCash == 1) ? "" : "f-hide"%>">
+                        <div class="drc-change"><a id="ticketSelector" href="javascript:;">选择卡券<i class="arr"></i></a></div>
+                        <div id="ticketContainer" class="drc-main f-hide">
+                            <ul class="drc-list">
+                                <li class="drc-null">您没适用于当前项目的券</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                <%}%>
             </div>
+            <%if(ProductTypeParentId == 1){%>
+                <div class="pt15 pb15">
+                    <div class="fz12"><span class="fcgray2">现在投资：预计09月07日产生收益，09月08日首笔收益到账</span></div>
+                </div>
+            <%}%>
             <div class="dr-btnbar">
-                <a href="javascript:;" class="btn btn-info btn-disable" title="立即加入">立即加入</a>
+                <a href="javascript:;" class="btn btn-info disabled F-buy" title="立即购买" timer="<%= CountDown %>">
+                    <%if(CountDown > 0){%>
+                        距离产品发售剩余
+                        <i class="product-timer">
+                            <i class="hour">00</i>:<i class="minute">00</i>:<i class="second">00</i>
+                        </i>
+                    <%}else{%>
+                        立即购买
+                    <%}%>
+                    
+                </a>
             </div>
         </div>
     </div>
@@ -85,7 +113,15 @@
                 </li>
                 <li class="item p2">
                     <div class="name"><b>项目期限</b></div>
-                    <div class="info"><strong><%= InvestmentTime %><span>天</span></strong></div>
+                    <div class="info">
+                        <strong>
+                            <%if(InvestmentTime <= 0){%>
+                                <%= TimeLimit %>
+                            <%}else{%>
+                                <%= InvestmentTime %><span>天</span>
+                            <%}%>
+                        </strong>
+                    </div>
                 </li>
                 <li class="item p3">
                     <div class="name"><b>收益方式</b>
@@ -121,7 +157,7 @@
                         到期当日8:00前本息全部到账。
                     <%}%>
                     </span>
-                    <span>金额只显示小数点后两位，所有金额计算按小数点后六位计算！</span>
+                    <span>所有金额计算按小数点后六位计算！</span>
                 </div>
             </div>
         </div>

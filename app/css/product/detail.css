@@ -36,14 +36,15 @@
 .proinfo td font{color:#1088f1}
 .proinfo td.d1 font,.proinfo td.d1 span,.proinfo td.d1 strong{vertical-align:middle}
 .proinfo td.d4{padding-bottom:0}
-.proinfo td .jdt{margin-right:9px;width:206px;height:4px;background:#dde4ea;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;display:inline-block;vertical-align:middle;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;overflow:hidden}
+.proinfo td .jdt{margin-right:9px;width:200px;height:4px;background:#dde4ea;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;display:inline-block;vertical-align:middle;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;overflow:hidden}
 .proinfo td .jdt span{height:4px;vertical-align:middle;background-color:#1088f1;display:block}
 .proinfo td b{margin-right:16px;color:#555;font-weight:400}
 .dr-tips .msg-box{width:100%;min-height:18px}
 .dr-tips .msg-inline{width:288px}
-.dr-tips .underline{border-bottom:1px dashed #1088f1;color:#1088f1;cursor:pointer}
+.dr-tips .msg-inline i{position:relative;top:3px;color:#1088f1;font-size:14px;float:left;margin-left:-20px}
+.dr-tips .underline{border-bottom:1px dashed #1087F1;color:#1088f1;cursor:pointer}
 .dr-btnbar .list-dots .current a:hover,.dr-btnbar a,.list-dots .current .dr-btnbar a:hover{width:100%}
-.dr-btnbar .btn{height:42px;line-height:42px;font-size:16px;margin:0;padding:0;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-moz-transition:all .4s ease;-o-transition:all .4s ease;-webkit-transition:all .4s ease;transition:all .4s ease;background-color:#1088f1}
+.dr-btnbar .btn{height:42px;line-height:42px;font-size:16px;margin:0;padding:0;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-moz-transition:all .4s ease;-o-transition:all .4s ease;-webkit-transition:all .4s ease;transition:all .4s ease;background-color:#1088f1;z-index:5}
 .dr-inputbar{position:relative}
 .dr-inputbar .i-text{position:relative;height:40px;background-color:#fff;border:1px solid rgba(0,0,0,.15);color:#555;display:block;font-size:13px;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-moz-transition:all .4s ease;-o-transition:all .4s ease;-webkit-transition:all .4s ease;transition:all .4s ease;-moz-transition:border-color .15s ease-in-out;-o-transition:border-color .15s ease-in-out;-webkit-transition:border-color .15s ease-in-out;transition:border-color .15s ease-in-out;-moz-box-shadow:ease-in-out .15s}
 .dr-inputbar.symbol-model .i-text{padding:0 20px;width:279px;border-color:#1088f1;border-width:2px}

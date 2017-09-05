@@ -33,7 +33,9 @@ var api = {
         // 活动列表
         activeList: "NewActivityList",
 
-        login: "Login"
+        login: "Login",
+        // 用户信息
+        getMemberInfo:"GetMemberInfo"
 
     }
 }

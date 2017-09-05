@@ -8,6 +8,7 @@
 require('../plugins/base64/jquery.base64.js')
 
 var _core = require('./f.core.js');
+var _api = require('./f.data.js');
 var _user = require('../service/user-service.js');
 
 var Core = {
@@ -17,6 +18,33 @@ var Core = {
         this.loginTimeout()
     },
     initUserInfo: function () {
+        var _this = this, user = null;
+
+        if (_core.cookie.get($.base64.btoa('F.token'))) {
+            _user.getUserInfo(JSON.stringify({
+                M: _api.method.getMemberInfo,
+            }), function (json) {
+                user = JSON.parse(json);
+
+                window.user = {
+                    isLogin: true,
+                    token: user.token,
+                    isBuy: user.isBuy,
+                    phone: user.phone,
+                    balance: user.balance,
+                    avator: user.headPhoto,
+                    isInvite: user.friendStatus,
+                    isAuthen: user.realNameAuthen,
+                };
+
+                _this.initNav();
+            }, function () {
+                window.user.isLogin = false;
+                _this.initNav();
+            });
+        }
+    },
+    initNav: function () {
         var _this = this;
 
         var $header = $('.site-nav'),
@@ -25,31 +53,15 @@ var Core = {
             $userIcon = $('.F_userIcon'),
             $userPhone = $('.F_userPhone'),
             $logout = $('.F_out');
-        
-        if (_core.cookie.get($.base64.btoa('F.token'))) {
 
-            var user = JSON.parse(_core.storage.getItem($.base64.btoa('f.ui.cache')));
-
-            if (user == null) return;
-
-            var html = ['<a href="" target="_blank">您好，' + user.member.phone + "&nbsp;&nbsp;</a>", '<a class="F_out" href="javascript:;">退出</a>'].join("");
+        if (window.user.isLogin) {
+            var html = ['<a href="" target="_blank">您好，' + user.phone + "&nbsp;&nbsp;</a>", '<a class="F_out" href="javascript:;">退出</a>'].join("");
 
             $logout.show();
             $unLogin.hide();
             $isLogin.html(html).show();
-            $userPhone.html(user.member.phone);
-            $userIcon.attr('src', user.member.headPhoto);
-
-            window.user = {
-                isLogin: true,
-                token: user.token,
-                isBuy: user.member.isBuy,
-                phone: user.member.phone,
-                balance: user.member.balance,
-                avator: user.member.headPhoto,
-                isInvite: user.member.friendStatus,
-                isAuthen: user.member.realNameAuthen,
-            };
+            $userPhone.html(user.phone);
+            $userIcon.attr('src', user.headPhoto);
 
         } else {
             $unLogin.css({
@@ -59,14 +71,8 @@ var Core = {
             $isLogin.hide();
             $userPhone.html('尊敬的用户');
 
-            _this.cache.isBuy = 0;
-            _this.cache.balance = 0;
-            _this.cache.isAuthen = 0;
-            _this.cache.isInvite = 0;
-            _this.cache.isLogin = false;
-            _this.cache.glb_user_token = '';
-            _this.cache.glb_user_phone = '';
-            _this.cache.glb_user_avator = '';
+            window.user.isLogin = false;
+            _core.storage.setItem($.base64.btoa('f.ui.cache'), '');
         }
     },
     loginTimeout: function () {
@@ -102,38 +108,6 @@ var Core = {
         glb_user_phone: '',
         glb_user_token: '',
         glb_user_avator: ''
-    },
-    ajaxSet: function (cache) {
-
-        var _this = this;
-
-        cache = (cache === false ? false : true);
-        $.ajaxSetup({
-            contentType: "application/x-www-form-urlencoded;charset=utf-8",
-            cache: cache
-        });
-        //ajax全局设置  超时时间：8秒
-        $.ajaxSetup({
-            timeout: 1000 * 60 * 10
-        });
-
-        /**
-         * ajax请求开始时执行函数
-         * event    - 包含 event 对象
-         * xhr      - 包含 XMLHttpRequest 对象
-         * options  - 包含 AJAX 请求中使用的选项
-         */
-        $(document).ajaxSend(function (event, xhr, opt) {
-            if (opt.type.toLowerCase() === "post") {
-                if (opt.data != null && opt.data !== "" && typeof (opt.data) !== "undefined") {
-                    var data = JSON.parse(opt.data);
-                    data.P = 3;
-                    data.IE = false;
-                    data.T = _this.cache.glb_user_token;
-                    opt.data = JSON.stringify(data);
-                }
-            }
-        });
     },
     // 统一登录处理
     doLogin: function () {
@@ -174,6 +148,4 @@ $(function () {
     if (top.location != self.location) top.location.href = self.location;
 
     Core.init();
-
-    Core.ajaxSet();
 })

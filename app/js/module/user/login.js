@@ -70,7 +70,7 @@ var page = {
                 _core.storage.setItem($.base64.btoa('f.ui.cache'), res);
 
                 //success redirect
-                window.location.href = _core.getUrlParam('redirect') || '/dist/view/my/index.html';
+                window.location.href = _core.Tools.getUrlParam('redirect') || '/dist/view/my/index.html';
 
             }, function (errMsg) {
                 formError.show(errMsg);

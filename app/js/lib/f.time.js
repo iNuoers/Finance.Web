@@ -39,6 +39,10 @@
                 // 处理时间格式为倒计时秒数
                 _this._prepareProcessDatetime2Timer(timer)
             }
+            
+            var total = parseInt(timer.attr("timer"));
+            if (total <= 0) return;
+
             // 先调用一次 避免误差
             _this._processTimer(timer, _this.options);
             setInterval(function () {

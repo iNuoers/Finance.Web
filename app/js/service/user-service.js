@@ -6,7 +6,7 @@ var _core = require('../lib/f.core.js');
 var _user = {
     // 用户登录
     login : function(userInfo, resolve, reject){
-        _core.request({
+        _core.ajax.request({
             url     : _api.host,
             data    : userInfo,
             method  : 'POST',
@@ -16,7 +16,7 @@ var _user = {
     },
     // 检查手机号是否注册
     checkExistPhone :function(phone,resolve,reject){
-        _core.request({
+        _core.ajax.request({
             url     : _api.host,
             data    : {
                 type    : 'phone',
@@ -29,7 +29,7 @@ var _user = {
     },
     // 用户注册
     register : function(userInfo, resolve, reject){
-        _core.request({
+        _core.ajax.request({
             url     : _api.host,
             data    : userInfo,
             method  : 'POST',
@@ -45,7 +45,7 @@ var _user = {
     },
     // 重置密码
     resetPassword : function(userInfo, resolve, reject){
-        _core.request({
+        _core.ajax.request({
             url     : _api.host,
             data    : userInfo,
             method  : 'POST',
@@ -54,17 +54,19 @@ var _user = {
         });
     },
     // 获取用户信息
-    getUserInfo : function(resolve, reject){
-        _core.request({
+    getUserInfo : function(param,resolve, reject){
+        _core.ajax.request({
             url     : _api.host,
+            data    : param,
             method  : 'POST',
+            async   : false,
             success : resolve,
             error   : reject
         });
     },
     // 更新个人信息
     updateUserInfo : function(userInfo, resolve, reject){
-        _core.request({
+        _core.ajax.request({
             url     : _api.host,
             data    : userInfo,
             method  : 'POST',
@@ -74,7 +76,7 @@ var _user = {
     },
     // 登录状态下更新密码
     updatePassword : function(userInfo, resolve, reject){
-        _core.request({
+        _core.ajax.request({
             url     : _api.host,
             data    : userInfo,
             method  : 'POST',
@@ -84,7 +86,7 @@ var _user = {
     },
     // 登出
     logout : function(resolve, reject){
-        _core.request({
+        _core.ajax.request({
             url     : _api.host,
             method  : 'POST',
             success : resolve,
