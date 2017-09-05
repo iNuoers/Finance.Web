@@ -1,0 +1,14 @@
+.act-top img{width:100%}
+.act-list{width:100%;overflow:hidden;min-height:200px}
+.act-item{padding:10px}
+.act-item img{width:100%;height:180px}
+.act-item .act-title{height:50px;line-height:50px;background:#fff}
+.act-item .act-title span{width:50%;float:left;padding:0 15px;transition:.3s all linear}
+.act-item .act-title span:nth-child(1){font-size:16px;color:#333;white-space:nowrap;text-overflow:ellipsis}
+.act-item .act-title span:nth-child(2){font-size:14px;color:#999;text-align:right}
+
+.act-cont .mask{top:60px;left:10px;position:absolute;width:95%;height:180px;opacity:0;overflow:visible;border:90px solid rgba(0,0,0,.7);transition:all .4s ease-in-out 0s}
+.act-cont .mask a.info{position:relative;top:-90px;opacity:0;transition:opacity .5s ease-in-out 0s}
+.act-cont:hover .mask{opacity:.8;border:90px solid rgba(0,0,0,.7)}
+.act-cont:hover a.info{opacity:.8;transition-delay:.3s}
+.act-cont a.info{background:url(../image/link.png) no-repeat scroll center center transparent;display:inline-block;text-decoration:none;padding:0;text-indent:-9999px;width:100%;height:180px}

@@ -150,6 +150,10 @@ var F = {
             dataType: param.type || 'json',
             complete: param.complete,
             beforeSend: param.beforeSend,
+            crossDomin: true,
+            xhrFields: {
+                withCredentials: false
+            },
             timeout: param.timeout || 1000 * 60 * 10,
             success: function (res) {
                 // 请求成功
@@ -163,7 +167,7 @@ var F = {
                 // 请求数据错误
                 else if (1 === res.s) {
                     typeof param.error === 'function' && param.error(res.es);
-                }else {
+                } else {
                     typeof param.hideLoading === 'function' && param.hideLoading();
                 }
             },
@@ -182,12 +186,6 @@ var F = {
             }
         });
     },
-    // 获取 url 参数
-    getUrlParam: function (name) {
-        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
-        var result = window.location.search.substr(1).match(reg);
-        return result ? decodeURIComponent(result[2]) : null;
-    },
     // 字段的验证，支持非空、手机、邮箱的判断
     validate: function (value, type) {
         var value = $.trim(value);
@@ -202,6 +200,83 @@ var F = {
         // 邮箱格式验证
         if ('email' === type) {
             return /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(value);
+        }
+    },
+    Tools: {
+        // 获取屏幕分辨率
+        screenSize: function () {
+            return (window.screen.width || 0) + "x" + (window.screen.height || 0);
+        },
+        // 获取 url 参数
+        getUrlParam: function (name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+            var result = window.location.search.substr(1).match(reg);
+            return result ? decodeURIComponent(result[2]) : null;
+        }
+    },
+    String: {
+        // 修剪两端空白字符和换行符
+        trim: function (s) {
+            return s.replace(/(^\s*)|(\s*$)|(\n)/g, "");
+        },
+        // 修剪左端空白字符和换行符
+        leftTrim: function (s) {
+            return s.replace(/(^\s*)|(^\n)/g, "");
+        },
+        // 修剪右端空白字符和换行符
+        rightTrim: function (s) {
+            return s.replace(/(\s*$)|(\n$)/g, "");
+        },
+        // 格式化数字
+        numberFormat: function (s, l) {
+            if (!l || l < 1) l = 3;
+            s = String(s).split(".");
+            s[0] = s[0].replace(new RegExp('(\\d)(?=(\\d{' + l + '})+$)', 'ig'), "$1,");
+            return s.join(".");
+        },
+        // 星号字节
+        asteriskByte: function (s, start, end) {
+            var startStr = start ? s.substr(0, start) : "";
+            var endStr = end ? s.substr(end + 1) : "";
+            var star = "", l;
+            l = !start && !end ? s.length : (start && !end ? s.length - start : end);
+            while (star.length < l) star += "*";
+            return startStr + star + endStr;
+        },
+        // 四舍五入保留n位小数(默认保留两位小数)
+        twoDecimalPlaces: function (s, l) {
+            if (isNaN(parseFloat(s)) || s == 0) return "0.00";
+            var bit = !l ? 100 : Math.pow(10, l);
+            var str = String(Math.round(s * bit) / bit);
+            if (str.indexOf(".") != -1 && str.length <= str.indexOf(".") + 2) str += '0';
+            else if (str.indexOf(".") == -1) str += '.00';
+            return str;
+        },
+        // 格式化银行卡
+        formatBank: function (s) {
+            var str = s.substring(0, 22); /*帐号的总数, 包括空格在内 */
+            if (str.match(".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}") == null) {
+                /* 对照格式 */
+                if (str.match(".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" + ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" +
+                    ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" + ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}") == null) {
+                    var accountNumeric = accountChar = "", i;
+                    for (i = 0; i < str.length; i++) {
+                        accountChar = str.substr(i, 1);
+                        if (!isNaN(accountChar) && (accountChar != " ")) accountNumeric = accountNumeric + accountChar;
+                    }
+                    str = "";
+                    for (i = 0; i < accountNumeric.length; i++) {    /* 可将以下空格改为-,效果也不错 */
+                        if (i == 4) str = str + " "; /* 帐号第四位数后加空格 */
+                        if (i == 8) str = str + " "; /* 帐号第八位数后加空格 */
+                        if (i == 12) str = str + " ";/* 帐号第十二位后数后加空格 */
+                        str = str + accountNumeric.substr(i, 1)
+                    }
+                }
+            }
+            else {
+                str = " " + str.substring(1, 5) + " " + str.substring(6, 10) + " " + str.substring(14, 18) + "-" + str.substring(18, 25);
+            }
+            return str;
         }
     }
 };

@@ -12,6 +12,7 @@ var _user = require('../service/user-service.js');
 
 var Core = {
     init: function () {
+        this.initLink();
         this.initUserInfo();
         this.loginTimeout()
     },
@@ -24,10 +25,12 @@ var Core = {
             $userIcon = $('.F_userIcon'),
             $userPhone = $('.F_userPhone'),
             $logout = $('.F_out');
+        
+        if (_core.cookie.get($.base64.btoa('F.token'))) {
 
-        if (_core.cookie.get($.base64.atob('F.token'))) {
+            var user = JSON.parse(_core.storage.getItem($.base64.btoa('f.ui.cache')));
 
-            var user = JSON.parse(_core.storage.getItem($.base64.atob('f_ui_cache')));
+            if (user == null) return;
 
             var html = ['<a href="" target="_blank">您好，' + user.member.phone + "&nbsp;&nbsp;</a>", '<a class="F_out" href="javascript:;">退出</a>'].join("");
 
@@ -37,10 +40,16 @@ var Core = {
             $userPhone.html(user.member.phone);
             $userIcon.attr('src', user.member.headPhoto);
 
-            _this.cache.isLogin = true;
-            _this.cache.glb_user_phone = _user.member.phone;
-            _this.cache.glb_user_avator = user.member.headPhoto;
-            _this.cache.glb_user_token = _core.cookie.get($.base64.atob('F.token'));
+            window.user = {
+                isLogin: true,
+                token: user.token,
+                isBuy: user.member.isBuy,
+                phone: user.member.phone,
+                balance: user.member.balance,
+                avator: user.member.headPhoto,
+                isInvite: user.member.friendStatus,
+                isAuthen: user.member.realNameAuthen,
+            };
 
         } else {
             $unLogin.css({
@@ -50,6 +59,10 @@ var Core = {
             $isLogin.hide();
             $userPhone.html('尊敬的用户');
 
+            _this.cache.isBuy = 0;
+            _this.cache.balance = 0;
+            _this.cache.isAuthen = 0;
+            _this.cache.isInvite = 0;
             _this.cache.isLogin = false;
             _this.cache.glb_user_token = '';
             _this.cache.glb_user_phone = '';
@@ -81,7 +94,11 @@ var Core = {
         });
     },
     cache: {
+        isBuy: 0,
+        balance: 0,
+        isInvite: 0,
         isLogin: false,
+        isAuthen: false,
         glb_user_phone: '',
         glb_user_token: '',
         glb_user_avator: ''
@@ -122,21 +139,41 @@ var Core = {
     doLogin: function () {
         var _this = this, url = '';
 
-        if (_this.user.isLogin) {
+        if (window.user.isLogin) {
             // 已经登录 点击直接进入页面
             window.location.href = url;
         } else {
-            window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
+            window.location.href = 'http://192.168.1.53:8010/dist/view/user-login.html?redirect=' + encodeURIComponent(window.location.href);
         }
     },
     goHome: function () {
-        window.location.href = '../view/user-login.html';
+        window.location.href = '../view/index.html';
+    },
+    initLink: function () {
+        var _this = this;
+        $(".main-section,.main-wrap").delegate("a[data-href],div[data-href]", "click", function (e) {
+            if ($(this).data("href") && !$(this).data("preventdefault")) {
+                e.stopPropagation();
+                var url = $(this).data("href");
+                var i = $(this).data("title"), needLogin = $(this).data("needlogin");
+
+                if (needLogin) {
+                    return _this.doLogin(url);
+                }
+                if (url.indexOf('his') >= 0)
+                    window.history.go(-1);
+                else
+                    location.href = url;
+            }
+        });
     }
 }
 
 $(function () {
     // 用于普通页面的跨框架脚本攻击(CFS)防御
     if (top.location != self.location) top.location.href = self.location;
+
+    Core.init();
 
     Core.ajaxSet();
 })

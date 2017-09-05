@@ -291,6 +291,7 @@
 .f-color-outerspace-text { color: #464646; }
 .f-color-outerspace-bg { background-color: #464646; }
 .f-color-dimgray-text { color: #555; }
+.f-color-gray-text { color: #999; }
 .f-color-dimgray-bg { background-color: #555; }
 .f-color-blue-text { color: #2ea7e0; }
 .f-color-blue-bg { background-color: #0697da; }
@@ -573,31 +574,6 @@ a.btn.disabled, fieldset[disabled] a.btn { pointer-events: none; }
 .btn-link.active.focus, .btn-link.active:focus, .btn-link.active:hover, .btn-link:active.focus, .btn-link:active:focus, .btn-link:active:hover { color: #096FEB; background-color: rgba(13,13,13,0); border-color: rgba(10,10,10,0); }
 .btn-link.disabled, .btn-link.disabled.active, .btn-link.disabled.focus, .btn-link.disabled:active, .btn-link.disabled:focus, .btn-link.disabled:hover, .btn-link[disabled], .btn-link[disabled].active, .btn-link[disabled].focus, .btn-link[disabled]:active, .btn-link[disabled]:focus, .btn-link[disabled]:hover { color: #096FEB; background-color: #FFF; border-color: transparent; }
 .btn-link.active, .btn-link:active { -webkit-box-shadow: none; box-shadow: none; }
-
-/*分页*/
-.ui-paging { position: relative; }
-.ui-paging .paging-tip { display: none; padding: 180px 0; text-align: center; color: #666; font-size: 14px; line-height: 24px; }
-.ui-paging .paging-tip .u-loading-small { display: inline-block; margin-right: 12px; vertical-align: middle; }
-.ui-paging.paging-mask { position: relative; }
-.ui-paging.paging-mask .paging-tip { position: absolute; left: 0; top: 0; height: 50%; width: 100%; padding: 0; z-index: 101; }
-.ui-paging.paging-mask .paging-mask-bg { display: block; }
-.ui-paging.paging-mask .loading-bar { position: absolute; top: 40%; left: 50%; width: 224px; margin-left: -112px; height: 64px; line-height: 64px; color: #FFF; }
-.ui-paging.paging-mask .loading-bar .bg { position: absolute; width: 100%; height: 100%; z-index: -1; background: silver; opacity: .8; filter: alpha(opacity=80); -webkit-box-shadow: 0 0 5px silver; box-shadow: 0 0 5px silver; }
-.ui-paging .paging-mask-bg { position: absolute; display: none; left: 0; top: 0; width: 100%; height: 100%; z-index: 100; background: #FFF; opacity: .3; filter: alpha(opacity=3); }
-.ui-paging .paging-bar { display: none; padding: 20px 0; text-align: center; }
-.ui-paging .paging-bar a, .ui-paging .paging-bar span { display: inline-block; min-width: 18px; height: 37px; line-height: 37px; color: #a3b5c8; background: #FFF; text-align: center; padding: 0 10px; margin: 0 0 0 -1px; border: 1px solid #e5ebf0; font-size: 14px; outline: 0; -webkit-transition: background .3s,color .3s; transition: background .3s,color .3s; text-decoration: none; }
-.ui-paging .paging-bar a:hover { background: #fafafa; color: #254ca4; }
-.ui-paging .paging-bar .total-count { display: inline-block; line-height: 40px; padding: 0 12px; font-size: 14px; color: #a3b5c8; }
-.ui-paging .paging-bar .first, .ui-paging .paging-bar .last, .ui-paging .paging-bar .next, .ui-paging .paging-bar .prev { min-width: 28px; color: #a3b5c8; background: #FFF; }
-.ui-paging .paging-bar .first:hover, .ui-paging .paging-bar .last:hover, .ui-paging .paging-bar .next:hover, .ui-paging .paging-bar .prev:hover { background: #fafafa; color: #254ca4; text-decoration: none; }
-.ui-paging .paging-bar .current { background: #254ca4; color: #fff; cursor: default; }
-.ui-paging .paging-bar .current:hover { background: #3961ba; color: #fff; text-decoration: none; }
-.ui-paging .paging-bar .current.first, .ui-paging .paging-bar .current.first:hover, .ui-paging .paging-bar .current.last, .ui-paging .paging-bar .current.last:hover, .ui-paging .paging-bar .current.next, .ui-paging .paging-bar .current.next:hover, .ui-paging .paging-bar .current.prev, .ui-paging .paging-bar .current.prev:hover { background: #254ca4; color: #fff; text-decoration: none; }
-.ui-paging .paging-bar-default .iconfont { display: inline-block; font-size: 16px; }
-.ui-paging .paging-bar-small .iconfont { display: inline-block; font-size: 14px; }
-.ui-paging .paging-bar-small a, .ui-paging .paging-bar-small span { font-size: 12px; border: 0; min-width: 12px; height: 18px; line-height: 18px; color: #254ca4; padding: 0 4px; margin: 0 4px; }
-.ui-paging .paging-bar-small .total-count { font-size: 12px; }
-.ui-paging .paging-bar-small .first, .ui-paging .paging-bar-small .last, .ui-paging .paging-bar-small .next, .ui-paging .paging-bar-small .prev { font-size: 12px; min-width: 18px; padding: 0 4px; color: #254ca4; }
 
 .input { transition: border .2s ease; padding: 0 5px; color: #1d2d46; outline: 0; border: 1px solid #e0e4ed }
 .input-small { width: 222px; height: 40px; line-height: 40px; font-size: 14px }

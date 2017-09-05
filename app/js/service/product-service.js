@@ -13,22 +13,20 @@ var _product = {
             error: reject
         });
     },
-    productDetail: function (productId, resolve, reject) {
+    productDetail: function (param, resolve, reject) {
         _core.request({
             url: _api.host,
-            data: {
-                productId: productId
-            },
+            data: param,
+            method: 'POST',
             success: resolve,
             error: reject
         });
     },
-    productBuyRecord: function (productId, resolve, reject) {
+    productBuyRecord: function (param, resolve, reject) {
         _core.request({
             url: _api.host,
-            data: {
-                productId: productId
-            },
+            data: param,
+            method: 'POST',
             success: resolve,
             error: reject
         });
@@ -36,9 +34,8 @@ var _product = {
     productBuyRank: function (productId, resolve, reject) {
         _core.request({
             url: _api.host,
-            data: {
-                productId: productId
-            },
+            data: param,
+            method: 'POST',
             success: resolve,
             error: reject
         });
@@ -46,7 +43,8 @@ var _product = {
     productTypeList: function (param, resolve, reject) {
         _core.request({
             url: _api.host,
-            data: {},
+            data: param,
+            method: 'POST',
             success: resolve,
             error: reject
         });

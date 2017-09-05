@@ -39,7 +39,7 @@ var page = {
         this.bindEvent();
     },
     onLoad: function () {
-        var _this = this, main = $(".main"), idx = _core.getUrlParam("index") || 0, type = '';
+        var _this = this, main = $(".main"), idx = _core.Tools.getUrlParam("index") || 0, type = '';
         type = idx > 0 ? 'T' : '';
         $("#hot span", main).eq(idx).addClass("active").siblings().removeClass("active");
         _this.getProductList(type);

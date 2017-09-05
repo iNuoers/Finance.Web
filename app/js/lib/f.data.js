@@ -30,6 +30,9 @@ var api = {
         // 我的好友
         getFriendList: "GetFriendList",
 
+        // 活动列表
+        activeList: "NewActivityList",
+
         login: "Login"
 
     }
