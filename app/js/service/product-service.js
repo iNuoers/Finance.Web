@@ -31,7 +31,7 @@ var _product = {
             error: reject
         });
     },
-    productBuyRank: function (productId, resolve, reject) {
+    productBuyRank: function (param, resolve, reject) {
         _core.ajax.request({
             url: _api.host,
             data: param,

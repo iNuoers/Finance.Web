@@ -9,7 +9,7 @@ var _time = require('../../lib/f.time.js');
 var _product = require('../../service/product-service.js');
 var _template = require('../../plugins/template/template.js');
 
-var itemTpl = require('../../../view/template/product_list.string');
+var itemTpl = require('../../../view/product/index.string');
 
 var page = {
     orderByDes: {
@@ -39,6 +39,7 @@ var page = {
         this.bindEvent();
     },
     onLoad: function () {
+        $('#nav_invest').addClass('active');
         var _this = this, main = $(".main"), idx = _core.Tools.getUrlParam("index") || 0, type = '';
         type = idx > 0 ? 'T' : '';
         $("#hot span", main).eq(idx).addClass("active").siblings().removeClass("active");

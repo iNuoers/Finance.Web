@@ -5,6 +5,8 @@
 * @Last Modified time: 2017-09-03 11:12:27
 */
 
+// https://my.oschina.net/u/3243585/blog/994423 图片延迟加载
+
 'use strict';
 require('../../css/active.css')
 require('../plugins/pagination/pagination.css')
@@ -26,6 +28,9 @@ fjw.pc.active = {
     },
     onLoad: function () {
         var _this = this;
+        
+        $('#nav_active').addClass('active');
+
         _this.getList();
     },
     getList: function () {
@@ -39,7 +44,7 @@ fjw.pc.active = {
             })
         };
 
-        _core.request({
+        _core.ajax.request({
             url: _api.host,
             data: JSON.stringify(param),
             method: 'POST',

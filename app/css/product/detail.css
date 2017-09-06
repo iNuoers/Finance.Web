@@ -83,7 +83,7 @@
 /* tab-nav */
 .p-cont .p-cont-main{padding:30px 40px;color:#555;min-height:950px}
 .tab-nav{width:100%;height:60px;font-size:16px;background:#fff;border-bottom:1px solid #e6e6e6;overflow:hidden}
-.tab-nav-item{width:140px;float:left;text-align:center;height:60px;line-height:60px;border-top:0}
+.tab-nav-item{width:140px;float:left;text-align:center;height:60px;line-height:60px;border-top:0;cursor:pointer}
 .tab-nav-item-selected{border-top:0}
 .tab-nav-item-selected .tab-title{height:58px;color:#1088f1;border-bottom:3px solid #1088f1}
 .tab-title{margin:0 auto;width:70px;height:60px;line-height:60px}
@@ -93,7 +93,7 @@
 .invest-rank-wrap{width:300px}
 .invest-rank-wrap,.invest-record-wrap{padding:10px 0 20px;border:1px solid #ededed;min-height:610px;background:#fff;position:relative;overflow:hidden}
 .invest-rank-wrap h3,.invest-record-wrap h3{line-height:50px;font-size:18px;color:#323232;padding-left:20px;font-weight:500}
-.record-box .record-title{background-color:#ededed}
+.record-box .record-title{background-color:#eef1f8}
 .record-box,.rank-box{padding:0 10px}
 .rank-box .rank-title,.record-box .record-title{height:40px;line-height:40px;color:#a5a5a5}
 .rank-box .left,.rank-box .middle,.rank-box .right,.record-box .left,.record-box .middle,.record-box .right{text-align:left;float:left;color:#5e5e5e}
@@ -104,5 +104,8 @@
 .record-box .middle{width:160px;text-align:center}
 .record-box .right{width:150px;text-align:center}
 .rank-list li,.record-list li{height:50px;line-height:50px}
+.record-list li{border-bottom:solid 1px #E6EDEF}
+.record-list li:nth-child(odd){background-color: #fff}
+.record-list li:nth-child(even){background: #f6f8fb}
 .rank-list li .left{font-size:12px;width:42px;height:50px;line-height:50px;text-align:left}
 .rank-list li .left span{display:inline-block;position:relative;width:22px;height:22px;background:#999;color:#fff;text-align:center;line-height:22px;border-radius:2px;top:1px;font-style:italic}

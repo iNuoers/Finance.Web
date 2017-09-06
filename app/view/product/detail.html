@@ -130,19 +130,19 @@
                     <div class="p-cont mb15 ">
                         <div class="cont-inner">
                             <ul class="tab-nav">
-                                <li class="tab-nav-item">
+                                <li class="tab-nav-item tab-nav-item-selected">
                                     <div class="tab-title">项目描述</div>
                                 </li>
                                 <li class="tab-nav-item">
                                     <div class="tab-title">资金保障</div>
                                 </li>
-                                <li class="tab-nav-item tab-nav-item-selected">
+                                <li class="tab-nav-item" id="investRecord">
                                     <div class="tab-title">投资记录</div>
                                 </li>
                             </ul>
-                            <div class="p-cont">
+                            <div class="tab-cont p-cont">
                                 <!-- 项目详情内容页 S -->
-                                <div id="investDetail" class="pro-info p-cont-main f-hide"></div>
+                                <div id="investDetail" class="pro-info p-cont-main"></div>
                                 <!-- 项目详情内容页 E -->
 
                                 <!-- 资金保障 S -->
@@ -161,7 +161,7 @@
                                 <!-- 资金保障 E -->
 
                                 <!-- 投资记录内容页 S -->
-                                <div id="investList" class="pro-investList p-cont-main">
+                                <div id="investList" class="pro-investList p-cont-main f-hide">
                                     <div class="invest-record-wrap f-fl">
                                         <h3>投资实力榜</h3>
                                         <div class="record-box">
@@ -172,143 +172,10 @@
                                                 <div class="middle">时间</div>
                                                 <div class="right">方式</div>
                                             </div>
-                                            <ul class="record-list">
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left"><span>1</span></div>
-                                                    <div class="middle">138****6641</div>
-                                                    <div class="middle">￥44,546,194.00</div>
-                                                    <div class="middle">2017-09-02 13:53:01</div>
-                                                    <div class="right ">
-                                                        <img src="https://fangjinnet.com/static/images/android.png">
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                            <ul class="record-list"></ul>
+                                            <div class="ui-paginataion mt15">
+                                                <div class="pagination page"></div>
+                                            </div>
                                         </div>
                                     </div>
 

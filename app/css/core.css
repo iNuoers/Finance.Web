@@ -628,10 +628,10 @@
 
 
 .wdg-fjw-top-header { width: 100%; min-width: 1180px; height: 36px; line-height: 36px; background: #f6f6f6; font-size: 12px; }
-.wdg-fjw-top-header .main-section { height: 100%; color: #333; }
+.wdg-fjw-top-header .main-section { height: 100%; color: #808080; }
 .wdg-fjw-top-header .main-section .tel-phone { float: left; height: 100%; }
 .wdg-fjw-top-header .main-section .site-nav { float: right; }
-.wdg-fjw-top-header .main-section .site-nav .nav-item { float: right; position: relative; display: block; padding-right: 20px; padding-left: 20px }
+.wdg-fjw-top-header .main-section .site-nav .nav-item { float: right; position: relative; display: block; padding-right: 20px; padding-left: 20px;color:#808080 }
 .wdg-fjw-top-header .main-section .site-nav .nav-item:after { content: ""; border-left: 1px solid #d9d9d9; height: 16px; position: absolute; right: 0; top: 50%; margin-top: -8px }
 .wdg-fjw-top-header .main-section .site-nav .nav-item:nth-child(1) { padding-right: 15px; padding-left: 15px; }
 .wdg-fjw-top-header .main-section .site-nav .nav-item:nth-child(1):after { display: none; }

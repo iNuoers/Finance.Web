@@ -1,5 +1,7 @@
+const fs = require('fs');
 const path = require("path");
 const webpack = require('webpack');
+const srcDir = path.resolve(process.cwd(), 'app');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -27,6 +29,9 @@ const getHtmlConfig = function (name, title) {
 
 // webpack config
 const config = {
+    cache: true,
+    // 生成sourcemap,便于开发调试
+    devtool: "#source-map",
     // 入口文件
     entry: {
         'f.vendor': ['./app/js/app.js', './app/js/lib/f.data.js', './app/js/lib/f.core.js', './app/js/lib/f.head.js'],
@@ -111,7 +116,10 @@ const config = {
 
         // 模块别名定义，方便后续直接引用别名，无须多写长长的地址
         alias: {
-            node_modules: __dirname + '/node_modules'
+            node_modules: __dirname + '/node_modules',
+            core: srcDir + '/js/lib/f.core',
+            data: srcDir + '/js/lib/f.data',
+            head: srcDir + '/js/lib/f.head'
         }
     },
     plugins: [

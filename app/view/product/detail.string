@@ -7,8 +7,6 @@
         progress = 1;
     }
     progress = Math.floor(progress);
-
-    var userInfo = window.user;
 %>
 <div class="p-title">
     <div class="p-title-inner">
