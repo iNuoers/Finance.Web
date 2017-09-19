@@ -150,7 +150,7 @@ var F = {
                 data: param.data || '',
                 type: param.method || 'get',
                 async: param.async || true,
-                cache: param.cache || true,
+                cache: param.cache || false,
                 dataType: param.type || 'json',
                 complete: param.complete,
                 beforeSend: param.beforeSend,
@@ -168,6 +168,7 @@ var F = {
                     else if (101 === res.s) {
                         //跳转 登录页
                         window.user.isLogin = false;
+                        F.storage.delItem($.base64.btoa('f.token'));
                         F.storage.delItem($.base64.btoa('f.ui.cache'));
 
                         F.cookie.remove($.base64.btoa('F.token'));

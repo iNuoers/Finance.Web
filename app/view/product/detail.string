@@ -7,10 +7,29 @@
         progress = 1;
     }
     progress = Math.floor(progress);
+
+    var btnCls = '', btnText = '立即投资';
+    if(IsBuy == 1 && ProductTypeId == 9){
+        btnCls = 'disabled';
+        btnText = NotBuyText;
+    }
+
+    if(RemainingShares <= 0 ){
+        btnCls = 'disabled';
+        btnText = '已售罄';
+    }
+
+
 %>
 <div class="p-title">
     <div class="p-title-inner">
         <h2 class="productName"><%= Title %></h2>
+        <%if(IsPlusInCome == 1){%>
+            <i class="u-tag u-tag-normal f-fl">加息</i>
+        <%}%>
+        <%if(IsCash == 1){%>
+            <i class="u-tag u-tag-primary f-fl">现金</i>
+        <%}%>
         <a class="link" data-href="" href="javascript:;">购买协议（范本）</a>
     </div>
 </div>
@@ -32,16 +51,19 @@
                         <tr>
                             <td class="d4">
                                 <span>可用余额：</span>
+                                <input type="hidden" value=<%=window.user.balance%> id="balance">
                                 <b><%= Math.floor(window.user.balance * 100) / 100 %>元</b>
                                 <a href="" class="link">充值</a>
-                                <a href="javascript:void (0)" class="link ml15" id="all">余额全部买入</a>
+                                <%if(window.user.isLogin && btnCls == ''){%>
+                                    <a href="javascript:void (0)" class="link ml15" id="all">最大金额</a>
+                                <%}%>
                             </td>
                         </tr>
                     <%}%>
                 </tbody>
             </table>
 
-            <%if(window.user.isLogin){%>
+            <%if(window.user.isLogin && btnCls == ''){%>
                 <div class="dr-inputbar symbol-model">
                     <input id="investAmount" type="text" class="i-text" placeholder="最低购买金额<%= StartBuyPrice %>元" maxlength="10">
                     <span class="symbol">￥</span>
@@ -61,17 +83,66 @@
                             <i class="fa fa-warning"></i>
                             <div class="msg-cnt">您还未登录&nbsp;&nbsp;<a href="javascript:;" data-href="./user-login.html" data-needlogin="true" class="link" title="立即登录">立即登录</a></div>
                         </div>
-                        <div id="expectedProfit" style="display: none"></div>
                     <%}%>
+                    <div id="expectedProfit" style="display: none"></div>
                 </div>
 
-                <%if(window.user.isLogin){%>
+                <%if(window.user.isLogin && btnCls == ''){%>
                     <!-- coupon selector -->
                     <div class="dr-coupon <%= (IsPlusInCome == 1 || IsCash == 1) ? "" : "f-hide"%>">
                         <div class="drc-change"><a id="ticketSelector" href="javascript:;">选择卡券<i class="arr"></i></a></div>
-                        <div id="ticketContainer" class="drc-main f-hide">
+                        <div id="ticketContainer" class="drc-main">
                             <ul class="drc-list">
                                 <li class="drc-null">您没适用于当前项目的券</li>
+                            </ul>
+                            <ul class="coupon-list">
+                                <li class="coupon buyong checked">
+                                    <label for="c-0" class="label">
+                                        <input type="radio" name="coupon_id" id="c-0" class="coupon-radio" value="0" data-name="不使用投资券">
+                                        <div class="name">不使用投资券</div>
+                                    </label>
+                                </li>
+                                <li class="coupon">
+                                    <label for="c-1-12495589" class="label">
+                                        <input type="radio" name="coupon_id" class="coupon-radio available" id="c-1-12495589" data-name="满5000元减25元" data-unid="c-1-12495589" value="12495589" data-type="1" data-min="500000" data-amount="2500" data-end="2017-09-28 23:59:59" date-rate="0">
+                                        <span class="coupon-tag">满减</span>
+                                        <div class="name">满5000元减25元</div>
+                                        <div class="time">2017-8-29至2017-9-28</div>
+                                    </label>
+                                </li>
+                                <li class="coupon">
+                                    <label for="c-1-12495590" class="label">
+                                        <input type="radio" name="coupon_id" class="coupon-radio available" id="c-1-12495590" data-name="满10000元减45元" data-unid="c-1-12495590" value="12495590" data-type="1" data-min="1000000" data-amount="4500" data-end="2017-09-28 23:59:59" date-rate="0">
+                                        <span class="coupon-tag">满减</span>
+                                        <div class="name">满10000元减45元</div>
+                                        <div class="time">2017-8-29至2017-9-28</div>
+                                    </label>
+                                </li>
+                                <li class="coupon">
+                                    <label for="c-1-12495591" class="label">
+                                        <input type="radio" name="coupon_id" class="coupon-radio available" id="c-1-12495591" data-name="满20000元减90元" data-unid="c-1-12495591" value="12495591" data-type="1" data-min="2000000" data-amount="9000" data-end="2017-09-28 23:59:59" date-rate="0">
+                                        <span class="coupon-tag">满减</span>
+                                        <div class="name">满20000元减90元</div>
+                                        <div class="time">2017-8-29至2017-9-28</div>
+                                    </label>
+                                </li>
+                                <li class="coupon">
+                                    <label for="c-1-12495592" class="label">
+                                        <input type="radio" name="coupon_id" class="coupon-radio available" id="c-1-12495592" data-name="满50000元减220元" data-unid="c-1-12495592" value="12495592" data-type="1" data-min="5000000" data-amount="22000" data-end="2017-09-28 23:59:59" date-rate="0">
+                                        <span class="coupon-tag">满减</span>
+                                        <div class="name">满50000元减220元</div>
+                                        <div class="time">2017-8-29至2017-9-28</div>
+                                    </label>
+                                </li>
+                                <li class="coupon">
+                                    <label for="c-1-12495593" class="label">
+                                        <input type="radio" name="coupon_id" class="coupon-radio available" id="c-1-12495593" data-name="满50000元减260元" data-unid="c-1-12495593" value="12495593" data-type="1" data-min="5000000" data-amount="26000" data-end="2017-09-28 23:59:59" date-rate="0">
+                                        <span class="coupon-tag">满减</span>
+                                        <div class="name">满50000元减260元</div>
+                                        <div class="time">2017-8-29至2017-9-28</div>
+                                    </label>
+                                </li>
+                                <li></li>
                             </ul>
                         </div>
                     </div>
@@ -83,16 +154,15 @@
                 </div>
             <%}%>
             <div class="dr-btnbar">
-                <a href="javascript:;" class="btn btn-info disabled F-buy" title="立即购买" timer="<%= CountDown %>">
+                <a href="javascript:;" class="btn btn-info F-buy <%= btnCls %>" title="<%= btnText %>" timer="<%= CountDown %>">
                     <%if(CountDown > 0){%>
                         距离产品发售剩余
                         <i class="product-timer">
                             <i class="hour">00</i>:<i class="minute">00</i>:<i class="second">00</i>
                         </i>
                     <%}else{%>
-                        立即购买
+                        <%= btnText %>
                     <%}%>
-                    
                 </a>
             </div>
         </div>
@@ -103,7 +173,7 @@
                 <li class="item p1">
                     <div class="name">
                         <b>预期年化收益率</b>
-                        <i class="fa fa-question-circle-o" id="expectedRate" title=""></i></div>
+                        <i class="fa fa-question-circle-o f-tips" data-tips="<div class='f-color-gray-text'>短信已成功发送</div>" id="expectedRate" title=""></i></div>
                     <div class="info">
                         <strong><%= IncomeRate.toFixed(2) %><span>%</span></strong>
                     </div>
@@ -125,7 +195,7 @@
                     <div class="name"><b>收益方式</b>
                         <i class="fa fa-question-circle-o"></i>
                     </div>
-                    <div class="info"><strong><span><%= IncomeDescript %></span></strong></div>
+                    <div class="info"><strong><%= IncomeDescript %></strong></div>
                     <div class="line"></div>
                 </li>
                 <li class="item p4">
@@ -135,6 +205,7 @@
                 </li>
                 <li class="item p5">
                     <div class="name"><b>起投金额</b></div>
+                    <input type="hidden" id="startBuyPrice" value="<%= StartBuyPrice %>">
                     <div class="info"><span><%= StartBuyPrice %>元</span></div>
                 </li>
                 <li class="item p6">

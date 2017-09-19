@@ -68,6 +68,7 @@ var page = {
                 _core.cookie.set($.base64.btoa('F.avator'), user.member.headPhoto, { path: '/' });
 
                 _core.storage.setItem($.base64.btoa('f.ui.cache'), res);
+                _core.storage.setItem($.base64.btoa('f.token'), user.token);
 
                 //success redirect
                 window.location.href = _core.Tools.getUrlParam('redirect') || '/dist/view/my/index.html';

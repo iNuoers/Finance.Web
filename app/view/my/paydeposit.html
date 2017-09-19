@@ -78,6 +78,39 @@
                             <div class="clear"></div>
                         </div>
                         <!-- 搜索时间模块 E -->
+                        <style>
+                            .tab{width:300px}
+                            .tab .tab-nav{height:300px}
+                            .tab .tab-nav li{float:left;margin-right:5px;background-color:#767676;border-radius:3px 3px 0 0}
+                            .tab .tab-nav li a{display:block;height:30px;padding:0 20px;color:#fff;line-height:30px;text-decoration:none}
+                            .tab .tab-nav li.active{background-color:#fff}
+                            .tab .tab-nav li.active a{color:#777}
+
+                            .tab .content-wrap{background-color:#fff;padding:5px;height:200px}
+                            .tab .content-wrap .content-item{position:absolute;height:200px;display:none}
+                            .tab .content-wrap .current{display:block}
+
+                        </style>
+                        <div class="js-tab tab" data-cfg='{
+                            "triggerType": "click",
+                            "effect": "fade",
+                            "invoke": 1,
+                            "auto": 3000
+                        }'>
+                            <ul class="tab-nav">
+                                <li class="active"><a href='javascipt:;'>新闻</a></li>
+                                <li><a href='javascipt:;'>娱乐</a></li>
+                                <li><a href='javascipt:;'>电影</a></li>
+                                <li><a href='javascipt:;'>科技</a></li>
+                            </ul>
+                            <div class="content-wrap">
+                                <div class="content-item current"><img src=<%=require('../../image/qrcode.jpg')%>></div>
+                                <div class="content-item"></div>
+                                <div class="content-item"></div>
+                                <div class="content-item"></div>
+                            </div>
+                        </div>
+
                     </div>
                     <!-- 可用余额等信息 E -->
                 </div>

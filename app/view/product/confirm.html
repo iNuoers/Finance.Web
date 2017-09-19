@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html lang="zh-CN">
 <head>
     <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
 	<%= require('html-loader!../layout/head-common.html')%>
@@ -7,8 +7,90 @@
 <body>
     <%= require('html-loader!../layout/nav.html')%>
     <%= require('html-loader!../layout/header.html')%>
-    <div class="main-wrap">
+    <div class="main-wrap main pt10 pb15">
         <div class="main-section">
+            <div class="m-pay g-ctn">
+                <h1 class="name">新手立马聚财-3月期HHJC-B09128201</h1>
+                <div class="m-item product f-cb">
+                    <h2 class="title f-fl">产品信息：</h2>
+                    <ul class="info f-fl">
+                        <li>
+                            预期年化收益率：<span id="rate">--</span>%
+                        </li>
+                        <li>
+                            起购金额：2000元
+                        </li>
+                        <li>
+                            起息时间：2017-09-12
+                        </li>
+                        <li>
+                            产品期限：<span id="rate">91</span>天
+                        </li>
+                        <li>
+                            回款方式：<span></span>投资本金和收益一次性返还
+                        </li>
+                        <li>
+                            到期时间：<span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="m-item coupon f-cb">
+                    <h2 class="title f-fl">优惠：</h2>
+                    <div class="info f-fl">
+                        <div class="J-coupon"><div class="biz-coupon">  <div class="topLine f-cb">   <span class="firstShow f-fl"><span class="firstShow only-text f-fl">暂无可用优惠</span></span>     </div>  <p class="errorTip"></p>  <div class="coupon-wrap" style="">      </div> </div></div>
+                        <p class="errorctn">
+                            <i class="error J-coupoErrorTip"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="m-item remain f-cb">
+                    <h2 class="title f-fl">剩余可购：</h2>
+                    <p class="info f-fl">
+                        新手专享限购2<i>万</i>，本产品当前最高可购买2<i>万</i>元
+                    </p>
+                </div>
+                <div class="m-item iptarea f-cb">
+                    <h2 class="title f-fl">购买金额：</h2>
+                    <div class="info f-fl">
+                        <input class="J-input" type="text" autocomplete="off" value="20000" placeholder="2000元起">
+                        <p>
+                            <i class="income J-incomeTip">预计总收益329.09元</i>
+                            <i class="error J-errorTip" style="display: none;"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="m-item agreement f-cb">
+                    <div class="info f-fl">
+                        <label for="agreementInput" class="checkbox-mn">
+                            <input type="checkbox" checked="checked" value="" id="agreementInput" class="J-checkbox">
+                        同意
+                        </label>
+                        <a href="https://www.lmlc.com/wap/product/contract.htm?type=%E3%80%8A%E5%AE%9A%E5%90%91%E5%A7%94%E6%89%98%E6%8A%95%E8%B5%84%E5%8D%8F%E8%AE%AE%E3%80%8B&amp;product_type=0&amp;product_id=201709071532PD47634784" target="_blank">&nbsp;&nbsp;《定向委托投资协议》&nbsp;</a><a href="https://www.lmlc.com/wap/product/contract.htm?type=%E3%80%8A%E5%AE%9A%E5%90%91%E5%A7%94%E6%89%98%E6%8A%95%E8%B5%84%E9%A3%8E%E9%99%A9%E6%8F%AD%E7%A4%BA%E3%80%8B&amp;product_type=0&amp;product_id=201709071532PD47634784" target="_blank">《定向委托投资风险揭示》</a><a class="J_bankProtocal f-hide" href="javascript:void(0);" target="_blank" style="display: inline;">《银行代扣授权书》</a>		</div>
+                </div>
+                <div class="m-item order f-cb">
+                    <h2 class="title f-fl"></h2>
+                    <div class="info f-fl">
+                        <button class="btn btn-primary J-order">确认支付</button>
+                    </div>
+                </div>
+            </div>
+            <h2 class="m-title g-ctn">
+                常见问题
+            </h2>
+            <ul class="m-help g-ctn">
+                <li>
+                    <h3 class="first">1. 忘记交易密码怎么办？</h3>
+                    <p>答：您可以点击<a class="J-find" href="javascript:;">忘记交易密码</a>，在新页面中通过银行卡信息身份认证后重新设置交易密码。</p>
+                </li>
+                <li>
+                    <h3>2. 如何修改交易密码？</h3>
+                    <p>答：您可以在“我的资产-账户设置”中点击“修改交易密码”进行修改。</p>
+                </li>
+                <li>
+                    <h3>3. 为什么'确认支付'按钮不可以点击？</h3>
+                    <p>答：请检查是否输入了6位数字交易密码或者是否超过了10分钟支付时限。</p>
+                </li>
+            </ul>
             <%= require('html-loader!../layout/product-bottom-layout.html')%>
         </div>
     </div>

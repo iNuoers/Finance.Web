@@ -70,11 +70,6 @@ const config = {
         filename: 'js/[name].[hash:8].min.js',
         chunkFilename: 'js/[id].chunk.js'
     },
-    externals: {
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery"
-    },
     module: {
         loaders: [{
             test: /\.css$/,
@@ -116,10 +111,7 @@ const config = {
 
         // 模块别名定义，方便后续直接引用别名，无须多写长长的地址
         alias: {
-            node_modules: __dirname + '/node_modules',
-            core: srcDir + '/js/lib/f.core',
-            data: srcDir + '/js/lib/f.data',
-            head: srcDir + '/js/lib/f.head'
+            node_modules: __dirname + '/node_modules'
         }
     },
     plugins: [
@@ -175,7 +167,7 @@ const config = {
 };
 
 if ('dev' === WEBPACK_ENV) {
-    //config.entry.common.push('webpack-dev-server/client?http://192.168.1.53:8010/');
+    config.entry.common.push('webpack-dev-server/client?http://192.168.1.53:8010/');
 }
 
 module.exports = config;

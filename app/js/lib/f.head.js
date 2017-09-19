@@ -6,6 +6,8 @@
 */
 'use strict';
 require('../plugins/base64/jquery.base64.js')
+require('../plugins/layer/skin/default/layer.css')
+require('../plugins/layer/layer.js')
 
 var _core = require('./f.core.js');
 var _api = require('./f.data.js');
@@ -15,7 +17,8 @@ var Core = {
     init: function () {
         this.initLink();
         this.initUserInfo();
-        this.loginTimeout()
+        this.loginTimeout();
+        this.initTips();
     },
     initUserInfo: function () {
         var _this = this, user = null;
@@ -35,6 +38,7 @@ var Core = {
                     avator: user.headPhoto,
                     isInvite: user.friendStatus,
                     isAuthen: user.realNameAuthen,
+                    hasPaypwd: user.existsTradePswd
                 };
 
                 _this.initNav();
@@ -72,7 +76,7 @@ var Core = {
             $userPhone.html('尊敬的用户');
 
             window.user.isLogin = false;
-            _core.storage.setItem($.base64.btoa('f.ui.cache'), '');
+            _core.storage.delItem($.base64.btoa('f.ui.cache'));
         }
     },
     loginTimeout: function () {
@@ -110,8 +114,8 @@ var Core = {
         glb_user_avator: ''
     },
     // 统一登录处理
-    doLogin: function () {
-        var _this = this, url = '';
+    doLogin: function (url) {
+        var _this = this;
 
         if (window.user.isLogin) {
             // 已经登录 点击直接进入页面
@@ -140,6 +144,22 @@ var Core = {
                     location.href = url;
             }
         });
+    },
+    initTips: function () {
+        var _this = this;
+        $('.f-tips').hover(function (e) {
+            var $target = $(this).closest('.f-tips');
+            layer.tips($target.data('tips'), $target, {
+                tips: [3, '#fff'],
+                time: 0,
+                skin: 'index-trip',
+                area: ['180px'],
+                success: function (layero, index) {
+                    var left = parseFloat(layero.css('left').replace(/px/g, '')) + 10;
+                    layero.css('left', left)
+                }
+            })
+        })
     }
 }
 

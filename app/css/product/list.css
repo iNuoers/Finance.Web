@@ -76,7 +76,7 @@
 .f-products li dd.name .dec{margin:0;line-height:1}
 .f-products li dd.rate{text-align:left}
 .f-products li dd.rate .tit{color:#ff884c;background-image:-webkit-gradient(linear,0 0,0 bottom,from(#ff8707),to(rgba(255,23,37,.9)));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:3px 6px 15px rgba(245,47,62,.4)}
-.f-products li dd.rate .tit span{font-size:24px}
+.f-products li dd.rate .tit span{font-size:35px}
 .f-products li dd.day .tit{color:#46525e}
 .f-products li dd.money .tit{font-size:18px}
 .f-products li dd.process .tit{color:#46525e;line-height:1}

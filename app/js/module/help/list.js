@@ -73,7 +73,7 @@ var page = {
             M: _api.method.helpCenterList,
             D: JSON.stringify(param)
         };
-        _core.request({
+        _core.ajax.request({
             url: _api.host,
             data: JSON.stringify(req),
             method: 'POST',
@@ -107,7 +107,7 @@ var page = {
             M: _api.method.helpCenterList
         };
 
-        _core.request({
+        _core.ajax.request({
             url: _api.host,
             data: JSON.stringify(req),
             method: 'POST',
@@ -143,7 +143,7 @@ var page = {
             M: _api.method.getHelpType
         };
 
-        _core.request({
+        _core.ajax.request({
             url: _api.host,
             data: JSON.stringify(req),
             method: 'POST',
