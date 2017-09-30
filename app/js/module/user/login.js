@@ -63,9 +63,9 @@ var page = {
 
                 var user = JSON.parse(res);
                 // 登录成功 保存状态 cookie
-                _core.cookie.set($.base64.btoa('F.token'), user.token, { path: '/' });
-                _core.cookie.set($.base64.btoa('F.phone'), user.member.phone, { path: '/' });
-                _core.cookie.set($.base64.btoa('F.avator'), user.member.headPhoto, { path: '/' });
+                _core.cookie.set($.base64.btoa('f.token'), user.token, { path: '/' });
+                _core.cookie.set($.base64.btoa('f.phone'), user.member.phone, { path: '/' });
+                _core.cookie.set($.base64.btoa('f.avator'), user.member.headPhoto, { path: '/' });
 
                 _core.storage.setItem($.base64.btoa('f.ui.cache'), res);
                 _core.storage.setItem($.base64.btoa('f.token'), user.token);

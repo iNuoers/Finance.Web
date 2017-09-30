@@ -6,6 +6,11 @@
     background-color: #fff;
     border-bottom: 1px solid #ededed;
 }
+.ci-title .ci-title-inner h2 {
+    float: left;
+    padding-right: 8px;
+    font-size: 18px
+}
 .ci-title .ci-title-inner {
     padding-left: 20px;
     position: relative;
@@ -14,6 +19,42 @@
     font-size: 18px
 }
 
+.icon-set-approve {
+    height: 18px;
+    width: 18px;
+    background: url(../../image/account_icon.png) -45px 0px no-repeat;
+    display: block;
+    overflow: hidden
+}
+.icon-set-phone {
+    height: 18px;
+    width: 18px;
+    background: url(../../image/account_icon.png) -68px 0px no-repeat;
+    display: block;
+    overflow: hidden
+}
+.icon-set-loginPsw {
+    height: 18px;
+    width: 18px;
+    background: url(../../image/account_icon.png) -114px 0 no-repeat;
+    display: block;
+    overflow: hidden
+}
+.icon-set-address {
+    height: 18px;
+    width: 18px;
+    background: url(../../image/account_icon.png) -92px 0 no-repeat;
+    display: block;
+    overflow: hidden
+}
+
+.icon-set-psw {
+    height: 18px;
+    width: 18px;
+    background: url(../../image/account_icon.png) -114px 0 no-repeat;
+    display: block;
+    overflow: hidden
+}
 .set-safe-info {
     padding-left: 30px;
     padding-right: 30px;

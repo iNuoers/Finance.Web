@@ -1,46 +1,55 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html lang="zh-CN">
 <head>
     <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
 	<%= require('html-loader!../layout/head-common.html')%>
 </head>
 <body>
     <%= require('html-loader!../layout/nav.html')%>
-    <%= require('html-loader!../layout/header.html')%>
+	<%= require('html-loader!../layout/header.html')%>
+	<div class="loading-mask f-hide"></div>
+	<div class="loading-box f-hide">
+		<div class="loading-tips"><img src=<%= require("../../image/ico_loading.png")%> alt="" /><span>加载中...</span></div>
+	</div>
     <div class="main-wrap">
         <div class="main-section my-main">
             <div class="my-main-frame">
-                <%= require('html-loader!../layout/my-left-layout.html')%>
-                <div class="my-friends my-main-c ml20 w950">
-                	<div class="my-friends-title f-cb">我的好友</p></div>
-                	<div class="my-friends-container">
-                		<div class="my-friends-nav">
-                			<ul>
-                				<li class="active">全部</li>
-                				<li>已邀请</li>
-                				<li>邀请成功</li>
-                			</ul>
-                		</div>
-                		<div class="clear"></div>
-                		<div class="my-friends-list">
-                			<div class="my-friends-list-title">
-                				<ul>
-                					<li>好友号码</li>
-                					<li class="textCenter">邀请时间</li>
-                					<li class="textRight">邀请状态</li>
-                				</ul>
-                			</div>
-                			<img id="loadImg" src="https://fangjinnet.com/static/images/loading.gif"/>
-                			<div class="my-friends-listAll" id="list1">
-                				
-                			</div>
-                			<div class="clear"></div>
-                			<div class="my-friends-bottom">
-                				<div id="msg">暂时还没有信息哦！</div>
-                				<div id="paginator"></div>
-                			</div>
-                		</div>
-                	</div>
+				<%= require('html-loader!../layout/my-left-layout.html')%>
+				<div class="my-main-c ml20 w950">
+					<div class="my-box-wrap f-cb bg-fff">
+						<div class="my-box-title">
+							<!--普通的title条 S-->
+							<div class="my-box-title-inner">
+								<h2>交易记录</h2><!--标题放这里-->
+								<b class="line"></b>
+							</div>
+							<!--普通的title条 E-->
+						</div>
+						<div class="friend-records mt30 mb50">
+							<div class="my-tab friend-tab mt20">
+								<ul class="tab-nav">
+									<li class="active">全部</li>
+									<li>邀请成功</li>
+									<li>已邀请</li>
+								</ul>
+							</div>
+							<div class="resultBox my-tab-box pb20">
+								<div class="f-hide" style="display: block;">
+									<div class="friend-items">
+										<ul class="items title">
+											<li class="col_1">好友号码</li>
+											<li class="col_2">邀请时间</li>
+											<li class="col_3">状态</li>
+										</ul>
+									</div>
+									<div id="friendsTable">
+										<div class="friend-items"></div>
+										<div class="page pagination mt15"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
                 </div>
             </div>
         </div>

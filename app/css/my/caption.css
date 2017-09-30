@@ -1,0 +1,6 @@
+.stats-items{position:relative;overflow:hidden;padding:18px 0 19px}
+.stats-items dl:first-child{padding-left:0}
+.stats-items .stats-item{float:left;padding:0 20px;width:29.5%;border-left:1px solid #fff;color:#999}
+.stats-items .stats-item dt{padding-bottom:8px}
+.stats-items .stats-item b{font-weight:normal;font-size:14px}
+.stats-items .stats-item strong{line-height:1.2;color:#0086e5;font-size:24px;font-weight:normal}

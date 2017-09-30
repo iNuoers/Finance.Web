@@ -1,5 +1,5 @@
 'use strict';
-require('../../../css/product/detail.css');
+require('../../../css/product/detail.css')
 require('../../plugins/pagination/pagination.css')
 require('../../plugins/layer/skin/default/layer.css')
 require('../../plugins/layer/layer.js')

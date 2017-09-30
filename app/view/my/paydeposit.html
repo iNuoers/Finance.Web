@@ -19,21 +19,21 @@
                         </div>
                         <div class="stats-items">
                             <dl class="stats-item">
-                                <dt><b>账户余额(元)：</b></dt>
+                                <dt><b>账户余额：</b></dt>
                                 <dd>
-                                    <strong>￥0</strong>
+                                    <strong id="balance">￥0</strong>
                                 </dd>
                             </dl>
                             <dl class="stats-item">
-                                <dt><b>本月充值(元)：</b></dt>
+                                <dt><b>本月充值：</b></dt>
                                 <dd>
-                                    <strong>￥0</strong>
+                                    <strong id="recharge">￥0</strong>
                                 </dd>
                             </dl>
                             <dl class="stats-item">
-                                <dt><b>本月提现(元)：</b></dt>
+                                <dt><b>本月提现：</b></dt>
                                 <dd>
-                                    <strong>￥0</strong>
+                                    <strong id="cash">￥0</strong>
                                 </dd>
                             </dl>
                             <div class="clear"></div>
@@ -49,68 +49,74 @@
                         </div>
                     </div>
                     
-                    <div class="my-box-wrap f-cb bg-fff">
-                        <!-- 搜索时间模块 S -->
-                        <div class="record-search-date mt20">
-                            <div class="rsd-time-title f-fl">起止日期：</div>
-                            <div class="rsd-time-cont f-fl">
-                                <div class="quick-input-date f-fl">
-                                    <input type="text" id="start_time" class="date-search-input" value="" onfocus="startTimeChange()" readonly="">
-                                    <span class="separator-pd">-</span>
-                                    <input type="text" id="end_time" class="date-search-input" value="" onfocus="endTimeChange()" readonly="">
-                                    <!-- 报错提示，默认隐藏 S-->
-                                    <p id="time_error_tip" class="tiptext mt10" style="display: none;">
-                                        <i class="icon icon-warn-s"></i>
-                                        <span>开始日期不能晚于结束日期，请重新选择。</span>
-                                    </p>
-                                    <!-- 报错提示，默认隐藏 E-->
+                    <div class="my-box-wrap mt20 f-cb bg-fff">
+                        <div class="my-box-title f-cb">
+                            <span>交易记录</span>
+                        </div>
+
+                        <!-- 投资记录模块 S -->
+                        <div class="searchBox">
+                            <!-- 搜索时间模块 S -->
+                            <div class="record-search-date">
+                                <div class="search-type-title f-fl">起止日期</div>
+                                <div class="search-type-cont f-fl">
+                                    <div class="quick-input-date f-fl">
+                                        <input type="text" id="start_time" class="date-search-input" value="" readonly="">
+                                        <span class="separator-pd">-</span>
+                                        <input type="text" id="end_time" class="date-search-input" value="" readonly="">
+                                        <!-- 报错提示，默认隐藏 S-->
+                                        <p id="time_error_tip" class="tiptext mt10 f-hide">
+                                            <i class="icon fa fa-exclamation-circle"></i>
+                                            <span>开始日期不能晚于结束日期，请重新选择。</span>
+                                        </p>
+                                        <!-- 报错提示，默认隐藏 E-->
+                                    </div>
+                                    <div class="quick-link-date f-fl">
+                                        <div class="list-dots" id="period_type">
+                                            <span><a href="javascript:;" data-id="ALL">全部</a></span>
+                                            <span><a href="javascript:;" data-id="1">今天</a></span>
+                                            <span class="current"><a href="javascript:;" data-id="30">最近1个月</a></span>
+                                            <span><a href="javascript:;" data-id="90">3个月</a></span>
+                                            <span><a href="javascript:;" data-id="365">一年</a></span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="quick-link-date f-fl">
-                                    <div class="list-dots" id="period_type">
-                                        <span><a href="javascript:void(0);" data-id="ALL">全部</a></span>
-                                        <span><a href="javascript:void(0);" data-id="1">今天</a></span>
-                                        <span class="current"><a href="javascript:void(0);" data-id="30">最近1个月</a></span>
-                                        <span><a href="javascript:void(0);" data-id="90">3个月</a></span>
-                                        <span><a href="javascript:void(0);" data-id="365">一年</a></span>
+                                <div class="f-cb"></div>
+                            </div>
+                            <!-- 搜索时间模块 E -->
+            
+                            <!-- 搜索筛选模块 S -->
+                            <div class="record-search-cate mb10">
+                                <div class="search-type-title f-fl">交易类型</div>
+                                <div class="quick-link-type f-fl">
+                                    <div class="list-dots" id="flow_type">
+                                        <span class="current"><a href="javascript:void(0);" data-id="">全部</a></span>
+                                        <span><a href="javascript:void(0);" data-id="R">充值</a></span>
+                                        <span><a href="javascript:void(0);" data-id="W">提现</a></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="clear"></div>
+                            <!-- 搜索筛选模块 E -->
                         </div>
-                        <!-- 搜索时间模块 E -->
-                        <style>
-                            .tab{width:300px}
-                            .tab .tab-nav{height:300px}
-                            .tab .tab-nav li{float:left;margin-right:5px;background-color:#767676;border-radius:3px 3px 0 0}
-                            .tab .tab-nav li a{display:block;height:30px;padding:0 20px;color:#fff;line-height:30px;text-decoration:none}
-                            .tab .tab-nav li.active{background-color:#fff}
-                            .tab .tab-nav li.active a{color:#777}
-
-                            .tab .content-wrap{background-color:#fff;padding:5px;height:200px}
-                            .tab .content-wrap .content-item{position:absolute;height:200px;display:none}
-                            .tab .content-wrap .current{display:block}
-
-                        </style>
-                        <div class="js-tab tab" data-cfg='{
-                            "triggerType": "click",
-                            "effect": "fade",
-                            "invoke": 1,
-                            "auto": 3000
-                        }'>
-                            <ul class="tab-nav">
-                                <li class="active"><a href='javascipt:;'>新闻</a></li>
-                                <li><a href='javascipt:;'>娱乐</a></li>
-                                <li><a href='javascipt:;'>电影</a></li>
-                                <li><a href='javascipt:;'>科技</a></li>
-                            </ul>
-                            <div class="content-wrap">
-                                <div class="content-item current"><img src=<%=require('../../image/qrcode.jpg')%>></div>
-                                <div class="content-item"></div>
-                                <div class="content-item"></div>
-                                <div class="content-item"></div>
+        
+                        <div class="resultBox" id="contentList">
+                            <div class="listContainer">
+                                <table style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th width="50">序号</th>
+                                            <th width="150">交易类型</th>
+                                            <th width="134" style="font-family:Microsoft YaHei">交易金额(¥)</th>
+                                            <th width="120">交易时间</th>
+                                            <th width="90">处理状态</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="listContainer-tbody"></tbody>
+                                </table>
                             </div>
+                            <div class="page pagination mt15 pb15"></div>
                         </div>
-
+                        <!-- 投资记录模块 E -->
                     </div>
                     <!-- 可用余额等信息 E -->
                 </div>

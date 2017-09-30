@@ -1,0 +1,14 @@
+.record-search-cate{border: 1px solid #eaeaea}
+
+.coupon-records{width:100%;min-height:500px}
+.coupon-items {font-size: 12px;background: #fff;*zoom:1}
+.redeem-items:after{ visibility: hidden; display: block; font-size: 0; content: "."; clear: both; height: 0; overflow: hidden }
+.coupon-items .items{ height:57px; line-height:57px; overflow:hidden; position:relative; z-index:2;padding:0 10px; border-bottom:1px solid #e9edef}
+.coupon-items li{ float:left; display:inline; height:57px; width:16%; overflow:hidden; position:relative}
+.coupon-items li.col_1{width:10%;text-align:left; text-indent:20px}
+.coupon-items li.col_2{ width:20%; text-align:right}
+.coupon-items li.col_3{width:20%;text-align:right}
+.coupon-items li.col_4{width:25%;text-align:right}
+.coupon-items li.col_5{width:20%;text-align:right}
+.coupon-items .title{ font-size:13px; overflow:visible; z-index:5}
+.coupon-items .title li{ padding:0; overflow:visible}

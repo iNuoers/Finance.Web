@@ -1,21 +1,116 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html lang="zh-CN">
 
 <head>
-    <title>
-        <%= htmlWebpackPlugin.options.title%> - 房金网</title>
+    <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
     <%= require('html-loader!../layout/head-common.html')%>
 </head>
 
 <body>
     <%= require('html-loader!../layout/nav.html')%>
-        <%= require('html-loader!../layout/header.html')%>
-            <div class="main-wrap">
-                <div class="main-section">
-                    
+    <%= require('html-loader!../layout/header.html')%>
+    <div class="main-wrap">
+        <div class="main-section my-main">
+            <div class="my-main-frame">
+                <%= require('html-loader!../layout/my-left-layout.html')%>
+                <div class="my-main-c ml20 w950">
+                    <div class="my-box-wrap">
+                        <!-- 可用余额等信息 S -->
+                        <div class="stats-items">
+                            <dl class="stats-item si-1 frist-item">
+                                <dt><b>累计充值：</b></dt>
+                                <dd>
+                                    <strong id="recharge">￥0</strong>
+                                </dd>
+                            </dl>
+                            <dl class="stats-item si-2">
+                                <dt><b>累计提现：</b></dt>
+                                <dd>
+                                    <strong id="withdrawal">￥0</strong>
+                                </dd>
+                            </dl>
+                            <dl class="stats-item si-3 last-item">
+                                <dt><b>累计收益：</b></dt>
+                                <dd>
+                                    <strong id="income">￥0</strong>
+                                </dd>
+                            </dl>
+                            <div class="clear"></div>
+                        </div>
+                        <!-- 可用余额等信息 E -->
+                    </div>
+
+                    <!-- 投资记录模块 S -->
+                    <div class="my-box-wrap mt20 f-cb bg-fff">
+                        <div class="my-box-title f-cb">
+                            <span>交易记录</span>
+                        </div>
+        
+                        <!-- 投资记录模块 S -->
+                        <div class="searchBox">
+                            <!-- 搜索时间模块 S -->
+                            <div class="record-search-date">
+                                <div class="search-type-title f-fl">起止日期</div>
+                                <div class="search-type-cont f-fl">
+                                    <div class="quick-input-date f-fl">
+                                        <input type="text" id="start_time" class="date-search-input" value="" readonly="">
+                                        <span class="separator-pd">-</span>
+                                        <input type="text" id="end_time" class="date-search-input" value="" readonly="">
+                                        <!-- 报错提示，默认隐藏 S-->
+                                        <p id="time_error_tip" class="tiptext mt10 f-hide">
+                                            <i class="icon fa fa-exclamation-circle"></i>
+                                            <span>开始日期不能晚于结束日期，请重新选择。</span>
+                                        </p>
+                                        <!-- 报错提示，默认隐藏 E-->
+                                    </div>
+                                    <div class="quick-link-date f-fl">
+                                        <div class="list-dots" id="period_type">
+                                            <span><a href="javascript:;" data-id="ALL">全部</a></span>
+                                            <span><a href="javascript:;" data-id="1">今天</a></span>
+                                            <span class="current"><a href="javascript:;" data-id="30">最近1个月</a></span>
+                                            <span><a href="javascript:;" data-id="90">3个月</a></span>
+                                            <span><a href="javascript:;" data-id="365">一年</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="f-cb"></div>
+                            </div>
+                            <!-- 搜索时间模块 E -->
+            
+                            <!-- 搜索筛选模块 S -->
+                            <div class="record-search-cate mb10">
+                                <div class="search-type-title f-fl">交易类型</div>
+                                <div class="quick-link-type f-fl">
+                                    <div class="list-dots" id="flow_type"></div>
+                                </div>
+                            </div>
+                            <!-- 搜索筛选模块 E -->
+                        </div>
+        
+                        <div class="resultBox" id="contentList">
+                            <div class="listContainer">
+                                <table style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th width="150">交易类型</th>
+                                            <th width="134" style="font-family:Microsoft YaHei">交易金额(¥)</th>
+                                            <th width="120">交易时间</th>
+                                            <th width="90">处理状态</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="listContainer-tbody"></tbody>
+                                </table>
+                            </div>
+                            <div class="page pagination mt15 pb15"></div>
+                        </div>
+                        <!-- 投资记录模块 E -->
+                    </div>
+                    <!-- 投资记录模块 E -->
                 </div>
             </div>
-            <%= require('html-loader!../layout/footer.html')%>
+        </div>
+    </div>
+    <%= require('html-loader!../layout/footer.html')%>
 </body>
 
 </html>

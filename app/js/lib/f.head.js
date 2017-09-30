@@ -23,7 +23,7 @@ var Core = {
     initUserInfo: function () {
         var _this = this, user = null;
 
-        if (_core.cookie.get($.base64.btoa('F.token'))) {
+        if (_core.cookie.get($.base64.btoa('f.token'))) {
             _user.getUserInfo(JSON.stringify({
                 M: _api.method.getMemberInfo,
             }), function (json) {

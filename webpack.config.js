@@ -111,7 +111,9 @@ const config = {
 
         // 模块别名定义，方便后续直接引用别名，无须多写长长的地址
         alias: {
-            node_modules: __dirname + '/node_modules'
+            node_modules: __dirname + '/node_modules',
+            css_path: __dirname + '/app/css',
+            js_path: __dirname + '/app/js'
         }
     },
     plugins: [

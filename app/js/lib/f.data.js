@@ -9,7 +9,7 @@
 var debug = false;
 
 var api = {
-    host: debug ? 'http://192.168.1.10:8001/api' : 'https://api.fangjinnet.com:1000/api',
+    host: debug ? 'http://192.168.1.5:8081/api' : 'https://api.fangjinnet.com:1000/api',
     method: {
         // 产品列表
         productList: "ProductList",
@@ -28,14 +28,35 @@ var api = {
         helpCenterList: "HelpCenterListForPC",
 
         // 我的好友
-        getFriendList: "GetFriendList",
+        friendList: "GetFriendList",
 
         // 活动列表
         activeList: "NewActivityList",
 
         login: "Login",
         // 用户信息
-        getMemberInfo:"GetMemberInfo"
+        getMemberInfo:"GetMemberInfo",
+
+        // 充值提现数据
+        reAndWaBill:"ReAndWaBill",
+
+        // 账单数据
+        totalBillData:"GetTotalBillData",
+
+        // 获取账单类型
+        billTypeList:"GetBillTypeList",
+
+        // 用户资金流水
+        billDataList:"GetPcBillDataList",
+
+        // 可用卡券列表
+        ableCouponList: "GetAbleCouponList",
+        // 不可用卡券列表
+        unAbleCouponList: "GetUnableCouponList",
+        // 已使用卡券
+        usedCouponList: "GetUsedCouponList",
+        // 已过期卡券
+        overdueCouponList: "GetOverdueCouponList"
 
     }
 }

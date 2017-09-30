@@ -3,8 +3,9 @@
 .my-main-frame:before{content:'';display:table;clear:both}
 .my-main-frame:after{content:'';display:table;clear:both}
 .my-main-l{display:inline-block;height:auto}
-.my-main-c{display:inline-block;vertical-align:top;}
-.my-nav-list{width:200px;border:1px solid #f2f5f7;background:#fff;font-size:14px;color:#1b2b46;-moz-box-shadow:3px 3px 6px #f2f5f7;-webkit-box-shadow:3px 3px 6px #f2f5f7;box-shadow:3px 3px 6px #f2f5f7}
+.my-main-c{display:inline-block;vertical-align:top}
+
+.my-nav-list{width:200px;background:#fff;font-size:14px;color:#1b2b46}
 .my-nav-list .nav-list-item{float:left;width:100%}
 .my-nav-list .nav-list-title{overflow:hidden;padding-top:20px;margin-left:37px;font-size:14px;opacity:.5;color:#1b2b46;border-top:1px solid #f3f4f6}
 .my-nav-list .nav-list-title i{width:12px;height:12px;margin:0 10px;float:left}
@@ -16,3 +17,44 @@
 
 .my-box-wrap{padding:0 20px;background:#fff}
 .my-box-title{color:#1b2b46;font-size:16px;line-height:55px;overflow:hidden;border-bottom:1px solid #f2f5f7}
+.my-box-title{background-color:#fff;border-bottom:1px solid #ededed}
+.my-box-title .my-box-title-inner h2{float:left;padding-right:8px;font-size:18px}
+.my-box-title .my-box-title-inner{padding-left:20px;position:relative;height:52px;line-height:52px;font-size:18px}
+
+.my-tab{position:relative;height:50px;z-index:5}
+.my-tab .tab-nav{height:50px;position:absolute;bottom:-1px;left:0}
+.my-tab .tab-nav li{float:left;display:inline;margin-right:15px;padding:13px 28px 0;height:35px;border:1px solid #e7ecee;border-bottom:0;border-radius:5px 5px 0 0;background:#e7ecee;font-size:16px;cursor:pointer}
+.my-tab .tab-nav li.active{height:36px;border:1px solid #e7ecee;border-bottom:0;background:#fff;color:#007ddb}
+.my-tab-box{position:relative;overflow:hidden;margin-bottom:20px;border:1px solid #e7ecee;zoom:1}
+.not-infos{height:300px;text-align:center;padding-top:50px;color:#d56363;font-size:14px}
+
+.record-search-date{padding:15px 0;border-bottom:1px solid #eaeaea;overflow:hidden}
+.search-type-title{height:30px;line-height:30px;text-align:right;vertical-align:top;color:#555;font-size:14px}
+.record-search-date .search-type-cont{padding-left:10px}
+.record-search-date .quick-input-date{width:310px}
+.record-search-date .quick-input-date2{width:287px}
+.record-search-date .quick-input-date .date-search-input,.record-search-date .quick-input-date2 .date-search-input{padding:0 8px;width:110px;height:30px;line-height:30px;background-color:#fff;border:1px solid #ededed;color:#555;font-size:18px;text-align:center;display:inline-block;vertical-align:middle;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px}
+.record-search-date .quick-input-date .date-search-input::-moz-placeholder,.record-search-date .quick-input-date2 .date-search-input::-moz-placeholder{color:#555;opacity:1}
+.record-search-date .quick-input-date .date-search-input:-ms-input-placeholder,.record-search-date .quick-input-date .date-search-input:-webkit-input-placeholder,.record-search-date .quick-input-date2 .date-search-input:-ms-input-placeholder,.record-search-date .quick-input-date2 .date-search-input:-webkit-input-placeholder{color:#555}
+.record-search-date .quick-input-date .date-search-input:focus,.record-search-date .quick-input-date2 .date-search-input:focus{border-color:#1088f1}
+.record-search-date .quick-input-date .separator-pd,.record-search-date .quick-input-date2 .separator-pd{padding:0 5px}
+.record-search-date .quick-link-date .list-dots span{margin-top:7px;margin-bottom:0;margin-right:10px}
+.record-search-date .quick-link-date .list-dots span a{padding:3px 10px}
+.record-search-date .tiptext .icon,.record-search-date .tiptext span{vertical-align:middle}
+.record-search-date .tiptext .icon{margin:-2px 3px 0 0;color:#ff5150}
+.record-search-date .tiptext span{color:#ff5150;font-size:13px}
+.record-search-cate{padding:15px 0;border-bottom:1px solid #eaeaea;overflow:hidden}
+.record-search-cate .list-dots span{margin-top:5px;margin-bottom:0;margin-right:10px}
+.record-search-cate .list-dots .current span a:hover,.record-search-cate .list-dots span .current a:hover,.record-search-cate .list-dots span a{padding:3px 10px}
+.list-dots{font-size:0}
+.list-dots span{margin:0 6px 14px 0;font-size:13px;display:inline-block}
+.list-dots .current span a:hover,.list-dots span .current a:hover,.list-dots span a{padding:2px 4px;color:#555;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;overflow:hidden}
+.list-dots .current span a:hover,.list-dots span .current a:hover,.list-dots span a:hover{color:#fff;background-color:#1088f1}
+.list-dots span.all{margin-left:0}
+.list-dots .current a,.list-dots .current a:hover{background-color:#1088f1;color:#fff;cursor:default}
+.quick-link-type{padding-left:10px}
+.listContainer{padding:10px 0;font-size:13px}
+.listContainer td{text-align:center}
+.listContainer th{height:40px;line-height:40px;color:#666;background:#f5f5f5;padding-left:18px}
+.listContainer tbody tr:hover{background-color:#f5f5f5}
+.listContainer tbody td{text-align:left;height:50px;line-height:50px;color:#666;padding-left:18px;border-bottom:1px solid #e8ecef;vertical-align:middle}

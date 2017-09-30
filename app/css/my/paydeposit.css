@@ -1,6 +1,6 @@
 .stats-items{position:relative;overflow:hidden;padding:18px 0 19px}
 .stats-items dl:first-child{padding-left:0}
-.stats-items .stats-item{float:left;padding:0 20px;width:20%;border-left:1px solid #fff;color:#999}
+.stats-items .stats-item{float:left;padding:0 20px;width:18%;border-left:1px solid #fff;color:#999}
 .stats-items .stats-item dt{padding-bottom:8px}
 .stats-items .stats-item b{font-weight:normal;font-size:14px}
 .stats-items .stats-item strong{line-height:1.2;color:#0086e5;font-size:24px;font-weight:normal}
@@ -11,59 +11,3 @@
 
 .stu-btnarea .btn{margin-right:19px;width:117px;height:36px;line-height:36px;color:#fff;font-size:14px}
 .stu-btnarea .btn-line{margin-right:0;width:115px;border-color:#ed702c;color:#ed702c}
-
-.rsd-time-title{height:30px;line-height:30px;text-align:right;vertical-align:top;color:#555;}
-.record-search-date{padding:15px 0;border-top:1px solid #eaeaea;overflow:hidden}
-.record-search-date .rsd-time-cont {*zoom:1}
-.record-search-date .quick-input-date {width: 310px}
-.record-search-date .quick-input-date2 {width: 287px}
-.record-search-date .quick-input-date .date-search-input,.record-search-date .quick-input-date2 .date-search-input {
-    padding: 0 8px;
-    width: 110px;
-    height: 30px;
-    line-height: 30px;
-    background-color: #fff;
-    border: 1px solid #ededed;
-    color: #555;
-    font-size: 18px;
-    text-align: center;
-    display: inline-block;
-    vertical-align: middle;
-    *vertical-align: auto;
-    *zoom:1;*display: inline;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px
-}
-.list-dots {
-    font-size: 0
-}
-
-.list-dots span {
-    margin: 0 6px 14px 0;
-    font-size: 13px;
-    display: inline-block
-}
-
-.list-dots span a,.list-dots span .current a:hover,.list-dots .current span a:hover {
-    padding: 2px 4px;
-    color: #555;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    overflow: hidden
-}
-
-.list-dots span a:hover,.list-dots span .current a:hover,.list-dots .current span a:hover {
-    background-color: #e5e5e5
-}
-
-.list-dots span.all {
-    margin-left: 0
-}
-
-.list-dots .current a,.list-dots .current a:hover {
-    background-color: #1088f1;
-    color: #fff;
-    cursor: default
-}

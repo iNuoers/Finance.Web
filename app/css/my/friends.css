@@ -1,26 +1,11 @@
-/* my-friends */
-.clear{clear: both;}
-.textCenter{text-align: center;}
-.textRight{text-align: right;}
-.ItemRight{text-align: right;color: #0086e5;}
-
-.my-friends{width: 910px;min-height: 755px;background-color: #FFFFFF;float: right; }
-.my-friends .my-friends-title{width: 870px;height: 60px;border-bottom: solid 1px #e6e6e6;margin:0 auto;color: #333333;font-size: 16px;text-indent: 30px;line-height: 60px;}
-/* my-friends-container */
-.my-friends .my-friends-container{width: 870px;height: 100%;margin:0 auto;margin-top: 20px;margin-bottom: 100px;}
-.my-friends .my-friends-container .my-friends-nav{height: 60px;border-bottom: 1px solid #e6e6e6;}
-.my-friends .my-friends-container .my-friends-nav .active{background-color: #FFF;color: #0086e5;border-bottom:solid 1px #FFF;z-index: 1000;cursor:default;}
-.my-friends .my-friends-container .my-friends-nav ul li{width: 124px;height: 59px;background-color: #e6e6e6;cursor: pointer; border: solid 1px #e6e6e6;border-radius: 5px 5px 0 0;float: left;margin-right: 30px;color: #333333;font-size: 16px;text-align: center;line-height: 60px;}
-
-.my-friends .my-friends-container .my-friends-list{width:870px;height: 100%;border: solid 1px #e6e6e6;border-radius:0 3px 3px 3px;border-top:none; }
-.my-friends .my-friends-container .my-friends-list .my-friends-list-title{width: 870px;height: 60px;border-bottom:solid 1px #e6e6e6;}
-.my-friends .my-friends-container .my-friends-list .my-friends-list-title ul li{width: 260px;height:60px;float: left;color: #999999;line-height: 60px;padding:14px;}
-.my-friends .my-friends-container .my-friends-list .my-friends-listAll{width: 840px;margin:0 auto;}
-.my-friends .my-friends-container .my-friends-list .my-friends-listAll .my-friends-Item{ width: 840px;height: 60px; border-bottom:solid 1px #e6e6e6;}
-.my-friends .my-friends-container .my-friends-list .my-friends-listAll .my-friends-Item ul li{float: left;width: 277px;height: 60px;}
-
-.my-friends .my-friends-container .my-friends-list #loadImg{position: absolute;left: 54%;top: 300px;}
-/* .my-friends-bottom */
-.my-friends .my-friends-container .my-friends-list .my-friends-bottom{height: 80px;text-align: center;font-size: 16px;color: #666;}
-.my-friends .my-friends-container .my-friends-list .my-friends-bottom #paginator{width:500px;height:40px;padding-top: 15px;margin-left: 35%; text-align: center;}
-.my-friends .my-friends-container .my-friends-list .my-friends-bottom ul li{margin-right: 2px;}
+.friend-records{width:100%;min-height:500px}
+.friend-items {font-size: 12px;background: #fff;*zoom:1}
+.redeem-items:after{ visibility: hidden; display: block; font-size: 0; content: "."; clear: both; height: 0; overflow: hidden }
+.friend-items .items{ height:57px; line-height:57px; overflow:hidden; position:relative; z-index:2;padding:0 10px; border-bottom:1px solid #e9edef}
+.friend-items li{ float:left; display:inline; height:57px; width:16%; overflow:hidden; position:relative}
+.friend-items li.col_1{width:30%;text-align:left; text-indent:20px}
+.friend-items li.col_2{ width:20%; text-align:right}
+.friend-items li.col_3{width:40%;text-align:right;color:#007ddb}
+.friend-items .title{ font-size:13px; overflow:visible; z-index:5}
+.friend-items .title li{ padding:0; overflow:visible}
+.friend-items .title li.col_3{ color:#475058}

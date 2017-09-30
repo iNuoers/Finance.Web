@@ -171,9 +171,11 @@ var F = {
                         F.storage.delItem($.base64.btoa('f.token'));
                         F.storage.delItem($.base64.btoa('f.ui.cache'));
 
-                        F.cookie.remove($.base64.btoa('F.token'));
-                        F.cookie.remove($.base64.btoa('F.phone'));
-                        F.cookie.remove($.base64.btoa('F.avator'));
+                        F.cookie.remove($.base64.btoa('f.token'));
+                        F.cookie.remove($.base64.btoa('f.phone'));
+                        F.cookie.remove($.base64.btoa('f.avator'));
+
+                        typeof param.success === 'function' && param.success(res.d, res.es);
                     }
                     // 请求数据错误
                     else if (1 === res.s) {
@@ -218,7 +220,7 @@ var F = {
                         var data = JSON.parse(opt.data);
                         data.P = 3;
                         data.IE = false;
-                        data.T = F.cookie.get($.base64.btoa('F.token'));
+                        data.T = F.cookie.get($.base64.btoa('f.token'));
                         opt.data = JSON.stringify(data);
                     }
                 }
@@ -251,6 +253,25 @@ var F = {
             var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
             var result = window.location.search.substr(1).match(reg);
             return result ? decodeURIComponent(result[2]) : null;
+        },
+        // 格式化时间戳
+        formatTime: function (time, fmt) {
+            var timeObj = new Date(time);
+            var o = {
+                "M+": timeObj.getMonth() + 1,                 //月份
+                "d+": timeObj.getDate(),                    //日
+                "h+": timeObj.getHours(),                   //小时
+                "m+": timeObj.getMinutes(),                 //分
+                "s+": timeObj.getSeconds(),                 //秒
+                "q+": Math.floor((timeObj.getMonth() + 3) / 3), //季度
+                "S": timeObj.getMilliseconds()             //毫秒
+            };
+            if (/(y+)/.test(fmt))
+                fmt = fmt.replace(RegExp.$1, (timeObj.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt))
+                    fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
         }
     },
     String: {
