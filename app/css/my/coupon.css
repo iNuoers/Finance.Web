@@ -1,5 +1,3 @@
-.record-search-cate{border: 1px solid #eaeaea}
-
 .coupon-records{width:100%;min-height:500px}
 .coupon-items {font-size: 12px;background: #fff;*zoom:1}
 .redeem-items:after{ visibility: hidden; display: block; font-size: 0; content: "."; clear: both; height: 0; overflow: hidden }

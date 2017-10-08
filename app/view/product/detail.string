@@ -19,7 +19,6 @@
         btnText = '已售罄';
     }
 
-
 %>
 <div class="p-title">
     <div class="p-title-inner">
@@ -81,7 +80,7 @@
                     <%if(!window.user.isLogin){%>
                         <div class="msg-weak msg-inline">
                             <i class="fa fa-warning"></i>
-                            <div class="msg-cnt">您还未登录&nbsp;&nbsp;<a href="javascript:;" data-href="./user-login.html" data-needlogin="true" class="link" title="立即登录">立即登录</a></div>
+                            <div class="msg-cnt">您还未登录&nbsp;&nbsp;<a href="javascript:login();" class="link" title="立即登录">立即登录</a></div>
                         </div>
                     <%}%>
                     <div id="expectedProfit" style="display: none"></div>
@@ -173,7 +172,7 @@
                 <li class="item p1">
                     <div class="name">
                         <b>预期年化收益率</b>
-                        <i class="fa fa-question-circle-o f-tips" data-tips="<div class='f-color-gray-text'>短信已成功发送</div>" id="expectedRate" title=""></i></div>
+                        <i class="fa fa-question-circle-o tool-tips" data-tips="以年为单位计算的收益率,预期年化利率不代表实际利息收益" id="expectedRate" title=""></i></div>
                     <div class="info">
                         <strong><%= IncomeRate.toFixed(2) %><span>%</span></strong>
                     </div>
@@ -184,7 +183,7 @@
                     <div class="info">
                         <strong>
                             <%if(InvestmentTime <= 0){%>
-                                <%= TimeLimit %>
+                                <span><%= TimeLimit %></span>
                             <%}else{%>
                                 <%= InvestmentTime %><span>天</span>
                             <%}%>
@@ -192,11 +191,9 @@
                     </div>
                 </li>
                 <li class="item p3">
-                    <div class="name"><b>收益方式</b>
-                        <i class="fa fa-question-circle-o"></i>
-                    </div>
-                    <div class="info"><strong><%= IncomeDescript %></strong></div>
-                    <div class="line"></div>
+                    <div class="name"><b>起投金额</b></div>
+                    <input type="hidden" id="startBuyPrice" value="<%= StartBuyPrice %>">
+                    <div class="info"><strong><%= StartBuyPrice %><span>元</span></strong></div>
                 </li>
                 <li class="item p4">
                     <div class="name"><b>已成功投资</b></div>
@@ -204,9 +201,9 @@
                     <div class="line"></div>
                 </li>
                 <li class="item p5">
-                    <div class="name"><b>起投金额</b></div>
-                    <input type="hidden" id="startBuyPrice" value="<%= StartBuyPrice %>">
-                    <div class="info"><span><%= StartBuyPrice %>元</span></div>
+                    <div class="name"><b>收益方式</b></div>
+                    <div class="info"><%= IncomeDescript %></div>
+                    <div class="line"></div>
                 </li>
                 <li class="item p6">
                     <div class="name"><b>起息时间</b></div>

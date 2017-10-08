@@ -1,10 +1,14 @@
 /*
-* @Author: asus
-* @Date:   2017-07-21 16:35:42
-* @Last Modified by:   asus
-* @Last Modified time: 2017-07-21 16:43:17
-*/
+ * @Author: mr.ben (肖工)  
+ * @QQ：66623978 
+ * @Github：https://github.com/iNuoers/ 
+ * @Create time: 2017-07-21 16:35:42
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-10-04 11:25:41
+ */
 'use strict';
+
+// 参考永利宝 js
 
 var F = {
 

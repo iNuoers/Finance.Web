@@ -1,9 +1,12 @@
 /*
-* @Author: mr.ben(66623978) https://github.com/iNuoers/
-* @Date:   2017-09-28 13:05:42
-* @Last Modified by:   mr.ben
-* @Last Modified time: 2017-09-28 13:05:42
-*/
+ * @Author: mr.ben (肖工)  
+ * @QQ：66623978 
+ * @Github：https://github.com/iNuoers/ 
+ * @Create time: 2017-09-28 13:05:42
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-10-02 21:27:47
+ */
+
 'use strict';
 
 require('css_path/my/friends.css')
@@ -43,6 +46,7 @@ var page = {
 	},
 	method: {
 		tabCallback: function (ele, idx) {
+			page.query.page = 1;
 			page.query.type = idx;
 			page.method.getList()
 		},

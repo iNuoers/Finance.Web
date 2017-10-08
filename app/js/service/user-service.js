@@ -39,7 +39,7 @@ var _user = {
     },
     // 检查登录状态
     checkLogin : function(){
-        if (!_core.cookie.get('F.token')) {
+        if (!_core.cookie.get('f.token')) {
            //_core.goHome();
         }
     },
@@ -93,9 +93,9 @@ var _user = {
             error   : reject
         });
         
-        _core.cookie.remove('F.token');
-        _core.cookie.remove('F.phone');
-        _core.cookie.remove('F.avator');
+        _core.cookie.remove('f.token');
+        _core.cookie.remove('f.phone');
+        _core.cookie.remove('f.avator');
 
     }
 };

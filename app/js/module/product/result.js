@@ -1,6 +1,15 @@
-'use strict';
-require('../../../css/product/result.css');
+require('../../../css/product/detail.css')
+require('../../plugins/pagination/pagination.css')
+require('../../plugins/layer/skin/default/layer.css')
+require('../../plugins/layer/layer.js')
 
-$(function(){
-    
-});
+var _api = require('../../lib/f.data.js')
+var _head = require('../../lib/f.head.js')
+var _core = require('../../lib/f.core.js')
+var _time = require('../../lib/f.time.js')
+var _tips = require('../../lib/f.tips.js')
+var _coupon = require('../../lib/f.coupon.js')
+var _user = require('../../service/user-service.js')
+var _product = require('../../service/product-service.js')
+var _template = require('../../plugins/template/template.js')
+var _pagination = require('../../plugins/pagination/jquery.pagination.js')

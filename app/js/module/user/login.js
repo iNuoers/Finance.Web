@@ -1,10 +1,12 @@
 /*
-* @Author: mr.ben(66623978) https://github.com/iNuoers/
-* @Date:   2017-07-20 09:12:27
-* @Last Modified by:   mr.ben
-* @Last Modified time: 2017-07-20 09:14:06
-*/
-
+ * @Author: mr.ben (肖工)  
+ * @QQ：66623978 
+ * @Github：https://github.com/iNuoers/ 
+ * @Create time: 2017-07-20 09:12:27
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-10-07 18:06:04
+ */
+// https://passport.tuandai.com/login
 'use strict';
 require('../../../css/user/login');
 require('../../plugins/base64/jquery.base64.js')

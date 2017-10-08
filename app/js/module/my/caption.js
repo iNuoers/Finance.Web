@@ -1,3 +1,12 @@
+/*
+ * @Author: mr.ben (肖工)  
+ * @QQ：66623978 
+ * @Github：https://github.com/iNuoers/ 
+ * @Create time: 2017-10-03 20:50:41 
+ * @Last Modified by:   mr.ben 
+ * @Last Modified time: 2017-10-03 20:50:41 
+ */
+
 'use strict';
 
 require('js_path/plugins/pagination/pagination.css')
@@ -34,7 +43,7 @@ fjw.pc.caption = {
             , done: function (val) {
                 $('#end_time').focus();
             }
-            , theme: '#64A3F3'
+            , theme: '#1088f1'
             , showBottom: false
         });
         _date.render({
@@ -43,7 +52,7 @@ fjw.pc.caption = {
                 _this.method.getParam();
                 _this.method.getList();
             }
-            , theme: '#64A3F3'
+            , theme: '#1088f1'
             , showBottom: false
         });
 

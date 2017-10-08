@@ -18,59 +18,50 @@
 						</div>
 
 						<!-- 投资记录模块 S -->
-                        <div class="searchBox mt20">
+                        <div class="searchBox">
+							<!-- 搜索时间模块 S -->
+							<div class="record-search-cate">
+								<div class="search-type-title f-fl">卡券类型</div>
+								<div class="quick-link-type f-fl">
+									<div class="list-dots" id="card_type">
+										<span class="current"><a href="javascript:;" data-id="ALL">现金券</a></span>
+										<span><a href="javascript:;" data-id="1">加息券</a></span>
+									</div>
+								</div>
+							</div>
+							<!-- 搜索时间模块 E -->
+			
 							<!-- 搜索筛选模块 S -->
 							<div class="record-search-cate mb10">
+								<div class="search-type-title f-fl">卡券状态</div>
 								<div class="quick-link-type f-fl">
 									<div class="list-dots" id="flow_type">
-										<span class="current"><a data-id="1">现金券</a></span>
-										<span><a data-id="2">加息券</a></span>
+										<span class="current"><a href="javascript:;" data-id="30">可用</a></span>
+										<span><a href="javascript:;" data-id="90">已使用</a></span>
+										<span><a href="javascript:;" data-id="365">已过期</a></span>
 									</div>
 								</div>
 							</div>
 							<!-- 搜索筛选模块 E -->
 						</div>
 						
-						<div class="coupon-records mt20 mb50">
-							<div class="my-tab coupon-tab mt20">
-								<ul class="tab-nav">
-									<li class="active">可使用</li>
-									<li>已使用</li>
-									<li>已过期</li>
-								</ul>
+
+						<div class="resultBox" id="contentList">
+							<div class="listContainer">
+								<table style="width:100%">
+									<thead>
+										<tr>
+											<th width="150">卡券金额</th>
+											<th width="134">使用条件</th>
+											<th width="120">过期时间</th>
+											<th width="90">卡券来源</th>
+											<th width="90">适用产品</th>
+										</tr>
+									</thead>
+									<tbody class="listContainer-tbody"></tbody>
+								</table>
 							</div>
-							<div class="resultBox my-tab-box pb20">
-								<div class="grid-1 f-hide" style="display: block;">
-									<div class="coupon-items">
-										<ul class="items title">
-											<li class="col_1">卡券金额</li>
-											<li class="col_2">使用条件</li>
-											<li class="col_3">过期时间</li>
-											<li class="col_4">卡券来源</li>
-											<li class="col_5">适用产品</li>
-										</ul>
-									</div>
-									<div id="grid-1">
-										<div class="coupon-items"></div>
-										<div class="page pagination mt15"></div>
-									</div>
-								</div>
-								<div class="grid-2 f-hide">
-									<div class="coupon-items">
-										<ul class="items title">
-											<li class="col_1">加息额度</li>
-											<li class="col_2">使用条件</li>
-											<li class="col_3">过期时间</li>
-											<li class="col_4">卡券来源</li>
-											<li class="col_5">适用产品</li>
-										</ul>
-									</div>
-									<div id="grid-2">
-										<div class="coupon-items"></div>
-										<div class="page pagination mt15"></div>
-									</div>
-								</div>
-							</div>
+							<div class="page pagination mt15 pb15"></div>
 						</div>
 					</div>
                 </div>

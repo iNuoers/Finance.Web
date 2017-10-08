@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-05 13:52:49 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-05 16:39:32
+ * @Last Modified time: 2017-10-05 18:12:43
  */
 'use strict';
 
@@ -15,7 +15,7 @@ var _api = require('js_path/lib/f.data.js')
 var _head = require('js_path/lib/f.head.js')
 var _core = require('js_path/lib/f.core.js')
 
-fjw.pc.recharge = {
+fjw.pc.withdrawal = {
     init: function () {
         this.initEvent()
         this.onPageLoad()
@@ -30,5 +30,5 @@ fjw.pc.recharge = {
 }
 
 $(function () {
-    fjw.pc.recharge.init()
+    fjw.pc.withdrawal.init()
 })

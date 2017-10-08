@@ -1,5 +1,7 @@
+
 const fs = require('fs');
 const path = require("path");
+const url = 'https://www.fangjinnet.com';
 const webpack = require('webpack');
 const srcDir = path.resolve(process.cwd(), 'app');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -22,7 +24,7 @@ const getHtmlConfig = function (name, title) {
         minify: {
             // 压缩html
             removeComments: true,       //移除HTML中的注释
-            collapseWhitespace: false   //删除空白符与换行符
+            collapseWhitespace: true   //删除空白符与换行符
         }
     };
 };
@@ -31,7 +33,7 @@ const getHtmlConfig = function (name, title) {
 const config = {
     cache: true,
     // 生成sourcemap,便于开发调试
-    devtool: "#source-map",
+    //devtool: "#source-map",
     // 入口文件
     entry: {
         'f.vendor': ['./app/js/app.js', './app/js/lib/f.data.js', './app/js/lib/f.core.js', './app/js/lib/f.head.js'],
@@ -55,6 +57,8 @@ const config = {
         'my/coupon': ['./app/js/module/my/coupon.js'],
         'my/caption': ['./app/js/module/my/caption.js'],
         'my/paydeposit': ['./app/js/module/my/paydeposit.js'],
+        'my/recharge': ['./app/js/module/my/recharge.js'],
+        'my/withdrawal': ['./app/js/module/my/withdrawal.js'],
         'my/bindcard': ['./app/js/module/my/bindcard.js'],
         'my/my-card': ['./app/js/module/my/my-card.js'],
         'my/invite': ['./app/js/module/my/invite.js'],
@@ -62,11 +66,11 @@ const config = {
 
         'user-login': ['./app/js/module/user/login.js'],
         'user-register': ['./app/js/module/user/register.js'],
-        'user-pass-reset': ['./app/js/module/user/pass-reset.js']
+        'user/findpwd': ['./app/js/module/user/findpwd.js']
     },
     output: {
         path: __dirname + '/dist/',
-        publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : 'http://192.168.1.53:8010/dist/',
+        publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : url + '/dist/',
         filename: 'js/[name].[hash:8].min.js',
         chunkFilename: 'js/[id].chunk.js'
     },
@@ -140,13 +144,13 @@ const config = {
 
         new HtmlWebpackPlugin(getHtmlConfig('my/index', '账户总览')),
         new HtmlWebpackPlugin(getHtmlConfig('my/userinfo', '个人信息')),
-        new HtmlWebpackPlugin(getHtmlConfig('my/custody', '银行存管')),
+        new HtmlWebpackPlugin(getHtmlConfig('my/custody', '账户安全')),
         new HtmlWebpackPlugin(getHtmlConfig('my/invest', '我的投资')),
         new HtmlWebpackPlugin(getHtmlConfig('my/coupon', '我的卡券')),
         new HtmlWebpackPlugin(getHtmlConfig('my/caption', '资金流水')),
         new HtmlWebpackPlugin(getHtmlConfig('my/paydeposit', '充值提现')),
         new HtmlWebpackPlugin(getHtmlConfig('my/recharge', '账户充值')),
-        // new HtmlWebpackPlugin(getHtmlConfig('my/drawal', '账户提现')),
+        new HtmlWebpackPlugin(getHtmlConfig('my/withdrawal', '账户提现')),
         new HtmlWebpackPlugin(getHtmlConfig('my/bindcard', '绑卡认证')),
         new HtmlWebpackPlugin(getHtmlConfig('my/my-card', '绑卡认证')),
         new HtmlWebpackPlugin(getHtmlConfig('my/invite', '邀请好友')),
@@ -154,7 +158,7 @@ const config = {
 
         new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
         new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
-        new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
+        new HtmlWebpackPlugin(getHtmlConfig('user/findpwd', '找回密码')),
 
         // 独立通用模块到 js/base.js
         new webpack.optimize.CommonsChunkPlugin({
@@ -169,7 +173,7 @@ const config = {
 };
 
 if ('dev' === WEBPACK_ENV) {
-    config.entry.common.push('webpack-dev-server/client?http://192.168.1.53:8010/');
+    //config.entry.common.push('webpack-dev-server/client?http://192.168.31.243:8010/');
 }
 
 module.exports = config;

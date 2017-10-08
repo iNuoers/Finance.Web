@@ -1,3 +1,4 @@
+<!-- https://www.jiurong.com/index/index.html -->
 <!-- footer -->
 <footer class="wdg-fjw-footer">
 	<div class="footer-center">
@@ -78,6 +79,34 @@
 
 	var fjw = fjw || {};
 	fjw.pc = fjw.pc || {};
-    fjw.pc.page = fjw.pc.page || {};
+	fjw.pc.page = fjw.pc.page || {};
+
+	var App = {
+		webUrl: 'https://www.fangjinnet.com/dist/view',
+	};
+
 </script>
 <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	function login() {
+		var returnUrl = jQuery.getUrlParam("redirect");
+		if (window.user.isLogin) {
+			// 已经登录 点击直接进入页面
+			return window.location.href = returnUrl == null ? App.webUrl + '/my/index.html' : returnUrl;
+		} else {
+			return window.location.href = App.webUrl + '/user-login.html?redirect=' + encodeURIComponent(window.location.href);
+		}
+	}
+	function regist() {
+		var returnUrl = jQuery.getUrlParam("redirect");
+		return window.location.href = App.webUrl + '/user-register.html?redirect=' + encodeURIComponent(window.location.href);
+	}
+	(function (jQuery) {
+		jQuery.getUrlParam = function (name) {
+			var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+			var result = window.location.search.substr(1).match(reg);
+			return result ? decodeURIComponent(result[2]) : null;
+		}
+	})(jQuery);
+
+</script>

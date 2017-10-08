@@ -1,9 +1,11 @@
 /*
-* @Author: mr.ben(66623978) https://github.com/iNuoers/
-* @Date:   2017-08-30 16:43:17
-* @Last Modified by:   mr.ben
-* @Last Modified time: 2017-08-30 16:43:17
-*/
+ * @Author: mr.ben (肖工)  
+ * @QQ：66623978 
+ * @Github：https://github.com/iNuoers/ 
+ * @Create time: 2017-08-30 16:43:17
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-10-02 21:52:00
+ */
 'use strict';
 
 var debug = false;

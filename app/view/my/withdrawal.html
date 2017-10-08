@@ -19,43 +19,34 @@
                         </div>
                         <div class="recharge-box online-bank mt20">
                             <div class="rech-opts">
-                                <div class="rech-items">
-                                    <h3>账户余额：</h3>
-                                    <div class="rech-row">
-                                        <span class="mr5">0.00</span>
-                                        <span>元</span>
-                                    </div>
-                                </div>
-                                <div class="rech-items">
-                                    <h3>充值方式：</h3>
-                                    <div class="limit-w mb10">
-                                        <div class="shortcut-card disable" id="secureBankCard" data-code="CCB" data-id="6921127">
-                                            <i class="banklogo banklogo-zgjsyh"></i>
-                                            <span class="card-info">尾号3930</span>
-                                        </div>
-                                    </div>
-                                    <div class="limit-w">
-                                        <table class="table-quota">
-                                            <tbody><tr>
-                                                <th style="text-align: center">单笔限额(元)</th>
-                                                <th style="text-align: center">每日限额(元)</th>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center" id="onceLimitAmount">300000</td>
-                                                <td style="text-align: center">2000000</td>
-                                            </tr>
-                                        </tbody></table>
-                                    </div>
+                                <div class="rech-items nom-items">
+                                    <h3>银行卡：</h3>
+                                    <ul class="adds-bankcard">
+                                        <li class="jBank selected" data-cardid="6921127" data-code="CCB" data-issecure="1">
+                                            <a class="bankcard" href="javascript:;">
+                                                <span class="num">**** **** **** ***3 930</span>
+                                                <span class="name">肖忠保</span>
+                                                <i class="banklogo-zgjsyh" title="建设银行"></i>
+                                                <b class="icon-ggb-s"></b>
+                                                <span class="tel">客服电话：95533</span>
+                                                <span class="icon-del-s del" title="删除此银行卡"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                     <!-- 银行出现异常时的提示 S -->
-                                    <div class="mt10" id="rechargeTips">
+                                    <div class="mb10" id="withdrawTips">
                                         <div class="page-tooltips ilblock" style="min-width: 233px;">
                                             <div class="inner">
                                                 <i class="icon icon-info-s"></i>
-                                                <span>今日维护</span>
+                                                <span>小贴士：10月1日00:00-10月8日24:00期间累计可提现金额下调至5万元，建议您提前做好资金安排。</span>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- 银行出现异常时的提示 E -->
+                                </div>
+                                <div class="rech-items nom-items ">
+                                    <h3>可提金额：</h3>
+                                    <div class="rech-row"><span class="hot">￥0</span></div>
                                 </div>
                                 <div class="rech-items">
                                     <h3>充值金额：</h3>

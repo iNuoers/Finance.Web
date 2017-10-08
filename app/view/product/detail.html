@@ -18,7 +18,7 @@
                         <div class="p-title">
                             <div class="p-title-inner">
                                 <h2 class="productName">--</h2>
-                                <a class="link">购买协议（范本）</a>
+                                <a class="link" href="javascript:;">购买协议（范本）</a>
                             </div>
                         </div>
                         <div class="p-cont mb15 f-cb">
@@ -95,11 +95,8 @@
                                             <div class="info"><strong>--<span>天</span></strong></div>
                                         </li>
                                         <li class="item p3">
-                                            <div class="name"><b>收益方式</b>
-                                                <i class="fa fa-question-circle-o"></i>
-                                            </div>
-                                            <div class="info"><strong><span class="fz18">--</span></strong></div>
-                                            <div class="line"></div>
+                                            <div class="name"><b>起投金额</b></div>
+                                            <div class="info"><span>--元</span></div>
                                         </li>
                                         <li class="item p4">
                                             <div class="name"><b>已成功投资</b></div>
@@ -107,8 +104,11 @@
                                             <div class="line"></div>
                                         </li>
                                         <li class="item p5">
-                                            <div class="name"><b>起投金额</b></div>
-                                            <div class="info"><span>--元</span></div>
+                                            <div class="name"><b>收益方式</b>
+                                                <i class="fa fa-question-circle-o"></i>
+                                            </div>
+                                            <div class="info"><strong><span class="fz18">--</span></strong></div>
+                                            <div class="line"></div>
                                         </li>
                                         <li class="item p6">
                                             <div class="name"><b>起息时间</b></div>
@@ -137,7 +137,7 @@
                                     <div class="tab-title">资金保障</div>
                                 </li>
                                 <li class="tab-nav-item" id="investRecord">
-                                    <div class="tab-title">投资记录</div>
+                                    <div class="tab-title">投资记录<span class="r5" id="financePlanInvestorCount">62</span></div>
                                 </li>
                             </ul>
                             <div class="tab-cont p-cont">
@@ -197,6 +197,12 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="msg-box err-msg" style="position:absolute;z-index:1000;top:245px;left:1173px;display:none">
+                <div class="msg-weak msg-inline msg-arr-t">
+                    <i class="fa fa-close icon-err-s"></i>
+                    <div class="msg-cnt err-cnt"></div>
                 </div>
             </div>
             <%= require('html-loader!../layout/product-bottom-layout.html')%>

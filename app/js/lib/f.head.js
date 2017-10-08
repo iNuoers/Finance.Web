@@ -1,17 +1,20 @@
 /*
-* @Author: mr.ben(66623978) https://github.com/iNuoers/
-* @Date:   2017-07-21 16:35:42
-* @Last Modified by:   asus
-* @Last Modified time: 2017-07-21 16:43:17
-*/
-'use strict';
-require('../plugins/base64/jquery.base64.js')
-require('../plugins/layer/skin/default/layer.css')
-require('../plugins/layer/layer.js')
+ * @Author: mr.ben (肖工)  
+ * @QQ：66623978 
+ * @Github：https://github.com/iNuoers/ 
+ * @Create time: 2017-07-21 16:35:42
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-10-08 19:41:33
+ */
 
-var _core = require('./f.core.js');
-var _api = require('./f.data.js');
-var _user = require('../service/user-service.js');
+'use strict';
+require('js_path/plugins/base64/jquery.base64.js')
+require('js_path/plugins/layer/skin/default/layer.css')
+require('js_path/plugins/layer/layer.js')
+
+var _core = require('js_path/lib/f.core.js');
+var _api = require('js_path/lib/f.data.js');
+var _user = require('js_path/service/user-service.js');
 
 var Core = {
     init: function () {
@@ -28,6 +31,8 @@ var Core = {
                 M: _api.method.getMemberInfo,
             }), function (json) {
                 user = JSON.parse(json);
+
+                window.cache = json;
 
                 window.user = {
                     isLogin: true,
@@ -107,8 +112,8 @@ var Core = {
         isBuy: 0,
         balance: 0,
         isInvite: 0,
+        isAuthen: 0,
         isLogin: false,
-        isAuthen: false,
         glb_user_phone: '',
         glb_user_token: '',
         glb_user_avator: ''
@@ -121,11 +126,8 @@ var Core = {
             // 已经登录 点击直接进入页面
             window.location.href = url;
         } else {
-            window.location.href = 'http://192.168.1.53:8010/dist/view/user-login.html?redirect=' + encodeURIComponent(window.location.href);
+            window.location.href = 'http://192.168.31.243:8010/dist/view/user-login.html?redirect=' + encodeURIComponent(window.location.href);
         }
-    },
-    goHome: function () {
-        window.location.href = '../view/index.html';
     },
     initLink: function () {
         var _this = this;
@@ -133,10 +135,11 @@ var Core = {
             if ($(this).data("href") && !$(this).data("preventdefault")) {
                 e.stopPropagation();
                 var url = $(this).data("href");
+                url = url.indexOf('http://') > 0 ? url : App.webUrl + url;
                 var i = $(this).data("title"), needLogin = $(this).data("needlogin");
 
                 if (needLogin) {
-                    return _this.doLogin(url);
+                    return login(url);
                 }
                 if (url.indexOf('his') >= 0)
                     window.history.go(-1);

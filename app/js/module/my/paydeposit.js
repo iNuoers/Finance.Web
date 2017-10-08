@@ -1,3 +1,11 @@
+/*
+ * @Author: mr.ben (肖工)  
+ * @QQ：66623978 
+ * @Github：https://github.com/iNuoers/ 
+ * @Create time: 2017-10-05 13:39:02 
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-10-05 17:51:00
+ */
 'use strict';
 
 require('js_path/plugins/pagination/pagination.css')
@@ -68,6 +76,19 @@ fjw.pc.paydeposit = {
         var _this = this;
 
         $("#sub_nav_paydeposit").addClass('active');
+
+        $('.j-recharge,.j-drawal').on('click', function () {
+            if (window.user.isLogin) {
+                if (window.user.isAuthen == 1) {
+                    $(this).hasClass('j-drawal') ? window.location.href = './withdrawal.html' : window.location.href = './recharge.html';
+                } else {
+                    window.location.href = './bindcard.html'
+                }
+            } else {
+                // 跳转登录
+                _head.doLogin(window.location.href)
+            }
+        });
 
         $('#period_type').on('click', 'a', function () {
             var today = new Date();
@@ -174,11 +195,11 @@ fjw.pc.paydeposit = {
                             '         <%for(i = 0; i < grid.length; i ++) {%>' +
                             '              <% var data = grid[i]; %>' +
                             '              <tr>' +
-                            '                  <td><%= data._RN %></li>' +
-                            '                  <td><%= data.Title %></li>' +
-                            '                  <td><%= data.Amount %></li>' +
-                            '                  <td><%= data.DateNumberStr %></li>' +
-                            '                  <td><%:= data.StatusText %></li>' +
+                            '                  <td><%= data._RN %></td>' +
+                            '                  <td><%= data.Title %></td>' +
+                            '                  <td><%= data.Amount %></td>' +
+                            '                  <td><%= data.DateNumberStr %></td>' +
+                            '                  <td><%:= data.StatusText %></td>' +
                             '              </tr>' +
                             '         <%}%>' +
                             '    <%}%>';

@@ -1,10 +1,13 @@
 /*
-* @Author: asus
-* @Date:   2017-07-20 09:12:27
-* @Last Modified by:   asus
-* @Last Modified time: 2017-07-20 09:14:06
-*/
+ * @Author: mr.ben (肖工)  
+ * @QQ：66623978 
+ * @Github：https://github.com/iNuoers/ 
+ * @Create time: 2017-07-20 09:12:27
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-10-05 10:51:55
+ */
 
+// https://www.lianlianmoney.com/account/register
 'use strict';
 require('../../../css/user/register');
 var _user   = require('../../service/user-service.js');

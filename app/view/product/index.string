@@ -14,16 +14,16 @@
                 </div>
                 <div class="dec">
                     <%if(data.ActivityType==1){%>
-                        <i class="u-tag u-tag-feature">活动产品</i>
+                        <i class="u-tag u-tag-red">活动产品</i>
                     <%}%>
                     <%if(data.ProductTypeParentId==1){%>
-                        <i class="u-tag u-tag-feature">天天收益</i>
+                        <i class="u-tag u-tag-yellow">天天收益</i>
                     <%}%>
                     <%if(data.IsPlusInCome==1){%>
-                        <i class="u-tag u-tag-rate">加息</i>
+                        <i class="u-tag u-tag-blue">加息</i>
                     <%}%>
                     <%if(data.IsCash==1){%>
-                        <i class="u-tag u-tag-money">现金</i>
+                        <i class="u-tag u-tag-ffeeee">现金</i>
                     <%}%>
                 </div>
             </dd>
