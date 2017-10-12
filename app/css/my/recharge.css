@@ -292,6 +292,9 @@
     font-size: 12px;
     overflow: hidden
 }
+.symbol-model2 div.symbol{
+    right:-110px
+}
 .rech-submit .btn {
     width: 233px;
     height: 42px;

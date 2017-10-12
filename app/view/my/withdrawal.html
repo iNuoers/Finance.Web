@@ -15,56 +15,91 @@
                     <!-- 充值模块 S -->
                     <div class="my-box-wrap">
                         <div class="my-box-title f-cb">
-                            <span>账户充值</span>
+                            <span>余额提现</span>
                         </div>
                         <div class="recharge-box online-bank mt20">
                             <div class="rech-opts">
                                 <div class="rech-items nom-items">
                                     <h3>银行卡：</h3>
                                     <ul class="adds-bankcard">
-                                        <li class="jBank selected" data-cardid="6921127" data-code="CCB" data-issecure="1">
+                                        <li class="jBank">
                                             <a class="bankcard" href="javascript:;">
-                                                <span class="num">**** **** **** ***3 930</span>
-                                                <span class="name">肖忠保</span>
-                                                <i class="banklogo-zgjsyh" title="建设银行"></i>
-                                                <b class="icon-ggb-s"></b>
-                                                <span class="tel">客服电话：95533</span>
-                                                <span class="icon-del-s del" title="删除此银行卡"></span>
+                                                <span class="num"></span>
+                                                <span class="name f-hide"></span>
+                                                <i class="banklogo" title=""></i>
+                                                <span class="tel"></span>
                                             </a>
                                         </li>
                                     </ul>
                                     <!-- 银行出现异常时的提示 S -->
-                                    <div class="mb10" id="withdrawTips">
+                                    <div class="mb10 f-hide" id="withdrawTips">
                                         <div class="page-tooltips ilblock" style="min-width: 233px;">
                                             <div class="inner">
-                                                <i class="icon icon-info-s"></i>
                                                 <span>小贴士：10月1日00:00-10月8日24:00期间累计可提现金额下调至5万元，建议您提前做好资金安排。</span>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- 银行出现异常时的提示 E -->
                                 </div>
+                                <div class="rech-items nom-items">
+                                    <h3>到账时间：</h3>
+                                    <div style="height:42px;line-height:42px;color:#555">预计1-2个工作日内到账</div>
+                                </div>
                                 <div class="rech-items nom-items ">
-                                    <h3>可提金额：</h3>
-                                    <div class="rech-row"><span class="hot">￥0</span></div>
+                                    <h3>账户余额：</h3>
+                                    <input type="hidden" id="standAmount">
+                                    <div class="rech-row"><span class="hot balance">￥0</span></div>
                                 </div>
                                 <div class="rech-items">
-                                    <h3>充值金额：</h3>
+                                    <h3>提现金额：</h3>
                                     <div class="limit-w sum-input2 symbol-model2">
-                                        <input type="text" class="i-text input-primary" id="amountQuickPay" autocomplete="off" placeholder="本次最多可充值300000" maxlength="10">
+                                        <input type="text" class="i-text input-primary" id="withdrawBalance" autocomplete="off" placeholder="" maxlength="10">
                                         <span class="symbol">元</span>
+                                        <div class="symbol">提现手续费<span class="hot poundage">￥0</span></div>
                                     </div>
                                 </div>
-                                <div class="rech-submit">
-                                    <a href="javascript:;" class="btn btn-info" id="submitQuickRechargeBtn" title="充值">充值</a>
+                                <div class="rech-items mt10">
+                                    <h3>交易密码：</h3>
+                                    <div class="sum-input2">
+                                        <form style="display:none">
+                                            <input type="password">
+                                        </form>
+                                        
+                                    <div  id="payPassword_container" class="info" data-busy="0">
+                                            <div class="i-block six-password">
+                                                <input class="i-text sixDigitPassword" id="payPassword_rsainput" type="text" autocomplete="off"  autocomplete="new-password" onfocus="this.type='password'" required="required" value="" name="payPassword_rsainput" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
+                                                <div tabindex="0" class="sixDigitPassword-box">
+                                                    <i><b></b></i>
+                                                    <i><b></b></i>
+                                                    <i><b></b></i>
+                                                    <i><b></b></i>
+                                                    <i><b></b></i>
+                                                    <i><b></b></i>
+                                                    <span id="cardwrap" data-role="cardwrap"></span>
+                                                </div>
+                                                <a class="pass-link f-fl" href="javascript:;">忘记交易密码？</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rech-submit mt10">
+                                    <button class="btn btn-info" id="submitBtn" title="提交">提交</button>
+                                </div>
+                                <div class="rech-submit mt10">
+                                    <span style="color:red" class="err-tips"></span>
                                 </div>
                             </div>
-                            <!-- 温馨提示 S-->
+                            <!-- 提现规则 S-->
                             <div class="rech-prompt mt50">
-                                <h3 class="ci-cont-hd">温馨提示</h3>
-                                <p>1. 添加快捷支付银行卡后，无需开通网银也可完成充值<br>2. 每位用户只能添加一张快捷支付银行卡，后续将只可提现至该银行卡内<br>3. 账户可用余额、活期和黄金总额小于等于100元，待收本息为0以及待还款金额为0后才能更换该银行卡<br>4. 当日充值的资金，不能当日提取<br>5. 充值完全免费，并为每位用户提供<a href="https://www.xiaoying.com/safe/info" target="_blank">账户安全险</a></p>
+                                <h3 class="ci-cont-hd">提现规则</h3>
+                                <p>
+                                    1. 充值成功后<span style="color: #FF0000;">7*24小时</span>小时之内对该笔金额进行提现，会收取提现金额<span style="color: #FF0000;">3‰</span>的手续费，手续费低于<span style="color: #FF0000;">2元</span>时按照<span style="color: #FF0000;">2元</span>收取。所有手续费会从提现金额中自动扣除。<br>
+                                    <span style="line-height: 24px;">例如：未满<span style="color: #FF0000;">7*24小时</span>金额为：<span style="color: #FF0000;">1000元</span>，提现收取手续费：<span style="color: #FF0000;">1000x3‰=3元</span></span><br>
+                                    2. 最低提现金额为10元，最大提现金额不得超过账户余额。<br>
+                                    3. 提交提现请求后，预计1至2个工作日到达您绑定的银行账号。如2个工作日后，资金未到账，请核实您的银行卡信息。可拨打我们的客服电话：<a href="tel:400-167-6880">400-167-6880</a>，我们会协助您联系银行，查明原因。（节假日顺延至工作日处理）。为保证您的资金安全，必须使用本人实名认证同名的银行卡提现。<br>
+                                    注：公休期间因第三方平台休息，无法受理提现业务。 如有任何疑问，请拨打客服电话：<a href="tel:400-167-6880">400-167-6880</a><br>
                             </div>
-                            <!-- 温馨提示 E-->
+                            <!-- 提现规则 E-->
                         </div>
                     </div>
                     <!-- 充值模块 E -->

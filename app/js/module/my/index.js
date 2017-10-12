@@ -11,6 +11,9 @@ var page = {
     init: function () {
         var cache = _head.cache;
         this.bindEvent();
+
+        
+		$("#sub_nav_index").addClass('active');
     },
     bindEvent: function () {
         var _this = this;

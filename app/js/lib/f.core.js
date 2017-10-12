@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-07-21 16:35:42
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-04 11:25:41
+ * @Last Modified time: 2017-10-10 11:42:41
  */
 'use strict';
 
@@ -182,10 +182,8 @@ var F = {
                         typeof param.success === 'function' && param.success(res.d, res.es);
                     }
                     // 请求数据错误
-                    else if (1 === res.s) {
+                    else {
                         typeof param.error === 'function' && param.error(res.es);
-                    } else {
-                        typeof param.hideLoading === 'function' && param.hideLoading();
                     }
                 },
                 error: function (err, status) {
@@ -317,23 +315,28 @@ var F = {
             return str;
         },
         // 格式化银行卡
-        formatBank: function (s) {
+        formatBank: function (s, mask) {
             var str = s.substring(0, 22); /*帐号的总数, 包括空格在内 */
             if (str.match(".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}") == null) {
                 /* 对照格式 */
                 if (str.match(".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" + ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" +
                     ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" + ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}") == null) {
-                    var accountNumeric = accountChar = "", i;
+                    var accountNumeric = '', accountChar = "", i;
                     for (i = 0; i < str.length; i++) {
                         accountChar = str.substr(i, 1);
-                        if (!isNaN(accountChar) && (accountChar != " ")) accountNumeric = accountNumeric + accountChar;
+                        if (!isNaN(accountChar) && (accountChar != " ")) {
+                            accountNumeric += accountChar;
+                        }
                     }
+
                     str = "";
-                    for (i = 0; i < accountNumeric.length; i++) {    /* 可将以下空格改为-,效果也不错 */
-                        if (i == 4) str = str + " "; /* 帐号第四位数后加空格 */
-                        if (i == 8) str = str + " "; /* 帐号第八位数后加空格 */
-                        if (i == 12) str = str + " ";/* 帐号第十二位后数后加空格 */
-                        str = str + accountNumeric.substr(i, 1)
+                    for (i = 0; i < accountNumeric.length; i++) {
+                        if (i == 4) str = str + " "; /* 帐号第4位数后加空格 */
+                        if (i == 8) str = str + " "; /* 帐号第8位数后加空格 */
+                        if (i == 12) str = str + " ";/* 帐号第12位后数后加空格 */
+                        if (i == 16) str = str + " ";/* 帐号第16位后数后加空格 */
+
+                        str = str + (mask && (accountNumeric.length - i > 4) ? '*' : accountNumeric.substr(i, 1))
                     }
                 }
             }

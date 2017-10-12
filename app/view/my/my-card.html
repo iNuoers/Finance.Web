@@ -12,130 +12,20 @@
             <div class="my-main-frame">
                 <%= require('html-loader!../layout/my-left-layout.html')%>
                 <div class="my-main-c ml20 w950">
-                    <!-- <div class="my-box-wrap pd15">
-                        <div class="my-box-title f-cb">
-                            <span>绑定银行卡</span>
-                        </div>
-                        <div class="my-box-wrap pt20 pb20">
-                            <div class="item f-cb name">
-                                <h4 class="title f-fl">姓名：</h4>
-                                <div class="info f-fl">
-                                    <div class="f-cb inputctn">
-                                        <input class="inputbox J-nameInput f-fl" type="text" value="" maxlength="30" placeholder="请输入持卡人真实姓名" autocomplete="off">
-                                    </div>
-                                    <p>
-                                        <i class="J-tip"></i>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="item f-cb cid">
-                                <h4 class="title f-fl">身份证号：</h4>
-                                <div class="info f-fl">
-                                    <div class="f-cb inputctn">
-                                        <input class="inputbox J-cidInput J-idInput f-fl" type="text" value="" maxlength="18" placeholder="仅支持中国大陆身份证号" autocomplete="off">
-                                    </div>
-                                    <p>
-                                        <i class="J-tip"></i>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="item f-cb bank">
-                                <h4 class="title f-fl">银行卡号：</h4>
-                                <div class="info f-fl">
-                                    <div class="f-cb inputctn">
-                                        <input class="inputbox J-bankInput J-numberInput f-fl" type="text" value="" maxlength="19" placeholder="请输入储蓄卡卡号" autocomplete="off">
-                                        <span class="poptip">支持银行</span>
-                                        <div class="bankdetail J-bankDetail f-hide">6217 0012 1004 4543 930</div>
-                                    </div>
-                                    <p>
-                                        <i class="J-tip"></i>
-                                        <span class="icon-bank-notext icon-bank-CCB"></span>
-                                        <span class="backIcon">建设银行&nbsp;储蓄卡&nbsp;单笔支付限额：50万元；每日支付限额：500万元</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="item f-cb bank">
-                                <h4 class="title f-fl">所属银行：</h4>
-                                <div class="info f-fl">
-                                    <div class="controller-bank f-cb">
-                                        <span class="select-bank-icon"></span>
-                                        <span class="select-bank-name">请选择所属银行</span>
-                                        <i class="fa fa-angle-down"></i>
-                                        <ul class="bank-list sel-check">
-                                            银行logo  名称  限额
-                                            <li data-val="1">工商银行</li>
-                                            <li data-val="2">建设银行</li>
-                                            <li data-val="3">农业银行</li>
-                                            <li data-val="4">招商银行</li>
-                                            <li data-val="5">中国银行</li>
-                                            <li data-val="6">邮储银行</li>
-                                            <li data-val="7">交通银行</li>
-                                            <li data-val="8">光大银行</li>
-                                            <li data-val="9">中信银行</li>
-                                            <li data-val="10">民生银行</li>
-                                        </ul>
-                                    </div>
-                                    <p>
-                                        <i class="J-tip"></i>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="item f-cb bank">
-                                <h4 class="title f-fl">开户支行：</h4>
-                                <div class="info f-fl">
-                                    <div class="f-cb inputctn">
-                                        <input class="inputbox J-bankInput J-numberInput f-fl" type="text" value="" maxlength="19" placeholder="请输入储蓄卡卡号" autocomplete="off">
-                                    </div>
-                                    <p>
-                                        <i class="J-tip"></i>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="item f-cb tel">
-                                <h4 class="title f-fl">
-                                    银行预留手机：
-                                </h4>
-                                <div class="info f-fl">
-                                    <div class="f-cb inputctn">
-                                        <input class="inputbox J-telInput J-numberInput f-fl" type="text" value="" maxlength="11" placeholder="请输入银行预留手机号，用于接收短信验证码">
-                                    </div>
-                                    <p>
-                                        <i class="J-tip"></i>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="item f-cb code">
-                                <h4 class="title f-fl">验证码：</h4>
-                                <div class="info f-fl">
-                                    <div class="f-cb inputctn">
-                                        <button class="btn btn-normal f-fr">获取短信验证码</button>
-                                        <input class="inputbox J-codeInput J-numberInput f-fl" type="text" value="" maxlength="6" placeholder="请输入6位数字验证码" autocomplete="off">
-                                    </div>
-                                    <p>
-                                        <i class="J-tip error"></i>
-                                        <span class="codeinfo J-infoTip"></span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="item f-cb bind">
-                                <h4 class="title f-fl"></h4>
-                                <div class="info f-fl">
-                                    <p>
-                                        <i class="J-tip"></i>
-                                    </p>
-                                    <button class="btn btn-primary J-step">确认绑定</button>
-                                </div>
-                            </div>
-                            <div class="ctnbottom">
-                                <img src="//www.lmlc.com/cdn/desktop/user/account/bank/bind/img/about.81b8b86b3c.png" height="71" width="1023">
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="my-box-wrap pd15">
                         <div class="my-box-title f-cb">
                             <span>我的银行卡</span>
                         </div>
-
+                        <ul class="adds-bankcard mt30">
+                            <li>
+                                <a class="bankcard">
+                                    <span class="num">**** **** **** ****</span>
+                                    <span class="name">持卡人：***</span>
+                                    <i class="banklogo-zgjsyh"></i>
+                                    <span class="tel">客服电话：*****</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <h2 class="m-title">
                         绑卡常见问题

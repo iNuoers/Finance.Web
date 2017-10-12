@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-07 18:06:12 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-08 14:36:45
+ * @Last Modified time: 2017-10-09 12:02:54
  */
 'use strict';
 require('css_path/product/detail.css')
@@ -285,6 +285,8 @@ var page = {
                 html = _template(tpl, data);
 
                 $('.p-cont-top').html(html);
+                $('#investRisk').html(data.Security);
+                $('#investDetail').html(data.Description);
 
                 $.countdown($('.F-buy'), {
                     callback: function (ele) {

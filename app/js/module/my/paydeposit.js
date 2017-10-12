@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-05 13:39:02 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-05 17:51:00
+ * @Last Modified time: 2017-10-10 10:28:06
  */
 'use strict';
 
@@ -33,7 +33,7 @@ fjw.pc.paydeposit = {
         this.initEvent()
     },
     onPageLoad: function () {
-        var _this = this;
+        var me = this;
 
         _date.render({
             elem: '#start_time'
@@ -46,10 +46,10 @@ fjw.pc.paydeposit = {
         _date.render({
             elem: '#end_time'
             , done: function (val) {
-                _this.query.type = $('#flow_type .current a').attr('data-id');
-                _this.query.endTime = val;
-                _this.query.startTime = $('#start_time').val();
-                _this.method.getList();
+                me.query.type = $('#flow_type .current a').attr('data-id');
+                me.query.endTime = val;
+                me.query.startTime = $('#start_time').val();
+                me.method.getList();
             }
             , theme: '#64A3F3'
             , showBottom: false
@@ -64,29 +64,29 @@ fjw.pc.paydeposit = {
         $('#end_time').val(endTime);
         $('#start_time').val(startTime);
 
-        _this.query.type = '';
-        _this.query.endTime = $('#end_time').val();
-        _this.query.startTime = $('#start_time').val();
+        me.query.type = '';
+        me.query.endTime = $('#end_time').val();
+        me.query.startTime = $('#start_time').val();
 
-        _this.method.getList();
-        _this.method.getBillData();
+        me.method.getList();
+        me.method.getBillData();
 
     },
     initEvent: function () {
-        var _this = this;
+        var me = this;
 
         $("#sub_nav_paydeposit").addClass('active');
 
         $('.j-recharge,.j-drawal').on('click', function () {
             if (window.user.isLogin) {
                 if (window.user.isAuthen == 1) {
-                    $(this).hasClass('j-drawal') ? window.location.href = './withdrawal.html' : window.location.href = './recharge.html';
+                    $(this).hasClass('j-drawal') ? window.location.href = App.webUrl + '/my/withdrawal.html' : window.location.href = App.webUrl + '/my/recharge.html';
                 } else {
-                    window.location.href = './bindcard.html'
+                    window.location.href = App.webUrl + '/my/bindcard.html'
                 }
             } else {
                 // 跳转登录
-                _head.doLogin(window.location.href)
+                login(window.location.href);
             }
         });
 
@@ -127,21 +127,21 @@ fjw.pc.paydeposit = {
 
             $(this).parent().addClass('current').siblings().removeClass('current');
 
-            _this.query.type = $('#flow_type .current a').attr('data-id');
-            _this.query.endTime = $('#end_time').val();
-            _this.query.startTime = $('#start_time').val();
+            me.query.type = $('#flow_type .current a').attr('data-id');
+            me.query.endTime = $('#end_time').val();
+            me.query.startTime = $('#start_time').val();
 
-            _this.method.getList();
+            me.method.getList();
         });
 
         $('#flow_type').on('click', 'a', function () {
             $(this).parent().addClass('current').siblings().removeClass('current');
 
-            _this.query.type = $(this).attr('data-id');
-            _this.query.endTime = $('#end_time').val();
-            _this.query.startTime = $('#start_time').val();
+            me.query.type = $(this).attr('data-id');
+            me.query.endTime = $('#end_time').val();
+            me.query.startTime = $('#start_time').val();
 
-            _this.method.getList();
+            me.method.getList();
         });
     },
     method: {

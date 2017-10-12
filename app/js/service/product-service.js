@@ -49,5 +49,16 @@ var _product = {
             error: reject
         });
     },
+    productBuy: function (param, resolve, reject, before, after) {
+        _core.ajax.request({
+            url: _api.host,
+            data: param,
+            method: 'POST',
+            success: resolve,
+            error: reject,
+            beforeSend: before,
+            complete: after
+        });
+    }
 }
 module.exports = _product;

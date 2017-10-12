@@ -29,7 +29,7 @@
             //未设置路径，则不主动加载css
             if (!laydate.path) return;
 
-            laydate.path = 'http://192.168.31.243:8010/app/js/plugins/layerdate/';
+            laydate.path = 'http://192.168.1.53:8010/app/js/plugins/layerdate/';
 
             var head = document.getElementsByTagName("head")[0], link = document.createElement('link');
             if (typeof fn === 'string') cssname = fn;

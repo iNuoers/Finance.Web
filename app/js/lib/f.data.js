@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-08-30 16:43:17
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-02 21:52:00
+ * @Last Modified time: 2017-10-10 15:47:31
  */
 'use strict';
 
@@ -23,7 +23,8 @@ var api = {
         productBuyRank: "ProductBuyRank",
         // 产品类型
         productTypeList: "GetProductTypes",
-
+        // 购买茶品
+        buy: "Buy",
         // 帮助类别
         getHelpType: "GetHelpType",
         // 帮助中心
@@ -37,19 +38,19 @@ var api = {
 
         login: "Login",
         // 用户信息
-        getMemberInfo:"GetMemberInfo",
+        getMemberInfo: "GetMemberInfo",
 
         // 充值提现数据
-        reAndWaBill:"ReAndWaBill",
+        reAndWaBill: "ReAndWaBill",
 
         // 账单数据
-        totalBillData:"GetTotalBillData",
+        totalBillData: "GetTotalBillData",
 
         // 获取账单类型
-        billTypeList:"GetBillTypeList",
+        billTypeList: "GetBillTypeList",
 
         // 用户资金流水
-        billDataList:"GetPcBillDataList",
+        billDataList: "GetPcBillDataList",
 
         // 可用卡券列表
         ableCouponList: "GetAbleCouponList",
@@ -58,7 +59,12 @@ var api = {
         // 已使用卡券
         usedCouponList: "GetUsedCouponList",
         // 已过期卡券
-        overdueCouponList: "GetOverdueCouponList"
+        overdueCouponList: "GetOverdueCouponList",
+
+        // 账户提现
+        withdraw:"Withdraw",
+        // 提现信息获取
+        withdrawInfo:"GetWithdrawInfo"
 
     }
 }

@@ -3,8 +3,8 @@
  * @QQ：66623978 
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-03 20:50:41 
- * @Last Modified by:   mr.ben 
- * @Last Modified time: 2017-10-03 20:50:41 
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-10-11 19:51:39
  */
 
 'use strict';
@@ -161,10 +161,10 @@ fjw.pc.caption = {
                         var tpl = '<%for(i = 0; i < grid.length; i ++) {%>' +
                             '            <% var data = grid[i]; %>' +
                             '            <tr>' +
-                            '                <td><%= data.Title %></li>' +
-                            '                <td><%= data.BillAmountStr %></li>' +
-                            '                <td><%= data.CreateTimeStr %></li>' +
-                            '                <td><%:= data.Status %></li>' +
+                            '                <td><%= data.Title %></td>' +
+                            '                <td><%= data.BillAmountStr %></td>' +
+                            '                <td><%= data.CreateTimeStr %></td>' +
+                            '                <td><%:= data.Status %></td>' +
                             '            </tr>' +
                             '       <%}%>';
 

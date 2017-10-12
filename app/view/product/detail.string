@@ -44,7 +44,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="d2"><span>剩余份额：</span><strong><%= RemainingShares %>元</strong></td>
+                        <td class="d2"><span>剩余份额：</span><strong><%= RemainingShares.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,') %>元</strong></td>
                     </tr>
                     <%if(window.user.isLogin){%>
                         <tr>

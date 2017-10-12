@@ -1,7 +1,8 @@
 
+const debug = true;
 const fs = require('fs');
 const path = require("path");
-const url = 'https://www.fangjinnet.com';
+const url = debug ? 'http://192.168.1.53:8010' : 'https://www.fangjinnet.com';
 const webpack = require('webpack');
 const srcDir = path.resolve(process.cwd(), 'app');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -33,7 +34,7 @@ const getHtmlConfig = function (name, title) {
 const config = {
     cache: true,
     // 生成sourcemap,便于开发调试
-    //devtool: "#source-map",
+    devtool: "#source-map",
     // 入口文件
     entry: {
         'f.vendor': ['./app/js/app.js', './app/js/lib/f.data.js', './app/js/lib/f.core.js', './app/js/lib/f.head.js'],
@@ -173,7 +174,7 @@ const config = {
 };
 
 if ('dev' === WEBPACK_ENV) {
-    //config.entry.common.push('webpack-dev-server/client?http://192.168.31.243:8010/');
+    config.entry.common.push('webpack-dev-server/client?' + url);
 }
 
 module.exports = config;

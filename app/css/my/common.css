@@ -1,5 +1,5 @@
 .my-main *{box-sizing:content-box}
-.my-main-frame{margin:0 auto;min-height:750px;padding-top:20px;padding-bottom:20px;font-size:14px}
+.my-main-frame{margin:0 auto;padding-top:20px;padding-bottom:20px;font-size:14px}
 .my-main-frame:before{content:'';display:table;clear:both}
 .my-main-frame:after{content:'';display:table;clear:both}
 .my-main-l{display:inline-block;height:auto}
@@ -17,6 +17,7 @@
 .my-nav-list .nav-list-con li:hover{color:#007ddb}
 
 .my-box-wrap{padding:0 20px;background:#fff}
+.my-box-wrap:hover{box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12); transition: all .3s ease-out; -webkit-transition: all .3s ease-out; transition: all .3s ease-out; }
 .my-box-title{color:#1b2b46;font-size:16px;line-height:55px;overflow:hidden;border-bottom:1px solid #f2f5f7}
 .my-box-title{background-color:#fff;border-bottom:1px solid #ededed}
 .my-box-title .my-box-title-inner h2{float:left;padding-right:8px;font-size:18px}
@@ -59,3 +60,11 @@
 .listContainer th{height:40px;line-height:40px;color:#666;background:#f5f5f5;padding-left:18px}
 .listContainer tbody tr:hover{background-color:#f5f5f5}
 .listContainer tbody td{text-align:left;height:50px;line-height:50px;color:#666;padding-left:18px;border-bottom:1px solid #e8ecef;vertical-align:middle}
+
+.adds-bankcard li{position:relative;padding:0 16px 16px 0}
+.bankcard{position:relative;width:231px;height:137px;background-color:#fff;border:1px solid #ededed;color:#fff;cursor:default;display:block;overflow:hidden;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px}
+.bankcard:hover{cursor:pointer;border-color:#1088f1;-moz-box-shadow:#1088f1 0 0 3px;-webkit-box-shadow:#1088f1 0 0 3px;box-shadow:#1088f1 0 0 3px}
+.bankcard .num{position:absolute;top:53px;left:10px;height:26px;line-height:26px;color:#555;display:block;font-size:16px;font-weight:700}
+.bankcard .name{position:absolute;top:73px;left:10px;color:#555;font-size:12px}
+.bankcard .icon-bankcrad{position:absolute;right:15px;bottom:9px}
+.bankcard .tel{position:absolute;bottom:0;left:0;width:100%;height:38px;line-height:38px;background-color:#fafafa;border-top:1px dashed #b8b8ba;color:#a1a1a1;font-size:12px;text-indent:10px}

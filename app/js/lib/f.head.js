@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-07-21 16:35:42
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-08 19:41:33
+ * @Last Modified time: 2017-10-12 14:09:42
  */
 
 'use strict';
@@ -18,10 +18,9 @@ var _user = require('js_path/service/user-service.js');
 
 var Core = {
     init: function () {
-        this.initLink();
-        this.initUserInfo();
-        this.loginTimeout();
-        this.initTips();
+        this.initLink()
+        this.initUserInfo()
+        this.loginTimeout()
     },
     initUserInfo: function () {
         var _this = this, user = null;
@@ -51,6 +50,11 @@ var Core = {
                 window.user.isLogin = false;
                 _this.initNav();
             });
+        } else {
+            var pathname = location.pathname;
+            if (pathname.indexOf('my') > 0) {
+                login(location.href);
+            }
         }
     },
     initNav: function () {
@@ -71,6 +75,8 @@ var Core = {
             $isLogin.html(html).show();
             $userPhone.html(user.phone);
             $userIcon.attr('src', user.headPhoto);
+            if (user.isAuthen == 1)
+                $('#sub_nav_bindcard a').attr('data-href', '/my/my-card.html');
 
         } else {
             $unLogin.css({
@@ -118,27 +124,16 @@ var Core = {
         glb_user_token: '',
         glb_user_avator: ''
     },
-    // 统一登录处理
-    doLogin: function (url) {
-        var _this = this;
-
-        if (window.user.isLogin) {
-            // 已经登录 点击直接进入页面
-            window.location.href = url;
-        } else {
-            window.location.href = 'http://192.168.31.243:8010/dist/view/user-login.html?redirect=' + encodeURIComponent(window.location.href);
-        }
-    },
     initLink: function () {
         var _this = this;
         $(".main-section,.main-wrap").delegate("a[data-href],div[data-href]", "click", function (e) {
             if ($(this).data("href") && !$(this).data("preventdefault")) {
                 e.stopPropagation();
                 var url = $(this).data("href");
-                url = url.indexOf('http://') > 0 ? url : App.webUrl + url;
+                url = (url.indexOf('http://') >= 0 || url.indexOf('https://') >= 0) ? url : App.webUrl + url;
                 var i = $(this).data("title"), needLogin = $(this).data("needlogin");
 
-                if (needLogin) {
+                if (needLogin && !window.user.isLogin) {
                     return login(url);
                 }
                 if (url.indexOf('his') >= 0)
@@ -147,22 +142,6 @@ var Core = {
                     location.href = url;
             }
         });
-    },
-    initTips: function () {
-        var _this = this;
-        $('.f-tips').hover(function (e) {
-            var $target = $(this).closest('.f-tips');
-            layer.tips($target.data('tips'), $target, {
-                tips: [3, '#fff'],
-                time: 0,
-                skin: 'index-trip',
-                area: ['180px'],
-                success: function (layero, index) {
-                    var left = parseFloat(layero.css('left').replace(/px/g, '')) + 10;
-                    layero.css('left', left)
-                }
-            })
-        })
     }
 }
 

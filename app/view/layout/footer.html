@@ -37,7 +37,8 @@
 			<span class="up-line"></span>
 			<span class="down-line"></span>
 			<div class="d-l">
-				<p class="first">© <span class="year">2017</span> 上海雁鸿翔金融信息服务有限公司 All rights reserved </p>
+				<p class="first">©
+					<span class="year">2017</span> 上海雁鸿翔金融信息服务有限公司 All rights reserved </p>
 				<p class="gray">
 					<span>沪ICP备14049646号</span>
 					<span style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"></span>
@@ -81,20 +82,20 @@
 	fjw.pc = fjw.pc || {};
 	fjw.pc.page = fjw.pc.page || {};
 
-	var App = {
-		webUrl: 'https://www.fangjinnet.com/dist/view',
-	};
+	var App = App || {};
+	App.debug = true;
+	App.webUrl = App.debug ? 'http://192.168.1.53:8010/dist/view' : 'https://www.fangjinnet.com/dist/view';
 
 </script>
 <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script>
-	function login() {
+	function login(url) {
 		var returnUrl = jQuery.getUrlParam("redirect");
 		if (window.user.isLogin) {
 			// 已经登录 点击直接进入页面
 			return window.location.href = returnUrl == null ? App.webUrl + '/my/index.html' : returnUrl;
 		} else {
-			return window.location.href = App.webUrl + '/user-login.html?redirect=' + encodeURIComponent(window.location.href);
+			return window.location.href = App.webUrl + '/user-login.html?redirect=' + encodeURIComponent(url);
 		}
 	}
 	function regist() {

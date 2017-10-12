@@ -512,6 +512,7 @@
     65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
     100%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
 }
+
 /* 银行logo */
 .banklogo-hxyh{height:42px;width:130px;background:url(../image/banklogo.png) 0px 0px no-repeat;display:block;overflow:hidden}
 .banklogo-zgmsyh{height:42px;width:130px;background:url(../image/banklogo.png) 0px -42px no-repeat;display:block;overflow:hidden}
@@ -842,6 +843,17 @@
 .wdg-fjw-footer .img-show .copper { width: 42px; background-position: -161px -110px }
 .wdg-fjw-footer .img-show .certificate { width: 28px; background-position: -204px -110px }
 .wdg-fjw-footer .img-show .hundred { width: 81px; background-position: -135px -200px }
+
+/* 交易密码 */
+.sixDigitPassword{position:absolute;top:10px;width:180px;height:31px;color:#fff;font-size:12px;-webkit-box-sizing:content-box;box-sizing:content-box;-webkit-user-select:initial;outline:0;z-index:999;opacity:0;filter:alpha(opacity=0)}
+.sixDigitPassword-box{width:180px;margin-top:10px;cursor:text;background:#fff;outline:0;position:relative;padding:8px 0;height:15px;border:1px solid #e0e4ed;border-radius:2px}
+.sixDigitPassword-box i{float:left;display:block;padding:4px 0;height:7px;width:29px;border-left:1px solid #e0e4ed}
+.sixDigitPassword-box i:first-child{border-color:transparent}
+.sixDigitPassword-box .active{background:url(../image/password-blink.gif) no-repeat center center}
+.sixDigitPassword-box b{display:block;margin:0 auto;width:7px;height:7px;overflow:hidden;visibility:hidden;background:url(../image/password-dot.png) no-repeat}
+.sixDigitPassword-box span{position:absolute;display:block;top:-1px;height:31px;width:29px;visibility:hidden;border:1px solid rgba(20,105,235,.8);border-radius:2px;visibility:hidden;-webkit-box-shadow:inset 0 2px 2px rgba(0,0,0,.75),0 0 8px rgba(82,168,236,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(82,168,236,.6)}
+.six-password{position:relative;overflow:hidden;vertical-align:middle}
+
 
 .f-cb { display: block; zoom: 1 }
 .f-cb:after { content: " "; display: block; font-size: 0; height: 0; clear: both; visibility: hidden }

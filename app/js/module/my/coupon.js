@@ -3,8 +3,8 @@
  * @QQ：66623978 
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-02 21:52:10 
- * @Last Modified by:   mr.ben 
- * @Last Modified time: 2017-10-02 21:52:10 
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-10-12 12:59:12
  */
 
 'use strict';
@@ -20,9 +20,10 @@ var _tab = require('js_path/lib/f.tab.js')
 var _head = require('js_path/lib/f.head.js')
 var _core = require('js_path/lib/f.core.js')
 var _temp = require('js_path/plugins/template/template.js')
+var _product = require('js_path/service/product-service.js')
 var _page = require('js_path/plugins/pagination/jquery.pagination.js')
 
-fjw.pc.caption = {
+fjw.pc.coupon = {
     query: {
         type: 0,
         page: 1,
@@ -34,54 +35,58 @@ fjw.pc.caption = {
         this.onPageLoad()
     },
     onPageLoad: function () {
-        var _this = this;
+        var me = this;
 
-        _this.query.type = 1;
-        _this.method.getList();
+        me.query.type = 1;
+        me.method.getList();
     },
     initEvent: function () {
-        var _this = this;
+        var me = this;
         $("#sub_nav_coupon").addClass('active');
 
-        $('.coupon-tab').tab({
-            callback: fjw.pc.caption.method.tabCallback
-        });
         $(".tab-nav .active").trigger("click");
+
+        $('#card_type').on('click', 'a', function () {
+            $('#flow_type span').removeClass('current').eq(0).addClass('current');
+            $(this).parent().addClass('current').siblings().removeClass('current');
+            me.query.type = $('#card_type .current a').attr('data-id');
+            me.query.status = $('#flow_type .current a').attr('data-id');
+            $('.listContainer thead tr th').eq(0).text(me.query.type == 1 ? '返现金额' : '加息额度');
+            me.method.getList();
+        });
 
         $('#flow_type').on('click', 'a', function () {
             $(this).parent().addClass('current').siblings().removeClass('current');
-            _this.query.type = $('#flow_type .current a').attr('data-id');
+            me.query.type = $('#card_type .current a').attr('data-id');
+            me.query.status = $('#flow_type .current a').attr('data-id');
             $('.grid-' + $('#flow_type .current a').attr('data-id')).siblings().addClass('f-hide').removeClass('f-hide')
-            _this.method.getList();
+            me.method.getList();
         });
     },
     method: {
-        tabCallback: function (ele, idx) {
-            fjw.pc.caption.query.type = idx;
-            fjw.pc.caption.method.getList()
-        },
         setParam: function () {
+            var me = fjw.pc.coupon;
             var req = {
-                M: fjw.pc.caption.query.status = 0 ? _api.method.ableCouponList : fjw.pc.caption.query.status = 1 ? _api.method.usedCouponList : _api.method.overdueCouponList,
+                M: me.query.status == 0 ? _api.method.ableCouponList : me.query.status == 1 ? _api.method.usedCouponList : _api.method.overdueCouponList,
                 D: JSON.stringify({
-                    Type: fjw.pc.caption.query.type,
-                    PageIndex: fjw.pc.caption.query.page,
-                    PageSize: fjw.pc.caption.query.size
+                    Type: me.query.type,
+                    PageIndex: me.query.page,
+                    PageSize: me.query.size
                 })
             };
             return JSON.stringify(req)
         },
         getList: function () {
+            var me = fjw.pc.coupon;
             _core.ajax.request({
                 url: _api.host,
-                data: fjw.pc.caption.method.setParam(),
+                data: me.method.setParam(),
                 method: 'post',
                 success: function (res) {
                     if (res == '') return;
                     var data = JSON.parse(res), html = '';
                     if (data.grid.length > 0) {
                         for (var i = 0; i < data.grid.length; i++) {
-
                             //使用条件
                             if (data.grid[i].MaxBuyPrice === -1 && data.grid[i].MinBuyPrice === -1) {
                                 data.grid[i].Rules = "无限制使用";
@@ -102,35 +107,84 @@ fjw.pc.caption = {
                             } else {
                                 data.grid[i].UseEndTimeStr = "～";
                             }
+                            data.grid[i].Status = me.query.status;
                         }
-                        var tpl = '<%if(grid.length>0){%>' +
-                            '         <%for(i = 0; i < grid.length; i ++) {%>' +
-                            '              <% var data = grid[i]; %>' +
-                            '              <ul class="items">' +
-                            '                  <li class="col_1"><%= data.CouponValueStr %></li>' +
-                            '                  <li class="col_2"><%= data.Rules %></li>' +
-                            '                  <li class="col_3"><%= data.UseEndTimeStr %></li>' +
-                            '                  <li class="col_4"><%= data.Title %></li>' +
-                            '                  <li class="col_5"><%= data.Title %></li>' +
-                            '              </ul>' +
-                            '         <%}%>' +
-                            '    <%}%>';
+                        var tpl = '<%for(i = 0; i < grid.length; i ++) {%>' +
+                            '            <% var data = grid[i]; %>' +
+                            '            <tr>' +
+                            '                <td><%= data.CouponValueStr %></td>' +
+                            '                <td><%= data.Rules %></td>' +
+                            '                <td><%= data.UseEndTimeStr %></td>' +
+                            '                <td title="<%= data.Title %>"><%= data.Title %></td>' +
+                            '                <td>' +
+                            '                    <div class="menu-pop <%= data.Status == 0 ? "on" : "off" %>" data-couId=<%= data.Id %>>' +
+                            '                        <span class="menu-outline"><%= data.Status == 0 ? "查看详情" : data.Status == 1 ? "已使用" : "已过期" %></span><div class="mask"></div>' +
+                            '                        <ul class="dropbox"></ul>' +
+                            '                    </div>' +
+                            '                </td>' +
+                            '            </tr>' +
+                            '       <%}%>';
 
                         html = _temp(tpl, data);
 
-                        $('#friendsTable .friend-items').html(html);
+                        $('.listContainer-tbody').html(html);
 
-                        //page.method.initPage(data.records)
+                        $('.menu-pop.on').on('mouseenter', function (e) {
+                            if ($(this).find('.dropbox').html() == '') {
+                                me.method.getProInfo($(this).data('couid'), this)
+                            }
+                        })
+
+                        $('.page').html('');
+                        if (data.total > 1) {
+                            me.method.initPage(data.records)
+                        }
                     } else {
-                        $('#friendsTable .friend-items').html('<div class="not-infos"><p>您还没有过好友,快去加油吧！</p></div>');
+                        $('.listContainer-tbody').html('<tr><td colspan="5" style="text-align:center">暂无记录</td></tr>');
                     }
+                },
+                error: function (res) {
+                    $('.listContainer-tbody').html('<tr><td colspan="5" style="text-align:center;color:red">' + res + '</td></tr>');
                 }
             });
+        },
+        getProInfo: function (id, ele) {
+            var param = {
+                CardCouponRecordId: id
+            };
+            _product.productList(JSON.stringify({
+                M: _api.method.productList,
+                D: JSON.stringify(param)
+            }), function (json) {
+                var html = '',
+                    data = JSON.parse(json);
+
+                if (data.grid.length > 0 && data.records > 0) {
+                    for (var i = 0; i < data.grid.length; i++) {
+                        html += '<li><a href="javascript:;" data-href="' + App.webUrl + "/product/detail.html?id=" + data.grid[i].Id + '">' + data.grid[i].Title + '</a></li>';
+                    }
+                }
+                $(ele).find('.dropbox').html(html)
+            }, function (errMsg) {
+                return '<li>暂无产品</li>';
+            });
+        },
+        initPage: function (records) {
+            $('.page').pagination(records, {
+                current_page: fjw.pc.coupon.query.page - 1,
+                num_edge_entries: 1,
+                num_display_entries: 4,
+                callback: function (idx, ele) {
+                    fjw.pc.coupon.query.page = idx + 1;
+                    fjw.pc.coupon.method.getList();
+                    return false;
+                },
+                items_per_page: fjw.pc.coupon.query.size
+            })
         }
     }
-
 }
 
 $(function () {
-    fjw.pc.caption.init();
+    fjw.pc.coupon.init();
 })

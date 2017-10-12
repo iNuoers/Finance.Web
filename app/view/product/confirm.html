@@ -18,19 +18,19 @@
                             预期年化收益率：<span id="rate">--</span>%
                         </li>
                         <li>
-                            起购金额：<span data-start=""></span>--元
+                            起购金额：<span id="startPrice">--</span>元
                         </li>
                         <li>
-                            起息时间：<span data-=""></span>2017-09-12
+                            起息时间：<span id="incomeFlow">--</span>
                         </li>
                         <li>
-                            产品期限：<span id="rate">91</span>天
+                            剩余收益天数：<span id="remainDays">--</span>
                         </li>
                         <li>
-                            回款方式：<span></span>投资本金和收益一次性返还
+                            预期到期收益：<span id="incomeRate">--</span>元
                         </li>
                         <li>
-                            到期时间：<span></span>
+                            到期时间：<span id="dueDate">--</span>
                         </li>
                     </ul>
                 </div>
@@ -43,26 +43,16 @@
                         </p>
                     </div>
                 </div>
-                <div class="m-item remain f-cb">
-                    <h2 class="title f-fl">剩余可购：</h2>
-                    <p class="info f-fl">
-                        新手专享限购2<i>万</i>，本产品当前最高可购买2<i>万</i>元
-                    </p>
-                </div>
                 <div class="m-item iptarea f-cb">
                     <h2 class="title f-fl">购买金额：</h2>
                     <div class="info f-fl symbol-model2">
-                        <input class="J-input i-text input-primary f-fl" type="text" autocomplete="off" value="20000" placeholder="2000元起">
+                        <input class="J-input i-text input-primary f-fl" type="text" autocomplete="off" value="" readonly>
                         <span class="symbol">元</span>
-                        <p>
-                            <i class="income J-incomeTip">预计总收益329.09元</i>
-                            <i class="error J-errorTip" style="display: none;"></i>
-                        </p>
                     </div>
                 </div>
                 <div class="m-item f-cb">
                     <h2 class="title f-fl">交易密码：</h2>
-                    <div  id="payPassword_container" class="info f-fl">
+                    <div  id="payPassword_container" class="info f-fl" data-busy="0">
                         <div class="i-block six-password">
                             <input class="i-text sixDigitPassword" id="payPassword_rsainput" type="text" autocomplete="off"  autocomplete="new-password" onfocus="this.type='password'" required="required" value="" name="payPassword_rsainput" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
                             <div tabindex="0" class="sixDigitPassword-box">
@@ -74,14 +64,15 @@
                                 <i><b></b></i>
                                 <span id="cardwrap" data-role="cardwrap"></span>
                             </div>
-                            <a class="pass-link f-fl" href="javascript:;">忘记交易密码？</a>
+                            <span style="color:red" class="err-tips"></span>
+                            <a class="pass-link f-fl f-hide" href="javascript:;">忘记交易密码？</a>
                         </div>
                     </div>
                 </div>
                 <div class="m-item order mt50 f-cb">
                     <h2 class="title f-fl"></h2>
                     <div class="info f-fl">
-                        <button class="btn btn-info J-order">确认支付</button>
+                        <button class="btn btn-info J-order disabled">立即购买</button>
                     </div>
                 </div>
             </div>

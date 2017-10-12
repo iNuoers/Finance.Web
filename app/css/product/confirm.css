@@ -1,19 +1,18 @@
 .m-pay{background-color:#fff;-webkit-box-sizing:border-box;box-sizing:border-box;padding:40px;padding-top:10px;color:#666;font-size:14px}
 .m-pay .name{color:#333;font-size:18px;height:70px;line-height:70px;border-bottom:1px solid #f1f1f1}
 .m-pay .m-item .title{width:150px;font-size:16px;padding-right:30px;padding-top:42px;text-align:right}
-.m-pay .m-item .info{width:785px;margin-top:30px}
+.m-pay .m-item .info{width:850px;margin-top:30px}
 .m-pay .product .info{background-color:#f9f9f9}
-.m-pay .product .info li{width:33.33%;height:50px;line-height:50px;float:left}
+.m-pay .product .info li{width:32%;height:50px;line-height:50px;padding-left:10px;float:left}
 .m-pay .payway .info{min-height:108px}
 .m-pay .remain .title{padding-top:12px}
 .m-pay .remain .info{margin-top:12px}
-.m-pay .iptarea .info input{display:block;width:280px;height:40px;line-height:20px;margin-top:5px;-webkit-box-sizing:border-box;box-sizing:border-box;font-size:18px;color:#46525e;text-indent:12px}
+.m-pay .iptarea .info input{display:block;width:180px;height:35px;line-height:35px;margin-top:10px;-webkit-box-sizing:border-box;box-sizing:border-box;font-size:16px;color:#666;text-indent:10px}
 .m-pay .iptarea .info .disabled{border:1px solid transparent;text-indent:0;background-color:transparent}
 .m-pay .iptarea .info p{position:absolute;top:45px;height:30px;line-height:30px}
 .m-pay .iptarea .info p .income em{color:#f60}
 .m-pay .iptarea .info p .error{color:red}
-.m-pay .coupon .info{min-height:80px}
-.m-pay .coupon .info .errorctn{height:30px;line-height:30px}
+.m-pay .coupon .info .errorctn{display:none;height:30px;line-height:30px}
 .m-pay .coupon .info .errorctn .error{color:red}
 .m-pay .agreement .info{margin-top:0}
 .m-pay .agreement .info a{color:#0a6feb}
@@ -21,109 +20,12 @@
 .m-pay .order .info .btn{width:280px;height:44px;line-height:44px;font-size:18px;margin:0;padding:0;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-moz-transition:all .4s ease;-o-transition:all .4s ease;-webkit-transition:all .4s ease;transition:all .4s ease}
 .m-title{-webkit-box-sizing:border-box;box-sizing:border-box;padding:20px 10px;font-size:18px;color:#666;background-color:transparent}
 .symbol-model2{position:relative}
-.symbol-model2 .symbol{position:absolute;top:15px;left:255px;z-index:2;color:#a1a1a1;font-size:14px;overflow:hidden}
+.symbol-model2 .symbol{position:relative;top:17px;right:20px;z-index:2;color:#a1a1a1;font-size:14px;overflow:hidden}
 .m-help{-webkit-box-sizing:border-box;box-sizing:border-box;padding:40px 30px;background-color:#fff}
 .m-help li{color:#666;border-bottom:1px solid #f0f0f0;padding-left:10px}
 .m-help li h3{font-size:14px;margin-top:20px;margin-bottom:20px;text-indent:12px}
 .m-help li p{padding:20px 25px;background-color:#f9f9f9;margin-bottom:20px;margin-left:12px}
 .m-help li p a{color:#0a6feb;text-decoration:underline}
 .biz-coupon{position:relative}
-.biz-coupon .only-text{border:1px solid #d1d1d1;padding:6px 10px;margin-top:8px;line-height:initial!important}
-.biz-coupon .notUseCoupon{border:2px solid #5098f1;padding:3px 7px;margin-top:12px}
-.biz-coupon .m-benefit{height:46px;width:146px;padding:0;padding-top:8px;border:2px solid #5098f1;background:url(//www.lmlc.com/cdn/desktop/common/biz/coupon/img/angle.e4aab12262.png) right bottom no-repeat;text-align:center}
-.biz-coupon .m-benefit li{line-height:normal}
-.biz-coupon .m-benefit .benefit-info{font-size:16px;color:#666;margin-bottom:2px}
-.biz-coupon .m-benefit .benefit-time{font-size:12px;color:#999}
-.biz-coupon .firstShow{line-height:60px}
-.biz-coupon .firstShow i{color:red}
-.biz-coupon #showBenefits{line-height:57px;margin-left:15px;cursor:pointer}
-.biz-coupon .coupon-wrap{display:none;padding:20px;width:730px;height:250px;overflow-y:scroll;position:absolute;top:70px;left:0;background-color:#fff;border:1px solid #b3bbc1;-webkit-box-shadow:-1px 0 4px #d6d6d6,1px 0 4px #d6d6d6,0 2px 4px #d6d6d6;box-shadow:-1px 0 4px #d6d6d6,1px 0 4px #d6d6d6,0 2px 4px #d6d6d6;z-index:1000}
-.biz-coupon .coupon-wrap dt{line-height:normal;font-size:16px;margin-bottom:16px;width:690px;padding-right:20px}
-.biz-coupon .coupon-wrap .m-validLists .noBenefits{font-size:14px;color:#3572ce;cursor:pointer}
-.biz-coupon .coupon-wrap .m-validLists .benefit-unit{position:relative;height:61px;width:159px;text-align:center;margin:0 18px 20px 0;cursor:pointer}
-.biz-coupon .coupon-wrap .m-validLists .benefit-unit .benefit-unit-text{position:absolute;top:0;right:0;height:41px;width:132px;padding:0;padding-top:11px}
-.biz-coupon .coupon-wrap .m-validLists .benefit-unit .benefit-info{font-size:14px;color:#666;margin-bottom:4px}
-.biz-coupon .coupon-wrap .m-validLists .benefit-unit .benefit-time{font-size:11px;color:#999}
-.biz-coupon .coupon-wrap .m-validLists .red{background:url(//www.lmlc.com/cdn/desktop/common/biz/coupon/img/coupon.d81758348d.png) right bottom no-repeat}
-.biz-coupon .coupon-wrap .m-validLists .red.selected{background:url(//www.lmlc.com/cdn/desktop/common/biz/coupon/img/coupon-selected.7c035e82ea.png) right bottom no-repeat}
-.biz-coupon .coupon-wrap .m-validLists .plus{background:url(//www.lmlc.com/cdn/desktop/common/biz/coupon/img/addRate.64aff789f3.png) right bottom no-repeat}
-.biz-coupon .coupon-wrap .m-validLists .plus.selected{background:url(//www.lmlc.com/cdn/desktop/common/biz/coupon/img/addRate-selected.7d79bf3868.png) right bottom no-repeat}
-.biz-coupon .coupon-wrap .m-invalidLists .invalid-unit{position:relative;height:69px;width:159px;text-align:center;margin:0 18px 20px 0;background:url(//www.lmlc.com/cdn/desktop/common/biz/coupon/img/invalid.a255d823ce.png) right bottom no-repeat}
-.biz-coupon .coupon-wrap .m-invalidLists .invalid-unit .benefit-type{font-size:12px;color:#fff;position:absolute;top:5px;left:7px}
-.biz-coupon .coupon-wrap .m-invalidLists .invalid-unit .benefit-unit-text{position:absolute;top:0;right:0;height:50px;width:132px;padding:0;padding-top:7px}
-.biz-coupon .coupon-wrap .m-invalidLists .invalid-unit .benefit-unit-text .benefit-info{font-size:14px;color:#999}
-.biz-coupon .coupon-wrap .m-invalidLists .invalid-unit .benefit-reason{font-size:11px;color:#999;margin-bottom:4px}
-.biz-coupon .coupon-wrap .m-invalidLists .invalid-unit .benefit-time{font-size:11px;color:#999}
-.biz-coupon .coupon-wrap .m-invalidLists .red .benefit-type{top:17px}
+.biz-coupon .only-text{border:1px solid #e0e4ed;padding:6px 10px;margin-top:8px;line-height:initial!important}
 .pass-link{font-size:12px;line-height:42px;color:#0a6feb} 
-
-.sixDigitPassword {
-    position: absolute;
-    top: 10px;   
-    width: 100%;
-    height: 31px;
-    color: #fff;
-    font-size: 12px;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    -webkit-user-select: initial;
-    outline: none;
-    z-index: 999;
-    opacity:0;
-    filter:alpha(opacity=0);
-  }
-
-  .sixDigitPassword-box {
-      width:180px;
-    margin-top: 10px;
-        cursor:text;
-        background: #fff;
-        outline: none;
-        position: relative;
-        padding: 8px 0;
-        height: 15px;
-        border: 1px solid #cccccc;
-        border-radius: 2px;
-  }
-  .sixDigitPassword-box i {
-        float: left;
-        display: block;
-        padding: 4px 0;
-        height: 7px;
-        width:29px;
-        border-left: 1px solid #cccccc;
-    }
-    .sixDigitPassword-box i:first-child{
-        border-color: transparent;
-    }
-   .sixDigitPassword-box .active {
-        background: url('http://www.jq22.com/demo/zfbpwd20160606/password-blink.gif') no-repeat center center;        
-    }
-   .sixDigitPassword-box b {
-        display: block;
-        margin: 0 auto;
-        width: 7px;
-        height: 7px;
-        overflow: hidden;
-        visibility:hidden;
-        background: url('http://www.jq22.com/demo/zfbpwd20160606/passeord-dot.png') no-repeat;
-    }
-  .sixDigitPassword-box span {
-        position: absolute;
-        display: block;
-        top: -1px;
-        height: 31px;
-        width: 29px;
-        visibility: hidden;
-        border: 1px solid rgba(82, 168, 236, .8);
-        border-radius: 2px;
-        visibility: hidden;
-        -webkit-box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.75), 0 0 8px rgba(82, 168, 236, 0.6);
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-    }
- .six-password{
-    position: relative;
-    overflow: hidden;
-    vertical-align: middle;
-    
-} 
