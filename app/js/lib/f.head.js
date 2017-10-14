@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-07-21 16:35:42
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-12 14:09:42
+ * @Last Modified time: 2017-10-14 00:21:34
  */
 
 'use strict';
@@ -26,6 +26,7 @@ var Core = {
         var _this = this, user = null;
 
         if (_core.cookie.get($.base64.btoa('f.token'))) {
+            _core.cookie.set('f.token',_core.cookie.get($.base64.btoa('f.token')))
             _user.getUserInfo(JSON.stringify({
                 M: _api.method.getMemberInfo,
             }), function (json) {
