@@ -4,80 +4,61 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 20:20:35 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-13 21:27:30
+ * @Last Modified time: 2017-10-16 10:58:34
  */
 var FJW = require('js_path/lib/pc.core.js')
-!function (t) {
-    var e = function () {
-        this.quickMenu = t('#header .quick-menu')
-        this.root = t('#header')
-        this.init()
-        this
+!function ($) {
+    var header = function () {
+        this.quickMenu = $('#header .site-nav');
+        this.root = $('#header');
+        this.isLogin = $('.F_isLogin');
+        this.unLogin = $('.F_unLogin');
+        this.userIcon = $('.F_userIcon');
+        this.userPhone = $('.F_userPhone');
+        this.logout = $('.F_out');
+        this.init();
     };
-    e.prototype.init = function () {
-        var e = this, n = e.root;
+    header.prototype.init = function () {
+        var me = this, root = me.root;
 
         var o = encodeURIComponent(window.location.href);
-        t('[data-selector="link-login"]', n).on('click', function () {
-            window.location.href = t(this).attr('href') + '?refPath=' + o;
+        $('[data-selector="link-login"]', root).on('click', function () {
+            window.location.href = $(this).attr('href') + '?refPath=' + o;
             return false
         });
-        t('[data-selector="link-register"]', n).on('click', function () {
-            window.location.href = t(this).attr('href') + '?refPath=' + o;
+        $('[data-selector="link-register"]', root).on('click', function () {
+            window.location.href = $(this).attr('href') + '?refPath=' + o;
             return false
         });
-        t('[data-selector="link-logout"]', n).on('click', function () {
-            window.location.href = t(this).attr('href') + '?refPath=' + FJW.Env.wwwRoot;
+        $('[data-selector="link-logout"]', root).on('click', function () {
+            window.location.href = $(this).attr('href') + '?refPath=' + FJW.Env.wwwRoot;
             return false
         });
-        e.refresh()
+        me.onload()
     }
-    e.prototype.onload = function () {
-        var e = this,
-            n = e.root;
-        t(function () {
-            t.ajax({
-                url: FJW.Env.wwwRoot + 'headData.shtml',
-                type: 'post',
-                data: null,
-                dataType: 'json',
-                cache: !1,
-                success: function (e) {
-                    e.loanListTotalFoverCount > 0 && t('.sub-nav [data-selector="preferance-num"]', n).text(e.loanListTotalFoverCount).css('display', 'inline-block'),
-                        e.superDebtCount > 0 && t('.sub-nav [data-selector="debt-num"]', n).text(e.superDebtCount).css('display', 'inline-block'),
-                        e.normalDebtCount > 0 && t('.sub-nav [data-selector="personal-num"]', n).text(e.normalDebtCount).css('display', 'inline-block')
-                }
-            })
-        })
-        e
+    header.prototype.onload = function () {
+        var me = this,
+            n = me.root;
+        FJW.User.isLogin()
+        console.log(window.user.isLogin)
+        return window.user.isLogin ? this.setLoginedMenu() : this.setUnloginMenu();
     }
-    e.prototype.navbar = function (e) {
-        t('#header nav .nav-menu > ul li').each(function () {
-            t(this).attr('data-name') === e && t(this).addClass('active')
-        })
-        this
+    header.prototype.setUnloginMenu = function () {
+        var me = this;
+        me.unLogin.css({
+            visibility: 'visible'
+        });
+        me.logout.hide();
+        me.isLogin.hide();
+        me.userPhone.html('尊敬的用户');
     }
-    e.prototype.refresh = function () {
-        FJW.User.isLogin() ? this.setLoginedMenu() : this.setUnloginMenu()
-        this
+    header.prototype.setLoginedMenu = function () {
+        var me = this;
+        var html = ['<a href="javascript:;" data-href="">' + FJW.Cookie.get('f.phone') + '，<a class="F_out" href="javascript:;">退出</a>'].join("");
+
+        me.logout.show();
+        me.unLogin.hide();
+        me.isLogin.html(html).show();
     }
-    e.prototype.setUnloginMenu = function () {
-        var t = this;
-        NodeTpl.get('//pc-static.caifuxq.com/v1/revs/tpls/header/quick_menu.js?v=ea08f55f', {
-        }, function (e) {
-            t.quickMenu.empty().append(e)
-        })
-        t
-    }
-    e.prototype.setLoginedMenu = function () {
-        var t = this;
-        NodeTpl.get('//pc-static.caifuxq.com/v1/revs/tpls/header/quick_menu.js?v=ea08f55f', {
-            isLogin: !0,
-            user_name: FJW.Cookie.get('user_name')
-        }, function (e) {
-            t.quickMenu.empty().append(e)
-        })
-        t
-    }
-    window.HeaderApply = new e
+    window.HeaderApply = new header
 }(jQuery);

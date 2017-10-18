@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 20:02:00 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-14 00:20:44
+ * @Last Modified time: 2017-10-17 16:10:24
  */
 
 var FJW = require('js_path/lib/pc.core.js')
@@ -19,36 +19,51 @@ FJW.Config.init = function () {
 FJW.Config.generateId = function () {
     return 'AUTOID__' + (FJW.Config.data.generateId++).toString(36)
 }
-FJW.User.isLogin = function (e) {
-    var t = this,
-        n = !0;
-    debugger
-    FJW.Ajax({
-        url: 'https://api.fangjinnet.com:1000/api',
+FJW.User.isLogin = function () {
+    return $.ajax({
+        url: FJW.Env.apiHost,
+        async: false,
+        type: "post",
+        dataType: "json",
         data: JSON.stringify({
             M: "ValidateToken",
             D: JSON.stringify({
                 Token: FJW.Cookie.get('f.token')
             })
         }),
-        method: 'post',
         success: function (res) {
-            debugger
+            var data = JSON.parse(res.d)
+            if (data.Work) {
+                window.user.isLogin = true;
+            } else {
+                window.user.isLogin = false;
+            }
+        },
+        error: function () {
+            window.user.isLogin = false;
         }
-    })
-    return $.ajax({
-        type: 'post',
-        url: FJW.Env.wwwRoot + 'login/userstatus.shtml',
-        data: null,
-        dataType: 'json',
-        cache: !1,
-        async: !1,
-        success: function (a) {
-            0 == a.code ? (e && e.call(t, a.data), n = !0) : n = !1
-        }
-    }),
-        n
+    }), window.user.isLogin;
 }
+// FJW.User.getDetail = function () {
+//     var me = this,
+//         info = null;
+
+//     return $.ajax({
+//         url: FJW.Env.apiHost,
+//         async: false,
+//         type: "post",
+//         dataType: "json",
+//         data: JSON.stringify({
+//             M: "GetMemberInfo"
+//         }),
+//         success: function (res) {
+//             info = JSON.parse(res.d)
+//         },
+//         error: function () {
+
+//         }
+//     }), info;
+// }
 FJW.Namespace('Project')
 FJW.Project.countdown = function (e) {
     var t,
@@ -183,7 +198,10 @@ FJW.scrollTop.config = {}
 FJW.scrollTop.init = function () {
     FJW.Page.pageHeight() > 500 && void 0 === FJW.scrollTop.config.hide
 }
+
 $(function () {
     FJW.Config.init()
     FJW.scrollTop.init()
 });
+
+module.exports = FJW;

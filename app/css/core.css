@@ -1,5 +1,28 @@
-﻿/*颜色*/
+﻿/*文字颜色调用*/
+.text-yellow{color:#ffb700}
+.text-orange{color:#ff7800}
+.text-333{color:#333}
+.text-666{color:#666}
+.text-999{color:#999}
+.text-aaa{color:#aaa}
+.text-ccc{color:#ccc}
 
+/*字体大小设置*/
+.fz12{font-size:12px}
+.fz14{font-size:14px}
+.fz16{font-size:16px}
+.fz18{font-size:18px}
+.fz20{font-size:20px}
+.fz24{font-size:24px}
+.fz26{font-size:26px}
+
+/* text-align */
+.tc{text-align:center;}
+.tr{text-align:right;}
+.tl{text-align:left;}
+.tj{text-align:justify;}
+
+/*颜色*/
 .color-dark-text, .text-black-color { color: #2b2b2b; }
 .text-orange-color { color: #ff721f; }
 .text-lightblue-color { color: #4c98cd; }
@@ -854,7 +877,26 @@
 .sixDigitPassword-box span{position:absolute;display:block;top:-1px;height:31px;width:29px;visibility:hidden;border:1px solid rgba(20,105,235,.8);border-radius:2px;visibility:hidden;-webkit-box-shadow:inset 0 2px 2px rgba(0,0,0,.75),0 0 8px rgba(82,168,236,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(82,168,236,.6)}
 .six-password{position:relative;overflow:hidden;vertical-align:middle}
 
+/* position */
+.rel{position:relative;}
+.abs{position:absolute; }
+.fixed{position: fixed;}
+/*z-index*/
+.z0{z-index:0;}
+.z1{z-index:1;}
+.z2{z-index:2;}
+.z3{z-index:3;}
+.z4{z-index:4;}
+.z5{z-index:5;}
+.z100{z-index:100;}
+.z101{z-index:101;}
+.z102{z-index:102;}
+.z103{z-index:103;}
 
+/* animate */
+.animate{cursor:pointer;-webkit-transition:all .3s;transition:all .3s}
+.animate:hover{-webkit-transform:translate(0, -2px);-moz-transform:translate(0, -2px);transform:translate(0, -2px);box-shadow:0 4px 20px rgba(0, 0, 0, 0.1)}
+/* 清除浮 动*/
 .f-cb { display: block; zoom: 1 }
 .f-cb:after { content: " "; display: block; font-size: 0; height: 0; clear: both; visibility: hidden }
 .f-hide {display:none}

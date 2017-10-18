@@ -1,9 +1,21 @@
+/*
+ * @Author: mr.ben (肖工)  
+ * @QQ：66623978 
+ * @Github：https://github.com/iNuoers/ 
+ * @Create time: 2017-10-16 16:20:08 
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-10-16 16:22:11
+ */
 'use strict';
-require('../../../css/about/safety.css');
-require('../../lib/f.head.js');
+require('css_path/about/safety.css')
+require('js_path/lib/pc.apps.js')
+require('js_path/lib/header.js')
 
 var safety = {
 	init: function () {
+		
+		$('#nav_safety').addClass('active');
+		
 		for (var i = 1; i < 8; i++) {
 			// TweenMax.to($('#icon' + i), 0, { opacity: 0 });
 		}
@@ -40,7 +52,7 @@ var safety = {
 	moveSafetySection: function () {
 		for (var i = 1; i < 12; i++) {
 			// TweenMax.to($('#tween' + i), 0, { scaleX: 0.1, scaleY: 0.1, opacity: 0 });
-			if (i < 6) TweenMax.to($('#tweenTitle' + i), 0, { scaleX: 0.1, scaleY: 0.1, opacity: 0 });
+			//if (i < 6) TweenMax.to($('#tweenTitle' + i), 0, { scaleX: 0.1, scaleY: 0.1, opacity: 0 });
 		}
 		var scrollNum = $(document).scrollTop();
 		var s = this;

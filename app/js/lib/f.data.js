@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-08-30 16:43:17
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-10 15:47:31
+ * @Last Modified time: 2017-10-18 13:35:57
  */
 'use strict';
 
@@ -13,6 +13,7 @@ var debug = false;
 var api = {
     host: debug ? 'http://192.168.1.5:8081/api' : 'https://api.fangjinnet.com:1000/api',
     method: {
+        homeData: "AppHomeData",
         // 产品列表
         productList: "ProductList",
         // 产品详情
@@ -62,9 +63,12 @@ var api = {
         overdueCouponList: "GetOverdueCouponList",
 
         // 账户提现
-        withdraw:"Withdraw",
+        withdraw: "Withdraw",
         // 提现信息获取
-        withdrawInfo:"GetWithdrawInfo"
+        withdrawInfo: "GetWithdrawInfo",
+
+        noticeList: "NoticePcList",
+        noticeDetail: ""
 
     }
 }

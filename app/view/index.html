@@ -1,10 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-cn">
 
 <head>
-    <title>
-        <%= htmlWebpackPlugin.options.title%> - 房金网
-    </title>
+    <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
     <%= require('html-loader!./layout/head-common.html')%>
 </head>
 
@@ -12,33 +10,149 @@
     <%= require('html-loader!./layout/nav.html')%>
     <%= require('html-loader!./layout/header.html')%>
     <div class="main-wrap main-section">
+        <!--banner start https://www.fjw.cn/-->
+        <div class="fjw-banner rel">
+            <div class="bannner-container rel" id="banner-slidebox"></div>
+            <div class="abs reg-zone">
+                <!--未登录状态-->
+                <div class="reg-zone-unlogin">
+                    <div class="text-1 fz12 text-666">
+                        <strong class="fz24 text-orange mr5 n">6587229</strong>聪明投资者选择
+                    </div>
+                    <div class="text-1 fz12 text-666">
+                        <strong class="fz24 text-orange mr5 n">11.8%</strong>预期最高年化收益
+                    </div>
+                    <div class="text-guarantee">
+                        <a href="http://info.fjw.cn/about/guarantee.html?mark=1">
+                            <span class="ads-icons i-guarantee text-orange">10亿</span> 注册资金
+                        </a>
+                        <a href="http://info.fjw.cn/about/guarantee.html?mark=1">
+                            <span class="ads-icons i-guarantee text-orange">18亿</span> 新轮融资
+                        </a>
+                        <a href="http://info.fjw.cn/about/guarantee.html?mark=1">
+                            <span class="ads-icons i-guarantee text-orange">1亿+</span> 第三方担保
+                        </a>
+                    </div>
+                    <a class="reg-zone-btn" rel="nofollow" href="javascript:;">领取新手礼包</a>
+                    <div class="tc mt10">
+                        <a class="fz14 text-999" rel="nofollow" href="javascript:;">查看收益?立即登录</a>
+                    </div>
+                </div>
+                <!--已登录状态-->
+                <div class="reg-zone-login f-hide">
+                    <div class="tc">
+                        <a href="javascript:;">
+                            <img class="avator" id="avator" alt="" src="">
+                        </a>
+                    </div>
+                    <dl class="userinfo">
+                        <dd class="f-fl f-cb">
+                            <div class="mt10 username mb20"></div>
+                        </dd>
+                        
+                        <div class="f-fl lastTime mb10">上次登录：<span></span></div>
+                        <div class="f-fl lastDevice">登录设备：<span></span></div>
+                    </dl>
+                    <a class="reg-zone-btn" rel="nofollow" href="javascript:;" data-href="/my/index.html">进入我的账户</a>
+                </div>
+            </div>
+        </div>
+        <!--banner end-->
+        <!--通知 start-->
+        <div class="fjw-notice">
+            <div class="main-section fjw-notice-container">
+                <a class="f-fl fz14 text-aaa notice-item" href="javascript:;">
+                    公告：<span></span>
+                </a>
+                <a class="f-fr fz14 text-aaa" href="javascript:;" data-href="/about/notice.html">查看更多</a>
+            </div>
+        </div>
+        <!--通知 end-->
+        <!--资金数据滚动 start-->
+        <div class="fjw-databox">
+            <div class="main-section">
+                <div class="fjw-circle">
+                    <div class="col-lg-2">
+                        <a rel="nofollow" href="https://hd.fjw.cn/web/20170308/index.aspx?tdsource=pcbanner">
+                            <dl>
+                                <dt class="f-fl ads-icons i-guarantee tc">
+                                    <span class="ads-icons i-depository"></span>
+                                </dt>
+                                <dd class="f-fl">
+                                    <p class="fz18 text-333">银行存管</p>
+                                    <p class="fz14 text-999">为用户资金安全保驾护航</p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a rel="nofollow" href="https://hd.fjw.cn/web/20160325/index.aspx">
+                            <dl>
+                                <dt class="f-fl ads-icons i-guarantee tc">
+                                    <span class="ads-icons i-powerful"></span>
+                                </dt>
+                                <dd class="f-fl">
+                                    <p class="fz18 text-333">强大背景</p>
+                                    <p class="fz14 text-999">中国互联网金融协会会员</p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a rel="nofollow" href="http://at.fjw.cn/201706/201706RongZi/index.aspx">
+                            <dl>
+                                <dt class="f-fl ads-icons i-guarantee tc">
+                                    <span class="ads-icons i-strength"></span>
+                                </dt>
+                                <dd class="f-fl">
+                                    <p class="fz18 text-333">实力雄厚</p>
+                                    <p class="fz14 text-999">获新一轮融资18亿元</p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 last">
+                        <a rel="nofollow" href="http://info.fjw.cn/about/guarantee.html?mark=1">
+                            <dl>
+                                <dt class="f-fl ads-icons i-guarantee tc">
+                                    <span class="ads-icons i-risk"></span>
+                                </dt>
+                                <dd class="f-fl">
+                                    <p class="fz18 text-333">专业风控</p>
+                                    <p class="fz14 text-999">成熟的云数据系统</p>
+                                </dd>
+                            </dl>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--资金数据滚动 end-->
         <div class="main-section">
             <!--新手引导区-->
-            <div class="mb40">
+            <div class="main-section mt20 fjw-page1">
                 <div class="newer-list">
                     <ul>
-                        <li class="newer-reward shadowAnimate">
-                            <a class="link-cover" target="_blank" href="http://active.wsloan.com/pc/2017/newcomer/index.html">
+                        <li class="newer-reward animate">
+                            <a class="link-cover" href="https://a.fangjinnet.com:10080/html/17050601/newcome1705.html">
                                 <p class="newer-reward-text">新人专享礼包</p>
-                                <p class="newer-reward-sub-text"><span>15000</span>体验金+<span>518</span>现金券+<span>5%</span>加息劵</p>
+                                <p class="newer-reward-sub-text">
+                                    <span>168</span>现金券 +
+                                    <span>6%</span>加息劵
+                                </p>
                             </a>
                         </li>
-
-                        <li class="newer-bid shadowAnimate" id="J_newer_bid_content">
-                            <a href="../invest-detail/?id=38730&amp;type=7" target="_blank">
-                                <div class="newer-bid-title">
-                                    新人专享礼包
-                                </div>
+                        <li class="newer-bid animate" id="J_newer_bid_content">
+                            <a href="javascript:;" data-href="/product/detail.html?id=3">
+                                <div class="newer-bid-title">新手专享</div>
                                 <div class="newer-bid-content">
                                     <div class="cell rate">
                                         <p class="text rate-text">16.00<em>%</em></p>
                                         <p class="label">预期年化收益率</p>
                                     </div>
                                     <div class="cell period">
-                                        <!-- <p class="text period-text">1<em>个月</em></p> -->
-                                        <p class="text period-text">
-                                            <span>随存随取</span>
-                                        </p>
+                                        <p class="text period-text">7<em>天</em></p>
+                                        <!-- <p class="text period-text"><span>随存随取</span></p> -->
                                         <p class="label">投资期限</p>
                                     </div>
                                     <div class="cell limit">
@@ -48,106 +162,143 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="video shadowAnimate">
+                        <li class="video animate">
                             <div class="video-thumb" id="J_show_video">
-                                <img src="https://www.fangjinnet.com/static/images/index-newcomerBg.jpg" alt="">
+                                <img src=<%=require("../image/newcomer.jpg")%> alt="新手指南">
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="mb40 index-ads">
-                <div class="f-cb pro tb">
-                    <div class="proleft" style="background: url(https://www.fangjinnet.com/static/images/index-describe.png) center center no-repeat">
-                        <div class="contb conbg">
-                            <div class="titbg">
-                                <a href="" target="_blank">
-                                    开启财富之旅<br>
-                                    一线优质资产项目<br>
-                                    多样选择，简单投资<br>
-                                    收益情况随时查
-                                </a>
-                            </div>
-                            <div class="linkcon">
-                                <a href="" target="_blank"> <span>立即抢购</span> </a>
-                            </div>
+            <!-- page2 热门产品 start-->
+            <div class="fjw-pages mt20 fjw-page2">
+                <h3 class="fjw-page-title">
+                    开启财富之旅
+                    <small class="fz14 text-999 ml5">多样选择&nbsp;&nbsp;多样选择</small>
+                    <a class="fz14 text-aaa f-fr" href="javascript:;" data-href="/product/index.html">查看更多</a>
+                </h3>
+                <div class="fjw-page2-container national"></div>
+                <div class="fjw-page2-container current"></div>
+            </div>
+            <!-- page2 热门产品 end-->
+
+            <!-- page3 新闻公告 start-->
+            <div class="fjw-pages fjw-page3">
+                <div class="fjw-page7-container">
+                    <div class="col-lg-4 mr15">
+                        <h3 class="fjw-page-title1">
+                            <span class="f-fl">公司大事记</span>
+                            <a class="fz14 text-aaa f-fr" href="javascript:;" data-href="/about/event.html">查看更多</a>
+                        </h3>
+                        <div class="fjw-news-box">
+                            <dl>
+                                <dt class="f-fl">
+                                    <a rel="nofollow" href="" >
+                                        <img src="https://infoimage.tuandai.com/ad/1502362513448.jpg" alt="房金网与上海银行签订资金存管协议">
+                                    </a>
+                                </dt>
+                                <dd class="f-fl">
+                                    <a class="fz20 text-333" rel="nofollow" href="">房金网与上海银行签订资金存管协议</a>
+                                    <span class="news-date">2017-07-20</span>
+                                </dd>
+                            </dl>
+                            <ul class="fjw-news-list">
+                                <li>
+                                    <i class="new-circle-type"></i>
+                                    <a rel="nofollow" href="" title="跨界·融合·创新 ▏房金网斩获“品牌50强”、“金融业十大诚信企业”两大荣誉">跨界·融合·创新 ▏房金网斩获“品牌50强”、“金融业十大诚信企业”两大荣誉</a>
+                                    <span class="news-date">2017-08-10</span>
+                                </li>
+                                <li>
+                                    <i class="new-circle-type"></i>
+                                    <a rel="nofollow" href="" title="雁鸿翔员工爱心献血 接受《印象上海》栏目采访">雁鸿翔员工爱心献血 接受《印象上海》栏目采访</a>
+                                    <span class="news-date">2017-08-10</span>
+                                </li>
+                                <li>
+                                    <i class="new-circle-type"></i>
+                                    <a rel="nofollow" href="" title="房金网再度携手东方航空，“互金+航空”模式再升级">房金网再度携手东方航空，“互金+航空”模式再升级</a>
+                                    <span class="news-date">2017-09-25</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="proright right tb-list">
-                        <ul class="f-cb producttwo producttb">
-                            <li class="" >
-                                <a href="" target="_blank" class=""></a>
-                                <p class="title">
-                                    <a href="" target="_blank" title="房金月宝">房金月宝</a>
-                                </p>
-                                <a href="" target="_blank" title="">
-                                    <p class="" title="">
-                                        
-                                    </p>
-                                    <p class="">
-                                        ￥<span class="value">136.00</span>起
-                                    </p>
-                                </a>
-                                <a href="" target="_blank" title=" ">
-                                    <img class="product" src="" alt="">
-                                </a>
-                            </li>                            
-                            <li class="" >
-                                <a href="" target="_blank" class=""></a>
-                                <p class="title">
-                                    <a href="" target="_blank" title="房金月宝">房金月宝</a>
-                                </p>
-                                <a href="" target="_blank" title="">
-                                    <p class="" title="">
-                                        
-                                    </p>
-                                    <p class="">
-                                        ￥<span class="value">136.00</span>起
-                                    </p>
-                                </a>
-                                <a href="" target="_blank" title=" ">
-                                    <img class="product" src="" alt="">
-                                </a>
-                            </li>                            
-                            <li class="" >
-                                <a href="" target="_blank" class=""></a>
-                                <p class="title">
-                                    <a href="" target="_blank" title="房金月宝">房金月宝</a>
-                                </p>
-                                <a href="" target="_blank" title="">
-                                    <p class="" title="">
-                                        
-                                    </p>
-                                    <p class="">
-                                        ￥<span class="value">136.00</span>起
-                                    </p>
-                                </a>
-                                <a href="" target="_blank" title=" ">
-                                    <img class="product" src="" alt="">
-                                </a>
-                            </li>                            
-                            <li class="" >
-                                <a href="" target="_blank" class=""></a>
-                                <p class="title">
-                                    <a href="" target="_blank" title="房金月宝">房金月宝</a>
-                                </p>
-                                <a href="" target="_blank" title="">
-                                    <p class="" title="">
-                                        
-                                    </p>
-                                    <p class="">
-                                        ￥<span class="value">136.00</span>起
-                                    </p>
-                                </a>
-                                <a href="" target="_blank" title=" ">
-                                    <img class="product" src="" alt="">
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="col-lg-4">
+                        <h3 class="fjw-page-title1">
+                            <span class="f-fl">媒体报道</span>
+                            <a class="fz14 text-aaa f-fr" href="javascript:;" data-href="/about/media.html">查看更多</a>
+                        </h3>
+                        <div class="fjw-news-box">
+                            <dl>
+                                <dt class="f-fl">
+                                    <a rel="nofollow" href="javascript:;" data-href="/about/media.html?id=">
+                                        <img src="https://infoimage.tuandai.com/ad/1506589012488.jpg" alt="【新浪财经】“互联网+”的金融时代，怎样才能成为大赢家？">
+                                    </a>
+                                </dt>
+                                <dd class="f-fl">
+                                    <a rel="nofollow" class="fz20 text-333" href="javascript:;" data-href="/about/media.html?id=">【新浪财经】“互联网+”的金融时代，怎样才能成为大赢家？</a>
+                                    <span class="news-date">2017-09-28</span>
+                                </dd>
+                            </dl>
+                            <ul class="fjw-news-list">
+                                <li>
+                                    <i class="new-circle-type"></i>
+                                    <a rel="nofollow" href="javascript:;" data-href="/about/media.html?id=">【网易新闻】房金网CEO受邀参加上海财经节目《赢+》专访</a>
+                                    <span class="news-date">2017-09-28</span>
+                                </li>
+                                <li>
+                                    <i class="new-circle-type"></i>
+                                    <a rel="nofollow" href="javascript:;" data-href="/about/media.html?id=">【东方网】2017中国金融品牌50强、金融业十大诚信企业名单揭晓!</a>
+                                    <span class="news-date">2017-09-28</span>
+                                </li>
+                                <li>
+                                    <i class="new-circle-type"></i>
+                                    <a rel="nofollow" href="javascript:;" data-href="/about/media.html?id=">【新浪看点】为献血救人推迟二胎计划，他只说了一个字：值！</a>
+                                    <span class="news-date">2017-09-25</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- page3 新闻公告 end-->
+
+            <!-- page4 合作伙伴 start-->
+            <div class="fjw-pages main-section fjw-page4">
+                <h3 class="fjw-page-title">合作伙伴
+                    <small class="fz14 text-999 ml5">（房金网支持多家支付机构）</small>
+                </h3>
+                <div class="fjw-page4-container">
+                    <div class="cooperate-links-box">
+                        <div class="link-box-bg">
+                            <div class="zone-1">
+                                <span class="cooperate-imgs cooperate-img1"></span>
+                                <span class="cooperate-imgs cooperate-img2"></span>
+                                <span class="cooperate-imgs cooperate-img3"></span>
+                                <span class="cooperate-imgs cooperate-img4"></span>
+                                <span class="cooperate-imgs cooperate-img5"></span>
+                                <span class="cooperate-imgs cooperate-img6"></span>
+                                <span class="cooperate-imgs cooperate-img7"></span>
+                                <span class="cooperate-imgs cooperate-img8"></span>
+                                <span class="cooperate-imgs cooperate-img9"></span>
+                                <span class="cooperate-imgs cooperate-img10"></span>
+                            </div>
+                            <div class="links-middle">
+                                <span class="cooperate-imgs cooperate-img11"></span>
+                                <span class="cooperate-imgs cooperate-img12"></span>
+                                <span class="cooperate-imgs cooperate-img13"></span>
+                                <span class="cooperate-imgs cooperate-img14"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page4 合作伙伴 end-->
+        </div>
+    </div>
+    <!--左侧AD-->
+    <div class="left-banner" style="bottom:55px!important;display:block;">
+        <div class="pic" style="height:320px!important;">
+            <i class="close fa fa-close" style="top:1px!important;left:117px!important;"></i>
         </div>
     </div>
     <%= require('html-loader!./layout/footer.html')%>

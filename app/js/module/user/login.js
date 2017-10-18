@@ -4,16 +4,17 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-07-20 09:12:27
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-07 18:06:04
+ * @Last Modified time: 2017-10-17 16:13:53
  */
 // https://passport.tuandai.com/login
 'use strict';
-require('../../../css/user/login');
-require('../../plugins/base64/jquery.base64.js')
+require('css_path/user/login')
 
-var _api = require('../../lib/f.data.js');
-var _core = require('../../lib/f.core.js');
-var _user = require('../../service/user-service');
+var apps = require('js_path/lib/pc.apps.js')
+var core = require('js_path/lib/pc.core.js')
+var header = require('js_path/lib/header.js')
+var _api = require('js_path/lib/f.data.js');
+var _user = require('js_path/service/user-service');
 
 // 表单里的错误提示
 var formError = {
@@ -26,24 +27,23 @@ var formError = {
 };
 
 // page 逻辑部分
-var page = {
+fjw.pc.login = {
     init: function () {
         this.bindEvent();
     },
 
     bindEvent: function () {
-        var _this = this;
+        var me = this;
 
         // 登录按钮的点击
         $('.loginbtn').click(function () {
-            _this.submit();
+            me.submit();
         });
 
-        //
         $(".login-form").keyup(function (e) {
             e.preventDefault();
             if (e.keyCode === 13) {
-                _this.submit();
+                me.submit();
             }
         });
     },
@@ -61,26 +61,30 @@ var page = {
         }, validateResult = this.formValidate(formData);
 
         if (validateResult.status) {
+            $('.loginbtn').text('登录中...').prop('disabled', true);
             _user.login(JSON.stringify(req), function (res) {
 
                 var user = JSON.parse(res);
                 // 登录成功 保存状态 cookie
-                _core.cookie.set($.base64.btoa('f.token'), user.token, { path: '/' });
-                _core.cookie.set($.base64.btoa('f.phone'), user.member.phone, { path: '/' });
-                _core.cookie.set($.base64.btoa('f.avator'), user.member.headPhoto, { path: '/' });
+                core.Cookie.set('f.token', user.token, 20, '/')
+                core.Cookie.set('f.phone', user.member.phone, 20, '/')
+                core.Cookie.set('f.login-time', user.loginlasttime, 20, '/')
+                core.Cookie.set('f.login-device', user.devicename, 20, '/')
 
-                _core.storage.setItem($.base64.btoa('f.ui.cache'), res);
-                _core.storage.setItem($.base64.btoa('f.token'), user.token);
+                core.Storage.setItem('f.token', user.token)
+                core.Storage.setItem('f.ui.cache', res)
 
                 //success redirect
-                window.location.href = _core.Tools.getUrlParam('redirect') || '/dist/view/my/index.html';
+                window.location.href = core.String.getQuery('refPath') || core.Env.domain + core.Env.wwwRoot + '/my/index.html';
 
             }, function (errMsg) {
                 formError.show(errMsg);
+                $('.loginbtn').text('立即登录').prop('disabled', false);
             });
         } else {
             // 错误提示
             formError.show(validateResult.msg);
+            $('.loginbtn').text('立即登录').prop('disabled', false);
         }
     },
 
@@ -89,11 +93,11 @@ var page = {
             status: false,
             msg: ''
         };
-        if (!_core.validate(formData.Phone, 'require')) {
+        if (core.String.isBlank(formData.Phone)) {
             result.msg = '手机号码不能为空';
             return result;
         }
-        if (!_core.validate(formData.Pswd, 'require')) {
+        if (core.String.isBlank(formData.Pswd)) {
             result.msg = '密码不能为空';
             return result;
         }
@@ -104,6 +108,4 @@ var page = {
     }
 };
 
-$(function () {
-    page.init();
-});
+fjw.pc.login.init();

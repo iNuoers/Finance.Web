@@ -18,6 +18,9 @@
         btnCls = 'disabled';
         btnText = '已售罄';
     }
+    if(CountDown > 0){
+        btnCls = 'disabled';
+    }
 
 %>
 <div class="p-title">
@@ -80,7 +83,7 @@
                     <%if(!window.user.isLogin){%>
                         <div class="msg-weak msg-inline">
                             <i class="fa fa-warning"></i>
-                            <div class="msg-cnt">您还未登录&nbsp;&nbsp;<a href="javascript:login();" class="link" title="立即登录">立即登录</a></div>
+                            <div class="msg-cnt">您还未登录&nbsp;&nbsp;<a href="javascript:;" data-selector="login" class="link" title="立即登录">立即登录</a></div>
                         </div>
                     <%}%>
                     <div id="expectedProfit" style="display: none"></div>

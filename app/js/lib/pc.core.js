@@ -4,37 +4,8 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 14:42:02 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-13 22:53:48
+ * @Last Modified time: 2017-10-18 09:54:57
  */
-!function (e) {
-    if (!e.console) {
-        var t = [
-            'log',
-            'debug',
-            'info',
-            'warn',
-            'error',
-            'assert',
-            'dir',
-            'dirxml',
-            'group',
-            'groupEnd',
-            'time',
-            'timeEnd',
-            'count',
-            'trace',
-            'profile',
-            'profileEnd'
-        ];
-        e.console = {
-        };
-        for (var n = 0; n < t.length; n++) {
-            e.console[t[n]] = function () {
-                debugger
-            }
-        }
-    }
-}(window);
 
 Date.prototype.addYears || (Date.prototype.addYears = function (e) {
     return this.setFullYear(this.getFullYear() + e),
@@ -105,28 +76,35 @@ String.prototype.trimLeft || (String.prototype.trimLeft = function () {
 String.prototype.trimRight || (String.prototype.trimRight = function () {
     return this.replace(/\s+$/g, '')
 });
+
+var debug = true;
+var FJW = FJW || {};
 var FJW = {};
 FJW.Namespace = function () {
     var e, t, n, r = arguments, i = null;
-    for (e = 0; e < r.length; e++) for (n = r[e].split('.'), i = FJW, t = 'FJW' == n[0] ? 1 : 0; t < n.length; t++) i[n[t]] = i[n[t]] || {
-    }, i = i[n[t]];
+    for (e = 0; e < r.length; e++) {
+        for (n = r[e].split('.'), i = FJW, t = 'FJW' == n[0] ? 1 : 0; t < n.length; t++) {
+            i[n[t]] = i[n[t]] || {}, i = i[n[t]];
+        }
+    }
     return i
 }
 FJW.Env = {
     protocol: function () {
         return location.protocol
     },
-    domain: 'yinke.com',
-    wwwRoot: '/',
-    bbsRoot: 'http://bbs.yinke.com/',
-    mallRoot: 'http://mall.yinke.com/'
+    domain: debug ? 'http://192.168.1.53:8010' : 'https://www.fangjinnet.com',
+    apiHost: debug ? 'https://api.fangjinnet.com:1000/api' : 'https://api.fangjinnet.com:1000/api',
+    wwwRoot: '/dist/view',
+    bbsRoot: 'http://bbs.fangjinnet.com/',
+    mallRoot: 'http://mall.fangjinnet.com/'
 }
-FJW.System = {
-}
+FJW.System = {}
 FJW.System.guid = function () {
     return 'FJWGUID__' + (FJW.System.guid._counter++).toString(36)
 }
 FJW.System.guid._counter = 1
+
 FJW.Object = {
     isUndefined: function (e) {
         return void 0 === e
@@ -229,6 +207,74 @@ FJW.String = {
     unescapeHTML: function (e) {
         return e.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ').replace(/&quot;/g, '"').replace(/&amp;/g, '&')
     },
+    // 修剪两端空白字符和换行符
+    trim: function (s) {
+        return s.replace(/(^\s*)|(\s*$)|(\n)/g, "");
+    },
+    // 修剪左端空白字符和换行符
+    leftTrim: function (s) {
+        return s.replace(/(^\s*)|(^\n)/g, "");
+    },
+    // 修剪右端空白字符和换行符
+    rightTrim: function (s) {
+        return s.replace(/(\s*$)|(\n$)/g, "");
+    },
+    // 格式化数字
+    numberFormat: function (s, l) {
+        if (!l || l < 1) l = 3;
+        s = String(s).split(".");
+        s[0] = s[0].replace(new RegExp('(\\d)(?=(\\d{' + l + '})+$)', 'ig'), "$1,");
+        return s.join(".");
+    },
+    // 星号字节
+    asteriskByte: function (s, start, end) {
+        var startStr = start ? s.substr(0, start) : "";
+        var endStr = end ? s.substr(end + 1) : "";
+        var star = "", l;
+        l = !start && !end ? s.length : (start && !end ? s.length - start : end);
+        while (star.length < l) star += "*";
+        return startStr + star + endStr;
+    },
+    // 四舍五入保留n位小数(默认保留两位小数)
+    twoDecimalPlaces: function (s, l) {
+        if (isNaN(parseFloat(s)) || s == 0) return "0.00";
+        var bit = !l ? 100 : Math.pow(10, l);
+        var str = String(Math.round(s * bit) / bit);
+        if (str.indexOf(".") != -1 && str.length <= str.indexOf(".") + 2) str += '0';
+        else if (str.indexOf(".") == -1) str += '.00';
+        return str;
+    },
+    // 格式化银行卡
+    formatBank: function (s, mask) {
+        var str = s.substring(0, 22); /*帐号的总数, 包括空格在内 */
+        if (str.match(".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}") == null) {
+            /* 对照格式 */
+            if (str.match(".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" + ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" +
+                ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" + ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}") == null) {
+                var accountNumeric = '', accountChar = "", i;
+                for (i = 0; i < str.length; i++) {
+                    accountChar = str.substr(i, 1);
+                    if (!isNaN(accountChar) && (accountChar != " ")) {
+                        accountNumeric += accountChar;
+                    }
+                }
+
+                str = "";
+                for (i = 0; i < accountNumeric.length; i++) {
+                    if (i == 4) str = str + " "; /* 帐号第4位数后加空格 */
+                    if (i == 8) str = str + " "; /* 帐号第8位数后加空格 */
+                    if (i == 12) str = str + " ";/* 帐号第12位后数后加空格 */
+                    if (i == 16) str = str + " ";/* 帐号第16位后数后加空格 */
+
+                    str = str + (mask && (accountNumeric.length - i > 4) ? '*' : accountNumeric.substr(i, 1))
+                }
+            }
+        }
+        else {
+            str = " " + str.substring(1, 5) + " " + str.substring(6, 10) + " " + str.substring(14, 18) + "-" + str.substring(18, 25);
+        }
+        return str;
+    },
     substr: function (e, t, n, r) {
         for (var i = /[^\x00-\xFF]/g, o = 0, a = t; o < t;) o++ && e.charAt(o).match(i) && t--;
         o = t;
@@ -298,11 +344,13 @@ FJW.String = {
         }
         if (!t) return /^\d{17}[xX\d]$|^\d{15}$/.test(e);
     },
-    getQuery: function (e, t) {
-        t = t || window.location.href + '',
-            - 1 !== t.indexOf('#') && (t = t.substring(0, t.indexOf('#')));
-        for (var n, r = [
-        ], i = new RegExp('(^|\\?|&)' + e + '=([^&]*)(?=&|#|$)', 'g'); null != (n = i.exec(t));) r.push(decodeURIComponent(n[2]));
+    /**
+     * 获取 url 参数
+     */
+    getQuery: function (name, url) {
+        url = url || window.location.href + '',
+            - 1 !== url.indexOf('#') && (url = url.substring(0, url.indexOf('#')));
+        for (var n, r = [], i = new RegExp('(^|\\?|&)' + name + '=([^&]*)(?=&|#|$)', 'g'); null != (n = i.exec(url));) r.push(decodeURIComponent(n[2]));
         return 0 == r.length ? null : 1 == r.length ? r[0] : r
     },
     setQuery: function (e, t, n) {
@@ -630,9 +678,61 @@ FJW.Cookie = {
     del: function (e, t, n, r) {
         FJW.Cookie.set(e, '', - 1, t, n, r)
     }
+};
+
+FJW.Storage = {
+    /**
+     * 
+     * @param {} key 
+     * @returns {} 
+     */
+    getItem: function (key) {
+        //假如浏览器支持本地存储则从localStorage里getItem，否则乖乖用Cookie
+        return window.localStorage ? localStorage.getItem(key) : cookie.get(key);
+    },
+    /**
+     * 
+     * @param {} key 
+     * @param {} val 
+     * @returns {} 
+     */
+    setItem: function (key, val) {
+        //假如浏览器支持本地存储则调用localStorage，否则乖乖用Cookie
+        if (window.localStorage) {
+            localStorage.setItem(key, val);
+        } else {
+            cookie.set(key, val);
+        }
+    },
+    /**
+     * 
+     * @param {} key 
+     * @returns {} 
+     */
+    delItem: function (key) {
+        //假如浏览器支持本地存储则调用localStorage，否则乖乖用Cookie
+        if (window.localStorage) {
+            localStorage.removeItem(key);
+        } else {
+            cookie.remove(key, val);
+        }
+    },
+    /**
+     * 
+     * @returns {} 
+     */
+    clearItem: function () {
+        if (window.localStorage) {
+            localStorage.clear();
+        }
+    }
 }
 FJW.Page = {
     isStrictMode: 'BackCompat' != document.compatMode,
+    // 获取屏幕分辨率
+    screenSize: function () {
+        return (window.screen.width || 0) + "x" + (window.screen.height || 0);
+    },
     pointerX: function (e) {
         return e.pageX || e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft)
     },
@@ -738,6 +838,59 @@ FJW.Event = {
         }()
     }
 }
+
+FJW.Dom = {},
+    function () {
+        var e = FJW.Dom.ready = function () {
+            function t() {
+                if (!e.isReady) {
+                    e.isReady = !0;
+                    for (var t = 0, n = o.length; t < n; t++)
+                        o[t]()
+                }
+            }
+            function n() {
+                try {
+                    document.documentElement.doScroll("left")
+                } catch (e) {
+                    return void setTimeout(n, 1)
+                }
+                t()
+            }
+            var r, i = !1, o = [];
+            return document.addEventListener ? r = function () {
+                document.removeEventListener("DOMContentLoaded", r, !1),
+                    t()
+            }
+                : document.attachEvent && (r = function () {
+                    "complete" === document.readyState && (document.detachEvent("onreadystatechange", r),
+                        t())
+                }
+                ),
+                function () {
+                    if (!i)
+                        if (i = !0,
+                            "complete" === document.readyState)
+                            e.isReady = !0;
+                        else if (document.addEventListener)
+                            document.addEventListener("DOMContentLoaded", r, !1),
+                                window.addEventListener("load", t, !1);
+                        else if (document.attachEvent) {
+                            document.attachEvent("onreadystatechange", r),
+                                window.attachEvent("onload", t);
+                            var o = !1;
+                            try {
+                                o = null == window.frameElement
+                            } catch (e) { }
+                            document.documentElement.doScroll && o && n()
+                        }
+                }(),
+                function (t) {
+                    e.isReady ? t() : o.push(t)
+                }
+        }();
+        e.isReady = !1
+    }();
 FJW.Pager = {
     get: function (e) {
         this._init(e),
@@ -815,27 +968,53 @@ FJW.Pager = {
     }
 }
 FJW.Namespace('User')
-FJW.User.get = function () {
+FJW.User.cache = function () {
     this.user_id = FJW.Cookie.get('user_id'),
         this.user_login = FJW.Cookie.get('user_login'),
         this.user_name = FJW.Cookie.get('user_name'),
         this.user_photo = FJW.Cookie.get('user_photo') || 'default_c_1.gif',
         this.socket = null
 }
-FJW.User.get()
+FJW.User.cache()
+FJW.User.setCache = function (data) {
+    window.cache_user = data;
+    window.user = {
+        isLogin: true,
+        token: data.token,
+        isBuy: data.isBuy,
+        phone: data.phone,
+        balance: data.balance,
+        avator: data.headPhoto,
+        isInvite: data.friendStatus,
+        isAuthen: data.realNameAuthen,
+        hasPaypwd: data.existsTradePswd
+    };
+}
 FJW.User.requireLogin = function (e) {
-    var t = this;
-    FJW.User.isLogin() ? e && e.call(t, data) : NodeTpl.get('//pc-static.caifuxq.com/v1/revs/tpls/user/login.js?v=81235b8e', {
-        callback: function (n) {
-            e && e.call(t, n)
+    var me = this;
+    FJW.User.isLogin() ? e && e.call(me, data) : window.location.href = FJW.Env.domain + FJW.Env.wwwRoot + '/user-login.html?refPath=' + location.href;
+}
+FJW.User.getInfo = function () {
+    var me = this, info = null;
+    FJW.Domain.init(FJW.Env.apiHost)
+    return $.ajax({
+        url: FJW.Env.apiHost,
+        async: false,
+        type: "post",
+        dataType: "json",
+        data: JSON.stringify({
+            M: "GetMemberInfo"
+        }),
+        success: function (res) {
+            if (res.s == 0) {
+                info = JSON.parse(res.d)
+                me.setCache(info)
+            }
+        },
+        error: function () {
+            window.user.isLogin = false;
         }
-    }, function (e) {
-        $.dialog({
-            title: !1,
-            padding: '40px 50px 30px',
-            content: e
-        })
-    })
+    }), info;
 }
 FJW.Domain = {
     _crossed: !1,
@@ -856,63 +1035,68 @@ FJW.Domain = {
     proxies: {
     },
     init: function (e, t) {
-        for (var n = this, r = e.split(','), i = 0; i < r.length; i++) {
-            var o = r[i];
-            if (n._needCross(o)) if (n._crossed || n._cross(), n.proxies[o]) !function () {
-                n.proxies[o].loaded ? t && t.call(n, o) : setTimeout(arguments.callee, 100)
-            }();
-            else {
-                var a = document.createElement('iframe');
-                a.style.display = 'none',
-                    document.body.insertBefore(a, document.body.firstChild),
-                    a.src = '//' + o + '/ajaxproxy.html',
-                    n.proxies[o] = a,
-                    n.proxies[o].loaded = !1;
-                var s = function () {
-                    a.contentWindow.location.href !== a.src ? a.contentWindow.location.href = a.src : (n.proxies[o] = a, n.proxies[o].loaded = !0, t && t.call(n, o))
-                };
-                a.attachEvent ? a.attachEvent('onload', s) : a.onload = s
-            }
-        }
-    },
-    use: function (e, t) {
-        var n = this;
-        n.proxies.xhr || (n.proxies.xhr = jQuery.ajaxSettings.xhr),
-            n._needCross(e) ? n.proxies[e] && n.proxies[e].loaded ? ($.ajaxSetup({
-                crossDomain: !1,
-                xhr: function () {
-                    return 'script' == this.dataType ? n.proxies.xhr() : n._root(this.url) == location.hostname ? n.proxies.xhr() : n.proxies[e].contentWindow.getTransport()
+        var me = this;
+        $.ajaxSetup({
+            contentType: "application/x-www-form-urlencoded;charset=utf-8",
+            timeout: 1000 * 60 * 10,
+            cache: false,
+            crossDomain: me._needCross(e)
+        });
+        $(document).ajaxSend(function (event, xhr, opt) {
+            if (opt.type.toLowerCase() === "post") {
+                if (opt.data != null && opt.data !== "" && typeof (opt.data) !== "undefined") {
+                    var data = JSON.parse(opt.data);
+                    data.P = data.P || 3;
+                    data.IE = false;
+                    data.T = FJW.Cookie.get('f.token');
+                    opt.data = JSON.stringify(data);
                 }
-            }), t && t.call(this)) : FJW.Domain.init(e, function (e) {
-                FJW.Domain.use(e, t)
-            }) : t && t.call(this)
+            }
+        });
+    },
+    use: function (param) {
+        var me = this;
+        me.init(param.url)
+        $.ajax({
+            url: param.url || '',
+            data: param.data || '',
+            complete: param.complete,
+            type: param.type || 'get',
+            async: param.async || true,
+            cache: param.cache || false,
+            beforeSend: param.beforeSend,
+            dataType: param.dataType || 'json',
+            success: function (res) {
+                // 请求成功
+                if (0 === res.s) {
+                    typeof param.success === 'function' && param.success(res.d, res.es);
+                }
+                // 没有登录状态，需要强制登录
+                else if (101 === res.s) {
+                    typeof param.success === 'function' && param.success(res.d, res.es);
+                }
+                // 请求数据错误
+                else {
+                    typeof param.error === 'function' && param.error(res.es);
+                }
+            },
+            error: function (err, status) {
+                //如果出现timeout，不做处理
+                if (status === "timeout") {
+                    if (console) {
+                        console.log("ajax超时！  url=" + param.url);
+                    }
+                } else if (status === "abort") {
+                    if (console) {
+                        console.log("ajax客户端终止请求！  url=" + param.url);
+                    }
+                }
+                typeof param.error === 'function' && param.error(err.statusText);
+            }
+        });
     }
 }
 FJW.ajaxExtend = function (e, t, n) {
-    $.ajaxSetup({
-        contentType: "application/x-www-form-urlencoded;charset=utf-8",
-        timeout: 1000 * 60 * 10,
-        cache: false
-    });
-
-    /**
-     * ajax请求开始时执行函数
-     * event    - 包含 event 对象
-     * xhr      - 包含 XMLHttpRequest 对象
-     * options  - 包含 AJAX 请求中使用的选项
-     */
-    $(document).ajaxSend(function (event, xhr, opt) {
-        if (opt.type.toLowerCase() === "post") {
-            if (opt.data != null && opt.data !== "" && typeof (opt.data) !== "undefined") {
-                var data = JSON.parse(opt.data);
-                data.P = 3;
-                data.IE = false;
-                data.T = FJW.Cookie.get('f.token');//F.cookie.get($.base64.btoa('f.token'));
-                opt.data = JSON.stringify(data);
-            }
-        }
-    });
-
     if (window.$ && e && t) {
         var r;
         e = e || {
@@ -925,69 +1109,14 @@ FJW.ajaxExtend = function (e, t, n) {
     }
 }
 FJW.Ajax = FJW.ajax = function (param) {
-    FJW.ajaxExtend();
-    $.ajax({
-        url: param.url || '',
-        data: param.data || '',
-        type: param.method || 'get',
-        async: param.async || true,
-        cache: param.cache || false,
-        dataType: param.type || 'json',
-        complete: param.complete,
-        beforeSend: param.beforeSend,
-        crossDomin: true,
-        xhrFields: {
-            withCredentials: false
-        },
-        timeout: param.timeout || 1000 * 60 * 10,
-        success: function (res) {
-            // 请求成功
-            if (0 === res.s) {
-                typeof param.success === 'function' && param.success(res.d, res.es);
-            }
-            // 没有登录状态，需要强制登录
-            else if (101 === res.s) {
-                //跳转 登录页
-                window.user.isLogin = false;
-                //F.storage.delItem($.base64.btoa('f.token'));
-                //F.storage.delItem($.base64.btoa('f.ui.cache'));
-                //
-                //F.cookie.remove($.base64.btoa('f.token'));
-                //F.cookie.remove($.base64.btoa('f.phone'));
-                //F.cookie.remove($.base64.btoa('f.avator'));
-
-                typeof param.success === 'function' && param.success(res.d, res.es);
-            }
-            // 请求数据错误
-            else {
-                typeof param.error === 'function' && param.error(res.es);
-            }
-        },
-        error: function (err, status) {
-            //如果出现timeout，不做处理
-            if (status === "timeout") {
-                if (console) {
-                    console.log("ajax超时！  url=" + param.url);
-                }
-            } else if (status === "abort") {
-                if (console) {
-                    console.log("ajax客户端终止请求！  url=" + param.url);
-                }
-            }
-            typeof param.error === 'function' && param.error(err.statusText);
-        }
-    });
-
-    // FJW.Object.extend(e, {
-    // })
-    // if (0 !== e.url.indexOf('http')) {
-    //     e.url = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + (- 1 === e.url.indexOf('/') ? '/' + e.url : e.url);
-    // }
-    // var t = e.url.replace(/(https?:\/\/)?([^\/]+)(\s|\S)*/g, '$2');
-    // FJW.Domain.use(t, function () {
-    //     $.ajax(e)
-    // })
-    // this
+    FJW.Object.extend(param, {})
+    FJW.Domain.use(param)
 }
-
+FJW.Dom.ready(function () {
+    window.$ && $.ajaxSettings && FJW.ajaxExtend($.ajaxSettings, "complete", function (e, t) {
+        403 === e.status && FJW.User.requireLogin(function () {
+            window.location.reload()
+        })
+    })
+})
 module.exports = FJW;

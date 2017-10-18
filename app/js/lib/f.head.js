@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-07-21 16:35:42
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-14 00:21:34
+ * @Last Modified time: 2017-10-16 09:02:48
  */
 
 'use strict';
@@ -19,7 +19,7 @@ var _user = require('js_path/service/user-service.js');
 var Core = {
     init: function () {
         this.initLink()
-        this.initUserInfo()
+        //this.initUserInfo()
         this.loginTimeout()
     },
     initUserInfo: function () {

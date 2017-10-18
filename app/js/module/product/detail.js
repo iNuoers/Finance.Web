@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-07 18:06:12 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-09 12:02:54
+ * @Last Modified time: 2017-10-16 15:17:13
  */
 'use strict';
 require('css_path/product/detail.css')
@@ -12,31 +12,20 @@ require('js_path/plugins/pagination/pagination.css')
 require('js_path/plugins/layer/skin/default/layer.css')
 require('js_path/plugins/layer/layer.js')
 
-var _api = require('js_path/lib/f.data.js')
-var _head = require('js_path/lib/f.head.js')
-var _core = require('js_path/lib/f.core.js')
-var _time = require('js_path/lib/f.time.js')
+var core = require('js_path/lib/pc.core.js')
+var apps = require('js_path/lib/pc.apps.js')
+var header = require('js_path/lib/header.js')
+var api = require('js_path/lib/f.data.js')
+
 var _tips = require('js_path/lib/f.tips.js')
-var _coupon = require('js_path/lib/f.coupon.js')
-var _user = require('js_path/service/user-service.js')
 var _product = require('js_path/service/product-service.js')
-var _template = require('js_path/plugins/template/template.js')
 var _pagination = require('js_path/plugins/pagination/jquery.pagination.js')
 
-
 fjw.pc.product_detail = {
-    init: function () {
-
-    },
-    method: {
-
-    }
-}
-
-var page = {
     query: {
-        id: _core.Tools.getUrlParam('id'),
+        id: core.String.getQuery('id'),
         first: true,
+        member: null,
         detail: null,
         recordData: {
             page: 1,
@@ -45,17 +34,17 @@ var page = {
     },
     init: function () {
         this.onLoad()
-        this.listenEvent()
+        this.bindEvent()
     },
     onLoad: function () {
         var me = this;
-
         $('#nav_invest').addClass('active');
-
         if (Number(me.query.id) > 0)
-            me.method.initDetail()
+            me.method.getDetail()
+        else
+            window.location.href = core.Env.domain + core.Env.wwwRoot + '/product/index.html';
     },
-    listenEvent: function () {
+    bindEvent: function () {
         var me = this;
 
         // 气泡框
@@ -63,9 +52,21 @@ var page = {
 
         // tab选项卡添加事件
         me.method.tabAddEvent($('.tab-nav'), $('.tab-cont'));
-
     },
     method: {
+        ajax: function (data, callback) {
+            core.ajax({
+                url: core.Env.apiHost,
+                data: data,
+                type: 'post',
+                success: function (data) {
+                    callback && callback.call(this, JSON.parse(data))
+                },
+                error: function () {
+
+                }
+            });
+        },
         /**
          * 
          */
@@ -76,7 +77,7 @@ var page = {
                 }
                 if (user.isAuthen == 0) {
                     return layer.confirm('<i class="f-s-18 tip_txt">为保障资金安全，请先完善实名认证信息</i>', function () {
-                        window.location.href = App.webUrl + "/my/bindcard.html";
+                        window.location.href = core.Env.domain + core.Env.wwwRoot + "/my/bindcard.html";
                     }), false;
                 }
             } else {
@@ -89,7 +90,7 @@ var page = {
          * 
          */
         checkAmount: function (amount) {
-            var me = page;
+            var me = fjw.pc.product_detail;
             var detail = me.query.detail,
                 amountIn = $('#investAmount'),
                 match = /^[0-9]*$/;
@@ -125,7 +126,7 @@ var page = {
          * 
          */
         handelForm: function () {
-            var me = page,
+            var me = fjw.pc.product_detail,
                 all = $('#all'),
                 btn = $('.F-buy'),
                 amountIn = $('#investAmount');
@@ -182,6 +183,10 @@ var page = {
             });
 
             btn.on('click', function () {
+
+                if ($(this).hasClass('disabled'))
+                    return
+
                 var amount = amountIn.val();
                 var res = handelAmount();
                 var stats = me.method.checkUser();
@@ -196,7 +201,7 @@ var page = {
          * 
          */
         calculIncome: function () {
-            var me = page
+            var me = fjw.pc.product_detail
                 , val = $('#investAmount').val()
                 , detail = me.query.detail
                 , html = '预计收益：'
@@ -218,7 +223,7 @@ var page = {
          * 
          */
         tabAddEvent: function ($tab, $content) {
-            var me = page;
+            var me = fjw.pc.product_detail;
             var $tabs = $tab.find('.tab-nav-item');
             var $contents = $content.find('.p-cont-main');
 
@@ -247,42 +252,26 @@ var page = {
         /**
          * 
          */
-        initDetail: function () {
-            var me = page;
-
-            if (_core.cookie.get($.base64.btoa('f.token')) != null) {
-                _user.getUserInfo(JSON.stringify({
-                    M: _api.method.getMemberInfo,
-                }), function () {
-                    me.method.getDetail()
-                }, function () {
-                    alert('系统异常,请刷新重试！')
-                });
-            } else {
-                me.method.getDetail()
-            }
-        },
-
-        /**
-         * 
-         */
         getDetail: function () {
-            var me = page;
-
+            var me = fjw.pc.product_detail;
+            if (window.user.isLogin) {
+                me.query.member = core.User.getInfo();
+            }
             var param = {
-                M: _api.method.productDetail,
+                M: api.method.productDetail,
                 D: JSON.stringify({
                     'ProductId': me.query.id
                 })
             };
 
-            _product.productDetail(JSON.stringify(param), function (json) {
-                var data = JSON.parse(json), html = '';
-                var tpl = require('../../../view/product/detail.string');
+            me.method.ajax(JSON.stringify(param), function (data) {
+                require('js_path/lib/f.time.js')
+                var html = '',
+                    tpl = require('view_path/product/detail.string'),
+                    doT = require('js_path/plugins/template/template.js');
 
-                me.query.detail = JSON.parse(json);
-
-                html = _template(tpl, data);
+                me.query.detail = data;
+                html = doT(tpl, data);
 
                 $('.p-cont-top').html(html);
                 $('#investRisk').html(data.Security);
@@ -296,6 +285,15 @@ var page = {
 
                 me.method.handelForm()
 
+                // 登录功能
+                $('.dr-inner [data-selector="login"]').on('click', function () {
+                    debugger
+                    core.User.requireLogin(function () {
+                        location.reload();
+                    });
+                    return false;
+                });
+
             });
         },
 
@@ -303,9 +301,9 @@ var page = {
          * 投资记录
          */
         getRecord: function () {
-            var me = page;
+            var me = fjw.pc.product_detail;
             var param = {
-                M: _api.method.productBuyRecord,
+                M: api.method.productBuyRecord,
                 D: JSON.stringify({
                     'ProductId': me.query.id,
                     'pageIndex': me.query.recordData.page,
@@ -326,12 +324,36 @@ var page = {
                 })
             }
 
-            _product.productBuyRecord(JSON.stringify(param), function (json) {
-                var data = JSON.parse(json), html = '';
+            me.method.ajax(JSON.stringify(param), function (data) {
+                var html = '',
+                    doT = require('js_path/plugins/template/template.js');
 
                 if (data.grid.length > 0) {
                     $(".page").hide();
                     $('.record-list').html('');
+
+                    data.grid.forEach(function (rows, index) {
+                        if (rows.DeviceType === 1) {
+                            rows.title = "安卓客户端"
+                            rows.device = "icon-android";
+                        }
+                        else if (rows.DeviceType === 2) {
+                            rows.title = "苹果客户端"
+                            rows.device = "icon-apple";
+                        }
+                        else if (rows.DeviceType === 3) {
+                            rows.title = "电脑网页版"
+                            rows.device = "icon-pc";
+                        }
+                        else if (rows.DeviceType === 4) {
+                            rows.title = "微信端"
+                            rows.device = "icon-weixin";
+                        } else {
+                            rows.title = "手机端"
+                            rows.device = "icon-mobile";
+                        }
+                        rows.share = core.String.numberFormat(rows.amount);
+                    });
 
                     var tpl = '<%if(grid.length>0){%>' +
                         '          <%for(i = 0; i < grid.length; i ++) {%>' +
@@ -339,17 +361,16 @@ var page = {
                         '          <li>' +
                         '              <div class="left"><span><%= data.number %></span></div>' +
                         '              <div class="middle"><%= data.phone %></div>' +
-                        '              <div class="middle">￥<%= data.amount %></div>' +
+                        '              <div class="middle">￥<%= data.share %></div>' +
                         '              <div class="middle"><%= data.buyTime %></div>' +
-                        '              <div class="right ">' +
-                        '                  <i class="icon_wx"></i>' +
-                        '                  <img src="https://fangjinnet.com/static/images/android.png">' +
+                        '              <div class="right">' +
+                        '                  <i class="ico-inline <%= data.device %>" title="<%= data.title %>"></i>' +
                         '              </div>' +
                         '          </li>' +
                         '     <%}%>' +
                         '<%}%>';
 
-                    html = _template(tpl, data);
+                    html = doT(tpl, data);
 
                     $('.record-list').html(html);
 
@@ -369,17 +390,18 @@ var page = {
          * 投资排行榜
          */
         getRank: function () {
-            var me = page;
+            var me = fjw.pc.product_detail;
 
             var param = {
-                M: _api.method.productBuyRank,
+                M: api.method.productBuyRank,
                 D: JSON.stringify({
                     'ProductId': me.query.id
                 })
             };
 
-            _product.productBuyRank(JSON.stringify(param), function (json) {
-                var data = JSON.parse(json), html = '';
+            me.method.ajax(JSON.stringify(param), function (data) {
+                var html = '',
+                    doT = require('js_path/plugins/template/template.js');
 
                 if (data.grid.length > 0) {
 
@@ -397,7 +419,7 @@ var page = {
                             rows.rank = index + 1;
                             rows.class = "top-bg";
                         }
-                        rows.share = _core.String.numberFormat(rows.Shares);
+                        rows.share = core.String.numberFormat(rows.Shares);
                     });
 
                     var tpl = '<%if(grid.length>0){%>' +
@@ -411,7 +433,7 @@ var page = {
                         '     <%}%>' +
                         '<%}%>';
 
-                    html = _template(tpl, data);
+                    html = doT(tpl, data);
 
                     $('.rank-list').html(html);
                 }
@@ -421,5 +443,5 @@ var page = {
 }
 
 $(function () {
-    page.init();
+    fjw.pc.product_detail.init()
 });

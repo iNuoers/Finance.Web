@@ -80,50 +80,15 @@
 .symbol-model .coupon-tag .ctag-info i{font-style:normal}
 .symbol-model .coupon-tag .ctag-close{float:left;width:22px;height:22px;background:#bfccd4 url() no-repeat 0 0;border-left:1px solid #99a8b0;display:block}
 .symbol-model .coupon-tag .ctag-close:hover{background-color:#aab9c3;background-position:0 -22px}
-
 .msg-box{position:relative;display:inline-block;vertical-align:middle}
 .msg-box .msg-inline{position:relative;padding:11px 8px 11px 24px;line-height:18px;color:#f09e3c;background-color:#fffbe5;border:1px solid #f7dcb1;font-size:12px;display:inline-block;vertical-align:middle}
 .msg-box .msg-arr-t{padding:10px;width:100%}
-.msg-box .msg-arr-t:after,.msg-box .msg-arr-r:after,.msg-box .msg-arr-b:after,.msg-box .msg-arr-l:after {
-    position: absolute;
-    z-index: 1;
-    width: 0;
-    height: 0;
-    border: 5px solid #fffbe5;
-    display: block;
-    content: ' '
-}
+.msg-box .msg-arr-b:after,.msg-box .msg-arr-l:after,.msg-box .msg-arr-r:after,.msg-box .msg-arr-t:after{position:absolute;z-index:1;width:0;height:0;border:5px solid #fffbe5;display:block;content:' '}
+.msg-box .msg-arr-b:before,.msg-box .msg-arr-l:before,.msg-box .msg-arr-r:before,.msg-box .msg-arr-t:before{position:absolute;z-index:0;width:0;height:0;border:5px solid #f7dcb1;display:block;content:' '}
+.msg-box .msg-arr-t:after{top:-10px;left:10px;border-right-color:transparent;border-top-color:transparent;border-left-color:transparent}
+.msg-box .msg-arr-t:before{top:-11px;left:10px;border-right-color:transparent;border-top-color:transparent;border-left-color:transparent}
+.icon-err-s{float:left;color:red;margin:3px 5px 0 0}
 
-.msg-box .msg-arr-t:before,.msg-box .msg-arr-r:before,.msg-box .msg-arr-b:before,.msg-box .msg-arr-l:before {
-    position: absolute;
-    z-index: 0;
-    width: 0;
-    height: 0;
-    border: 5px solid #f7dcb1;
-    display: block;
-    content: ' '
-}
-
-.msg-box .msg-arr-t:after {
-    top: -10px;
-    left: 10px;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    border-left-color: transparent
-}
-
-.msg-box .msg-arr-t:before {
-    top: -11px;
-    left: 10px;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    border-left-color: transparent
-}
-.icon-err-s {
-    float: left;
-    color: red;
-    margin: 3px 5px 0 0px;
-}
 /* tab-nav */
 .p-cont .p-cont-main{padding:30px 40px;color:#555;min-height:950px}
 .tab-nav{width:100%;height:60px;font-size:16px;background:#fff;border-bottom:1px solid #e6e6e6;overflow:hidden}
@@ -138,13 +103,13 @@
 .invest-rank-wrap,.invest-record-wrap{padding:10px 0 20px;border:1px solid #ededed;min-height:610px;background:#fff;position:relative;overflow:hidden}
 .invest-rank-wrap h3,.invest-record-wrap h3{line-height:50px;font-size:18px;color:#323232;padding-left:20px;font-weight:500}
 .record-box .record-title{background-color:#eef1f8}
-.record-box,.rank-box{padding:0 10px}
+.rank-box,.record-box{padding:0 10px}
 .rank-box .rank-title,.record-box .record-title{height:40px;line-height:40px;color:#a5a5a5}
 .rank-box .left,.rank-box .middle,.rank-box .right,.record-box .left,.record-box .middle,.record-box .right{text-align:left;float:left;color:#5e5e5e}
 .rank-box .left{width:42px}
-.rank-box .left .first{width:30;height:30px;vertical-align:middle;background: url(../../image/icon_first.png) no-repeat center center;border:none}
-.rank-box .left .second{width:30;height:30px;vertical-align:middle;background: url(../../image/icon_second.png) no-repeat center center;border:none}
-.rank-box .left .three{width:30;height:30px;vertical-align:middle;background: url(../../image/icon_three.png) no-repeat center center;border:none}
+.rank-box .left .first{width:30;height:30px;vertical-align:middle;background:url(../../image/icon_first.png) no-repeat center center;border:none}
+.rank-box .left .second{width:30;height:30px;vertical-align:middle;background:url(../../image/icon_second.png) no-repeat center center;border:none}
+.rank-box .left .three{width:30;height:30px;vertical-align:middle;background:url(../../image/icon_three.png) no-repeat center center;border:none}
 .rank-box .middle{width:110px;margin-right:10px;text-align:center}
 .rank-box .right{width:115px}
 .record-box .left{width:80px;text-align:left;padding-left:20px}
@@ -152,163 +117,45 @@
 .record-box .right{width:150px;text-align:center}
 .rank-list li,.record-list li{height:50px;line-height:50px}
 .record-list li{border-bottom:solid 1px #E6EDEF}
-.record-list li:nth-child(odd){background-color: #fff}
-.record-list li:nth-child(even){background: #f6f8fb}
+.record-list li:nth-child(odd){background-color:#fff}
+.record-list li:nth-child(even){background:#f6f8fb}
+.record-list li .ico-inline{display:inline-block}
+.record-list li .icon-android{width:13px;height:15px;background:url(../../image/ico-android.png) no-repeat;background-size:13px 15px;margin-left:10px;vertical-align:-3px}
+.record-list li .icon-android:hover{width:15px;height:17px;background:url(../../image/icon-android.png) no-repeat;background-size:15px 17px}
+.record-list li .icon-weixin{width:16px;height:13px;background:url(../../image/ico-weixin.png) no-repeat;background-size:16px 13px;margin-left:10px;vertical-align:-2px}
+.record-list li .icon-weixin:hover{background:url(../../image/icon-weixin.png) no-repeat}
+.record-list li .icon-apple{width:13px;height:15px;background:url(../../image/ico-apple.png) no-repeat;background-size:13px 15px;margin-left:10px;vertical-align:-2px}
+.record-list li .icon-apple:hover{width:14px;height:17px;background:url(../../image/icon-apple.png) no-repeat;background-size:14px 17px}
+.record-list li .icon-pc{width:14px;height:12px;background:url(../../image/ico-pc.png) no-repeat;background-size:14px 12px;margin-left:10px;vertical-align:-2px}
+.record-list li .icon-pc:hover{width:14px;height:14px;background:url(../../image/icon-pc.png) no-repeat;background-size:14px 14px}
+.record-list li .icon-mobile{width:11px;height:14px;background:url(../../image/ico-mobile.png) no-repeat;background-size:11px 14px;margin-left:10px;vertical-align:-2px}
 .rank-list li .left{font-size:12px;width:42px;height:50px;line-height:50px;text-align:left}
 .rank-list li .left span{display:inline-block;position:relative;width:22px;height:22px;color:#fff;text-align:center;line-height:22px;top:1px;font-style:italic;border-radius:50%;background-color:#bababa;border:2px solid #e7e7e7}
 
-/*投资卷*/
-.coupon-container {
-	position: relative;
-	display: inline-block;	
-	vertical-align: baseline;
-	height: 35px;
-	z-index: 10;
-}
-.coupon-list {
-	position: absolute;
-	width: 100%;
-	box-sizing: border-box;
-	border-top: solid 1px #FCD9D7;
-	margin-top: -1px;
-	font-size: 14px;
-	color: #797E8C;
-	box-shadow: 0 1px 3px 1px #E6EDEF;
-	background: #fff;
-	/* display: none; */
-}
-.coupon-selected {
-	position: relative;
-	width: 210px;
-	height: 36px;
-	line-height: 36px;
-	border: 1px solid #FCD9D7;
-	background: #FFF7F5;
-	color: #F75F52;
-	font-size: 14px;
-	cursor: pointer;
-}
-.coupon-selected.is-disabled {
-	border: 1px solid #D2D9E9;
-	background: #F9FBFF;
-	color: #7884A0;
-	cursor: default;
-}
-.coupon-selected > span:nth-child(1) {
-	display: block;
-	margin-right: 18px;
-	text-align: center;
-}
-.coupon-selected .arrow {
-	position: absolute;
-	top: 15px;
-	right: 10px;
-	width: 0;
-	height: 0;
-	border: 5px solid;
-	border-color: #F75F52 #FFF7F5 #FFF7F5 #FFF7F5;
-}
-.coupon-selected.is-expanded .arrow {
-	top: 10px;
-	border-color: #FFF7F5 #FFF7F5 #F75F52 #FFF7F5;
-}
-.coupon-selected.is-disabled .arrow {
-	border-color: #7884A0 #F9FBFF #F9FBFF #F9FBFF;
-}
-.coupon-selected.is-disabled.is-expanded .arrow {
-	top: 14px;
-}
-.coupon-list.is-expanded {
-	display: block;
-}
-.coupon-list .coupon {
-	position: relative;
-	width: 100%;
-	height: 50px;
-	border-bottom: solid 1px #FCD9D7;
-}
-.coupon-list .coupon:nth-last-child(2) {
-	border-bottom: none;
-}
-.coupon-list .coupon:hover {
-	background: #FFF7F5;
-}
-.coupon-list .coupon.checked {
-	background: #FFF7F5; 
-}
-.coupon-list .coupon .label {
-	display: inline-block;
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-	padding-left: 38px;
-	padding-top: 8px;
-	cursor: pointer;
-}
-.coupon-list .coupon .name {
-	margin-top: 1px;
-	color: #F75F52;
-}
-.coupon-list .coupon .time {
-	font-size: 10px;
-	line-height: 10px;
-	color: #7884A0;
-}
-.coupon-tag {
-	position: absolute;
-	display: inline-block;
-	width: 16px;
-	height: 30px;
-	box-sizing: border-box;
-	padding-top: 2px;
-	left: 16px;
-	top: 11px;
-	font-size: 10px;
-	line-height: 13px;
-	background: #f25b4e;
-	text-align: center;
-	color: #fff;
-}
-.coupon-radio {
-	position: absolute;
-	right: 16px;
-	top: 40%;
-}
-.coupon-radio:after {
-	content: '';
-  position: absolute;
-  left: -2px;
-  top: -2px;
-  width: 16px;
-  height: 16px;
-  background: url('https://s1.lantouzi.com/img/201612/864214263b46bde847cd3ae5045f3ce2.png') top no-repeat #fff;
-  background-size: 100% 100%;
-}
-.coupon-list .coupon:hover .coupon-radio:after {
-	background-color: #FFF7F5;
-}
-.coupon-radio:checked:after {
-  background: url('https://s1.lantouzi.com/img/201612/cb14cd422ae3cb6cedff2bfafcab8904.png') top no-repeat #FFF7F5;
-  background-size: 100% 100%;
-}
-
-
-.coupon-list .coupon.buyong .name {
-	font-size: 14px;
-}
-.coupon-list .coupon.buyong .label {
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 16px;
-	color: #797E8C;
-}
-.coupon.is-disabled {
-	background: #E8E8E8 !important;
-}
-.coupon.is-disabled .coupon-tag {
-	background: #828282;
-}
-.coupon.is-disabled .name,
-.coupon.is-disabled .time {
-	color: #828282;
-}
+/*投资卷*/.coupon-container{position:relative;display:inline-block;vertical-align:baseline;height:35px;z-index:10}
+.coupon-list{position:absolute;width:100%;box-sizing:border-box;border-top:solid 1px #FCD9D7;margin-top:-1px;font-size:14px;color:#797E8C;box-shadow:0 1px 3px 1px #E6EDEF;background:#fff}
+.coupon-selected{position:relative;width:210px;height:36px;line-height:36px;border:1px solid #FCD9D7;background:#FFF7F5;color:#F75F52;font-size:14px;cursor:pointer}
+.coupon-selected.is-disabled{border:1px solid #D2D9E9;background:#F9FBFF;color:#7884A0;cursor:default}
+.coupon-selected>span:nth-child(1){display:block;margin-right:18px;text-align:center}
+.coupon-selected .arrow{position:absolute;top:15px;right:10px;width:0;height:0;border:5px solid;border-color:#F75F52 #FFF7F5 #FFF7F5 #FFF7F5}
+.coupon-selected.is-expanded .arrow{top:10px;border-color:#FFF7F5 #FFF7F5 #F75F52 #FFF7F5}
+.coupon-selected.is-disabled .arrow{border-color:#7884A0 #F9FBFF #F9FBFF #F9FBFF}
+.coupon-selected.is-disabled.is-expanded .arrow{top:14px}
+.coupon-list.is-expanded{display:block}
+.coupon-list .coupon{position:relative;width:100%;height:50px;border-bottom:solid 1px #FCD9D7}
+.coupon-list .coupon:nth-last-child(2){border-bottom:none}
+.coupon-list .coupon:hover{background:#FFF7F5}
+.coupon-list .coupon.checked{background:#FFF7F5}
+.coupon-list .coupon .label{display:inline-block;width:100%;height:100%;box-sizing:border-box;padding-left:38px;padding-top:8px;cursor:pointer}
+.coupon-list .coupon .name{margin-top:1px;color:#F75F52}
+.coupon-list .coupon .time{font-size:10px;line-height:10px;color:#7884A0}
+.coupon-tag{position:absolute;display:inline-block;width:16px;height:30px;box-sizing:border-box;padding-top:2px;left:16px;top:11px;font-size:10px;line-height:13px;background:#f25b4e;text-align:center;color:#fff}
+.coupon-radio{position:absolute;right:16px;top:40%}
+.coupon-radio:after{content:'';position:absolute;left:-2px;top:-2px;width:16px;height:16px;background:url(https://s1.lantouzi.com/img/201612/864214263b46bde847cd3ae5045f3ce2.png) top no-repeat #fff;background-size:100% 100%}
+.coupon-list .coupon:hover .coupon-radio:after{background-color:#FFF7F5}
+.coupon-radio:checked:after{background:url(https://s1.lantouzi.com/img/201612/cb14cd422ae3cb6cedff2bfafcab8904.png) top no-repeat #FFF7F5;background-size:100% 100%}
+.coupon-list .coupon.buyong .name{font-size:14px}
+.coupon-list .coupon.buyong .label{padding-top:15px;padding-bottom:15px;padding-left:16px;color:#797E8C}
+.coupon.is-disabled{background:#E8E8E8!important}
+.coupon.is-disabled .coupon-tag{background:#828282}
+.coupon.is-disabled .name,.coupon.is-disabled .time{color:#828282}

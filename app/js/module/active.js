@@ -1,21 +1,22 @@
 /*
-* @Author: mr.ben(66623978) https://github.com/iNuoers/
-* @Date:   2017-09-03 11:12:27
-* @Last Modified by:   mr.ben
-* @Last Modified time: 2017-09-03 11:12:27
-*/
+ * @Author: mr.ben (肖工)  
+ * @QQ：66623978 
+ * @Github：https://github.com/iNuoers/ 
+ * @Create time: 2017-09-03 11:12:27
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-10-18 09:18:21
+ */
 
 // https://my.oschina.net/u/3243585/blog/994423 图片延迟加载
 
 'use strict';
-require('../../css/active.css')
-require('../plugins/pagination/pagination.css')
+require('css_path/active.css')
+require('js_path/plugins/pagination/pagination.css')
 
-var _api = require('../lib/f.data.js')
-var _head = require('../lib/f.head.js')
-var _core = require('../lib/f.core.js')
-var _template = require('../plugins/template/template.js')
-var _pagination = require('../plugins/pagination/jquery.pagination.js')
+var core = require('js_path/lib/pc.core.js')
+var apps = require('js_path/lib/pc.apps.js')
+var header = require('js_path/lib/header.js')
+var api = require('js_path/lib/f.data.js')
 
 fjw.pc.active = {
     query: {
@@ -27,29 +28,56 @@ fjw.pc.active = {
         this.onLoad();
     },
     onLoad: function () {
-        var _this = this;
-        
+        var me = this;
+
         $('#nav_active').addClass('active');
 
-        _this.getList();
+        me.method.getList();
     },
-    getList: function () {
-        var _this = this, html = '', $listCon = $(".act-list");
+    method: {
 
-        var param = {
-            M: _api.method.activeList,
-            D: JSON.stringify({
-                PageIndex: _this.query.page,
-                PageSize: _this.query.size
-            })
-        };
+        ajax: function (data, callback) {
+            core.ajax({
+                url: core.Env.apiHost,
+                data: data,
+                type: 'post',
+                success: function (data) {
+                    callback && callback.call(this, JSON.parse(data))
+                },
+                error: function () {
 
-        _core.ajax.request({
-            url: _api.host,
-            data: JSON.stringify(param),
-            method: 'POST',
-            success: function (res) {
-                var data = JSON.parse(res);
+                }
+            });
+        },
+        getList: function () {
+            var me = fjw.pc.active,
+                html = '',
+                $listCon = $(".act-list"),
+                doT = require('js_path/plugins/template/template.js');
+            require('js_path/plugins/pagination/jquery.pagination.js');
+
+            var param = {
+                M: api.method.activeList,
+                D: JSON.stringify({
+                    PageIndex: me.query.page,
+                    PageSize: me.query.size
+                })
+            };
+            var setPager = function (records) {
+                $('.page').pagination(records, {
+                    current_page: me.query.page - 1,
+                    num_edge_entries: 1,
+                    num_display_entries: 7,
+                    callback: function (idx, ele) {
+                        me.query.page = idx + 1;
+                        me.method.getList();
+                        return false;
+                    },
+                    items_per_page: me.query.size
+                })
+            };
+
+            me.method.ajax(JSON.stringify(param), function (data) {
                 var tpl = '<%if(grid.length>0) {%>' +
                     '    <%for(i = 0; i < grid.length; i ++) {%>' +
                     '        <% var data = grid[i]; %>' +
@@ -69,35 +97,17 @@ fjw.pc.active = {
                     '     <%}%>' +
                     '<%}%>';
 
-                html = _template(tpl, data);
-
+                html = doT(tpl, data);
                 $listCon.html(html);
 
-                //分页-只初始化一次  
-                _this.query.records = data.records;
-                if ($(".pagination").html().length == '') {
-                    _this.initPage();
+                if (data.total > 1) {
+                    setPager(data.records)
                 }
-            },
-            error: function () {
-                alert("请求超时，请重试！");
-            }
-        });
-    },
-    initPage: function () {
-        var _this = this;
-        $('.page').pagination(_this.query.records, {
-            current_page: _this.query.page - 1,
-            num_edge_entries: 1, //边缘页数
-            num_display_entries: 4, //主体页数
-            callback: _this.pageCall,
-            items_per_page: _this.query.size //每页显示1项
-        })
-    },
-    pageCall: function (idx, ele) {
-        fjw.pc.active.query.page = idx + 1;
-        fjw.pc.active.getList();
-        return false;
+            })
+        },
+        setPager: function () {
+
+        }
     }
 }
 $(function () {

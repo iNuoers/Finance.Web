@@ -106,7 +106,7 @@
                     </div>
                 <%}%>
                 <%if(data.Status==3){%>
-                    <div class="btn">
+                    <div class="btn buy">
                         <span>已售罄</span>
                     </div>
                 <%}else{%>

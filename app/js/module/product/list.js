@@ -4,22 +4,21 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-07 15:23:37 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-07 16:40:32
+ * @Last Modified time: 2017-10-18 15:36:40
  */
 'use strict';
 
 require('css_path/product/list.css')
 require('js_path/plugins/pagination/pagination.css')
 
-var _api = require('js_path/lib/f.data.js')
-var _head = require('js_path/lib/f.head.js')
-var _core = require('js_path/lib/f.core.js')
-var _time = require('js_path/lib/f.time.js')
-var _product = require('js_path/service/product-service.js')
-var _template = require('js_path/plugins/template/template.js')
-var _page = require('js_path/plugins/pagination/jquery.pagination.js')
+var core        = require('js_path/lib/pc.core.js')
+var _api        = require('js_path/lib/f.data.js')
+var _time       = require('js_path/lib/f.time.js')
+var _product    = require('js_path/service/product-service.js')
+var _template   = require('js_path/plugins/template/template.js')
+var _page       = require('js_path/plugins/pagination/jquery.pagination.js')
 
-var itemTpl = require('../../../view/product/index.string')
+var itemTpl     = require('view_path/product/index.string')
 
 fjw.pc.product = {
     orderByDes: {
@@ -50,7 +49,7 @@ fjw.pc.product = {
     },
     onLoad: function () {
         var me = this
-            , idx = _core.Tools.getUrlParam("index") || 0;
+            , idx = core.String.getQuery("index") || 0;
 
         $('#nav_invest').addClass('active');
         $('#hot span').eq(idx).addClass("active").siblings().removeClass("active");
@@ -109,6 +108,7 @@ fjw.pc.product = {
                 html = _template(itemTpl, data);
                 $listCon.html(html);
 
+                // 倒计时
                 $.countdown($('.product-time'), {
                     callback: function (ele) {
                         $(ele).remove();
@@ -117,7 +117,7 @@ fjw.pc.product = {
 
                 // 处理分页数据                
                 if (data.total > 1) {
-                    me.method.renderPagin(data.records)
+                    me.method.setpager(data.records)
                 } else {
                     $('.page').hide();
                 }
@@ -125,7 +125,7 @@ fjw.pc.product = {
                 $listCon.html('<p class="err-tip">加载失败，请刷新后重试</p>');
             });
         },
-        renderPagin: function (records) {
+        setpager: function (records) {
             var me = fjw.pc.product;
             $('.page').show().pagination(records, {
                 current_page: me.param.PageIndex - 1,
