@@ -1,0 +1,137 @@
+.ab-navbar{background-color:#fff;border-top:1px solid #ededed}
+.ab-nav li{float:left;margin-right:30px}
+.ab-nav li .list-dots .current a:hover,.ab-nav li a,.list-dots .current .ab-nav li a:hover{padding:0 3px;height:45px;line-height:45px;color:#555;display:block;font-size:14px}
+.ab-nav li .list-dots .current a:hover,.ab-nav li a:hover,.list-dots .current .ab-nav li a:hover{color:#1088f1}
+.ab-nav .current a,.ab-nav .current a:hover,.ab-nav .list-dots .current a:hover,.list-dots .ab-nav .current a:hover{color:#1088f1;font-weight:700}
+.about-box{background-color:#fff;padding:10px 30px 30px;margin-top:30px}
+.page-title{box-sizing:border-box;margin:0;padding:0;color:#5e5e5e;font-size:14px;line-height:20px}
+.page-title h1{box-sizing:border-box;margin:14px 0 30px;padding:0;font-size:22px;font-family:inherit;font-weight:500;line-height:50px;color:#ff6825;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:#ff6825;width:88px;height:50px}
+
+/* about */
+.about-info{overflow:hidden}
+.firm-wrap{margin:80px auto 30px}
+.firm-wrap .firm{display:inline-block;width:25%;text-align:center}
+.firm-wrap .firm span{display:block;margin:12px auto;font-size:16px;font-weight:700;color:#303030}
+.firm-wrap .firm p{font-size:14px;margin:0}
+.person{margin:0 auto;width:380px}
+.person-box{position:relative;overflow:hidden}
+.person-box img{width:380px;height:450px;display:block}
+.person-box .founding-txt{width:345px;height:410px;background-color:rgba(34,34,34,.7);background-color:#222\9;position:absolute;left:0;top:0;cursor:pointer;font-size:14px;color:#fff;line-height:2.2;padding:20px 15px 20px 20px;filter:alpha(Opacity=0);opacity:0;-moz-transition:all .3s ease 0s;-o-transition:all .3s ease 0s;-webkit-transition:all .3s ease;-webkit-transition-delay:0s;transition:all .3s ease 0s;-moz-transform:translateY(400px);-ms-transform:translateY(400px);-webkit-transform:translateY(400px);transform:translateY(400px)}
+.person-box .founding-txt div{margin-bottom:12px}
+.person-box .founding-txt .icon-dot{width:4px;height:4px;float:left;display:block;background:url(../../image/icon_dot.png) no-repeat;margin-top:13px}
+.person-box .founding-txt .txt{margin-left:19px}
+.person-box.hover .founding-txt{filter:alpha(enabled=false);opacity:1;-moz-transform:translateY(0);-ms-transform:translateY(0);-webkit-transform:translateY(0);transform:translateY(0)}
+.person-info{position:relative;z-index:2}
+.name{font-size:28px;text-align:center;display:block;padding-top:18px}
+.position{display:block;font-size:14px;text-align:center;padding-bottom:25px;color:#666}
+
+.honor{overflow:hidden;position:relative}
+.honor .content{height:270px;overflow:hidden;position:relative;left:0}
+.honor .content dl{width:390px;height:270px;float:left;overflow:hidden;position:relative}
+.honor .content dl dt{width:100%;height:100%;background:#c5c5c5}
+.honor .content dl dt img{margin:auto;display:block;padding-top:35px}
+.honor .content dl dd.info{width:100%;height:100%;position:absolute;bottom:0;text-align:center;transition:opacity .5s;background:#ebebeb;filter:alpha(opacity=0);opacity:0}
+.honor .content dl:hover dd.info{color:#fff;background:rgba(235,235,235,.7);filter:alpha(opacity=70);opacity:1}
+.honor .content dl dd.info .tag{font-size:18px;color:#333;font-weight:700;padding:100px 100px 0}
+.honor .icon{top:210px;background:url(../../image/icon_arrow.png) no-repeat}
+.honor .icon-right{background-position:0 0;right:0}
+.honor .icon-right-disable{background-position:-35px 0;right:0}
+.honor .icon-left{background-position:-71px 0;left:0}
+.honor .icon-left-disable{background-position:-107px 0;left:0}
+.btn-right,.honor .btn-left{width:29px;height:47px;position:absolute;cursor:pointer}
+
+/* contact */
+.contact-box,.company-info{box-sizing:border-box;margin:40px 0 0;padding:0}
+.contact-box p,.company-info p{box-sizing:border-box;margin:0 0 10px;padding:0}
+.contact-box .title{font-size:18px}
+.contact-box .text{box-sizing:border-box;cursor:pointer;outline:0;color:#ff6825;text-decoration:none;transition:color .2s,background-color .2s;background-color:transparent}
+
+/* media */
+.media-list{width:1120px;margin:0 auto;overflow:hidden}
+.media-list dl{display:inline-block;border-bottom:1px dashed #e6e6e6;padding:30px 0}
+.media-list dl:first-child{padding-top:0}
+.media-list dt{float:left;margin-right:35px;width:270px;height:150px}
+.media-list dt img{width:270px;height:150px;border:none;display:inline}
+.media-list dd{float:left;width:815px;height:150px}
+.media-list dd .title{clear:both}
+.media-list dd .title:after{display:table;content:'';clear:both}
+.media-list dd .title span{float:right;font-size:12px;line-height:16px;position:relative;top:5px}
+.media-list dd .title a{font-size:16px;color:#333;float:left}
+.media-list dd .intro{line-height:30px;color:#666;margin-top:10px}
+.media-list dd .intro a{color:red}
+
+/* notice */
+.notice-list p{padding:0 30px 0 20px;line-height:45px;overflow:hidden;border-bottom:1px solid #e6e6e6}
+.notice-list p:first-child{border-top:none}
+.notice-list a{float:left}
+.notice-list span{float:right;color:#a5a5a5}
+
+/* commerce */
+.table-striped{display:block;width:80%;text-align:center;margin:0 auto}
+.table-striped>tbody>tr:nth-child(odd){background-color:#fff}
+.table-striped>tbody>tr:nth-child(even){background-color:#f4f6f8}
+.table-striped tr td{padding:12px 18px;font-size:14px;border:1px solid #e0e6ed;color:#29374b}
+.table-striped tr td:first-child{width:200px}
+.table-striped .scope td:first-child{vertical-align:middle}
+.table-striped .scope td:last-child{line-height:24px}
+
+/* official */
+.about-official p,.qrcode-container{text-align:center;color:#93a0b0;margin-bottom:30px}
+.about-official p a{display:inline-block;color:#3793df;margin-left:20px}
+.qrcode-container img{width:200px;margin:0 auto}
+.qrcode-container .title{font-size:20px;margin:70px 0 30px;font-weight:700;color:#303030}
+
+/* record */
+.about-record{}
+.about-record table{width:80%;margin: 0 auto}
+.about-record .table>tbody>tr>td,.about-record .table>thead>tr>th {
+    padding: 11px 0 11px 10px;
+    line-height: 17px
+}
+.about-record .table td:first-child {
+    text-align: right
+}
+
+.about-record .table .beian td {
+    line-height: 18px
+}
+
+.about-record .table .beian img {
+    display: inline-block;
+    width: 16px;
+    margin-right: 5px;
+    margin-top: -2px
+}
+
+.about-record .table .cert img,.about-record .table .cnnic img {
+    height: 19px
+}
+
+.certificate {
+    text-align: center
+}
+
+.certificate .title {
+    font-weight: 700;
+    margin: 50px 0 30px;
+    font-size: 20px
+}
+
+.certificate img {
+    display: block;
+    margin: 0 auto
+}
+
+/* about-info */
+.about-info{
+    line-height: 30px;
+    padding: 25px 50px;
+}
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid #eee;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}

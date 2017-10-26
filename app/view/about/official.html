@@ -1,0 +1,40 @@
+<!-- https://www.itouzi.com/about/corp -->
+<!-- https://www.fengjr.com/cn/act/201607-pc-aboutus.html -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
+	<%= require('html-loader!../layout/head-common.html')%>
+</head>
+<body>
+    <%= require('html-loader!../layout/nav.html')%>
+    <%= require('html-loader!../layout/header.html')%>
+    <div class="main-wrap">
+        <%= require('html-loader!../layout/about-top-layout.html')%>
+        <div class="f-about-pannel">
+            <div class="main-section text-left pb20">
+                <div class="about-box about-contact">
+                    <div class="page-title">
+                        <h1>官方渠道</h1>
+                    </div>
+                    <div class="page-box about-official">
+                        <p>平台网址： <a href="https://www.fangjinnet.com" target="_blank">www.fangjinnet.com</a> </p>
+                        <p>IP地址： <a href="javascript:;">121.201.6.101</a> </p>
+                        <div class="qrcode-container">
+                            <div class="title">
+                                房金网App二维码
+                            </div>
+                            <img src=<%=require("../../image/logo-down-qr.png")%>>
+                            <div class="title">
+                                房金网微信二维码
+                            </div>
+                            <img src=<%=require("../../image/qrcode.jpg")%>>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= require('html-loader!../layout/footer.html')%>
+</body>
+</html>

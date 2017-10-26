@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-08-30 16:43:17
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-18 13:35:57
+ * @Last Modified time: 2017-10-26 13:09:58
  */
 'use strict';
 
@@ -68,7 +68,9 @@ var api = {
         withdrawInfo: "GetWithdrawInfo",
 
         noticeList: "NoticePcList",
-        noticeDetail: ""
+        noticeDetail: "",
+
+        statistics:"TradingStatistics"
 
     }
 }

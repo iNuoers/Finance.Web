@@ -4,11 +4,15 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-11 11:07:56 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-11 17:42:05
+ * @Last Modified time: 2017-10-25 16:09:18
  */
 
 require('css_path/my/invite')
 require('css_path/my/common')
+
+var core = require('js_path/lib/pc.core.js')
+var apps = require('js_path/lib/pc.apps.js')
+var header = require('js_path/lib/header.js')
 
 var _share = require('js_path/plugins/ishare/ishare.min')
 

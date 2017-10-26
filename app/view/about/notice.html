@@ -1,6 +1,6 @@
 <!-- https://www.lianlianmoney.com/article/about?page=announcement&pageIndex=2 -->
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html lang="zh-CN">
 <head>
     <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
 	<%= require('html-loader!../layout/head-common.html')%>
@@ -9,8 +9,19 @@
     <%= require('html-loader!../layout/nav.html')%>
     <%= require('html-loader!../layout/header.html')%>
     <div class="main-wrap">
-        <div class="main-section">
-
+        <%= require('html-loader!../layout/about-top-layout.html')%>
+        <div class="f-about-pannel">
+            <div class="main-section text-left pb20">
+                <div class="about-box about-notice">
+                    <div class="page-title">
+                        <h1>最新公告</h1>
+                    </div>
+                    <div class="page-box">
+                        <div class="notice-list pb30"></div>
+                        <div class="page pagination"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <%= require('html-loader!../layout/footer.html')%>

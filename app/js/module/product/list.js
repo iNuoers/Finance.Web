@@ -11,14 +11,17 @@
 require('css_path/product/list.css')
 require('js_path/plugins/pagination/pagination.css')
 
-var core        = require('js_path/lib/pc.core.js')
-var _api        = require('js_path/lib/f.data.js')
-var _time       = require('js_path/lib/f.time.js')
-var _product    = require('js_path/service/product-service.js')
-var _template   = require('js_path/plugins/template/template.js')
-var _page       = require('js_path/plugins/pagination/jquery.pagination.js')
+var core = require('js_path/lib/pc.core.js')
+var apps = require('js_path/lib/pc.apps.js')
+var header = require('js_path/lib/header.js')
 
-var itemTpl     = require('view_path/product/index.string')
+var _api = require('js_path/lib/f.data.js')
+var _time = require('js_path/lib/f.time.js')
+var _product = require('js_path/service/product-service.js')
+var _template = require('js_path/plugins/template/template.js')
+var _page = require('js_path/plugins/pagination/jquery.pagination.js')
+
+var itemTpl = require('view_path/product/index.string')
 
 fjw.pc.product = {
     orderByDes: {
@@ -93,6 +96,16 @@ fjw.pc.product = {
         });
     },
     method: {
+        ajax: function (data, callback) {
+            core.ajax({
+                url: core.Env.apiHost,
+                data: data,
+                type: 'post',
+                success: function (data) {
+                    callback && callback.call(this, JSON.parse(data))
+                }
+            });
+        },
         getList: function () {
             var me = fjw.pc.product
                 , $listCon = $(".paging-list")

@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 20:20:35 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-16 10:58:34
+ * @Last Modified time: 2017-10-25 10:01:14
  */
 var FJW = require('js_path/lib/pc.core.js')
 !function ($) {
@@ -19,7 +19,11 @@ var FJW = require('js_path/lib/pc.core.js')
         this.init();
     };
     header.prototype.init = function () {
+
         var me = this, root = me.root;
+
+        FJW.User.isLogin()
+        window.user.isLogin ? this.setLoginedMenu() : this.setUnloginMenu();
 
         var o = encodeURIComponent(window.location.href);
         $('[data-selector="link-login"]', root).on('click', function () {
@@ -31,17 +35,9 @@ var FJW = require('js_path/lib/pc.core.js')
             return false
         });
         $('[data-selector="link-logout"]', root).on('click', function () {
-            window.location.href = $(this).attr('href') + '?refPath=' + FJW.Env.wwwRoot;
-            return false
+            FJW.User.logOut()
+            window.location.reload();
         });
-        me.onload()
-    }
-    header.prototype.onload = function () {
-        var me = this,
-            n = me.root;
-        FJW.User.isLogin()
-        console.log(window.user.isLogin)
-        return window.user.isLogin ? this.setLoginedMenu() : this.setUnloginMenu();
     }
     header.prototype.setUnloginMenu = function () {
         var me = this;
@@ -54,7 +50,7 @@ var FJW = require('js_path/lib/pc.core.js')
     }
     header.prototype.setLoginedMenu = function () {
         var me = this;
-        var html = ['<a href="javascript:;" data-href="">' + FJW.Cookie.get('f.phone') + '，<a class="F_out" href="javascript:;">退出</a>'].join("");
+        var html = ['<a href="javascript:;" data-href="/my/index.html">' + FJW.Cookie.get('f.phone') + '，<a class="F_out" href="javascript:;" data-selector="link-logout">退出</a>'].join("");
 
         me.logout.show();
         me.unLogin.hide();

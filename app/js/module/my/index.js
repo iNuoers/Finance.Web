@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 16:20:20 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-13 20:23:36
+ * @Last Modified time: 2017-10-25 16:06:46
  */
 'use strict';
 
@@ -14,7 +14,7 @@ require('css_path/my/common')
 var apps = require('js_path/lib/pc.apps.js')
 var fjw = require('js_path/lib/pc.core.js')
 var header = require('js_path/lib/header.js')
-debugger
+
 var _api = require('js_path/lib/f.data.js')
 var _head = require('js_path/lib/f.head.js')
 var _core = require('js_path/lib/f.core.js')

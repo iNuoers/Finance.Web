@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 
 <head>
-    <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
+    <title>房金网</title>
     <%= require('html-loader!./layout/head-common.html')%>
 </head>
 
@@ -11,31 +11,31 @@
     <%= require('html-loader!./layout/header.html')%>
     <div class="main-wrap main-section">
         <!--banner start https://www.fjw.cn/-->
-        <div class="fjw-banner rel">
+        <div class="fjw-banner rel f-cb">
             <div class="bannner-container rel" id="banner-slidebox"></div>
-            <div class="abs reg-zone">
+            <div class="abs reg-zone z10">
                 <!--未登录状态-->
                 <div class="reg-zone-unlogin">
                     <div class="text-1 fz12 text-666">
-                        <strong class="fz24 text-orange mr5 n">6587229</strong>聪明投资者选择
+                        <strong class="fz24 text-orange mr5 n memcount"></strong>聪明投资者选择
                     </div>
                     <div class="text-1 fz12 text-666">
                         <strong class="fz24 text-orange mr5 n">11.8%</strong>预期最高年化收益
                     </div>
                     <div class="text-guarantee">
-                        <a href="http://info.fjw.cn/about/guarantee.html?mark=1">
+                        <a href="javascript:;">
                             <span class="ads-icons i-guarantee text-orange">10亿</span> 注册资金
                         </a>
-                        <a href="http://info.fjw.cn/about/guarantee.html?mark=1">
+                        <a href="javascript:;">
                             <span class="ads-icons i-guarantee text-orange">18亿</span> 新轮融资
                         </a>
-                        <a href="http://info.fjw.cn/about/guarantee.html?mark=1">
+                        <a href="javascript:;">
                             <span class="ads-icons i-guarantee text-orange">1亿+</span> 第三方担保
                         </a>
                     </div>
-                    <a class="reg-zone-btn" rel="nofollow" href="javascript:;">领取新手礼包</a>
+                    <a class="reg-zone-btn" rel="nofollow" href="javascript:;" data-href="/user/register.html">领取新手礼包</a>
                     <div class="tc mt10">
-                        <a class="fz14 text-999" rel="nofollow" href="javascript:;">查看收益?立即登录</a>
+                        已有账号？<a class="fz14 color-blue-text" rel="nofollow" href="javascript:;" data-href="/user/login.html">立即登录</a>
                     </div>
                 </div>
                 <!--已登录状态-->

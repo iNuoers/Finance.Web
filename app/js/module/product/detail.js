@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-07 18:06:12 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-16 15:17:13
+ * @Last Modified time: 2017-10-19 17:33:01
  */
 'use strict';
 require('css_path/product/detail.css')
@@ -113,7 +113,7 @@ fjw.pc.product_detail = {
             } else if (amount > detail.MaxBuyPrice) {
                 msg = '投资金额不能大于' + detail.MaxBuyPrice;
             } else if (amount > user.balance) {
-                msg = '可用余额不足 <a class="f-color-blue-text" href="javascript:;" data-href="../../view/my/recharge.html" data-needlogin="true">立即充值</a>';
+                msg = '可用余额不足 <a class="f-color-blue-text" href="javascript:;" data-href="/my/recharge.html" data-needlogin="true">立即充值</a>';
             }
 
             if (msg != '') {

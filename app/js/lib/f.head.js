@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-07-21 16:35:42
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-16 09:02:48
+ * @Last Modified time: 2017-10-26 11:53:48
  */
 
 'use strict';
@@ -13,83 +13,15 @@ require('js_path/plugins/layer/skin/default/layer.css')
 require('js_path/plugins/layer/layer.js')
 
 var _core = require('js_path/lib/f.core.js');
+var core = require('js_path/lib/pc.core.js')
 var _api = require('js_path/lib/f.data.js');
 var _user = require('js_path/service/user-service.js');
 
 var Core = {
     init: function () {
-        this.initLink()
+        //this.initLink()
         //this.initUserInfo()
-        this.loginTimeout()
-    },
-    initUserInfo: function () {
-        var _this = this, user = null;
-
-        if (_core.cookie.get($.base64.btoa('f.token'))) {
-            _core.cookie.set('f.token',_core.cookie.get($.base64.btoa('f.token')))
-            _user.getUserInfo(JSON.stringify({
-                M: _api.method.getMemberInfo,
-            }), function (json) {
-                user = JSON.parse(json);
-
-                window.cache = json;
-
-                window.user = {
-                    isLogin: true,
-                    token: user.token,
-                    isBuy: user.isBuy,
-                    phone: user.phone,
-                    balance: user.balance,
-                    avator: user.headPhoto,
-                    isInvite: user.friendStatus,
-                    isAuthen: user.realNameAuthen,
-                    hasPaypwd: user.existsTradePswd
-                };
-
-                _this.initNav();
-            }, function () {
-                window.user.isLogin = false;
-                _this.initNav();
-            });
-        } else {
-            var pathname = location.pathname;
-            if (pathname.indexOf('my') > 0) {
-                login(location.href);
-            }
-        }
-    },
-    initNav: function () {
-        var _this = this;
-
-        var $header = $('.site-nav'),
-            $isLogin = $('.F_isLogin'),
-            $unLogin = $('.F_unLogin'),
-            $userIcon = $('.F_userIcon'),
-            $userPhone = $('.F_userPhone'),
-            $logout = $('.F_out');
-
-        if (window.user.isLogin) {
-            var html = ['<a href="" target="_blank">您好，' + user.phone + "&nbsp;&nbsp;</a>", '<a class="F_out" href="javascript:;">退出</a>'].join("");
-
-            $logout.show();
-            $unLogin.hide();
-            $isLogin.html(html).show();
-            $userPhone.html(user.phone);
-            $userIcon.attr('src', user.headPhoto);
-            if (user.isAuthen == 1)
-                $('#sub_nav_bindcard a').attr('data-href', '/my/my-card.html');
-
-        } else {
-            $unLogin.css({
-                visibility: 'visible'
-            });
-            $logout.hide();
-            $isLogin.hide();
-            $userPhone.html('尊敬的用户');
-
-            window.user.isLogin = false;
-            _core.storage.delItem($.base64.btoa('f.ui.cache'));
-        }
+        //this.loginTimeout()
     },
     loginTimeout: function () {
         //登录超时20分钟
@@ -124,31 +56,11 @@ var Core = {
         glb_user_phone: '',
         glb_user_token: '',
         glb_user_avator: ''
-    },
-    initLink: function () {
-        var _this = this;
-        $(".main-section,.main-wrap").delegate("a[data-href],div[data-href]", "click", function (e) {
-            if ($(this).data("href") && !$(this).data("preventdefault")) {
-                e.stopPropagation();
-                var url = $(this).data("href");
-                url = (url.indexOf('http://') >= 0 || url.indexOf('https://') >= 0) ? url : App.webUrl + url;
-                var i = $(this).data("title"), needLogin = $(this).data("needlogin");
-
-                if (needLogin && !window.user.isLogin) {
-                    return login(url);
-                }
-                if (url.indexOf('his') >= 0)
-                    window.history.go(-1);
-                else
-                    location.href = url;
-            }
-        });
     }
 }
 
 $(function () {
-    // 用于普通页面的跨框架脚本攻击(CFS)防御
-    if (top.location != self.location) top.location.href = self.location;
+    
 
     Core.init();
 })

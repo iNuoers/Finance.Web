@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html lang="zh-CN">
 <head>
     <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
 	<%= require('html-loader!../layout/head-common.html')%>
@@ -8,8 +8,117 @@
     <%= require('html-loader!../layout/nav.html')%>
     <%= require('html-loader!../layout/header.html')%>
     <div class="main-wrap">
-        <div class="main-section">
-
+        <%= require('html-loader!../layout/about-top-layout.html')%>
+        <div class="f-about-pannel">
+            <div class="main-section text-left pb20">
+                <div class="about-box about-media">
+                    <div class="page-title">
+                        <h1>媒体报道</h1>
+                    </div>
+                    <div class="page-box">
+                        <div class="media-list">
+                            <dl>
+                                <dt>
+                                    <img src="http://sinastorage.com/storage.caitou.sina.com.cn/products/201706/3187dff5849c682fbca9a95d9404bae7.png" alt="【新浪财经】“互联网+”的金融时代，怎样才能成为大赢家？">
+                                </dt>
+                                <dd>
+                                    <div class="title">
+                                        <span class="time">2017-06-14</span>
+                                        <a href="http://cj.sina.com.cn/article/detail/6212976462/284325?column=consume&ch=9" target="_blank">【新浪财经】“互联网+”的金融时代，怎样才能成为大赢家？</a>
+                                    </div>
+                                    <div class="intro">
+                                        随着时代的进步与发展，互联网正在改造着我国一些传统行业，很多传统企业早就开始尝试互联网化的经营模式，希望通过借助互联网技术实现企业传统向现代化转型，于是，“互联网+”的概念就此诞生了。过去的十几年，互联网技术崛起，网络购物、网络订餐、看网络新闻已经成为人们的生活习惯。如今，互联网与金融领域的融合又成为了新的亮点！以互联网为代表的现代信息科技技术，正在对传统金融模式产生影响，金融时代的变革就此开始。<a href="http://cj.sina.com.cn/article/detail/6212976462/284325?column=consume&ch=9" target="_blank">[全文]</a>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <img src="http://cms-bucket.nosdn.127.net/catchpic/2/21/21ddc2f7472beac187344340db26d791.png?imageView&thumbnail=550x0" alt="【网易新闻】房金网CEO受邀参加上海财经节目《赢+》专访">
+                                </dt>
+                                <dd>
+                                    <div class="title">
+                                        <span class="time">2017-06-14</span>
+                                        <a href="http://news.163.com/17/0614/18/CMTMF6K100014AEE.html" target="_blank">【网易新闻】房金网CEO受邀参加上海财经节目《赢+》专访</a>
+                                    </div>
+                                    <div class="intro">
+                                        在互联网金融的浪潮里，房金网犹如一匹黑马在行业中脱颖而出，上线半年时间便斩获“2016年度中国金融科技最具竞争力企业”荣誉。鉴于房金网对互联网金融行业所做的贡献和所取得的成就，上海纪实频道《赢+》栏目主动邀约房金网CEO郑总，就互联网金融行业的发展和房金网的战略规划等问题进行深度探讨。<a href="http://news.163.com/17/0614/18/CMTMF6K100014AEE.html" target="_blank">[全文]</a>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <img src="http://ruanwenpic.b0.upaiyun.com/ueditor/upyun/20170524/1495608580346707.png" alt="【东方网】2017中国金融品牌50强、金融业十大诚信企业名单揭晓!">
+                                </dt>
+                                <dd>
+                                    <div class="title">
+                                        <span class="time">2017-05-24</span>
+                                        <a href="http://finance.eastday.com/eastday/finance1/Business/node3/u1ai118698.html" target="_blank">【东方网】2017中国金融品牌50强、金融业十大诚信企业名单揭晓!</a>
+                                    </div>
+                                    <div class="intro">
+                                        “2017亚洲金融品牌创新论坛暨中国金融风云榜颁奖盛典”于2017年5月20日在深圳开幕，本次盛典持续2天，于5月21日落幕。上海雁鸿翔金融信息服务有限公司及其自主开发运营的互联网金融服务平台——房金网，摘得“中国金融业十大诚信品牌企业”和“中国互联网金融品牌50强”两大奖项，成为我国金融领域服务与创新的标杆。<a href="http://finance.eastday.com/eastday/finance1/Business/node3/u1ai118698.html" target="_blank">[全文]</a>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <img src="http://ruanwenpic.b0.upaiyun.com/ueditor/upyun/20170421/1492753521104920.png" alt="【中华网】献血挽救他人生命，用实际行动践行社会责任感">
+                                </dt>
+                                <dd>
+                                    <div class="title">
+                                        <span class="time">2017-04-24</span>
+                                        <a href="http://m.tech.china.com/redian/2017/0421/22141.html" target="_blank">【中华网】献血挽救他人生命，用实际行动践行社会责任感</a>
+                                    </div>
+                                    <div class="intro">
+                                        时代在发展，人均GDP在提高，但相比经济的进步，这个社会却越来越冷漠。老人摔倒，只敢围观不敢扶，怕被碰瓷;路遇匪徒不敢挺身而出，怕被报复。担心引火上身，出于自我保护，人们都变成了装在套子里的人，永远一副事不关己的样子。难道“路见不平一声吼，众人拾柴火焰高”的传统美德就无人传承了吗?不!雁鸿翔的员工用实际行动证明，当今社会依旧有一批热血青年，他们身体力行，承担着社会责任感，传播着正能量!<a href="http://m.tech.china.com/redian/2017/0421/22141.html" target="_blank">[全文]</a>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <img src="http://inews.gtimg.com/newsapp_match/0/1439568768/0" alt="【腾讯新闻】涓涓热血，铺就生命之路——雁鸿翔爱心接力救助客户家属">
+                                </dt>
+                                <dd>
+                                    <div class="title">
+                                        <span class="time">2017-04-21</span>
+                                        <a href="http://view.inews.qq.com/s/20170421A051GV00" target="_blank">【腾讯新闻】涓涓热血，铺就生命之路——雁鸿翔爱心接力救助客户家属</a>
+                                    </div>
+                                    <div class="intro">
+                                        爱心献血，让爱传递。3月23日，对于雁鸿翔客户朱阿姨来说是生命中难忘的日子。从爱子突发车祸、医院血库告急的焦灼，到儿子转危为安后的心有余悸，朱阿姨对鸿翔财富员工们有说不尽的感谢。<a href="http://view.inews.qq.com/s/20170421A051GV00" target="_blank">[全文]</a>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <img src="http://img.mp.itc.cn/upload/20170309/24e8b5b21db34acea61620c2837175f5_th.jpg" alt="【搜狐网】揭秘一家合规的互联网金融平台背后的故事">
+                                </dt>
+                                <dd>
+                                    <div class="title">
+                                        <span class="time">2017-03-09</span>
+                                        <a href="http://www.sohu.com/a/128346650_122647" target="_blank">【搜狐网】揭秘一家合规的互联网金融平台背后的故事</a>
+                                    </div>
+                                    <div class="intro">
+                                        2017年1月19日，房金网CEO郑总接受著名财经杂志《财经纵横》的独家访谈。《财经纵横》，国内权威财经杂志，一本以重大财经新闻的深度报道为主，以专业市场调研和高端人物访谈为特色的月刊杂志。杂志专注于互联网金融领域的研究，旨在打造中国最具影响力的财经刊物。<a href="http://www.sohu.com/a/128346650_122647" target="_blank">[全文]</a>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <img src="http://finance.southcn.com/qyxw/content/attachment/20170106/20039027/b3615487d5224314b76e.jpg" alt="【南方网】2017中关村互联网金融论坛，房金网等企业获奖">
+                                </dt>
+                                <dd>
+                                    <div class="title">
+                                        <span class="time">2017-01-06</span>
+                                        <a href="http://finance.southcn.com/qyxw/content/2017-01/06/content_163166917.htm" target="_blank">【南方网】2017中关村互联网金融论坛，房金网等企业获奖</a>
+                                    </div>
+                                    <div class="intro">
+                                        2016年12月23日, “2017中关村互联网金融论坛暨第四届普惠金融论坛”在北京隆重召开。本次论坛由中关村互联网金融研究院主办，北京市海淀区人民政府、国培机构协办，汇聚了监管部门领导、知名学者专家以及近50家知名媒体，宜人贷、团贷网、房金网等众多国内外知名互联网金融企业应邀参加了此次论坛。<a href="http://finance.southcn.com/qyxw/content/2017-01/06/content_163166917.htm" target="_blank">[全文]</a>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <%= require('html-loader!../layout/footer.html')%>

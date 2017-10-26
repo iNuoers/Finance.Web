@@ -4,79 +4,9 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 14:42:02 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-18 09:54:57
+ * @Last Modified time: 2017-10-26 11:58:02
  */
-
-Date.prototype.addYears || (Date.prototype.addYears = function (e) {
-    return this.setFullYear(this.getFullYear() + e),
-        this
-});
-Date.prototype.addMonths || (Date.prototype.addMonths = function (e) {
-    var t = this.getDate();
-    return this.setMonth(this.getMonth() + e),
-        t > this.getDate() && this.addDays(- this.getDate()),
-        this
-});
-Date.prototype.addDays || (Date.prototype.addDays = function (e) {
-    return this.setTime(this.getTime() + 86400000 * e),
-        this
-});
-Date.prototype.addHours || (Date.prototype.addHours = function (e) {
-    return this.setHours(this.getHours() + e),
-        this
-});
-Date.prototype.addMinutes || (Date.prototype.addMinutes = function (e) {
-    return this.setMinutes(this.getMinutes() + e),
-        this
-});
-Date.prototype.addSeconds || (Date.prototype.addSeconds = function (e) {
-    return this.setSeconds(this.getSeconds() + e),
-        this
-});
-Date.prototype.format || (Date.prototype.format = function (e) {
-    function t(t, n) {
-        e = e.replace(t, n)
-    }
-    e = e || 'yyyy-MM-dd HH:mm:ss';
-    var n = function (e, t) {
-        var n = '',
-            r = e < 0,
-            i = String(Math.abs(e));
-        return i.length < t && (n = new Array(t - i.length + 1).join('0')),
-            (r ? '-' : '') + n + i
-    },
-        r = this.getFullYear(),
-        i = this.getMonth() + 1,
-        o = this.getDate(),
-        a = this.getHours(),
-        s = this.getMinutes(),
-        c = this.getSeconds();
-    return t(/yyyy/g, n(r, 4)),
-        t(/yy/g, n(parseInt(r.toString().slice(2), 10), 2)),
-        t(/MM/g, n(i, 2)),
-        t(/M/g, i),
-        t(/dd/g, n(o, 2)),
-        t(/d/g, o),
-        t(/HH/g, n(a, 2)),
-        t(/H/g, a),
-        t(/hh/g, n(a % 12, 2)),
-        t(/h/g, a % 12),
-        t(/mm/g, n(s, 2)),
-        t(/m/g, s),
-        t(/ss/g, n(c, 2)),
-        t(/s/g, c),
-        e
-});
-String.prototype.trim || (String.prototype.trim = function () {
-    return this.replace(/^\s+|\s+$/g, '')
-});
-String.prototype.trimLeft || (String.prototype.trimLeft = function () {
-    return this.replace(/^\s+/g, '')
-});
-String.prototype.trimRight || (String.prototype.trimRight = function () {
-    return this.replace(/\s+$/g, '')
-});
-
+'use strict'
 var debug = true;
 var FJW = FJW || {};
 var FJW = {};
@@ -96,8 +26,8 @@ FJW.Env = {
     domain: debug ? 'http://192.168.1.53:8010' : 'https://www.fangjinnet.com',
     apiHost: debug ? 'https://api.fangjinnet.com:1000/api' : 'https://api.fangjinnet.com:1000/api',
     wwwRoot: '/dist/view',
-    bbsRoot: 'http://bbs.fangjinnet.com/',
-    mallRoot: 'http://mall.fangjinnet.com/'
+    bbsRoot: 'https://bbs.fangjinnet.com/',
+    mallRoot: 'https://mall.fangjinnet.com/'
 }
 FJW.System = {}
 FJW.System.guid = function () {
@@ -243,6 +173,25 @@ FJW.String = {
         if (str.indexOf(".") != -1 && str.length <= str.indexOf(".") + 2) str += '0';
         else if (str.indexOf(".") == -1) str += '.00';
         return str;
+    },
+    // 格式化时间戳
+    formatTime: function (time, fmt) {
+        var timeObj = new Date(time);
+        var o = {
+            "M+": timeObj.getMonth() + 1,                 //月份
+            "d+": timeObj.getDate(),                    //日
+            "h+": timeObj.getHours(),                   //小时
+            "m+": timeObj.getMinutes(),                 //分
+            "s+": timeObj.getSeconds(),                 //秒
+            "q+": Math.floor((timeObj.getMonth() + 3) / 3), //季度
+            "S": timeObj.getMilliseconds()             //毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (timeObj.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
     },
     // 格式化银行卡
     formatBank: function (s, mask) {
@@ -666,17 +615,25 @@ FJW.Cookie = {
         }
         return null
     },
-    set: function (e, t, n, r, i, o) {
-        var a;
-        if (FJW.Object.isNumber(n)) {
+    /**
+     * 
+     */
+    set: function (name, value, time, path, domain, secure) {
+        var expires;
+        if (FJW.Object.isNumber(time)) {
             var s = new Date;
-            s.setTime(s.getTime() + 24 * n * 60 * 60 * 1000),
-                a = s.toGMTString()
-        } else a = !!FJW.Object.isString(n) && n;
-        document.cookie = e + '=' + encodeURIComponent(t) + (a ? ';expires=' + a : '') + (r ? ';path=' + r : '') + (i ? ';domain=' + i : '') + (o ? ';secure' : '')
+            s.setTime(s.getTime() + 24 * time * 60 * 60 * 1000);
+            expires = s.toGMTString();
+        } else {
+            expires = !!FJW.Object.isString(time) && time;
+        }
+        document.cookie = name + '=' + encodeURIComponent(value) + (expires ? ';expires=' + expires : '') + (path ? ';path=' + path : '') + (domain ? ';domain=' + domain : '') + (secure ? ';secure' : '')
     },
-    del: function (e, t, n, r) {
-        FJW.Cookie.set(e, '', - 1, t, n, r)
+    /**
+     * 
+     */
+    del: function (name, path, domain, secure) {
+        FJW.Cookie.set(name, '', -1, path, domain, secure)
     }
 };
 
@@ -990,9 +947,19 @@ FJW.User.setCache = function (data) {
         hasPaypwd: data.existsTradePswd
     };
 }
+FJW.User.logOut = function () {
+    FJW.Cookie.del('f.token', '/')
+    FJW.Cookie.del('f.phone', '/')
+    FJW.Cookie.del('f.login-time', '/')
+    FJW.Cookie.del('f.login-device', '/')
+
+    FJW.Storage.delItem('f.token')
+    FJW.Storage.delItem('f.ui.cache')
+
+}
 FJW.User.requireLogin = function (e) {
     var me = this;
-    FJW.User.isLogin() ? e && e.call(me, data) : window.location.href = FJW.Env.domain + FJW.Env.wwwRoot + '/user-login.html?refPath=' + location.href;
+    FJW.User.isLogin() ? e && e.call(me, data) : window.location.href = FJW.Env.domain + FJW.Env.wwwRoot + '/user/login.html?refPath=' + location.href;
 }
 FJW.User.getInfo = function () {
     var me = this, info = null;

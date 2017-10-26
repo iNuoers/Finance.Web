@@ -2,11 +2,11 @@
 <html lang="zh-cn">
 <head>
 	<title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
-	<%= require('html-loader!./layout/head-common.html')%>
+	<%= require('html-loader!../layout/head-common.html')%>
 </head>
 <body>
-	<%= require('html-loader!./layout/nav.html')%>
-	<%= require('html-loader!./layout/header.html')%>
+	<%= require('html-loader!../layout/nav.html')%>
+	<%= require('html-loader!../layout/header.html')%>
 	<div class="main-wrap f-register">
 		<div class="main-section">
 			<div class="register-box-page">
@@ -32,7 +32,7 @@
 					<div class="form-item form-item-remember">
 						<span class="forget-pass-register">
 							<a class="forget-pass" href="./user-pass-reset.html">忘记密码</a>&nbsp;&nbsp;
-							<a class="register" href="./user-register.html">免费注册</a>
+							<a class="register" href="/user/register.html">免费注册</a>
 						</span>
 					</div>
 					<div class="form-item form-item-register-btn">
@@ -43,7 +43,7 @@
 			</div>
 		</div>
 	</div>
-	<%= require('html-loader!./layout/footer.html')%>
+	<%= require('html-loader!../layout/footer.html')%>
 </body>
 
 </html>

@@ -16,7 +16,7 @@ const WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 const getHtmlConfig = function (name, title) {
     return {
         template: './app/view/' + name + '.html',
-        filename: 'view/' + name + '.html',
+        filename: '/view/' + name + '.html',
         favicon: './favicon.ico',
         title: title,
         inject: true,
@@ -24,7 +24,7 @@ const getHtmlConfig = function (name, title) {
         chunks: ['f.vendor', name],
         minify: {
             // 压缩html
-            removeComments: true,       //移除HTML中的注释
+            removeComments: true,      //移除HTML中的注释
             collapseWhitespace: true   //删除空白符与换行符
         }
     };
@@ -32,9 +32,6 @@ const getHtmlConfig = function (name, title) {
 
 // webpack config
 const config = {
-    cache: true,
-    // 生成sourcemap,便于开发调试
-    devtool: "#source-map",
     // 入口文件
     entry: {
         'f.vendor': ['./app/js/app.js', './app/js/lib/f.data.js', './app/js/lib/f.core.js', './app/js/lib/f.head.js'],
@@ -44,11 +41,24 @@ const config = {
         'product/detail': ['./app/js/module/product/detail.js'],
         'product/confirm': ['./app/js/module/product/confirm.js'],
         'product/result': ['./app/js/module/product/result.js'],
-        'help-list': ['./app/js/module/help/list.js'],
-        'help-search': ['./app/js/module/help/search.js'],
-        'help-detail': ['./app/js/module/help/list.js'],
 
-        'safety': ['./app/js/module/about/safety.js'],
+        'help/list': ['./app/js/module/help/list.js'],
+        'help/search': ['./app/js/module/help/search.js'],
+        'help/detail': ['./app/js/module/help/list.js'],
+
+        'about/about': ['./app/js/module/about/about.js'],
+        'about/safety': ['./app/js/module/about/safety.js'],
+        'about/commerce': ['./app/js/module/about/about.js'],
+        'about/official': ['./app/js/module/about/about.js'],
+        'about/cfo': ['./app/js/module/about/cfo.js'],
+        'about/events': ['./app/js/module/about/about.js'],
+        'about/notice': ['./app/js/module/about/notice.js'],
+        'about/notice-detail': ['./app/js/module/about/notice.js'],
+        'about/media': ['./app/js/module/about/about.js'],
+        'about/info': ['./app/js/module/about/about.js'],
+        'about/contact': ['./app/js/module/about/about.js'],
+
+
         'active-list': ['./app/js/module/active.js'],
 
         'my/index': ['./app/js/module/my/index.js'],
@@ -65,8 +75,8 @@ const config = {
         'my/invite': ['./app/js/module/my/invite.js'],
         'my/friends': ['./app/js/module/my/friends.js'],
 
-        'user-login': ['./app/js/module/user/login.js'],
-        'user-register': ['./app/js/module/user/register.js'],
+        'user/login': ['./app/js/module/user/login.js'],
+        'user/register': ['./app/js/module/user/register.js'],
         'user/findpwd': ['./app/js/module/user/findpwd.js']
     },
     output: {
@@ -89,7 +99,7 @@ const config = {
                  *  图片大小小于10kb 采用内联的形式，否则输出图片
                  * */
                 limit: 10,
-                name: 'imgs/[name].[hash:8].[ext]'
+                name: 'image/[name].[hash:8].[ext]'
             }
         },
         {
@@ -111,6 +121,7 @@ const config = {
         }]
     },
     resolve: {
+        //root: path.join(__dirname + 'src'),
         //自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名
         extensions: ['', '.js', '.json', '.css'],
 
@@ -128,21 +139,29 @@ const config = {
 
         // html模板的处理
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
+
         new HtmlWebpackPlugin(getHtmlConfig('product/index', '理财产品')),
         new HtmlWebpackPlugin(getHtmlConfig('product/detail', '产品详情')),
         new HtmlWebpackPlugin(getHtmlConfig('product/confirm', '产品支付确认')),
         new HtmlWebpackPlugin(getHtmlConfig('product/result', '购买结果')),
-        new HtmlWebpackPlugin(getHtmlConfig('active-list', '活动列表')),
-        new HtmlWebpackPlugin(getHtmlConfig('safety', '安全保障')),
-        new HtmlWebpackPlugin(getHtmlConfig('about/index', '关于我们')),
-        new HtmlWebpackPlugin(getHtmlConfig('about/contact', '联系我们')),
-        new HtmlWebpackPlugin(getHtmlConfig('about/media', '媒体报道')),
-        new HtmlWebpackPlugin(getHtmlConfig('about/notice', '公司公告')),
-        new HtmlWebpackPlugin(getHtmlConfig('about/honor', '荣誉资质')),
 
-        new HtmlWebpackPlugin(getHtmlConfig('help-list', '帮助中心')),
-        new HtmlWebpackPlugin(getHtmlConfig('help-search', '帮助中心搜索')),
-        new HtmlWebpackPlugin(getHtmlConfig('help-detail', '帮助中心详情')),
+        new HtmlWebpackPlugin(getHtmlConfig('active-list', '活动列表')),
+
+        new HtmlWebpackPlugin(getHtmlConfig('about/about', '关于我们')),
+        new HtmlWebpackPlugin(getHtmlConfig('about/safety', '安全保障')),
+        new HtmlWebpackPlugin(getHtmlConfig('about/commerce', '工商信息')),
+        new HtmlWebpackPlugin(getHtmlConfig('about/official', '官方渠道')),
+        new HtmlWebpackPlugin(getHtmlConfig('about/cfo', '实时数据')),
+        new HtmlWebpackPlugin(getHtmlConfig('about/events', '大事记')),
+        new HtmlWebpackPlugin(getHtmlConfig('about/notice', '公司公告')),
+        new HtmlWebpackPlugin(getHtmlConfig('about/notice-detail', '公司公告')),
+        new HtmlWebpackPlugin(getHtmlConfig('about/media', '媒体报道')),
+        new HtmlWebpackPlugin(getHtmlConfig('about/info', '法律声明')),
+        new HtmlWebpackPlugin(getHtmlConfig('about/contact', '联系我们')),
+
+        new HtmlWebpackPlugin(getHtmlConfig('help/list', '帮助中心')),
+        new HtmlWebpackPlugin(getHtmlConfig('help/search', '帮助中心搜索')),
+        new HtmlWebpackPlugin(getHtmlConfig('help/detail', '帮助中心详情')),
 
         new HtmlWebpackPlugin(getHtmlConfig('my/index', '账户总览')),
         new HtmlWebpackPlugin(getHtmlConfig('my/userinfo', '个人信息')),
@@ -158,8 +177,8 @@ const config = {
         new HtmlWebpackPlugin(getHtmlConfig('my/invite', '邀请好友')),
         new HtmlWebpackPlugin(getHtmlConfig('my/friends', '我的好友')),
 
-        new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
-        new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
+        new HtmlWebpackPlugin(getHtmlConfig('user/login', '用户登录')),
+        new HtmlWebpackPlugin(getHtmlConfig('user/register', '用户注册')),
         new HtmlWebpackPlugin(getHtmlConfig('user/findpwd', '找回密码')),
 
         // 独立通用模块到 js/base.js

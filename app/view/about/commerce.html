@@ -1,0 +1,79 @@
+<!-- https://www.itouzi.com/about/corp -->
+<!-- https://www.fengjr.com/cn/act/201607-pc-aboutus.html -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
+	<%= require('html-loader!../layout/head-common.html')%>
+</head>
+<body>
+    <%= require('html-loader!../layout/nav.html')%>
+    <%= require('html-loader!../layout/header.html')%>
+    <div class="main-wrap">
+        <%= require('html-loader!../layout/about-top-layout.html')%>
+        <div class="f-about-pannel">
+            <div class="main-section text-left pb20">
+                <div class="about-box about-contact">
+                    <div class="page-title">
+                        <h1>工商信息</h1>
+                    </div>
+                    <div class="page-box about-commerce">
+                        <table class="table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>平台全称</td>
+                                    <td>上海雁鸿翔金融信息服务有限公司</td>
+                                </tr>
+                                <tr>
+                                    <td>平台简称
+                                    </td>
+                                    <td>房金网</td>
+                                </tr>
+                                <tr>
+                                    <td>统一社会信用代码</td>
+                                    <td>913101090918085069</td>
+                                </tr>
+                                <tr>
+                                    <td>法定代表人</td>
+                                    <td>郑宏俊</td>
+                                </tr>
+                                <tr>
+                                    <td>注册资本（万元）</td>
+                                    <td>10,000</td>
+                                </tr>
+                                <tr>
+                                    <td>注册地址</td>
+                                    <td>上海市虹口区海宁路137弄7层F座786B室</td>
+                                </tr>
+                                <tr>
+                                    <td>经营地址</td>
+                                    <td>上海市徐汇区虹桥路777号汇京国际807室</td>
+                                </tr>
+                                <tr>
+                                    <td>经营期限</td>
+                                    <td>2014-01-20至2044-01-19</td>
+                                </tr>
+                                <tr>
+                                    <td>经营状态</td>
+                                    <td>开业</td>
+                                </tr>
+                                <tr>
+                                    <td>平台上线运营时间</td>
+                                    <td>2016-08-01</td>
+                                </tr>
+                                <tr class="scope">
+                                    <td>经营范围</td>
+                                    <td class="text-left">
+                                        接受金融机构委托从事金融业务流程外包，接受金融机构委托从事金融知识流程外包，接受金融机构委托从事金融信息技术外包，投资管理，投资咨询，电子商务（不得从事增值电信、金融业务），网络信息技术领域内的技术开发、技术转让、技术咨询、技术服务,。【依法须经批准的项目，经相关部门批准后方可开展经营活动】
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= require('html-loader!../layout/footer.html')%>
+</body>
+</html>

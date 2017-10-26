@@ -1,3 +1,5 @@
+<!-- https://www.itouzi.com/about/corp -->
+<!-- https://www.fengjr.com/cn/act/201607-pc-aboutus.html -->
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -8,10 +10,43 @@
     <%= require('html-loader!../layout/nav.html')%>
     <%= require('html-loader!../layout/header.html')%>
     <div class="main-wrap">
-        <div class="main-section">
-
+        <%= require('html-loader!../layout/about-top-layout.html')%>
+        <div class="f-about-pannel">
+            <div class="main-section text-left pb20">
+                <div class="about-box about-contact">
+                    <div class="page-title">
+                        <h1>联系我们</h1>
+                    </div>
+                    <div class="page-box">
+                        <div class="contact-box">
+                            <p>地址：上海市徐汇区虹桥路777号汇京国际大厦807室</p>
+                            <p>邮编：200333</p>
+                            <p>官方域名：<a href="javascript:;" data-href="https://www.fangjinnet.com/" class="text">www.fangjinnet.com</a></p>
+                        </div>
+                        <div class="contact-box">
+                            <p class="title">客户服务</p>
+                            <p>客服热线：<a class="text" href="tel:400-167-6880">400-167-6880</a>，周一至周五9:00-18:00</p>
+                            <p>官方QQ群：365501376</p>
+                            <p>官方微信：房金网</p>
+                            <p>官方微博：<a class="text" href="http://weibo.com/u/5979903844" target="_blank">http://weibo.com/u/5979903844</a></p>
+                            <p>客服邮箱：<a class="text" href="mailto:contact@fangjinnet.com">contact@fangjinnet.com</a></p>
+                        </div>
+                        <div class="contact-box">
+                            <p class="title">媒体广告</p>
+                            <p>媒体联系邮箱：<a class="text" href="mailto:marketing@fangjinnet.com">marketing@fangjinnet.com</a></p>
+                        </div>
+                        <div class="contact-box">
+                            <p class="title">公司地址：</p>
+                            <div id="allmap" style="overflow:hidden;zoom:1;position:relative;width:100%;height:400px;margin:10px auto;border:1px #ddd solid;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <%= require('html-loader!../layout/footer.html')%>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=soL8R99phhrmV1rso5NmiQpj6ugqsEyN&s=1"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="https://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
 </body>
 </html>

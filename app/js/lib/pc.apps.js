@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 20:02:00 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-17 16:10:24
+ * @Last Modified time: 2017-10-26 12:52:42
  */
 
 var FJW = require('js_path/lib/pc.core.js')
@@ -14,7 +14,25 @@ FJW.Config.init = function () {
     $('[data-selector="online-service"]').on('click', function () {
         return FJW.Service.onlineCall(),
             !1
-    })
+    });
+    $(".main-section,.main-wrap").delegate("a[data-href],div[data-href]", "click", function (e) {
+        if ($(this).data("href") && !$(this).data("preventdefault")) {
+            e.stopPropagation();
+            var url = $(this).data("href");
+            url = (url.indexOf('http://') >= 0 || url.indexOf('https://') >= 0) ? url : FJW.Env.domain + FJW.Env.wwwRoot + url;
+            var i = $(this).data("title"), needLogin = $(this).data("needlogin");
+
+            if (needLogin)
+                FJW.User.requireLogin()
+            else {
+                if (url.indexOf('his') >= 0)
+                    window.history.go(-1);
+                else
+                    location.href = url;
+            }
+        }
+    });
+
 }
 FJW.Config.generateId = function () {
     return 'AUTOID__' + (FJW.Config.data.generateId++).toString(36)
@@ -44,26 +62,6 @@ FJW.User.isLogin = function () {
         }
     }), window.user.isLogin;
 }
-// FJW.User.getDetail = function () {
-//     var me = this,
-//         info = null;
-
-//     return $.ajax({
-//         url: FJW.Env.apiHost,
-//         async: false,
-//         type: "post",
-//         dataType: "json",
-//         data: JSON.stringify({
-//             M: "GetMemberInfo"
-//         }),
-//         success: function (res) {
-//             info = JSON.parse(res.d)
-//         },
-//         error: function () {
-
-//         }
-//     }), info;
-// }
 FJW.Namespace('Project')
 FJW.Project.countdown = function (e) {
     var t,
@@ -202,6 +200,42 @@ FJW.scrollTop.init = function () {
 $(function () {
     FJW.Config.init()
     FJW.scrollTop.init()
+
+    // 用于普通页面的跨框架脚本攻击(CFS)防御
+    if (top.location != self.location) top.location.href = self.location;
+
+    if (window.location.host.indexOf("fangjinnet.com") > 0) {
+        var url = window.location.href;
+
+        if (url.indexOf("https://www.") < 0) {
+            url = url.replace("http://", "https://www");
+            window.location.replace(url);
+        }
+    }
+
+    //登录超时20分钟
+    var setout = 20 * 60 * 1000;
+    var myTime = setTimeout(function () { timeOut(); }, setout);
+    top.layerout = {};
+    top.layerout.resetTime = function () {
+        clearTimeout(myTime);
+        myTime = setTimeout(function () { timeOut(); }, setout);
+    }
+
+    function timeOut() {
+        if (window.isLogin) {
+            FJW.User.logOut()
+            alert('您已超时 请重新登录')
+        }
+    }
+
+    $(document).off();
+
+    $(document).keydown(function (event) {
+        top.layerout.resetTime();
+    }).click(function (event) {
+        top.layerout.resetTime();
+    });
 });
 
 module.exports = FJW;

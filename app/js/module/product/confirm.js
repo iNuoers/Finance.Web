@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-06 10:03:07 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-09 16:45:59
+ * @Last Modified time: 2017-10-25 16:05:20
  */
 
 // http://www.jq22.com/demo/citySelect201708080834/   卡券选择
@@ -15,20 +15,22 @@ require('css_path/product/confirm.css')
 require('js_path/plugins/layer/skin/default/layer.css')
 require('js_path/plugins/layer/layer.js')
 
-var _api = require('js_path/lib/f.data.js')
-var _head = require('js_path/lib/f.head.js')
-var _core = require('js_path/lib/f.core.js')
+var core = require('js_path/lib/pc.core.js')
+var apps = require('js_path/lib/pc.apps.js')
+var header = require('js_path/lib/header.js')
+var api = require('js_path/lib/f.data.js')
+
 var _user = require('js_path/service/user-service.js')
 var _product = require('js_path/service/product-service.js')
 
 fjw.pc.confirm = {
     cache: {
         detail: null,
-        id: _core.Tools.getUrlParam('id'),
-        type: _core.Tools.getUrlParam('type'),
-        rate: _core.Tools.getUrlParam('rate'),
-        days: _core.Tools.getUrlParam('days'),
-        amount: _core.Tools.getUrlParam('amount')
+        id: core.String.getQuery('id'),
+        type: core.String.getQuery('type'),
+        rate: core.String.getQuery('rate'),
+        days: core.String.getQuery('days'),
+        amount: core.String.getQuery('amount')
     },
     doms: {
         btnBuy: '',
@@ -156,7 +158,7 @@ fjw.pc.confirm = {
                         Share: me.cache.amount
                     };
                     _product.productBuy(JSON.stringify({
-                        M: _api.method.buy,
+                        M: api.method.buy,
                         D: JSON.stringify(param)
                     }), function (res) {
                         var result = JSON.parse(res);
@@ -219,7 +221,7 @@ fjw.pc.confirm = {
             var me = fjw.pc.confirm;
 
             var param = {
-                M: _api.method.productDetail,
+                M: api.method.productDetail,
                 D: JSON.stringify({
                     'ProductId': me.cache.id
                 })

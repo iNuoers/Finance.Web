@@ -4,12 +4,12 @@
 
 <head>
     <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
-    <%= require('html-loader!./layout/head-common.html')%>
+    <%= require('html-loader!../layout/head-common.html')%>
 </head>
 
 <body>
-    <%= require('html-loader!./layout/nav.html')%>
-        <%= require('html-loader!./layout/header.html')%>
+    <%= require('html-loader!../layout/nav.html')%>
+        <%= require('html-loader!../layout/header.html')%>
             <div class="main-wrap">
                 <div class="main-layout">
                     <div class="help-search search-top">
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="help-wrap main-section f-cb">
-                        <%= require('html-loader!./layout/help-left-layout.html')%>
+                        <%= require('html-loader!../layout/help-left-layout.html')%>
                         <div class="help-main">
                             <div class="help-hot">
                                 <div class="help-hot-top">
@@ -89,7 +89,7 @@
                     </div>
                 </div>
             </div>
-    <%= require('html-loader!./layout/footer.html')%>
+    <%= require('html-loader!../layout/footer.html')%>
 </body>
 
 </html>

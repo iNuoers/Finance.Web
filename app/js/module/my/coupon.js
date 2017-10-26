@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-02 21:52:10 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-12 12:59:12
+ * @Last Modified time: 2017-10-25 16:18:08
  */
 
 'use strict';
@@ -16,9 +16,10 @@ require('js_path/plugins/layer/skin/default/layer.css')
 require('js_path/plugins/layer/layer.js')
 
 var _api = require('js_path/lib/f.data.js')
+var core = require('js_path/lib/pc.core.js')
+var apps = require('js_path/lib/pc.apps.js')
+var header = require('js_path/lib/header.js')
 var _tab = require('js_path/lib/f.tab.js')
-var _head = require('js_path/lib/f.head.js')
-var _core = require('js_path/lib/f.core.js')
 var _temp = require('js_path/plugins/template/template.js')
 var _product = require('js_path/service/product-service.js')
 var _page = require('js_path/plugins/pagination/jquery.pagination.js')
@@ -78,10 +79,10 @@ fjw.pc.coupon = {
         },
         getList: function () {
             var me = fjw.pc.coupon;
-            _core.ajax.request({
+            core.ajax({
                 url: _api.host,
                 data: me.method.setParam(),
-                method: 'post',
+                type: 'post',
                 success: function (res) {
                     if (res == '') return;
                     var data = JSON.parse(res), html = '';

@@ -3,11 +3,11 @@
 <html lang="zh-cn">
 <head>
     <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
-	<%= require('html-loader!./layout/head-common.html')%>
+	<%= require('html-loader!../layout/head-common.html')%>
 </head>
 <body>
-    <%= require('html-loader!./layout/nav.html')%>
-    <%= require('html-loader!./layout/header.html')%>
+    <%= require('html-loader!../layout/nav.html')%>
+    <%= require('html-loader!../layout/header.html')%>
     <div class="main-wrap">
         <div class="safetyTop">
             <div class="main-section">
@@ -27,14 +27,14 @@
                 <div class="safety-section-title" id="tweenTitle1">产品模式</div>
                 <div class="main-section">
                     <div class="safety-section-left pt100" id="tween1">房金网所有产品均采用“风险保障计划”,“风险保障计划”是指房金网与各商业银行或各大金融机构达成合作， 若最终发生融资方支付逾期，房金网将通过优先垫付的方式向投资人垫付逾期本息。产品发布后，房金网风控团队对产品实行跟踪管理，对产品合作机构进行风控、经营监管，对收益情况进行数据统计分析。</div>
-                    <div class="safety-section-right pt50" id="tween2"><img src=<%= require('../image/safety_section_Icon1.png') %>></div>
+                    <div class="safety-section-right pt50" id="tween2"><img src=<%= require('../../image/safety_section_Icon1.png') %>></div>
                 </div>
             </div>
         </div>
         <div class="safety-section-white">
             <div class="main-section pt50">
                 <div class="safety-section-title" id="tweenTitle2">项目筛选</div>
-                <div class="safety-section-left pt50" id="tween3"><img src=<%= require('../image/safety_section_Icon2.png') %>></div>
+                <div class="safety-section-left pt50" id="tween3"><img src=<%= require('../../image/safety_section_Icon2.png') %>></div>
                 <div class="safety-section-right pt100" id="tween4">
                     <p>房金网理财产品是由专业运营团队定期考察一线城市黄金地段，经过专业风控投资团队的计算和分析，稽核抵押率低的一线资产债权项目。</p>
                     <p>在分析过程中，专家团队对房金网产品的选择和筛选有着近乎苛刻的审核标准，产品的最终通过率仅仅只有5%！</p>
@@ -51,14 +51,14 @@
                         <p>风险前置，平台更安全多重风控审核</p>
                         <p>合作机构承诺对平台每个债权项目到期本息回购并进行实地考察监督，且平台内部专业风控进行二次审核，再次确保债权项目安全。</p>
                     </div>
-                    <div class="safety-section-right pt50" id="tween6"><img src=<%= require('../image/safety_section_Icon3.png') %>></div>
+                    <div class="safety-section-right pt50" id="tween6"><img src=<%= require('../../image/safety_section_Icon3.png') %>></div>
                 </div>
             </div>
         </div>
         <div class="safety-section-white">
             <div class="main-section pt50">
                 <div class="safety-section-title" id="tweenTitle4">风险储备制度</div>
-                <div class="safety-section-left pt50" id="tween7"><img src=<%= require('../image/safety_section_Icon4.png') %>></div>
+                <div class="safety-section-left pt50" id="tween7"><img src=<%= require('../../image/safety_section_Icon4.png') %>></div>
                 <div class="safety-section-right pt100" id="tween8">
                    本金保障：当投资人投资的一线资产相关项目出现严重逾期时，房金网将向投资人垫付此笔投资未归还的剩余本金和利息（具体情况视投资标的类型的具体垫付规则为准），从而为投资人营造一个安全的投资环境。
                     数据安全：房金网IT团队来自国内各大银行，在信息安全和数据安全方面有着非常丰富的经验；三层防火墙隔离系统的访问层、应用层和数据层集群；有效的入侵防范及容灾备份。
@@ -97,6 +97,6 @@
             </div>
         </div>
     </div>
-    <%= require('html-loader!./layout/footer.html')%>
+    <%= require('html-loader!../layout/footer.html')%>
 </body>
 </html>

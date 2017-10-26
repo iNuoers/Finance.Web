@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-09-28 13:05:42
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-02 21:27:47
+ * @Last Modified time: 2017-10-25 16:08:06
  */
 
 'use strict';
@@ -15,10 +15,12 @@ require('js_path/plugins/pagination/pagination.css')
 require('js_path/plugins/layer/skin/default/layer.css')
 require('js_path/plugins/layer/layer.js')
 
-var _api = require('js_path/lib/f.data.js')
+var core = require('js_path/lib/pc.core.js')
+var apps = require('js_path/lib/pc.apps.js')
+var header = require('js_path/lib/header.js')
+var api = require('js_path/lib/f.data.js')
+
 var _tab = require('js_path/lib/f.tab.js')
-var _head = require('js_path/lib/f.head.js')
-var _core = require('js_path/lib/f.core.js')
 var _temp = require('js_path/plugins/template/template.js')
 var _page = require('js_path/plugins/pagination/jquery.pagination.js')
 
@@ -58,13 +60,13 @@ var page = {
 			};
 
 			var req = {
-				M: _api.method.friendList,
+				M: api.method.friendList,
 				D: JSON.stringify(param)
 			};
-			_core.ajax.request({
-				url: _api.host,
+			core.ajax({
+				url: api.host,
 				data: JSON.stringify(req),
-				method: 'post',
+				type: 'post',
 				success: function (res) {
 					if (res == '') return;
 					var data = JSON.parse(res), html = '';

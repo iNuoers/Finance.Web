@@ -1,0 +1,94 @@
+.br0 {
+    border: none !important;
+}
+.mg0 {
+    margin-right: 0 !important;
+}
+*{
+    line-height: normal;
+    box-sizing: border-box;
+}
+
+.cfo_box {
+    width: 100%;
+    margin: 0 auto;
+    color: #797979;
+}
+/*数据总览*/
+.box_title{
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+.box_title .box_title_left {
+    font-size: 16px;
+    color: #333333;
+    font-weight: bold;
+}
+.box_title .box_title_right {
+    color: #666666;
+    float: right;
+    margin-top: 10px;
+}
+.data_list {
+    display: inline-block;
+}
+.data_list li {
+    float: left;
+    width: 250px;
+    height: 110px;
+    border-radius: 3px;
+    background: #f9fafc;
+    margin-bottom: 35px;
+    margin-right: 40px;
+    padding-left: 25px;
+    border: 1px solid #dfe2e7;
+}
+.data_list li:hover{background-color: #1088f1; color: #fff; border: 1px solid #1088f1;}
+.data_list li:hover p{color: #fff;}
+.data_list li .list_name {
+    color: #797979;
+    font-size: 14px;
+    padding: 25px 0 10px 0;
+}
+.data_list li .list_num {
+    font-size: 24px;
+    color: #003333;
+}
+
+/*用户概览*/
+#map {
+    width: 600px;
+    height: 450px;
+    margin-top: 85px;
+}
+.user_wrap{
+    display: inline-block;
+}
+.user_wrap>div{
+    float: left;
+
+}
+.user_wrap>div.user_data{
+    width: 260px;
+}
+.user_wrap>div.user_data img {
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 11px;
+}
+.user_wrap>div.user_data i {
+    display: inline-block;
+    width: 90px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.user_data .user_data_name {
+    font-size: 18px;
+    color: #0d0d0d;
+}
+.user_data li {
+    font-size: 14px;
+    height: 43px;
+    line-height: 43px;
+}

@@ -1,0 +1,127 @@
+<!-- https://www.itouzi.com/about/corp -->
+<!-- https://www.fengjr.com/cn/act/201607-pc-aboutus.html -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
+	<%= require('html-loader!../layout/head-common.html')%>
+</head>
+<body>
+    <%= require('html-loader!../layout/nav.html')%>
+    <%= require('html-loader!../layout/header.html')%>
+    <div class="main-wrap">
+        <%= require('html-loader!../layout/about-top-layout.html')%>
+        <div class="f-about-pannel">
+            <div class="main-section text-left pb20">
+                <div class="about-box about-info">
+                    <div class="about">
+                        <div class="page-title">
+                            <h1>关于我们</h1>
+                        </div>
+                        <div class="page-box">
+                            <div class="company-info">
+                                <p>房金网于2016年8月正式上线，是上海雁鸿翔金融信息服务有限公司开发运营的互联网金融服务平台。</p>
+                                <p>公司以信息技术为创新手段，以健全的风险管控体系为基础，为个人、企业与机构投资者提供专业、高效、安全的投融资顾问服务，作为以一线资产相关项目为特色的综合性金融服务平台。房金网具备完善的金融产品体系， 全面的风险控制体系，卓越的客户服务体系。致力于打造全球金融投资机构的新标杆。成为业内权威，专业的金融资产交易服务平台。</p>                            
+                            </div>
+                            <div class="firm-wrap">
+                                <div class="firm">
+                                    <span>公司文化</span>
+                                    <p>以人为本</p>
+                                    <p> 开放包容、 共享成长</p>
+                                </div>
+                                <div class="firm">
+                                    <span>我们的使命</span>
+                                    <p>致力于打造</p>
+                                    <p>全球金融服务平台的新标杆</p>
+                                </div>
+                                <div class="firm">
+                                    <span>我们的价值观</span>
+                                    <p>审时度势</p>
+                                    <p>合作共赢、诚信正直</p>
+                                </div>
+                                <div class="firm">
+                                    <span>投资理念</span>
+                                    <p>研究为本、立足长远、坚守价值</p>
+                                    <p>守正出奇、稳健投资、追求卓越</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="manager">
+                        <div class="page-title">
+                            <h1>创始人</h1>
+                        </div>
+                        <div class="page-box">
+                            <div class="person">
+                                <div class="person-box">
+                                    <img src="http://img.mp.itc.cn/upload/20170309/098d8f066825430f961b9a7cd9ce3439_th.jpg">
+                                    <div class="founding-txt">
+                                        <div>
+                                            <i class="icon-dot"></i>
+                                            <p class="txt">1985年登陆上海，进军上海房地产行业。宏润建设集团股份有限公司（深交所股票代码002062）的发起设立人之一，曾任宏润集团总经理，在房地产投资领域拥有超过30年的工作经验，对全球房地产的发展有独到见解。</p>
+                                        </div>
+                                        <div>
+                                            <i class="icon-dot"></i>
+                                            <p class="txt">8次荣获中国建设工程鲁班奖</p>
+                                        </div>
+                                        <div>
+                                            <i class="icon-dot"></i>
+                                            <p class="txt">2次荣获国家优质工程银质奖</p>
+                                        </div>
+                                        <div>
+                                            <i class="icon-dot"></i>
+                                            <p class="txt">15次获得中国市政工程金杯奖</p>
+                                        </div>
+                                        <div>
+                                            <i class="icon-dot"></i>
+                                            <p class="txt">49次荣获上海市白玉兰奖</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="person-info">
+                                    <span class="name">郑宏俊</span>
+                                    <span class="position">房金网创始人、董事长兼CEO</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="honor">
+                        <div class="page-title">
+                            <h1>荣誉资质</h1>
+                        </div>
+                        <div class="content" style="width:2340px">
+                            <dl>
+                                <dt><img src=<%=require("../../image/honor/honor01.png")%> width="273px" height="199px"></dt>
+                                <dd class="info"><div class="tag">“金鼎奖”最具示范企业称号</div></dd>
+                            </dl>
+                            <dl>
+                                <dt><img src=<%=require("../../image/honor/honor02.png")%> width="273px" height="199px"></dt>
+                                <dd class="info"><div class="tag">房金网机构信用代码证</div></dd>
+                            </dl>
+                            <dl>
+                                <dt><img src=<%=require("../../image/honor/honor03.png")%> width="273px" height="199px"></dt>
+                                <dd class="info"><div class="tag">雁鸿翔喜获2015-2016年度中国金融管理协会理事单位</div></dd>
+                            </dl>
+                            <dl>
+                                <dt><img src=<%=require("../../image/honor/honor04.png")%> width="273px" height="199px"></dt>
+                                <dd class="info"><div class="tag">房金网获得“中国互联网金融品牌50强”荣誉</div></dd>
+                            </dl>
+                            <dl>
+                                <dt><img src=<%=require("../../image/honor/honor05.png")%> width="273px" height="199px"></dt>
+                                <dd class="info"><div class="tag">雁鸿翔荣获“中国金融业十大诚信品牌企业”</div></dd>
+                            </dl>
+                            <dl>
+                                <dt><img src=<%=require("../../image/honor/honor06.png")%> width="273px" height="199px"></dt>
+                                <dd class="info"><div class="tag">房金网获得"2016年度中国金融科技最具竞争力企业"奖项</div></dd>
+                            </dl>
+                        </div>
+                        <span class="icon btn-left icon-left-disable"></span>
+                        <span class="icon btn-right icon-right"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= require('html-loader!../layout/footer.html')%>
+</body>
+</html>

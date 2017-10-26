@@ -1,9 +1,9 @@
 <!-- https://www.jiurong.com/index/index.html -->
 <!-- footer -->
-<footer class="wdg-fjw-footer">
+<footer class="wdg-fjw-footer pb10">
 	<div class="footer-center">
 		<div class="friend-link">
-			<div class="f-l-l">友情链接</div>
+			<div class="f-l-l">友情链接：</div>
 			<div class="f-l-r">
 				<ul>
 					<li class="f-fl">
@@ -38,17 +38,16 @@
 			<span class="down-line"></span>
 			<div class="d-l">
 				<p class="first">©
-					<span class="year">2017</span> 上海雁鸿翔金融信息服务有限公司 All rights reserved </p>
-				<p class="gray">
-					<span>沪ICP备14049646号</span>
-					<span style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"></span>
+					<span class="year">2017</span> 上海雁鸿翔金融信息服务有限公司 All rights reserved 
 				</p>
 				<p>上海雁鸿翔金融信息服务有限公司: 市场有风险 投资需谨慎 座机号码 021-62330705</p>
 			</div>
 			<div class="d-c">
 				<div class="d-c-wx">
+					<img src="../../image/qrcode.jpg" alt="微信公众号">
 				</div>
 				<div class="d-c-app">
+					<img src="../../image/logo-down-qr.png" alt="app下载">
 				</div>
 			</div>
 			<div class="d-r">
@@ -57,12 +56,10 @@
 			</div>
 		</div>
 		<div class="img-show">
-			<a rel="external nofollow" class="ui-footer-verification-item f-fl itrust" title="" href="" target="_blank"></a>
-			<a rel="external nofollow" class="ui-footer-verification-item f-fl customer" title="" href="" target="_blank"></a>
-			<a rel="external nofollow" class="ui-footer-verification-item f-fl copper" title="" href="" target="_blank"></a>
-			<a rel="external nofollow" class="ui-footer-verification-item f-fl hundred" title="" href="" target="_blank"></a>
-			<a rel="external nofollow" class="ui-footer-verification-item f-fl norton" title=" " href="https://trustsealinfo.websecurity.norton.com/splash?form_file=fdf/splash.fdf&amp;dn=renrendai.com&amp;lang=zh_cn"
-			 target="_blank"></a>
+			<a rel="external nofollow" class="ui-footer-verification-item f-fl cnnic" title="" href="https://ss.knet.cn/verifyseal.dll?sn=e16102531010464997gqhm000000&amp;ct=df&amp;a=1&amp;pa=0.7898634780551085" target="_blank"></a>
+			<a rel="external nofollow" class="ui-footer-verification-item f-fl webscan" title="" href="http://webscan.360.cn/index/checkwebsite?url=fangjinnet.com%2F" target="_blank"></a>
+			<a rel="external nofollow" class="ui-footer-verification-item f-fl anquan" title="" href="https://v.pinpaibao.com.cn/cert/site/?site=fangjinnet.com&at=business" target="_blank"></a>
+			<a rel="external nofollow" class="ui-footer-verification-item f-fl wosign" title="" href="https://seal.wosign.com/Signature/Profiles/bp/CN/f92435d079a44f79b4d4a06774a6e69b.htm?ref=aHR0cHM6Ly9mYW5namlubmV0LmNvbQ==" target="_blank"></a>
 		</div>
 	</div>
 </footer>
@@ -81,32 +78,4 @@
 	var fjw = fjw || {};
 	fjw.pc = fjw.pc || {};
 	fjw.pc.page = fjw.pc.page || {};
-
-	var App = App || {};
-	App.debug = true;
-	App.webUrl = App.debug ? 'http://192.168.1.53:8010/dist/view' : 'https://www.fangjinnet.com/dist/view';
-
-</script>
-<script>
-	function login(url) {
-		var returnUrl = jQuery.getUrlParam("redirect");
-		if (window.user.isLogin) {
-			// 已经登录 点击直接进入页面
-			return window.location.href = returnUrl == null ? App.webUrl + '/my/index.html' : returnUrl;
-		} else {
-			return window.location.href = App.webUrl + '/user-login.html?redirect=' + encodeURIComponent(url);
-		}
-	}
-	function regist() {
-		var returnUrl = jQuery.getUrlParam("redirect");
-		return window.location.href = App.webUrl + '/user-register.html?redirect=' + encodeURIComponent(window.location.href);
-	}
-	(function (jQuery) {
-		jQuery.getUrlParam = function (name) {
-			var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
-			var result = window.location.search.substr(1).match(reg);
-			return result ? decodeURIComponent(result[2]) : null;
-		}
-	})(jQuery);
-
 </script>

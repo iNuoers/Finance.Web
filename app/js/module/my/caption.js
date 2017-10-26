@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-03 20:50:41 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-11 19:51:39
+ * @Last Modified time: 2017-10-25 16:16:52
  */
 
 'use strict';
@@ -13,10 +13,11 @@ require('js_path/plugins/pagination/pagination.css')
 require('css_path/my/caption')
 require('css_path/my/common')
 
-var _api = require('js_path/lib/f.data.js')
+var api = require('js_path/lib/f.data.js')
+var core = require('js_path/lib/pc.core.js')
+var apps = require('js_path/lib/pc.apps.js')
+var header = require('js_path/lib/header.js')
 var _tab = require('js_path/lib/f.tab.js')
-var _head = require('js_path/lib/f.head.js')
-var _core = require('js_path/lib/f.core.js')
 var _date = require('js_path/plugins/layerdate/laydate.js')
 var _temp = require('js_path/plugins/template/template.js')
 var _page = require('js_path/plugins/pagination/jquery.pagination.js')
@@ -59,8 +60,8 @@ fjw.pc.caption = {
         var today = new Date();
         var preDate = new Date();
         preDate.setDate(today.getDate() - 30);
-        var endTime = _core.Tools.formatTime(today, "yyyy-MM-dd"),
-            startTime = _core.Tools.formatTime(preDate, "yyyy-MM-dd");
+        var endTime = core.String.formatTime(today, "yyyy-MM-dd"),
+            startTime = core.String.formatTime(preDate, "yyyy-MM-dd");
 
         $('#end_time').val(endTime);
         $('#start_time').val(startTime);
@@ -82,21 +83,21 @@ fjw.pc.caption = {
             //最近一个月
             var oneM = new Date();
             oneM.setDate(today.getDate() - 30);
-            lastMonth = _core.Tools.formatTime(oneM, "yyyy-MM-dd");
+            lastMonth = core.Tools.formatTime(oneM, "yyyy-MM-dd");
             //最近三个月
             var thM = new Date();
             thM.setDate(today.getDate() - 90);
-            treeMonthAgo = _core.Tools.formatTime(thM, "yyyy-MM-dd");
+            treeMonthAgo = core.Tools.formatTime(thM, "yyyy-MM-dd");
 
             //一年以前
             var oneY = new Date();
             oneY.setDate(today.getDate() - 365);
-            oneYearAgo = _core.Tools.formatTime(oneY, "yyyy-MM-dd");
+            oneYearAgo = core.Tools.formatTime(oneY, "yyyy-MM-dd");
 
 
             var startTimeLists = {
                 ALL: '',
-                1: _core.Tools.formatTime(today, "yyyy-MM-dd"),
+                1: core.Tools.formatTime(today, "yyyy-MM-dd"),
                 30: lastMonth,
                 90: treeMonthAgo,
                 365: oneYearAgo
@@ -104,7 +105,7 @@ fjw.pc.caption = {
 
             var period = $(this).attr('data-id');
             var startTime = startTimeLists[period],
-                endTime = _core.Tools.formatTime(today, "yyyy-MM-dd");
+                endTime = core.Tools.formatTime(today, "yyyy-MM-dd");
 
             $('#start_time').val(startTime);
             $('#end_time').val(endTime);
@@ -141,13 +142,13 @@ fjw.pc.caption = {
             };
 
             var req = {
-                M: _api.method.billDataList,
+                M: api.method.billDataList,
                 D: JSON.stringify(param)
             };
-            _core.ajax.request({
-                url: _api.host,
+            core.ajax({
+                url: api.host,
                 data: JSON.stringify(req),
-                method: 'post',
+                type: 'post',
                 success: function (res) {
                     if (res == '') return;
                     var data = JSON.parse(res), html = '';
@@ -191,12 +192,12 @@ fjw.pc.caption = {
             })
         },
         getBillType: function () {
-            _core.ajax.request({
-                url: _api.host,
+            core.ajax({
+                url: api.host,
                 data: JSON.stringify({
-                    M: _api.method.billTypeList
+                    M: api.method.billTypeList
                 }),
-                method: 'post',
+                type: 'post',
                 success: function (res) {
                     var data = JSON.parse(res), html = '';
                     if (data.grid.length > 0) {
