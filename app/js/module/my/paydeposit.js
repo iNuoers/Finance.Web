@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-05 13:39:02 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-25 16:15:46
+ * @Last Modified time: 2017-11-01 17:15:27
  */
 'use strict';
 
@@ -59,7 +59,7 @@ fjw.pc.paydeposit = {
         var today = new Date();
         var preDate = new Date();
         preDate.setDate(today.getDate() - 30);
-        
+
         var endTime = core.String.formatTime(today, "yyyy-MM-dd"),
             startTime = core.String.formatTime(preDate, "yyyy-MM-dd");
 
@@ -82,9 +82,11 @@ fjw.pc.paydeposit = {
         $('.j-recharge,.j-drawal').on('click', function () {
             if (window.user.isLogin) {
                 if (window.user.isAuthen == 1) {
-                    $(this).hasClass('j-drawal') ? window.location.href = App.webUrl + '/my/withdrawal.html' : window.location.href = App.webUrl + '/my/recharge.html';
+                    $(this).hasClass('j-drawal') ?
+                        window.location.href = core.Env.domain + core.Env.wwwRoot + '/my/withdrawal.html' :
+                        window.location.href = core.Env.domain + core.Env.wwwRoot + '/my/recharge.html';
                 } else {
-                    window.location.href = App.webUrl + '/my/bindcard.html'
+                    window.location.href = core.Env.domain + core.Env.wwwRoot + '/my/bindcard.html'
                 }
             } else {
                 // 跳转登录
@@ -100,21 +102,21 @@ fjw.pc.paydeposit = {
             //最近一个月
             var oneM = new Date();
             oneM.setDate(today.getDate() - 30);
-            lastMonth = core.Tools.formatTime(oneM, "yyyy-MM-dd");
+            lastMonth = core.String.formatTime(oneM, "yyyy-MM-dd");
             //最近三个月
             var thM = new Date();
             thM.setDate(today.getDate() - 90);
-            treeMonthAgo = core.Tools.formatTime(thM, "yyyy-MM-dd");
+            treeMonthAgo = core.String.formatTime(thM, "yyyy-MM-dd");
 
             //一年以前
             var oneY = new Date();
             oneY.setDate(today.getDate() - 365);
-            oneYearAgo = core.Tools.formatTime(oneY, "yyyy-MM-dd");
+            oneYearAgo = core.String.formatTime(oneY, "yyyy-MM-dd");
 
 
             var startTimeLists = {
                 ALL: '',
-                1: core.Tools.formatTime(today, "yyyy-MM-dd"),
+                1: core.String.formatTime(today, "yyyy-MM-dd"),
                 30: lastMonth,
                 90: treeMonthAgo,
                 365: oneYearAgo
@@ -122,7 +124,7 @@ fjw.pc.paydeposit = {
 
             var period = $(this).attr('data-id');
             var startTime = startTimeLists[period],
-                endTime = core.Tools.formatTime(today, "yyyy-MM-dd");
+                endTime = core.String.formatTime(today, "yyyy-MM-dd");
 
             $('#start_time').val(startTime);
             $('#end_time').val(endTime);

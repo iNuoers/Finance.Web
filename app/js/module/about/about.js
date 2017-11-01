@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-20 10:35:56 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-26 10:18:46
+ * @Last Modified time: 2017-11-01 14:01:25
  */
 'use strict';
 require('css_path/about/about')
@@ -26,6 +26,9 @@ fjw.pc.about = {
         }
 
         //定位
+        var name = location.href.split('/').pop().replace(/\.html/, '');
+        $("#about_nav_" + name).parent().addClass('current');
+
     },
     bindEvent: function () {
         var me = this;

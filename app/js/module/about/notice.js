@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-23 11:30:40 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-23 14:00:42
+ * @Last Modified time: 2017-11-01 14:02:29
  */
 'use strict';
 require('css_path/about/about')
@@ -28,6 +28,8 @@ fjw.pc.notice = {
     onPageLoad: function () {
         var me = this;
         me.method.getList()
+        var name = location.href.split('/').pop().replace(/\.html/, '');
+        $("#about_nav_" + name).parent().addClass('current');
     },
     method: {
         ajax: function (data, callback) {

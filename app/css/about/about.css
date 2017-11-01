@@ -2,7 +2,7 @@
 .ab-nav li{float:left;margin-right:30px}
 .ab-nav li .list-dots .current a:hover,.ab-nav li a,.list-dots .current .ab-nav li a:hover{padding:0 3px;height:45px;line-height:45px;color:#555;display:block;font-size:14px}
 .ab-nav li .list-dots .current a:hover,.ab-nav li a:hover,.list-dots .current .ab-nav li a:hover{color:#1088f1}
-.ab-nav .current a,.ab-nav .current a:hover,.ab-nav .list-dots .current a:hover,.list-dots .ab-nav .current a:hover{color:#1088f1;font-weight:700}
+.ab-nav .current a,.ab-nav .current a:hover,.ab-nav .list-dots .current a:hover,.list-dots .ab-nav .current a:hover{color:#ff6825;font-weight:700}
 .about-box{background-color:#fff;padding:10px 30px 30px;margin-top:30px}
 .page-title{box-sizing:border-box;margin:0;padding:0;color:#5e5e5e;font-size:14px;line-height:20px}
 .page-title h1{box-sizing:border-box;margin:14px 0 30px;padding:0;font-size:22px;font-family:inherit;font-weight:500;line-height:50px;color:#ff6825;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:#ff6825;width:88px;height:50px}

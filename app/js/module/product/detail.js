@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-07 18:06:12 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-19 17:33:01
+ * @Last Modified time: 2017-10-31 13:33:06
  */
 'use strict';
 require('css_path/product/detail.css')
@@ -191,7 +191,7 @@ fjw.pc.product_detail = {
                 var res = handelAmount();
                 var stats = me.method.checkUser();
                 if (res && stats) {
-                    window.location.href = App.webUrl + '/product/confirm.html?id=' + me.query.id + '&amount=' + amount + '&coupon_type=' + 'coupon_id=';
+                    window.location.href = core.Env.domain + core.Env.wwwRoot + '/product/confirm.html?id=' + me.query.id + '&amount=' + amount + '&coupon_type=' + 'coupon_id=';
                 }
                 return false;
             })
@@ -287,7 +287,7 @@ fjw.pc.product_detail = {
 
                 // 登录功能
                 $('.dr-inner [data-selector="login"]').on('click', function () {
-                    debugger
+                    
                     core.User.requireLogin(function () {
                         location.reload();
                     });

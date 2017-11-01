@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-09-28 13:05:42
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-25 16:08:06
+ * @Last Modified time: 2017-11-01 16:53:05
  */
 
 'use strict';
@@ -93,14 +93,6 @@ var page = {
 				},
 				error: function () {
 					$('#friendsTable .friend-items').html('<div class="not-infos"><p>加载出错,稍后重试！</p></div>');
-				},
-				beforeSend: function () {
-					$('.loading-mask').removeClass('f-hide')
-					$('.loading-box').removeClass('f-hide')
-				},
-				complete: function () {
-					$('.loading-mask').addClass('f-hide')
-					$('.loading-box').addClass('f-hide')
 				}
 			})
 		},

@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-03 20:50:41 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-25 16:16:52
+ * @Last Modified time: 2017-11-01 17:10:35
  */
 
 'use strict';
@@ -35,9 +35,9 @@ fjw.pc.caption = {
         this.initEvent()
     },
     onPageLoad: function () {
-        var _this = this;
+        var me = this;
 
-        _this.method.getBillType();
+        me.method.getBillType();
 
         _date.render({
             elem: '#start_time'
@@ -50,8 +50,8 @@ fjw.pc.caption = {
         _date.render({
             elem: '#end_time'
             , done: function (val) {
-                _this.method.getParam();
-                _this.method.getList();
+                me.method.getParam();
+                me.method.getList();
             }
             , theme: '#1088f1'
             , showBottom: false
@@ -60,18 +60,19 @@ fjw.pc.caption = {
         var today = new Date();
         var preDate = new Date();
         preDate.setDate(today.getDate() - 30);
+        
         var endTime = core.String.formatTime(today, "yyyy-MM-dd"),
             startTime = core.String.formatTime(preDate, "yyyy-MM-dd");
 
         $('#end_time').val(endTime);
         $('#start_time').val(startTime);
 
-        _this.query.endTime = $('#end_time').val();
-        _this.query.startTime = $('#start_time').val();
+        me.query.endTime = $('#end_time').val();
+        me.query.startTime = $('#start_time').val();
 
     },
     initEvent: function () {
-        var _this = this;
+        var me = this;
 
         $("#sub_nav_caption").addClass('active');
 
@@ -83,21 +84,21 @@ fjw.pc.caption = {
             //最近一个月
             var oneM = new Date();
             oneM.setDate(today.getDate() - 30);
-            lastMonth = core.Tools.formatTime(oneM, "yyyy-MM-dd");
+            lastMonth = core.String.formatTime(oneM, "yyyy-MM-dd");
             //最近三个月
             var thM = new Date();
             thM.setDate(today.getDate() - 90);
-            treeMonthAgo = core.Tools.formatTime(thM, "yyyy-MM-dd");
+            treeMonthAgo = core.String.formatTime(thM, "yyyy-MM-dd");
 
             //一年以前
             var oneY = new Date();
             oneY.setDate(today.getDate() - 365);
-            oneYearAgo = core.Tools.formatTime(oneY, "yyyy-MM-dd");
+            oneYearAgo = core.String.formatTime(oneY, "yyyy-MM-dd");
 
 
             var startTimeLists = {
                 ALL: '',
-                1: core.Tools.formatTime(today, "yyyy-MM-dd"),
+                1: core.String.formatTime(today, "yyyy-MM-dd"),
                 30: lastMonth,
                 90: treeMonthAgo,
                 365: oneYearAgo
@@ -105,23 +106,23 @@ fjw.pc.caption = {
 
             var period = $(this).attr('data-id');
             var startTime = startTimeLists[period],
-                endTime = core.Tools.formatTime(today, "yyyy-MM-dd");
+                endTime = core.String.formatTime(today, "yyyy-MM-dd");
 
             $('#start_time').val(startTime);
             $('#end_time').val(endTime);
 
             $(this).parent().addClass('current').siblings().removeClass('current');
 
-            _this.method.getParam();
+            me.method.getParam();
 
-            _this.method.getList();
+            me.method.getList();
         });
 
         $('#flow_type').on('click', 'a', function () {
             $(this).parent().addClass('current').siblings().removeClass('current');
 
-            _this.method.getParam();
-            _this.method.getList();
+            me.method.getParam();
+            me.method.getList();
         });
     },
     method: {

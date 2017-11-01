@@ -13,23 +13,24 @@
             <div class="help-wrap main-section">
                 <%= require('html-loader!../layout/help-left-layout.html')%>
                 <div class="right">
-                    <input class="mark-keywords" type="hidden" value="海外">
-                    <div class="list-box">
+                    <div class="question-box">
                         <div class="head-bar">
-                            <span class="title">关于“海外”一共搜出13个结果</span>
-                            <!-- <span class="title">很抱歉,没有找到关于"提现"的帮助内容</span> -->
+                            <span class="title"></span>
+                            <a class="f-fr" href="./list.html">返回列表</a>
                         </div>
-                        <div class="s-content">
-                            <div class="questions">
-                                <ul>
-                                    <li class="q-item">
-                                        <div class="q-title">
-                                            <span>我在凤凰金融上进行海外投资安全么？</span>
-                                            <i class="fa fa-angle-right"></i>
-                                        </div>
-                                        <div class="line"></div>
-                                    </li>
-                                </ul>
+                        <div class="q-box">
+                            <div class="q-content"></div>
+                            <div class="line"></div>
+                            <div class="q-solve">
+                                <span class="solve-txt">本答案是否解决您的问题</span>
+                                <a class="solve" href="javascript:;">已解决</a>
+                                <a class="unsolved" href="javascript:;">未解决</a>
+                                <span class="solve-tip">谢谢您的支持，我们会继续努力</span>
+                            </div>
+                            <div class="relate_title">相关问题：</div>
+                            <div class="line"></div>
+                            <div class="relate_list pt10">
+                                <a href="/v2/help/detail-9.html?t=1"><i class="dot"></i>如何购买房金网上的各类理财产品？</a>
                             </div>
                         </div>
                     </div>

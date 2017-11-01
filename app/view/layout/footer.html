@@ -64,6 +64,468 @@
 	</div>
 </footer>
 <!-- footer end -->
+<style>
+	
+#fixed-tool-box {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    line-height: normal;
+    z-index: 10000
+}
+
+#fixed-tool-box .tool {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: url(//img4.fengjr.com/public/dist/20171025184441/images/base/side-bar-icon-e500474b6e.png) -9999px -9999px no-repeat;
+    cursor: pointer;
+    transition: all .3s ease 0s;
+    border: 1px solid #e7e7e7;
+    border-top: none
+}
+
+#fixed-tool-box .tool:first-child {
+    border-top: 1px solid #e7e7e7
+}
+
+#fixed-tool-box .tool>a {
+    display: block;
+    width: 50px;
+    height: 50px
+}
+
+#fixed-tool-box .toolc,#fixed-tool-box .toolc>a {
+    width: 40px;
+    height: 40px;
+    transition: all .3s ease 0s
+}
+
+#fixed-tool-box .tool.tool-calculator {
+    background-position: 0 0
+}
+
+#fixed-tool-box .tool.tool-calculator:hover {
+    background-position: 0 -50px
+}
+
+#fixed-tool-box .tool.tool-service {
+    background-position: -50px 0
+}
+
+#fixed-tool-box .tool.tool-service:hover {
+    background-position: -50px -50px
+}
+
+#fixed-tool-box .tool.tool-top {
+    display: none;
+    background-position: -100px 0
+}
+
+#fixed-tool-box .tool.tool-top:hover {
+    background-position: -100px -50px
+}
+
+#fixed-tool-box .toolc {
+    position: relative;
+    margin-top: 2px;
+    border-radius: 3px;
+    cursor: pointer
+}
+
+#fixed-tool-box .toolc>a {
+    display: block;
+    background-position: 0 -40px
+}
+
+#fixed-tool-box .calculator-box {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    width: 283px;
+    height: 315px;
+    left: -292px;
+    top: -146px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    transition: all .3s ease 0s;
+    padding: 24px 28px
+}
+
+#fixed-tool-box .calculator-box:after {
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: #fff;
+    right: -20px;
+    bottom: 10px
+}
+
+#fixed-tool-box .calculator-box .btnClose {
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    background: url(//img0.fengjr.com/public/dist/20171025184441/images/base/side-bar-calculator-icon-cb39726aba.png) -1px 0 no-repeat;
+    cursor: pointer
+}
+
+#fixed-tool-box .calculator-box .btnClose:hover {
+    background-position: -30px -1px
+}
+
+#fixed-tool-box .calculator-box span.errTip {
+    display: block;
+    height: 18px;
+    font-size: 12px;
+    color: #ff4200
+}
+
+#fixed-tool-box .calculator-box form {
+    margin-top: 6px
+}
+
+#fixed-tool-box .calculator-box form .form-group {
+    position: relative;
+    margin-bottom: 15px
+}
+
+#fixed-tool-box .calculator-box form .form-group .form-control {
+    display: block;
+    border-radius: 3px;
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075) 0 1px #000;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+
+#fixed-tool-box .calculator-box form .form-group .form-control:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6) 0 1px #000;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+#fixed-tool-box .calculator-box form .form-group input[type=text],#fixed-tool-box .calculator-box form .form-group select {
+    width: 220px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #d3d3d3;
+    padding: 0 10px;
+    font-size: 12px
+}
+
+#fixed-tool-box .calculator-box form .form-group input[type=radio],#fixed-tool-box .calculator-box form .form-group input[type=checkbox] {
+    margin: 4px 0 0;
+    margin-top: 1px\9;
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0
+}
+
+#fixed-tool-box .calculator-box form .form-group .nc {
+    border-color: #C43;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px #FFF,0 0 8px #FF8879;
+    -moz-box-shadow: inset 0 1px 1px #FFF,0 0 8px #FF8879;
+    box-shadow: inset 0 1px 1px #FFF,0 0 8px #FF8879
+}
+
+#fixed-tool-box .calculator-box form .form-group span {
+    font-size: 12px;
+    color: #a5a5a5
+}
+
+#fixed-tool-box .calculator-box form .form-group span.unit {
+    position: absolute;
+    right: 20px;
+    top: 6px
+}
+
+#fixed-tool-box .calculator-box form .form-group span.day,#fixed-tool-box .calculator-box form .form-group span.dueUnit,#fixed-tool-box .calculator-box form .form-group span.month {
+    position: relative;
+    top: -2px;
+    margin-left: 0;
+    margin-right: 10px;
+    vertical-align: middle
+}
+
+#fixed-tool-box .calculator-box form .form-group .btn-cal {
+    text-align: center;
+    width: 220px;
+    height: 32px;
+    background-color: #ff6825;
+    color: #fff;
+    line-height: 32px;
+    border-radius: 4px;
+    cursor: pointer
+}
+
+#fixed-tool-box .calculator-box form .form-group .btn-cal:hover {
+    background-color: #ff4200
+}
+
+#fixed-tool-box .calculator-result-container {
+    position: absolute;
+    top: -146px;
+    right: 342px;
+    width: 0;
+    height: 315px;
+    z-index: 4;
+    overflow: hidden
+}
+
+#fixed-tool-box .calculator-result {
+    z-index: 4;
+    width: 568px;
+    height: 315px
+}
+
+#fixed-tool-box .calculator-result .leftBar {
+    width: 30px;
+    height: 315px;
+    background-color: #e6e6e6;
+    float: left
+}
+
+#fixed-tool-box .calculator-result .leftBar .btnShow {
+    width: 30px;
+    height: 48px;
+    background: url(//img0.fengjr.com/public/dist/20171025184441/images/base/side-bar-calculator-icon-cb39726aba.png) -76px 18px no-repeat;
+    margin-top: 128px;
+    cursor: pointer
+}
+
+#fixed-tool-box .calculator-result .leftBar .btnShow:hover {
+    background-color: #a5a5a5
+}
+
+#fixed-tool-box .calculator-result .leftBar .iconleft {
+    background-position: -76px -28px
+}
+
+#fixed-tool-box .calculator-result .resultTable {
+    width: 538px;
+    height: 315px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    overflow: hidden;
+    float: left
+}
+
+#fixed-tool-box .calculator-result .resultTable .title {
+    height: 38px;
+    padding-left: 26px;
+    padding-top: 14px
+}
+
+#fixed-tool-box .calculator-result .resultTable .title span.icon {
+    display: inline-block;
+    width: 17px;
+    height: 14px;
+    background: url(//img0.fengjr.com/public/dist/20171025184441/images/base/side-bar-calculator-icon-cb39726aba.png) -41px -40px no-repeat;
+    position: relative;
+    top: 2px
+}
+
+#fixed-tool-box .calculator-result .resultTable .title span.hint {
+    font-size: 12px;
+    color: #ff6825;
+    margin-left: 12px
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table .table-header {
+    border-bottom: 1px solid #ddd
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table table {
+    margin: 0;
+    border: none
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table table tr.cc-total-tr,#fixed-tool-box .calculator-result .resultTable .results-table table tr.cc-total-tr:hover {
+    background: #f5f5f5
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table table tr.cc-total-tr td {
+    border-bottom: 0
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table table tr th {
+    border-bottom: 0;
+    padding: 6px 0;
+    text-indent: 10px;
+    width: 20%;
+    background: #f1f1f1;
+    font-weight: 400
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table table tr td {
+    padding: 4px 0;
+    text-indent: 10px;
+    width: 20%;
+    color: #888
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table .cc-table-container {
+    height: 208px;
+    overflow-y: auto;
+    overflow-x: hidden
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table .cc-table-container .table_wrap {
+    position: relative
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table .cc-table-container .table_wrap table {
+    margin-bottom: -1px
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table .cc-table-container p {
+    padding: 15px;
+    color: #ff6825
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table .ccc-f {
+    border-left: 0
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table .ccc-l {
+    border-right: 0
+}
+
+#fixed-tool-box .calculator-result .resultTable .results-table #cc-cal-total {
+    border-top: 0
+}
+
+#fixed-tool-box .calculator-result .table-bordered1 {
+    height: 34px;
+    background: #f1f1f1;
+    margin-bottom: 0
+}
+
+#fixed-tool-box .calculator-result .tdCell {
+    width: 100px;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+    float: left;
+    font-size: 12px
+}
+
+#fixed-tool-box .calculator-result .borderRight {
+    border-right: 1px solid #ddd
+}
+
+#fixed-tool-box .calculator-result .tdContent {
+    border-bottom: 1px solid #ddd
+}
+
+#fixed-tool-box .calculator-result .cc-total-tr-b {
+    background: #f1f1f1
+}
+
+#fixed-tool-box .calculator-result .backgr-f,.bg4 {
+    background: #fff
+}
+
+#fixed-tool-box .calculator-result .table-bordered {
+    border: none;
+    margin-bottom: 0
+}
+
+#fixed-tool-box .calculator-result .results-table {
+    height: 277px!important
+}
+</style>
+<div id="fixed-tool-box" style="height:auto">
+	<div class="tool tool-service"><a href="javascript:;" class="zhiCustomBtn"></a></div>
+	<div class="tool tool-calculator"></div>
+	<div class="calculator-box">
+		<div class="btnClose"></div>
+		<span class="errTip"></span>
+		<form>
+			<div class="form-group">
+				<input type="text" class="form-control" name="amountValue" value="" placeholder="输入投资金额">
+				<span class="unit">元</span>
+			</div>
+			<div class="form-group">
+				<span class="dueUnit">计息单位</span>
+				<input type="radio" name="dueUnit" value="月" checked>
+				<span class="month">月</span>
+				<input type="radio" name="dueUnit" value="天">
+				<span class="day">天</span>
+				<input type="radio" name="dueUnit" value="票据">
+				<span class="day">票据</span>
+			</div>
+			<div class="form-group">
+				<input class="duration form-control" type="text" name="dueMonth" value="" placeholder="输入投资期限">
+				<span class="unit dueUnitText">月</span>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" name="annualRate" value="" placeholder="输入年化利率">
+				<span class="unit">%</span>
+			</div>
+			<div class="form-group">
+				<select name="paymentMethod" class="form-control">
+					<option value="EqualInstallment">按月等额本息</option>
+					<option value="MonthlyInterest">按月付息到期还本</option>
+					<option value="BulletRepayment">一次性还本付息</option>
+					<option value="QuarterlyInterest">按季付息到期还本</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<div class="btn-cal">计算收益</div>
+			</div>
+			<input type="hidden" name="isBill" value="false">
+		</form>
+	</div>
+	<div class="calculator-result-container">
+		<div class="calculator-result clearfix">
+			<div class="leftBar"><div class="btnShow"></div></div>
+			<div class="resultTable">
+				<div class="title">
+					<span class="icon"></span>
+					<span class="hint"></span>
+				</div>
+				<div class="results-table">
+					<div class="table-header clearfix">
+						<div class="ccc-f tdCell">收款日期</div>
+						<div class="tdCell">收款金额(元)</div>
+						<div class="tdCell">收回本金(元)</div>
+						<div class="tdCell">收回利息(元)</div>
+						<div class="ccc-l tdCell">剩余本金(元)</div>
+					</div>
+					<div class="cc-res cc-table-container" id="cc-table-container">
+						<div class="table_wrap">
+							<div class="table table-bordered table-hover">
+								<div id="cc-cal-list-wp"></div>
+							</div>
+						</div>
+					</div>
+					<div class="cc-res table-bordered1 cc-talbe-total">
+						<div id="cc-cal-total table-bordered1 tdContent">
+							<div class="cc-total-tr clearfix cc-total-tr-b">
+								<div class="ccc-f tdCell borderRight" style="font-size:14px;font-weight:bold">总计</div>
+								<div class="Tamount tdCell borderRight" style="font-size:14px;font-weight:bold"></div>
+								<div class="TamountPrincipal tdCell borderRight" style="font-size:14px;font-weight:bold"></div>
+								<div class="TamountInterest tdCell borderRight" style="font-size:14px;font-weight:bold"></div>
+								<div class="ccc-l TamountOutstanding tdCell" style="font-size:14px;font-weight:bold"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tool tool-top" style="display:none"></div>
+</div>
 <script>
 	window.user = {
 		token: '',

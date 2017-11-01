@@ -4,13 +4,14 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 20:02:00 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-26 12:52:42
+ * @Last Modified time: 2017-10-31 13:32:59
  */
 
 var FJW = require('js_path/lib/pc.core.js')
 FJW.Namespace('Config')
 FJW.Config.data = {}
 FJW.Config.init = function () {
+
     $('[data-selector="online-service"]').on('click', function () {
         return FJW.Service.onlineCall(),
             !1
@@ -21,9 +22,11 @@ FJW.Config.init = function () {
             var url = $(this).data("href");
             url = (url.indexOf('http://') >= 0 || url.indexOf('https://') >= 0) ? url : FJW.Env.domain + FJW.Env.wwwRoot + url;
             var i = $(this).data("title"), needLogin = $(this).data("needlogin");
-
+            
             if (needLogin)
-                FJW.User.requireLogin()
+                FJW.User.requireLogin(function () {
+                    if (url) location.href = url;
+                })
             else {
                 if (url.indexOf('his') >= 0)
                     window.history.go(-1);
@@ -32,7 +35,16 @@ FJW.Config.init = function () {
             }
         }
     });
-
+    $(window).scroll(function () {
+        $(document).scrollTop() > 100 ? ($("#fixed-tool-box").css("height", "auto"),
+            $("#fixed-tool-box .tool-top").show()) : ($("#fixed-tool-box").css("height", "210px"),
+                $("#fixed-tool-box .tool-top").hide())
+    })
+    $("#fixed-tool-box .tool-top").click(function () {
+        $("html,body").animate({
+            "scrollTop": 0
+        }, 500)
+    });
 }
 FJW.Config.generateId = function () {
     return 'AUTOID__' + (FJW.Config.data.generateId++).toString(36)

@@ -43,8 +43,8 @@ const config = {
         'product/result': ['./app/js/module/product/result.js'],
 
         'help/list': ['./app/js/module/help/list.js'],
-        'help/search': ['./app/js/module/help/search.js'],
-        'help/detail': ['./app/js/module/help/list.js'],
+        'help/search': ['./app/js/module/help/list.js'],
+        'help/detail': ['./app/js/module/help/detail.js'],
 
         'about/about': ['./app/js/module/about/about.js'],
         'about/safety': ['./app/js/module/about/safety.js'],
@@ -57,7 +57,6 @@ const config = {
         'about/media': ['./app/js/module/about/about.js'],
         'about/info': ['./app/js/module/about/about.js'],
         'about/contact': ['./app/js/module/about/about.js'],
-
 
         'active-list': ['./app/js/module/active.js'],
 

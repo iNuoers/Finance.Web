@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 14:42:02 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-26 11:58:02
+ * @Last Modified time: 2017-11-01 16:42:45
  */
 'use strict'
 var debug = true;
@@ -959,7 +959,7 @@ FJW.User.logOut = function () {
 }
 FJW.User.requireLogin = function (e) {
     var me = this;
-    FJW.User.isLogin() ? e && e.call(me, data) : window.location.href = FJW.Env.domain + FJW.Env.wwwRoot + '/user/login.html?refPath=' + location.href;
+    FJW.User.isLogin() ? e && e.call(me, null) : window.location.href = FJW.Env.domain + FJW.Env.wwwRoot + '/user/login.html?refPath=' + location.href;
 }
 FJW.User.getInfo = function () {
     var me = this, info = null;

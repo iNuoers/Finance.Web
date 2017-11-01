@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-02 21:52:10 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-25 16:18:08
+ * @Last Modified time: 2017-10-29 13:43:57
  */
 
 'use strict';
@@ -162,7 +162,7 @@ fjw.pc.coupon = {
 
                 if (data.grid.length > 0 && data.records > 0) {
                     for (var i = 0; i < data.grid.length; i++) {
-                        html += '<li><a href="javascript:;" data-href="' + App.webUrl + "/product/detail.html?id=" + data.grid[i].Id + '">' + data.grid[i].Title + '</a></li>';
+                        html += '<li><a href="javascript:;" data-href="' + core.Env.domain + core.Env.wwwRoot + "/product/detail.html?id=" + data.grid[i].Id + '">' + data.grid[i].Title + '</a></li>';
                     }
                 }
                 $(ele).find('.dropbox').html(html)

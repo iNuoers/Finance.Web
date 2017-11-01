@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-06 10:03:07 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-25 16:05:20
+ * @Last Modified time: 2017-10-29 13:43:47
  */
 
 // http://www.jq22.com/demo/citySelect201708080834/   卡券选择
@@ -162,7 +162,7 @@ fjw.pc.confirm = {
                         D: JSON.stringify(param)
                     }), function (res) {
                         var result = JSON.parse(res);
-                        window.location.href = App.webUrl + '/product/result.html?id=' + result.Id;
+                        window.location.href = core.Env.domain + core.Env.wwwRoot + '/product/result.html?id=' + result.Id;
                     }, function (res) {
                         $('.err-tips').html(res)
                         $('.J-order').removeClass('disabled')
@@ -184,7 +184,7 @@ fjw.pc.confirm = {
                 }
                 if (user.isAuthen == 0) {
                     return layer.confirm('<i class="f-s-18 tip_txt">为保障资金安全，请先完善实名认证信息</i>', function () {
-                        window.location.href = App.webUrl + "/my/bindcard.html";
+                        window.location.href = core.Env.domain + core.Env.wwwRoot + "/my/bindcard.html";
                     }), false;
                 }
             } else {

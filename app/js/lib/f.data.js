@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-08-30 16:43:17
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-26 13:09:58
+ * @Last Modified time: 2017-10-31 13:30:59
  */
 'use strict';
 
@@ -26,10 +26,13 @@ var api = {
         productTypeList: "GetProductTypes",
         // 购买茶品
         buy: "Buy",
+
         // 帮助类别
         getHelpType: "GetHelpType",
         // 帮助中心
         helpCenterList: "HelpCenterListForPC",
+        // 问题帮助
+        helpSolve: "HelperSetEffective",
 
         // 我的好友
         friendList: "GetFriendList",
@@ -70,7 +73,8 @@ var api = {
         noticeList: "NoticePcList",
         noticeDetail: "",
 
-        statistics:"TradingStatistics"
+        //实时数据
+        statistics: "TradingStatistics"
 
     }
 }

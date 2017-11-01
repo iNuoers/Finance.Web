@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-05 13:52:49 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-10 15:59:37
+ * @Last Modified time: 2017-10-29 13:43:08
  */
 'use strict';
 
@@ -13,8 +13,9 @@ require('css_path/my/withdrawal')
 require('css_path/my/common')
 
 var _api = require('js_path/lib/f.data.js')
-var _head = require('js_path/lib/f.head.js')
-var _core = require('js_path/lib/f.core.js')
+var core = require('js_path/lib/pc.core.js')
+var apps = require('js_path/lib/pc.apps.js')
+var header = require('js_path/lib/header.js')
 
 fjw.pc.withdrawal = {
     bank: [{
@@ -201,7 +202,7 @@ fjw.pc.withdrawal = {
                         success: function (res) {
                             var data = JSON.parse(res);
                             alert('提现成功')
-                            window.location.href = App.webUrl + '/my/paydeposit.html'
+                            window.location.href = core.Env.domain + core.Env.wwwRoot + '/my/paydeposit.html'
                         },
                         error: function (msg) {
                             alert(msg)
