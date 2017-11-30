@@ -1,7 +1,7 @@
 ﻿@charset "UTF-8";html{margin:0;padding:0;border:0;font-size:9pt;color:#333;background:#fff;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
 a,abbr,acronym,address,article,aside,b,blockquote,body,caption,code,dd,del,dfn,dialog,div,dl,dt,em,fieldset,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,iframe,img,label,legend,li,nav,object,ol,p,pre,q,section,span,table,tbody,td,tfoot,th,thead,tr,ul{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
 article,aside,blockquote,body,button,code,dd,details,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,legend,li,menu,nav,ol,p,pre,section,td,textarea,th,ul{margin:0;padding:0}
-body,button,input,select,textarea{font:14px/1.5 tahoma,arial,Microsoft YaHei,sans-serif}
+body,button,input,select,textarea{font:12px/1.5 tahoma,arial,Microsoft YaHei,sans-serif}
 input,select,textarea{font-size:100%;font-family:inherit;font-size:inherit;font-weight:inherit}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
 address,b,caption,cite,code,dfn,em,i,th,var{font-style:normal;font-weight:500}
@@ -28,7 +28,7 @@ q:after,q:before{content:''}
 sup{top:-.5em}
 sub{bottom:-.25em}
 a,ins{text-decoration:none}
-a{outline:0;color:inherit;text-decoration:none;font-size:inherit;cursor:pointer;transition:all .2s ease}
+a{color:#1088f1;font-size:inherit;transition:all .2s ease}
 a:active,a:focus,a:link,a:visited,button:active{text-decoration:none;outline:0}
 a:hover{color:#4990E2;text-decoration:none;outline:0}
 a.link{color:#0a6feb}

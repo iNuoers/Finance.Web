@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-07 15:23:37 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-18 15:36:40
+ * @Last Modified time: 2017-11-27 19:44:10
  */
 'use strict';
 
@@ -21,6 +21,7 @@ var _product = require('js_path/service/product-service.js')
 var _template = require('js_path/plugins/template/template.js')
 var _page = require('js_path/plugins/pagination/jquery.pagination.js')
 
+var loading = require('view_path/layout/loading.string')
 var itemTpl = require('view_path/product/index.string')
 
 fjw.pc.product = {
@@ -103,6 +104,9 @@ fjw.pc.product = {
                 type: 'post',
                 success: function (data) {
                     callback && callback.call(this, JSON.parse(data))
+                },
+                beforeSend: function () {
+                    $(".paging-list").html(loading)
                 }
             });
         },
@@ -111,7 +115,7 @@ fjw.pc.product = {
                 , $listCon = $(".paging-list")
                 , html = '';
 
-            _product.productList(JSON.stringify({
+            me.method.ajax(JSON.stringify({
                 M: _api.method.productList,
                 D: JSON.stringify(me.param)
             }), function (json) {
@@ -134,9 +138,9 @@ fjw.pc.product = {
                 } else {
                     $('.page').hide();
                 }
-            }, function (errMsg) {
-                $listCon.html('<p class="err-tip">加载失败，请刷新后重试</p>');
             });
+
+            
         },
         setpager: function (records) {
             var me = fjw.pc.product;

@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-09-28 13:05:42
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-11-01 16:53:05
+ * @Last Modified time: 2017-11-27 19:18:00
  */
 
 'use strict';
@@ -21,6 +21,7 @@ var header = require('js_path/lib/header.js')
 var api = require('js_path/lib/f.data.js')
 
 var _tab = require('js_path/lib/f.tab.js')
+// var _loading = require('view_path/layout/loading.html')
 var _temp = require('js_path/plugins/template/template.js')
 var _page = require('js_path/plugins/pagination/jquery.pagination.js')
 

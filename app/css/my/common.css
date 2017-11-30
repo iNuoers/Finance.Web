@@ -13,6 +13,7 @@
 .my-nav-list .nav-list-title span{float:left;line-height:1}
 .my-nav-list .nav-list-con{padding-top:16px}
 .my-nav-list .nav-list-con li{margin-bottom:20px;padding-left:70px;font-size:14px;height:30px;line-height:30px}
+.my-nav-list .nav-list-con li a{color:#555}
 .my-nav-list .nav-list-con li.active{text-indent:-2px;color:#007ddb;border-left:2px solid #007ddb}
 .my-nav-list .nav-list-con li:hover{color:#007ddb}
 

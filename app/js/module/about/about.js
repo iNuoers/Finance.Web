@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-20 10:35:56 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-11-01 14:01:25
+ * @Last Modified time: 2017-11-27 17:35:08
  */
 'use strict';
 require('css_path/about/about')
@@ -123,6 +123,8 @@ fjw.pc.about = {
             })
             map.addOverlay(marker);
             searchInfoWindow.open(marker);
+
+            $('.BMapLib_sendToPhone').hide()
         }
     }
 }

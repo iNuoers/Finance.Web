@@ -1,0 +1,4 @@
+<div class="loading-mask"></div>
+<div class="loading-box">
+    <div class="loading-tips"><img src="../../image/ico_loading.png" alt="" /><span>加载中...</span></div>
+</div>
