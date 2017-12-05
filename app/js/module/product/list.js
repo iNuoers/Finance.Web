@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-07 15:23:37 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-11-27 19:44:10
+ * @Last Modified time: 2017-12-04 15:38:25
  */
 'use strict';
 
@@ -21,7 +21,6 @@ var _product = require('js_path/service/product-service.js')
 var _template = require('js_path/plugins/template/template.js')
 var _page = require('js_path/plugins/pagination/jquery.pagination.js')
 
-var loading = require('view_path/layout/loading.string')
 var itemTpl = require('view_path/product/index.string')
 
 fjw.pc.product = {
@@ -103,10 +102,7 @@ fjw.pc.product = {
                 data: data,
                 type: 'post',
                 success: function (data) {
-                    callback && callback.call(this, JSON.parse(data))
-                },
-                beforeSend: function () {
-                    $(".paging-list").html(loading)
+                    callback && callback.call(this, (data != '' && JSON.parse(data)))
                 }
             });
         },
@@ -118,8 +114,7 @@ fjw.pc.product = {
             me.method.ajax(JSON.stringify({
                 M: _api.method.productList,
                 D: JSON.stringify(me.param)
-            }), function (json) {
-                var data = JSON.parse(json);
+            }), function (data) {
 
                 // 渲染html
                 html = _template(itemTpl, data);

@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-09-03 11:12:27
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-18 09:18:21
+ * @Last Modified time: 2017-12-04 15:39:12
  */
 
 // https://my.oschina.net/u/3243585/blog/994423 图片延迟加载
@@ -42,7 +42,7 @@ fjw.pc.active = {
                 data: data,
                 type: 'post',
                 success: function (data) {
-                    callback && callback.call(this, JSON.parse(data))
+                    callback && callback.call(this, (data != '' && JSON.parse(data)))
                 },
                 error: function () {
 

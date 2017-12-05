@@ -657,7 +657,7 @@
 .input-error { border-color: #e25453 !important; color: #e25453 !important }
 .input-underline { border-radius: 0; border-top: 0; border-left: 0; border-right: 0 }
 .input-white { border-radius: 2px; padding-left: 12px; font-size: 14px }
-.input:hover, .input:focus { color: #1b2b46; border-color: #77ccf4 }
+.input:hover, .input:focus { color: #1b2b46; border-color: #1088f1 }
 .input-disabled { pointer-events: none !important; cursor: not-allowed !important; background: #fff !important; border-color: #f0f0f0 !important }
 .input-without-icon { padding-left: 10px !important }
 .input-disable-edit { padding-left: 0 !important; pointer-events: none !important; cursor: not-allowed !important; background: #fff !important; border: 0 }
@@ -669,7 +669,7 @@
 .select .icon.icon-down-gray, .select .icon.icon-up-gray { position: absolute; right: 10px; top: 16px !important }
 .select-primary { width: 270px; height: 40px }
 .select-white { background: #fff }
-.select:hover, .select:hover .value { color: #1b2b46; border-color: #77ccf4 }
+.select:hover, .select:hover .value { color: #1b2b46; border-color: #1088f1 }
 .select ul { position: absolute; top: 102%; left: 0; width: 100%; background: #fff; border-radius: 3px; box-shadow: 0 3px 1px 1px rgba(0,0,0,.1); z-index: 1000; display: none; max-height: 200px; overflow-x: hidden; overflow-y: auto }
 .select ul li { line-height: 40px; padding: 10px; font-size: 14px; color: #666; line-height: 2; cursor: pointer }
 .select ul li:hover { color: #1b2b46; background: #f8f9fb }

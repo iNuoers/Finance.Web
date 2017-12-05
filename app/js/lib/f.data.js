@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-08-30 16:43:17
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-31 13:30:59
+ * @Last Modified time: 2017-12-03 20:39:56
  */
 'use strict';
 
@@ -65,6 +65,8 @@ var api = {
         // 已过期卡券
         overdueCouponList: "GetOverdueCouponList",
 
+        //充值
+        recharge: "CreateRecharge",
         // 账户提现
         withdraw: "Withdraw",
         // 提现信息获取
@@ -72,9 +74,26 @@ var api = {
 
         noticeList: "NoticePcList",
         noticeDetail: "",
-
+        // 获取总账户资产
+        getWalletAssets: "GetWalletAssets",
         //实时数据
-        statistics: "TradingStatistics"
+        statistics: "TradingStatistics",
+
+        // 活期投资数据
+        currentInvest: "GetMyBuyCurrentForPc",
+        // 活期投资列表
+        currentInvestRecord: "GetMyBuyCurrentProductList",
+
+        // 定期投资数据
+        fixInvest: "GetMyBuyFixdateForPc",
+        // 定期投资列表
+        fixInvestRecord: "InvestProductBillList",
+
+        // 修改用户登录密码
+        modifyLogPwd: "ModifyLoginPswd",
+
+        // 修改用户交易密码
+        resetTradePwd:"ResetTradePswd"
 
     }
 }

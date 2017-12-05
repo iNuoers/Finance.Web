@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-26 11:59:46 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-11-01 14:02:08
+ * @Last Modified time: 2017-12-04 15:39:20
  */
 'use strict';
 require('css_path/about/cfo')
@@ -39,7 +39,7 @@ fjw.pc.cfo = {
                 data: data,
                 type: 'post',
                 success: function (data) {
-                    callback && callback.call(this, JSON.parse(data))
+                    callback && callback.call(this, (data != '' && JSON.parse(data)))
                 }
             });
         },

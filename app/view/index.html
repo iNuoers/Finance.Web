@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <div class="toptips">
+    <div class="toptips f-hide">
         <div class="toptips-wrap">
             <strong>【温馨提醒】</strong>
             <span>尊敬的小赢用户：接银行最新通知，自2017年11月16日开始，平台暂停民生银行添加银行卡和充值服务，恢复后另行通知。民生银行提现服务正常运行。&nbsp; &nbsp; &nbsp;&nbsp;如您有充值或还款需求，建议您更换银行卡或者通过微信充值、网银充值等方式进行操作。给您带来的不便，敬请谅解。感谢您对小赢理财的关注与支持！&nbsp;<a href="javascript:;" class="btn-close">关闭</a></span>
@@ -299,6 +299,19 @@
                 </div>
             </div>
             <!-- page4 合作伙伴 end-->
+            
+            <!--右侧AD-->
+            <div id="gift">
+                <div class="pic"></div>
+                <div class="text">新手礼包</div>
+            </div>
+            <div class="gift-container" style="display: none;">
+                <div class="mask"style="display: none;"></div>
+                <div class="dialog minDialog" style="width: 63px; height: 75px; top: 463px; left: 1588.5px;">
+                    <div class="close"></div>
+                    <div class="button"></div>
+                </div>
+            </div>
         </div>
     </div>
     <!--左侧AD-->
@@ -307,6 +320,113 @@
             <i class="close fa fa-close" style="top:1px!important;left:117px!important;"></i>
         </div>
     </div>
+    <style>
+    #gift {
+        width: 63px;
+        height: 75px;
+        position: fixed;
+        bottom: 100px;
+        right: 50%;
+        margin-right: -700px;
+        text-align: center;
+        cursor: pointer;
+        z-index: 9
+    }
+    #gift .pic {
+        width: 63px;
+        height: 59px;
+        background: url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift_e281967.png?__sprite) no-repeat;
+        background-size: 64px 53px
+    }
+    @media (-webkit-min-device-pixel-ratio: 1.5),(min--moz-device-pixel-ratio:1.5),(min-resolution:1.5dppx) {
+        #gift .pic {
+            background:url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift@2x_b9278f1.png?__sprite) no-repeat;
+            background-size: 64px 53px
+        }
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution:2 * 96dpi) {
+        #gift .pic {
+            background:url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift@2x_b9278f1.png?__sprite) no-repeat;
+            background-size: 64px 53px
+        }
+    }
+    #gift .text {
+        color: #fd5133;
+        font-size: 14px;
+        line-height: 16px;
+        height: 16px;
+        font-weight: 700
+    }
+    .gift-container {
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none
+    }
+    .gift-container .mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000;
+        opacity: .8;
+        filter: alpha(opacity=80)
+    }
+    .gift-container .dialog {
+        width: 63px;
+        height: 75px;
+        background: url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift-dialog_9a8e161.png?__sprite) no-repeat;
+        background-size: 100% 100%;
+        position: fixed
+    }
+    @media (-webkit-min-device-pixel-ratio: 1.5),(min--moz-device-pixel-ratio:1.5),(min-resolution:1.5dppx) {
+        .gift-container .dialog {
+            background:url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift-dialog@2x_fe6e474.png?__sprite) no-repeat;
+            background-size: 100% 100%
+        }
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution:2 * 96dpi) {
+        .gift-container .dialog {
+            background:url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift-dialog@2x_fe6e474.png?__sprite) no-repeat;
+            background-size: 100% 100%
+        }
+    }
+    .gift-container .dialog .close {
+        position: absolute;
+        right: 60px;
+        top: 44px;
+        width: 25px;
+        height: 25px;
+        cursor: pointer
+    }
+    .gift-container .dialog .button {
+        cursor: pointer;
+        position: absolute;
+        left: 126px;
+        bottom: 33px;
+        width: 250px;
+        height: 45px
+    }
+    @media screen and (max-width: 1450px) {
+        #gift {
+            right:20px;
+            margin-right: 20px
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) {
+        .product-current .btn-current {
+            line-height: 40px
+        }
+    }
+    
+    </style>
     <%= require('html-loader!./layout/footer.html')%>
 </body>
 

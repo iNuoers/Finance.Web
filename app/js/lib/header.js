@@ -4,9 +4,9 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 20:20:35 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-25 10:01:14
+ * @Last Modified time: 2017-12-03 16:48:13
  */
-var FJW = require('js_path/lib/pc.core.js')
+var core = require('js_path/lib/pc.core.js')
 !function ($) {
     var header = function () {
         this.quickMenu = $('#header .site-nav');
@@ -22,7 +22,7 @@ var FJW = require('js_path/lib/pc.core.js')
 
         var me = this, root = me.root;
 
-        FJW.User.isLogin()
+        core.User.isLogin()
         window.user.isLogin ? this.setLoginedMenu() : this.setUnloginMenu();
 
         var o = encodeURIComponent(window.location.href);
@@ -35,7 +35,7 @@ var FJW = require('js_path/lib/pc.core.js')
             return false
         });
         $('[data-selector="link-logout"]', root).on('click', function () {
-            FJW.User.logOut()
+            core.User.logOut()
             window.location.reload();
         });
     }
@@ -50,11 +50,18 @@ var FJW = require('js_path/lib/pc.core.js')
     }
     header.prototype.setLoginedMenu = function () {
         var me = this;
-        var html = ['<a href="javascript:;" data-href="/my/index.html">' + FJW.Cookie.get('f.phone') + '，<a class="F_out" href="javascript:;" data-selector="link-logout">退出</a>'].join("");
+        var html = ['<a href="javascript:;" data-href="/my/index.html">' + core.Cookie.get('f.phone') + '，<a class="F_out" href="javascript:;" data-selector="link-logout">退出</a>'].join("");
 
         me.logout.show();
         me.unLogin.hide();
         me.isLogin.html(html).show();
+
+        var user = JSON.parse(core.Storage.getItem('f.ui.cache'))
+        if (!user.member.realNameAuthen == 1) {
+            $('#sub_nav_bindcard a').attr('data-href', '/my/my-card.html')
+        } else {
+            $('#sub_nav_bindcard a').attr('data-href', '/my/bindcard.html')
+        }
     }
     window.HeaderApply = new header
 }(jQuery);

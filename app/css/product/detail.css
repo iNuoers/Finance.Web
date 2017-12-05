@@ -6,7 +6,7 @@
 .p-title .p-title-inner h2{float:left;padding-right:10px;font-size:18px}
 .p-title .p-title-inner .u-tag{position:relative;top:15px;margin-right:10px}
 .p-title .p-title-inner .link{float:right;margin-right:20px;font-size:13px}
-.p-cont{background-color:#fff}
+.p-cont{background-color:#fff;overflow:hidden}
  
 /* product info left */
 .d-l{border-right:1px solid #ededed}
@@ -90,7 +90,7 @@
 .icon-err-s{float:left;color:red;margin:3px 5px 0 0}
 
 /* tab-nav */
-.p-cont .p-cont-main{padding:30px 40px;color:#555;min-height:950px}
+.p-cont .p-cont-main{padding:30px 40px;color:#555}
 .tab-nav{width:100%;height:60px;font-size:16px;background:#fff;border-bottom:1px solid #e6e6e6;overflow:hidden}
 .tab-nav-item{width:140px;float:left;text-align:center;height:60px;line-height:60px;border-top:0;cursor:pointer}
 .tab-nav-item-selected{border-top:0}

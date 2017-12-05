@@ -91,7 +91,7 @@
 
                 <%if(window.user.isLogin && btnCls == ''){%>
                     <!-- coupon selector -->
-                    <div class="dr-coupon <%= (IsPlusInCome == 1 || IsCash == 1) ? "" : "f-hide"%>">
+                    <div class="dr-coupon f-hide <%= (IsPlusInCome == 1 || IsCash == 1) ? "" : "f-hide"%>">
                         <div class="drc-change"><a id="ticketSelector" href="javascript:;">选择卡券<i class="arr"></i></a></div>
                         <div id="ticketContainer" class="drc-main">
                             <ul class="drc-list">

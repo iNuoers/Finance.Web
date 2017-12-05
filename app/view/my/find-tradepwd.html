@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
+	<%= require('html-loader!../layout/head-common.html')%>
+</head>
+<body>
+    <%= require('html-loader!../layout/nav.html')%>
+    <%= require('html-loader!../layout/header.html')%>
+    <div class="main-wrap">
+        <div class="main-section">
+            <div class="my-main-frame">
+                <%= require('html-loader!../layout/my-left-layout.html')%>
+                <div class="my-main-c ml20 w950">
+                    <div class="my-box-wrap">
+                        <div class="my-box-title f-cb">
+                            <span>找回交易密码</span>
+                        </div>
+                        <!-- 内容页 S -->
+                        <div class="reset-cont">
+                            <!--短信验证 S-->
+                            <div id="step1" class="reset-form web-code-entry">
+                                <div class="reset-item ">
+                                    <p class="fz14">验证身份，请填写以下信息：</p>
+                                </div>
+                                <div class="reset-item ">
+                                    <span class="reset-label"><label class="tsl">手机号码：</label></span>
+                                    <span class="reset-text" id="sendMobile">138******41</span>
+                                </div>
+                                <div class="reset-item mb16 reset-verify">
+                                    <span class="reset-label">
+                                        <label class="tsl">短信验证码：</label>
+                                    </span>
+                                    <input id="mobile" class="i-text" type="hidden" value="13816436641" maxlength="11">
+                                    <input id="smsCode" class="i-text input input-primary" type="text" placeholder="请输入短信验证码" maxlength="6">
+                                    <span id="smsCodeRefer">
+                                        <a id="send" href="javascript:void(0);" class="btn btn-info get-verify-type" title="发送验证码">发送验证码</a>
+                                        <a id="wait" href="javascript:void(0);" class="btn btn-info disabled get-verify-type" style="display: none;">60秒后重发</a>
+                                    </span>
+                                </div>
+                                <div class="reset-item ">
+                                    <span class="reset-label"><label class="tsl">身份证号码：</label></span>
+                                    <input id="identity" class="i-text input input-primary" type="text" placeholder="请输入身份证号码" maxlength="50">
+                                </div>
+                                <div class="reset-item ">
+                                    <span class="reset-label"><label class="tsl">银行卡号码：</label></span>
+                                    <input id="cardNo" class="i-text input input-primary" type="text" placeholder="请输入银行卡号" maxlength="30">
+                                </div>
+                                <div class="reset-item  last-item">
+                                    <div class="btnbar">
+                                        <button type="button" class="btn btn-info" title="提交" id="submit2">下一步</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--短信验证 E-->
+                            <!--设置交易密码 S-->
+                            <div id="step2" class="reset-form" style="display: none">
+                                <div class="reset-item ">
+                                    <p class="fz14 pb15">设置新的交易密码：</p>
+                                </div>
+                                <div class="reset-item ">
+                                    <span class="reset-label"><label class="tsl">交易密码：</label></span>
+                                    <input id="password" class="i-text input input-primary" type="password" placeholder="请输入六位数字的交易密码">
+                                </div>
+                                <div class="reset-item ">
+                                    <span class="reset-label"><label class="tsl">确认交易密码：</label></span>
+                                    <input id="confirmPassword" class="i-text input input-primary" type="password" placeholder="请再次输入交易密码">
+                                </div>
+                                <div class="reset-item  last-item">
+                                    <div class="btnbar">
+                                        <button type="button" class="btn btn-info" title="提交" id="submit4">提交</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--设置交易密码 E-->
+                        </div>
+                        <!-- 内容页 E -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= require('html-loader!../layout/footer.html')%>
+</body>
+</html>

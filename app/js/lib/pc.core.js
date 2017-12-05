@@ -4,9 +4,10 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 14:42:02 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-11-01 16:42:45
+ * @Last Modified time: 2017-12-03 19:38:18
  */
 'use strict'
+
 var debug = true;
 var FJW = FJW || {};
 var FJW = {};
@@ -150,11 +151,15 @@ FJW.String = {
         return s.replace(/(\s*$)|(\n$)/g, "");
     },
     // 格式化数字
-    numberFormat: function (s, l) {
-        if (!l || l < 1) l = 3;
-        s = String(s).split(".");
-        s[0] = s[0].replace(new RegExp('(\\d)(?=(\\d{' + l + '})+$)', 'ig'), "$1,");
-        return s.join(".");
+    numberFormat: function (num) {
+        num += "";
+        var arr = num.split("."),
+            x1 = arr[0],
+            x2 = arr.length > 1 ? "." + arr[1] : "";
+
+        for (var match = /(\d+)(\d{3})/; match.test(x1);)
+            x1 = x1.replace(match, "$1,$2");
+        return x1 + x2
     },
     // 星号字节
     asteriskByte: function (s, start, end) {
@@ -165,11 +170,11 @@ FJW.String = {
         while (star.length < l) star += "*";
         return startStr + star + endStr;
     },
-    // 四舍五入保留n位小数(默认保留两位小数)
+    // 不四舍五入保留n位小数(默认保留两位小数)
     twoDecimalPlaces: function (s, l) {
         if (isNaN(parseFloat(s)) || s == 0) return "0.00";
         var bit = !l ? 100 : Math.pow(10, l);
-        var str = String(Math.round(s * bit) / bit);
+        var str = String(Math.floor(s * bit) / bit);
         if (str.indexOf(".") != -1 && str.length <= str.indexOf(".") + 2) str += '0';
         else if (str.indexOf(".") == -1) str += '.00';
         return str;
@@ -1031,9 +1036,16 @@ FJW.Domain = {
             type: param.type || 'get',
             async: param.async || true,
             cache: param.cache || false,
-            beforeSend: param.beforeSend,
+            beforeSend: param.beforeSend || function () {
+                if($('.loading-box').hasClass('f-hide')){
+                    $('.loading-mask').removeClass('f-hide')
+                    $('.loading-box').removeClass('f-hide')
+                }
+            },
             dataType: param.dataType || 'json',
             success: function (res) {
+                $('.loading-mask').addClass('f-hide')
+                $('.loading-box').addClass('f-hide')
                 // 请求成功
                 if (0 === res.s) {
                     typeof param.success === 'function' && param.success(res.d, res.es);
@@ -1048,6 +1060,8 @@ FJW.Domain = {
                 }
             },
             error: function (err, status) {
+                $('.loading-mask').addClass('f-hide')
+                $('.loading-box').addClass('f-hide')
                 //如果出现timeout，不做处理
                 if (status === "timeout") {
                     if (console) {

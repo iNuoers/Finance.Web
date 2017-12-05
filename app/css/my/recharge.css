@@ -256,21 +256,17 @@
 
 
 .page-tooltips {
+    min-width: 233px;
     display: inline-block;
     position: relative
 }
 
 .page-tooltips .inner {
     position: relative;
-    padding: 1px 27px;
+    padding: 1px 5px;
     background-color: #fffbe5;
     border: 1px solid #f7dcb1;
-    *zoom:1}
-
-.page-tooltips .icon {
-    position: absolute;
-    top: 4px;
-    left: 6px
+    *zoom:1
 }
 
 .page-tooltips span {

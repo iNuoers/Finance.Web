@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-16 17:21:28 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-27 10:06:40
+ * @Last Modified time: 2017-12-05 17:20:32
  */
 'use strict';
 require('css_path/index.css')
@@ -48,6 +48,28 @@ fjw.pc.home = {
                 left: -145
             });
         });
+
+        $("#gift").on("click", function () {
+            me.method.openGift()
+        });
+        $("body").on("click", ".gift-container .close", function () {
+            me.method.closeGift()
+        });
+        $("body").on("click", ".gift-container .mask", function () {
+            me.method.closeGift()
+        });
+        $("body").on("click", ".gift-container .button", function () {
+            //window.open("/assets/pc/pug/noviceGift.html")
+        });
+        $(window).on("resize", function () {
+            var e = $(".dialog").hasClass("minDialog")
+                , i = {};
+            e ? $.extend(i, me.method.getMinPosition()) : $.extend(i, me.method.getMaxPosition()),
+                $(".dialog").css({
+                    top: i.top + "px",
+                    left: i.left + "px"
+                })
+        })
     },
     method: {
         ajax: function (data, callback) {
@@ -56,9 +78,60 @@ fjw.pc.home = {
                 data: data,
                 type: 'post',
                 success: function (data) {
-                    callback && callback.call(this, JSON.parse(data))
+                    callback && callback.call(this, (data != '' && JSON.parse(data)))
                 }
             });
+        },
+        getMaxPosition: function () {
+            var width = 498,
+                height = 479,
+                i = ($(window).width() - width) / 2,
+                o = 150,
+                a = ($(window).height() - height) / 2,
+                s = a > o ? o : a;
+            return {
+                top: s,
+                left: i,
+                width: width,
+                height: height
+            }
+        },
+        getMinPosition: function () {
+            var t = $("#gift").offset().top - $("body").scrollTop()
+                , e = $("#gift").offset().left
+                , i = $("#gift").outerWidth()
+                , o = $("#gift").outerHeight();
+            return {
+                top: t,
+                left: e,
+                width: i,
+                height: o
+            }
+        },
+        openGift: function () {
+            $(".gift-container").show()
+            $(".gift-container .mask").show()
+            var me = fjw.pc.home
+                , pop = me.method.getMaxPosition();
+            $(".dialog").animate({
+                top: [pop.top + "px", "linear"],
+                left: [pop.left + "px", "linear"],
+                width: [pop.width + "px", "linear"],
+                height: [pop.height + "px", "linear"]
+            }, 250).removeClass("minDialog")
+        },
+        closeGift: function () {
+            var me = fjw.pc.home
+                , pop = me.method.getMinPosition();
+            $(".gift-container .mask").hide();
+            $(".dialog").animate({
+                top: [pop.top + "px", "easeInCubic"],
+                left: [pop.left + "px", "linear"],
+                width: [pop.width + "px", "linear"],
+                height: [pop.height + "px", "linear"]
+            }, function () {
+                $(".gift-container").hide()
+            }).addClass("minDialog")
         },
         homeData: function () {
             var me = fjw.pc.home;
@@ -77,7 +150,7 @@ fjw.pc.home = {
             };
 
             me.method.ajax(JSON.stringify(param), function (data) {
-                var html = '';                
+                var html = '';
                 var tpl = '<%if(banner.length>0) {%>' +
                     '         <div class="hd abs z5">' +
                     '             <ul id="thumb-li">' +

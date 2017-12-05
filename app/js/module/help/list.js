@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-30 09:34:17 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-11-01 16:05:27
+ * @Last Modified time: 2017-12-04 15:39:07
  */
 'use strict';
 
@@ -82,7 +82,7 @@ fjw.pc.help_list = {
                 data: data,
                 type: 'post',
                 success: function (data) {
-                    callback && callback.call(this, JSON.parse(data))
+                    callback && callback.call(this, (data != '' && JSON.parse(data)))
                 },
                 error: function () {
 

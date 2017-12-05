@@ -1,0 +1,13 @@
+.reset-cont{position:relative;padding:20px 0}
+.reset-form .reset-item{margin-bottom:15px}
+.reset-form .last-item{margin-bottom:0!important}
+.reset-item{position:relative;padding-left:105px;font-size:0}
+.reset-item .reset-label{float:left;margin-left:-105px;width:100px;height:42px;line-height:42px;color:#999;font-size:14px;text-align:right}
+.reset-item .reset-span{height:42px;line-height:42px;font-size:14px}
+.reset-item .reset-text{height:42px;line-height:42px;color:#555;font-size:12px}
+.reset-item .i-text{vertical-align:middle;padding:0 8px;width:270px;display:inline-block;vertical-align:middle}
+.reset-item .btn{width:288px;height:42px;line-height:42px;font-size:16px}
+.reset-verify .i-text{width:112px;vertical-align:middle;display:inline-block;vertical-align:middle}
+.web-code-entry .reset-verify .get-verify-type,.web-code-entry .reset-verify .i-text,.web-code-entry .reset-verify span{display:inline-block;vertical-align:middle;vertical-align:middle}
+.web-code-entry .reset-verify .i-text{width:143px}
+.web-code-entry .reset-verify .get-verify-type{margin-left:5px;width:120px}

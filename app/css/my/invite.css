@@ -1,6 +1,6 @@
 .my_invite .iShare-d{height:120px;width:100%}
-.my_invite .iShare-d a{display:inline-block;margin-top:20px;line-height:130px;width:19%;height:50px}
-.my_invite .iShare-d span{display:block;text-align:center;font-size:12px;color:#999}
+.my_invite .iShare-d a{display:block;margin-top:20px;padding-left:0!important;width:19%;height:50px}
+.my_invite .iShare-d span{display:block;margin-top:60px;text-align:center;font-size:12px;color:#999}
 .my_invite .iShare-d .wxShare{background:no-repeat center 0}
 .my_invite .iShare-d .iShare-sinaweibo{background:no-repeat center -60px}
 .my_invite .iShare-d .iShare-qqhaoyou{background:no-repeat center -120px}

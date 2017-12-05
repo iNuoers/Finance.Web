@@ -18,12 +18,12 @@
                         <div class="my-box-title f-cb">
                             <span>绑定银行卡</span>
                         </div>
-                        <div class="my-box-wrap pt20 pb20">
+                        <div class="pt20 pb20">
                             <div class="item f-cb name">
                                 <h4 class="title f-fl">姓名：</h4>
                                 <div class="info f-fl">
                                     <div class="f-cb inputctn">
-                                        <input class="inputbox J-nameInput f-fl" type="text" value="" maxlength="30" placeholder="请输入持卡人真实姓名" autocomplete="off">
+                                        <input class="i-text input input-primary" type="text" value="" maxlength="30" placeholder="请输入持卡人真实姓名" autocomplete="off">
                                     </div>
                                     <p>
                                         <i class="J-tip"></i>
@@ -34,7 +34,7 @@
                                 <h4 class="title f-fl">身份证号：</h4>
                                 <div class="info f-fl">
                                     <div class="f-cb inputctn">
-                                        <input class="inputbox J-cidInput J-idInput f-fl" type="text" value="" maxlength="18" placeholder="请输入持卡人身份证号" autocomplete="off">
+                                        <input class="i-text input input-primary" type="text" value="" maxlength="18" placeholder="请输入持卡人身份证号" autocomplete="off">
                                     </div>
                                     <p>
                                         <i class="J-tip"></i>
@@ -45,27 +45,34 @@
                                 <h4 class="title f-fl">银行卡号：</h4>
                                 <div class="info f-fl">
                                     <div class="f-cb inputctn">
-                                        <input class="inputbox J-bankInput J-numberInput f-fl" type="text" value="" maxlength="19" placeholder="请输入储蓄卡卡号" autocomplete="off">
+                                        <input class="i-text input input-primary" type="text" value="" maxlength="19" placeholder="请输入储蓄卡卡号" autocomplete="off">
                                         <span class="poptip">支持银行</span>
-                                        <div class="bankList f-hide">
-                                            <ul>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/ABOC.png">农业银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/BKCH.png">中国银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/BOSH.png">上海银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/CBXM.png">厦门银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/CIBK.png">中信银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/CMBC.png">招商银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/COMM.png">交通银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/EVER.png">光大银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/FJIB.png">兴业银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/GDBK.png">广发银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/HXBK.png">华夏银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/ICBK.png">工商银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/MSBC.png">民生银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/PCBC.png">建设银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/PSBC.png">邮政储蓄</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/SPDB.png">浦发银行</span>支持快捷充值、网银充值</li>
-                                                <li><span class="bankLogo"><img src="https://p2pcunguan.xmbankonline.com/bha-neo-app/resource/images/bank-sm/SZDB.png">平安银行</span>支持快捷充值、网银充值</li>
+                                        <div class="banklist-box f-hide" id="secureBankList">
+                                            <ul class="banklist-ul clearfix">
+                                                <li class="banklist-li" data-code="ICBC">
+                                                    <p class="hd"><i class="banklogo banklogo-zggsyh"></i><i class="icon-gg-s"></i></p>
+                                                    <span class="bd">单笔限额30万，日限额90万</span>
+                                                </li>
+                                                <li class="banklist-li" data-code="CCB">
+                                                    <p class="hd"><i class="banklogo banklogo-zgjsyh"></i><i class="icon-gg-s"></i></p>
+                                                    <span class="bd">单笔限额30万，日限额90万</span>
+                                                </li>
+                                                <li class="banklist-li selected" data-code="ABC">
+                                                    <p class="hd"><i class="banklogo banklogo-zgnyyh"></i><i class="icon-gg-s"></i></p>
+                                                    <span class="bd">单笔限额30万，日限额90万</span>
+                                                </li>
+                                                <li class="banklist-li" data-code="BOC">
+                                                    <p class="hd"><i class="banklogo banklogo-zgyh"></i><i class="icon-gg-s"></i></p>
+                                                    <span class="bd">单笔限额30万，日限额90万</span>
+                                                </li>
+                                                <li class="banklist-li" data-code="PSBC">
+                                                    <p class="hd"><i class="banklogo banklogo-zgyzcxyh"></i><i class="icon-gg-s"></i></p>
+                                                    <span class="bd">单笔限额30万，日限额90万</span>
+                                                </li>
+                                                <li class="banklist-li" data-code="SPDB">
+                                                    <p class="hd"><i class="banklogo banklogo-pfyh"></i><i class="icon-gg-s"></i></p>
+                                                    <span class="bd">单笔限额30万，日限额90万</span>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="bankdetail J-bankDetail f-hide">6217 0012 1004 4543 930</div>
@@ -107,7 +114,7 @@
                                 <h4 class="title f-fl">开户支行：</h4>
                                 <div class="info f-fl">
                                     <div class="f-cb inputctn">
-                                        <input class="inputbox J-bankInput J-numberInput f-fl" type="text" value="" maxlength="19" placeholder="请输入储蓄卡卡号" autocomplete="off">
+                                        <input class="i-text input input-primary" type="text" value="" maxlength="19" placeholder="请输入储蓄卡卡号" autocomplete="off">
                                     </div>
                                     <p>
                                         <i class="J-tip"></i>
@@ -120,7 +127,7 @@
                                 </h4>
                                 <div class="info f-fl">
                                     <div class="f-cb inputctn">
-                                        <input class="inputbox J-telInput J-numberInput f-fl" type="text" value="" maxlength="11" placeholder="请输入银行预留手机号，用于接收短信验证码">
+                                        <input class="i-text input input-primary" type="text" value="" maxlength="11" placeholder="请输入银行预留手机号，用于接收短信验证码">
                                     </div>
                                     <p>
                                         <i class="J-tip"></i>
@@ -133,35 +140,12 @@
                                     <p>
                                         <i class="J-tip"></i>
                                     </p>
-                                    <button class="btn btn-normal J-step">确认绑定</button>
+                                    <button class="btn btn-normal J-submit">确认绑定</button>
                                 </div>
                             </div>
                             <div class="ctnbottom">
                                 <img src="//www.lmlc.com/cdn/desktop/user/account/bank/bind/img/about.81b8b86b3c.png" height="71" width="1023">
                             </div>
-                        </div>
-                    </div>
-                    <div class="my-box-wrap pd15">
-                        <div class="my-box-title f-cb">
-                            <span>我的银行卡</span>
-                        </div>
-                        <div class="my-box-wrap">
-                            <ul class="my-cards f-cb">
-                                <li class="card-con f-fl">
-                                    <div class="card-info">
-                                        <span class="icon-bank icon-bank-CCB f-fl"></span>
-                                        <span class="cerdnumw f-fr">
-                                            <!--尾号：-->3930&nbsp;|储蓄卡
-                                        </span>
-                                    </div>
-                                    <div class="card-name">
-                                        持卡人：**保<br>
-                                    </div>
-                                    <div class="card-limit">
-                                        单笔限额50万元，单日限额500万元
-                                    </div>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                     <h2 class="m-title">

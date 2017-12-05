@@ -1,0 +1,7 @@
+.reset-cont{position:relative;padding:20px 0}
+.reset-form .reset-item{margin-bottom:15px}
+.reset-form .last-item{margin-bottom:0!important}
+.reset-item{position:relative;padding-left:105px;font-size:0}
+.reset-item .reset-label{float:left;margin-left:-105px;width:100px;height:42px;line-height:42px;color:#999;font-size:14px;text-align:right}
+.reset-item .i-text{vertical-align:middle;padding:0 8px;width:270px;display:inline-block;vertical-align:middle}
+.reset-item .btn{width:288px;height:42px;font-size:16px}

@@ -12,10 +12,11 @@
 .my-nav-list .nav-list-title i{width:12px;height:12px;margin:0 10px;float:left}
 .my-nav-list .nav-list-title span{float:left;line-height:1}
 .my-nav-list .nav-list-con{padding-top:16px}
-.my-nav-list .nav-list-con li{margin-bottom:20px;padding-left:70px;font-size:14px;height:30px;line-height:30px}
+.my-nav-list .nav-list-con li{padding:10px 0 10px 70px;font-size:14px;height:30px;line-height:30px}
 .my-nav-list .nav-list-con li a{color:#555}
-.my-nav-list .nav-list-con li.active{text-indent:-2px;color:#007ddb;border-left:2px solid #007ddb}
-.my-nav-list .nav-list-con li:hover{color:#007ddb}
+.my-nav-list .nav-list-con li.active{text-indent:-2px;color:#1088f1;}
+.my-nav-list .nav-list-con li.active a{color:#1088f1;font-weight:bold}
+.my-nav-list .nav-list-con li:hover{color:#1088f1;background-color:#eee;}
 
 .my-box-wrap{padding:0 20px;background:#fff}
 .my-box-wrap:hover{box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12); transition: all .3s ease-out; -webkit-transition: all .3s ease-out; transition: all .3s ease-out; }
@@ -27,7 +28,7 @@
 .my-tab{position:relative;height:50px;z-index:5}
 .my-tab .tab-nav{height:50px;position:absolute;bottom:-1px;left:0}
 .my-tab .tab-nav li{float:left;display:inline;margin-right:15px;padding:13px 28px 0;height:35px;border:1px solid #e7ecee;border-bottom:0;border-radius:5px 5px 0 0;background:#e7ecee;font-size:16px;cursor:pointer}
-.my-tab .tab-nav li.active{height:36px;border:1px solid #e7ecee;border-bottom:0;background:#fff;color:#007ddb}
+.my-tab .tab-nav li.active{height:36px;border:1px solid #e7ecee;border-bottom:0;background:#fff;color:#1088f1}
 .my-tab-box{position:relative;overflow:hidden;margin-bottom:20px;border:1px solid #e7ecee;zoom:1}
 .not-infos{height:300px;text-align:center;padding-top:50px;color:#d56363;font-size:14px}
 

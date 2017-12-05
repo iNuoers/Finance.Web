@@ -68,11 +68,16 @@ const config = {
         'my/caption': ['./app/js/module/my/caption.js'],
         'my/paydeposit': ['./app/js/module/my/paydeposit.js'],
         'my/recharge': ['./app/js/module/my/recharge.js'],
+        'my/rechargeAction': ['./app/js/module/my/rechargeAction.js'],
         'my/withdrawal': ['./app/js/module/my/withdrawal.js'],
         'my/bindcard': ['./app/js/module/my/bindcard.js'],
         'my/my-card': ['./app/js/module/my/my-card.js'],
         'my/invite': ['./app/js/module/my/invite.js'],
         'my/friends': ['./app/js/module/my/friends.js'],
+        'my/reset-logpwd':['./app/js/module/my/reset-logpwd.js'],
+        'my/reset-tradepwd':['./app/js/module/my/reset-tradepwd.js'],
+        'my/create-tradepwd':['./app/js/module/my/create-tradepwd.js'],
+        'my/find-tradepwd':['./app/js/module/my/find-tradepwd.js'],
 
         'user/login': ['./app/js/module/user/login.js'],
         'user/register': ['./app/js/module/user/register.js'],
@@ -170,15 +175,20 @@ const config = {
         new HtmlWebpackPlugin(getHtmlConfig('my/caption', '资金流水')),
         new HtmlWebpackPlugin(getHtmlConfig('my/paydeposit', '充值提现')),
         new HtmlWebpackPlugin(getHtmlConfig('my/recharge', '账户充值')),
+        new HtmlWebpackPlugin(getHtmlConfig('my/rechargeAction', '账户充值')),
         new HtmlWebpackPlugin(getHtmlConfig('my/withdrawal', '账户提现')),
         new HtmlWebpackPlugin(getHtmlConfig('my/bindcard', '绑卡认证')),
         new HtmlWebpackPlugin(getHtmlConfig('my/my-card', '绑卡认证')),
         new HtmlWebpackPlugin(getHtmlConfig('my/invite', '邀请好友')),
         new HtmlWebpackPlugin(getHtmlConfig('my/friends', '我的好友')),
+        new HtmlWebpackPlugin(getHtmlConfig('my/reset-logpwd', '修改登录密码')),
+        new HtmlWebpackPlugin(getHtmlConfig('my/reset-tradepwd', '修改交易密码')),
+        new HtmlWebpackPlugin(getHtmlConfig('my/create-tradepwd', '设置交易密码')),
+        new HtmlWebpackPlugin(getHtmlConfig('my/find-tradepwd', '找回交易密码')),
 
         new HtmlWebpackPlugin(getHtmlConfig('user/login', '用户登录')),
         new HtmlWebpackPlugin(getHtmlConfig('user/register', '用户注册')),
-        new HtmlWebpackPlugin(getHtmlConfig('user/findpwd', '找回密码')),
+        new HtmlWebpackPlugin(getHtmlConfig('user/findpwd', '找回登录密码')),
 
         // 独立通用模块到 js/base.js
         new webpack.optimize.CommonsChunkPlugin({

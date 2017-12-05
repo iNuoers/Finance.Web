@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-05 13:52:49 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-29 13:43:08
+ * @Last Modified time: 2017-12-04 15:38:33
  */
 'use strict';
 
@@ -12,107 +12,41 @@ require('css_path/my/recharge')
 require('css_path/my/withdrawal')
 require('css_path/my/common')
 
-var _api = require('js_path/lib/f.data.js')
+var api = require('js_path/lib/f.data.js')
 var core = require('js_path/lib/pc.core.js')
 var apps = require('js_path/lib/pc.apps.js')
 var header = require('js_path/lib/header.js')
 
 fjw.pc.withdrawal = {
-    bank: [{
-        code: 'ICBC',
-        name: '中国工商银行',
-        logocss: 'zggsyh',
-        tel: '95588'
-    }, {
-        code: 'ABC',
-        name: '中国农业银行',
-        logocss: 'zgnyyh',
-        tel: '95599'
-    }, {
-        code: 'BOC',
-        name: '中国银行',
-        logocss: 'zgyh',
-        tel: '95566'
-    }, {
-        code: 'CCB',
-        name: '中国建设银行',
-        logocss: 'zgjsyh',
-        tel: '95533'
-    }, {
-        code: 'BCOM',
-        name: '中国交通银行',
-        logocss: 'jtyh',
-        tel: '95559'
-    }, {
-        code: 'PSBC',
-        name: '中国邮政储蓄银行',
-        logocss: 'zgyzcxyh',
-        tel: '95580'
-    }, {
-        code: 'SPDB',
-        name: '浦发银行',
-        logocss: 'pfyh',
-        tel: '95528'
-    }, {
-        code: 'HXB',
-        name: '华夏银行',
-        logocss: 'hxyh',
-        tel: '95577'
-    }, {
-        code: 'CIB',
-        name: '兴业银行',
-        logocss: 'xyyh',
-        tel: '95561'
-    }, {
-        code: 'CITIC',
-        name: '中信银行',
-        logocss: 'zxyh',
-        tel: '95558'
-    }, {
-        code: 'CEB',
-        name: '中国光大银行',
-        logocss: 'zggdyh',
-        tel: '95595'
-    }, {
-        code: 'PAB',
-        name: '平安银行',
-        logocss: 'payh',
-        tel: '95511'
-    }, {
-        code: 'SHB',
-        name: '上海银行',
-        logocss: 'shyh',
-        tel: '95594'
-    }, {
-        code: 'CMBC',
-        name: '民生银行',
-        logocss: 'zgmsyh',
-        tel: '95568'
-    }, {
-        code: 'GDB',
-        name: '广发银行',
-        logocss: 'gfyh',
-        tel: '95508'
-    }, {
-        code: 'CMB',
-        name: '招商银行',
-        logocss: 'zsyh',
-        tel: '95555'
-    }],
     init: function () {
         this.initEvent()
         this.onPageLoad()
     },
     onPageLoad: function () {
         var me = this;
-        me.method.handelForm()
-        me.method.renderTradePwd()
-        me.method.withDrawalInfo()
+        core.User.requireLogin(function () {
+            me.method.handelForm()
+            me.method.renderTradePwd()
+            me.method.withDrawalInfo()
+        })
     },
     initEvent: function () {
         $("#sub_nav_paydeposit").addClass('active');
     },
     method: {
+        ajax: function (data, callback) {
+            core.ajax({
+                url: core.Env.apiHost,
+                data: data,
+                type: 'post',
+                success: function (data) {
+                    callback && callback.call(this, (data != '' && JSON.parse(data)))
+                },
+                error: function (msg) {
+                    $('.err-tips').html(msg);
+                }
+            });
+        },
         handelForm: function () {
             var me = fjw.pc.withdrawal,
                 match = /^[0-9]*$/,
@@ -192,48 +126,34 @@ fjw.pc.withdrawal = {
                         SetPwdIfEmpty: pwd
                     };
                     var req = {
-                        M: _api.method.withdraw,
+                        M: api.method.withdraw,
                         D: JSON.stringify(param)
                     };
-                    _core.ajax.request({
-                        url: _api.host,
-                        data: JSON.stringify(req),
-                        method: 'post',
-                        success: function (res) {
-                            var data = JSON.parse(res);
-                            alert('提现成功')
-                            window.location.href = core.Env.domain + core.Env.wwwRoot + '/my/paydeposit.html'
-                        },
-                        error: function (msg) {
-                            alert(msg)
-                        }
-                    });
+
+                    me.method.ajax(JSON.stringify(req), function (data) {
+                        window.location.href = core.Env.domain + core.Env.wwwRoot + '/my/paydeposit.html'
+                    })
                 }
             })
         },
         withDrawalInfo: function () {
             var me = fjw.pc.withdrawal;
-            _core.ajax.request({
-                url: _api.host,
-                data: JSON.stringify({
-                    M: _api.method.withdrawInfo
-                }),
-                method: 'post',
-                success: function (res) {
-                    var data = JSON.parse(res);
-                    var bank = me.bank.find(function (x) {
-                        return x.code === data.BankCode
-                    });
 
-                    $('.tel').text('客服电话：' + bank.tel)
-                    $('#standAmount').val(data.StandAmount)
-                    $('.num').html(_core.String.formatBank(data.RealCardNumber, true))
-                    $('.balance').html('￥' + data.Balance).attr('data-balance', data.Balance)
-                    $('#withdrawBalance').attr('placeholder', '免手续费金额 ' + data.StandAmount)
-                    $('.banklogo').addClass('banklogo-' + bank.logocss).attr('title', data.BankName)
-                    $('.jBank').attr('data-cardid', data.RealCardNumber).attr('data-code', data.BankCode)
-                }
-            });
+            me.method.ajax(JSON.stringify({
+                M: api.method.withdrawInfo
+            }), function (data) {
+                var bank = core.Bank.bankDetail.find(function (x) {
+                    return x.code === data.BankCode
+                });
+
+                $('.tel').text('客服电话：' + bank.tel)
+                $('#standAmount').val(data.StandAmount)
+                $('.num').html(core.String.formatBank(data.RealCardNumber, true))
+                $('.balance').html('￥' + data.Balance).attr('data-balance', data.Balance)
+                $('#withdrawBalance').attr('placeholder', '免手续费金额 ' + data.StandAmount)
+                $('.banklogo').addClass('banklogo-' + bank.logocss).attr('title', data.BankName)
+                $('.jBank').attr('data-cardid', data.RealCardNumber).attr('data-code', data.BankCode)
+            })
         },
         calcPoundage: function (amount) {
             var me = this,

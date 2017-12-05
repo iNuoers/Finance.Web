@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
+	<%= require('html-loader!../layout/head-common.html')%>
+</head>
+<body>
+    <%= require('html-loader!../layout/nav.html')%>
+    <%= require('html-loader!../layout/header.html')%>
+    <div class="main-wrap">
+        <div class="main-section">
+            <div class="my-main-frame">
+                <%= require('html-loader!../layout/my-left-layout.html')%>
+                <div class="my-main-c ml20 w950">
+                    <div id="myDiv">
+                        <div id="content" style="text-align: center;">
+                            <div class="redirect">
+                                <div class="ajaxLoadDiv" style="height: 20px"></div>
+                                <p class="">正在转向第三方支付页面……</p>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                setTimeout(function () {
+                                    //$('form[name="myform"]').submit();
+                                }, 800, this);
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= require('html-loader!../layout/footer.html')%>
+</body>
+</html>

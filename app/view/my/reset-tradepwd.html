@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
+	<%= require('html-loader!../layout/head-common.html')%>
+</head>
+<body>
+    <%= require('html-loader!../layout/nav.html')%>
+    <%= require('html-loader!../layout/header.html')%>
+    <div class="main-wrap">
+        <div class="main-section">
+            <div class="my-main-frame">
+                <%= require('html-loader!../layout/my-left-layout.html')%>
+                <div class="my-main-c ml20 w950">
+                    <div class="my-box-wrap">
+                        <div class="my-box-title f-cb">
+                            <span>修改交易密码</span>
+                        </div>
+                        <!-- 内容页 S -->
+                        <div class="reset-cont">
+                            <!-- 修改交易密码 S -->
+                            <form class="submitForm" action="">
+                                <div class="reset-form js-frist-step">
+                                    <div class="reset-item f-hide">
+                                        <span class="reset-label">手机号：</span>
+                                        <span class="reset-text" id="sendMobile">138******41</span>
+                                    </div>
+                                    <div class="reset-item mb16 reset-verify f-hide">
+                                        <span class="reset-label"><label class="tsl">短信验证码：</label></span>
+                                        <input id="smsCode" class="i-text input input-primary" style="float:left" type="text" placeholder="请输入短信验证码" maxlength="6">
+                                        <span id="smsCodeRefer" style="display: inline-block;margin-left:20px;">
+                                            <a id="send" href="javascript:void(0);" class="btn btn-info get-verify-type" style="width:138px" title="发送验证码">发送验证码</a>
+                                            <a id="wait" href="javascript:void(0);" class="btn btn-info disabled get-verify-type" style="display:none;width:138px">60秒后重发</a>
+                                        </span>
+                                    </div>
+                                    <div class="reset-item ">
+                                        <span class="reset-label"><label class="tsl">原交易密码：</label></span>
+                                        <input id="oldPassword" class="i-text input input-primary" type="password" placeholder="请输入原交易密码" maxlength="6" datatype="n" nullmsg="请输入原交易密码" errormsg="请输入原交易密码">
+                                        <div class="input-tips">
+                                            <div class="msg-box err-msg msg-arr-l">
+                                                <div class="msg-cnt err-cnt"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reset-item ">
+                                        <span class="reset-label"><label class="tsl">新交易密码：</label></span>
+                                        <input id="newPassword" name="newPassword" class="i-text input input-primary" type="password" placeholder="请输入六位数字的新交易密码" maxlength="6" datatype="n" nullmsg="交易密码为6位数字" errormsg="交易密码为6位数字">
+                                        <div class="input-tips">
+                                            <div class="msg-box err-msg msg-arr-l">
+                                                <div class="msg-cnt err-cnt"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reset-item ">
+                                        <span class="reset-label"><label class="tsl">确认新密码：</label></span>
+                                        <input id="confirmPassword" class="i-text input input-primary" type="password" placeholder="请再次输入新交易密码" maxlength="6" datatype="*" recheck="newPassword" nullmsg="两次输入的密码不一致" errormsg="两次输入的密码不一致">
+                                        <div class="input-tips">
+                                            <div class="msg-box err-msg msg-arr-l">
+                                                <div class="msg-cnt err-cnt"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reset-item  last-item">
+                                        <div class="btnbar">
+                                            <button type="button" class="btn btn-info j-submit" title="提 交">提 交</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- 修改交易密码 E -->
+                        </div>
+                        <!-- 内容页 E -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= require('html-loader!../layout/footer.html')%>
+</body>
+</html>

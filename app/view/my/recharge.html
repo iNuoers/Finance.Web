@@ -22,36 +22,35 @@
                                 <div class="rech-items">
                                     <h3>账户余额：</h3>
                                     <div class="rech-row">
-                                        <span class="mr5">0.00</span>
+                                        <span class="mr5 balance">0.00</span>
                                         <span>元</span>
                                     </div>
                                 </div>
                                 <div class="rech-items">
                                     <h3>充值方式：</h3>
                                     <div class="limit-w mb10">
-                                        <div class="shortcut-card disable" id="secureBankCard" data-code="CCB" data-id="6921127">
-                                            <i class="banklogo banklogo-zgjsyh"></i>
-                                            <span class="card-info">尾号3930</span>
+                                        <div class="shortcut-card">
+                                            <i class="banklogo"></i>
+                                            <span class="card-info"></span>
                                         </div>
                                     </div>
                                     <div class="limit-w">
                                         <table class="table-quota">
                                             <tbody><tr>
-                                                <th style="text-align: center">单笔限额(元)</th>
-                                                <th style="text-align: center">每日限额(元)</th>
+                                                <th style="text-align:center">单笔限额(元)</th>
+                                                <th style="text-align:center">每日限额(元)</th>
                                             </tr>
                                             <tr>
-                                                <td style="text-align: center" id="onceLimitAmount">300000</td>
-                                                <td style="text-align: center">2000000</td>
+                                                <td style="text-align:center" id="onceLimitAmount"></td>
+                                                <td style="text-align:center" id="dayLimitAmount"></td>
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     <!-- 银行出现异常时的提示 S -->
-                                    <div class="mt10" id="rechargeTips">
-                                        <div class="page-tooltips ilblock" style="min-width: 233px;">
+                                    <div class="mt10 f-hide" id="rechargeTips">
+                                        <div class="page-tooltips ilblock">
                                             <div class="inner">
-                                                <i class="icon icon-info-s"></i>
-                                                <span>今日维护</span>
+                                                <span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -60,18 +59,21 @@
                                 <div class="rech-items">
                                     <h3>充值金额：</h3>
                                     <div class="limit-w sum-input2 symbol-model2">
-                                        <input type="text" class="i-text input-primary" id="amountQuickPay" autocomplete="off" placeholder="本次最多可充值300000" maxlength="10">
+                                        <input type="text" class="i-text input-primary" id="amountQuickPay" autocomplete="off" placeholder="请输入充值金额" maxlength="10">
                                         <span class="symbol">元</span>
                                     </div>
                                 </div>
                                 <div class="rech-submit">
-                                    <a href="javascript:;" class="btn btn-info" id="submitQuickRechargeBtn" title="充值">充值</a>
+                                    <a href="javascript:;" class="btn btn-info" id="submitBtn" title="充值">充值</a>
+                                </div>
+                                <div class="rech-submit mt10">
+                                    <span style="color:red" class="err-tips"></span>
                                 </div>
                             </div>
                             <!-- 温馨提示 S-->
                             <div class="rech-prompt mt50">
                                 <h3 class="ci-cont-hd">温馨提示</h3>
-                                <p>1. 添加快捷支付银行卡后，无需开通网银也可完成充值<br>2. 每位用户只能添加一张快捷支付银行卡，后续将只可提现至该银行卡内<br>3. 账户可用余额、活期和黄金总额小于等于100元，待收本息为0以及待还款金额为0后才能更换该银行卡<br>4. 当日充值的资金，不能当日提取<br>5. 充值完全免费，并为每位用户提供<a href="https://www.xiaoying.com/safe/info" target="_blank">账户安全险</a></p>
+                                <p>1. 每位用户只能添加一张快捷支付银行卡，后续将只可提现至该银行卡内<br>2. 本次充值第三方支付所收取的手续费由房金网为您垫付<br>3. 充值成功满7天后提现可免提现手续费，若未满7天内提现则提现手续费按提现金额3‰收取，手续费低于2元时按照2元收取</p>
                             </div>
                             <!-- 温馨提示 E-->
                         </div>

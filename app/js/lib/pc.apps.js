@@ -4,27 +4,27 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 20:02:00 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-31 13:32:59
+ * @Last Modified time: 2017-12-05 10:57:56
  */
 
-var FJW = require('js_path/lib/pc.core.js')
-FJW.Namespace('Config')
-FJW.Config.data = {}
-FJW.Config.init = function () {
-
+require('js_path/plugins/layer/skin/default/layer.css')
+require('js_path/plugins/layer/layer.js')
+var core = require('js_path/lib/pc.core.js')
+core.Namespace('Config')
+core.Config.data = {}
+core.Config.init = function () {
     $('[data-selector="online-service"]').on('click', function () {
-        return FJW.Service.onlineCall(),
-            !1
+
     });
     $(".main-section,.main-wrap").delegate("a[data-href],div[data-href]", "click", function (e) {
         if ($(this).data("href") && !$(this).data("preventdefault")) {
             e.stopPropagation();
             var url = $(this).data("href");
-            url = (url.indexOf('http://') >= 0 || url.indexOf('https://') >= 0) ? url : FJW.Env.domain + FJW.Env.wwwRoot + url;
+            url = (url.indexOf('http://') >= 0 || url.indexOf('https://') >= 0) ? url : core.Env.domain + core.Env.wwwRoot + url;
             var i = $(this).data("title"), needLogin = $(this).data("needlogin");
-            
+
             if (needLogin)
-                FJW.User.requireLogin(function () {
+                core.User.requireLogin(function () {
                     if (url) location.href = url;
                 })
             else {
@@ -46,19 +46,19 @@ FJW.Config.init = function () {
         }, 500)
     });
 }
-FJW.Config.generateId = function () {
-    return 'AUTOID__' + (FJW.Config.data.generateId++).toString(36)
+core.Config.generateId = function () {
+    return 'AUTOID__' + (core.Config.data.generateId++).toString(36)
 }
-FJW.User.isLogin = function () {
+core.User.isLogin = function () {
     return $.ajax({
-        url: FJW.Env.apiHost,
+        url: core.Env.apiHost,
         async: false,
         type: "post",
         dataType: "json",
         data: JSON.stringify({
             M: "ValidateToken",
             D: JSON.stringify({
-                Token: FJW.Cookie.get('f.token')
+                Token: core.Cookie.get('f.token')
             })
         }),
         success: function (res) {
@@ -74,144 +74,143 @@ FJW.User.isLogin = function () {
         }
     }), window.user.isLogin;
 }
-FJW.Namespace('Project')
-FJW.Project.countdown = function (e) {
-    var t,
-        n,
-        a = this,
-        o = e.serverTime,
-        r = e.startTime,
-        i = null,
-        c = function (e) {
-            return e < 10 ? '0' + e : e
-        };
-    if (r > o) {
-        var l = e.eleShowTime,
-            s = new Date(r - o);
-        t = s.getMinutes(),
-            n = s.getSeconds(),
-            l.html(c(t) + '分' + c(n) + '秒后开售'),
-            i = setInterval(function () {
-                if (--n, 0 == n ? --t : n < 0 && (n = 59), t < 0) return clearInterval(i),
-                    l.html('立即申购').addClass('btn-warning'),
-                    e.callback && e.callback.call(a),
-                    !1;
-                var o = c(t) + '分' + c(n) + '秒后开售';
-                l.html(o).val(o)
-            }, 1000)
-    }
+core.Namespace('Message')
+/**
+ * 
+ * @param {} message 
+ * @param {} time 
+ * @returns {} 
+ */
+core.Message.alert = function (message, time) {
+    layer.msg(message, {
+        time: time ? time : 3000
+    });
 }
-FJW.Project.profit = function (e) {
-    var t = function (e, t) {
-        return Math.round(e * Math.pow(10, t)) / Math.pow(10, t)
-    },
-        n = e.rate / 1200;
-    if ('undefined' != e.shortTerm && void 0 != e.shortTerm && '' != e.shortTerm && e.shortTerm || (e.shortTerm = void 0), '1' == e.type && !e.shortTerm) {
-        var a = Math.pow(1 + n, e.timeLength),
-            o = e.amount * (n * a) / (a - 1);
-        o = t(o, 2);
-        var r,
-            i,
-            c = 0,
-            l = 0,
-            s = 0,
-            m = e.amount;
-        for (c = 0; c < e.timeLength; c++) r = t(m * n, 2),
-            i = o - r,
-            m -= i,
-            c == e.timeLength - 1 ? (m = e.amount - s, (r = o - m) < 0 && (r = 0)) : s += i,
-            l += r;
-        return l = t(l, 2)
-    }
-    return '5' != e.type || e.shortTerm ? '10' != e.type && '15' != e.type || e.shortTerm ? e.shortTerm ? e.amount * (e.rate / 100) * e.shortTerm / 365 : void 0 : e.amount * (e.rate / 100) * e.timeLength / 365 : 'debt' == e.projectType ? e.loanRate / 1200 * e.copies * e.minInvestUnit * e.timeLength + e.copies * e.minInvestUnit - e.amount : n * e.amount * e.timeLength
+/**
+ * 
+ * @param {} message 
+ * @returns {} 
+ */
+core.Message.error = function (title, message, time) {
+    layer.open({
+        btn: [],
+        icon: 2,
+        title: title ? title : "系统提示",
+        time: time ? time : 3000,
+        content: message
+    });
 }
-FJW.Namespace('RechargeBind')
-FJW.RechargeBind.getBankInfo = function (e, t) {
-    var n = this;
-    $.ajax({
-        url: FJW.Env.wwwRoot + 'usercenter/yeepay/bankcardlist.shtml',
-        type: 'post',
-        data: {
-            bankCard: e
+/**
+ * 
+ * @param {} message 
+ * @returns {} 
+ */
+core.Message.success = function (title, message, ok, cancel, time) {
+    layer.open({
+        icon: 1,
+        title: title ? title : "系统提示",
+        content: message,
+        time: time ? time : 3000,
+        yes: function () {
+            if (ok)
+                ok();
         },
-        dataType: 'json',
-        cache: !1,
-        success: function (e) {
-            0 == e.code ? t && t.call(n, e.data) : $.dialog.alert(e.message)
+        cancel: function () {
+            if (cancel)
+                cancel();
         }
-    })
+    });
 }
-FJW.RechargeBind.bankDetail = {
-    BKCH: {
-        name: '中国银行',
-        tel: 95566
-    },
-    PCBC: {
-        name: '建设银行',
-        tel: 95533
-    },
-    ICBK: {
-        name: '工商银行',
-        tel: 95588
-    },
-    CIBK: {
-        name: '中信银行',
-        tel: 95558
-    },
-    ABOC: {
-        name: '农业银行',
-        tel: 95599
-    },
-    MSBC: {
-        name: '民生银行',
-        tel: 95568
-    },
-    EVER: {
-        name: '光大银行',
-        tel: 95595
-    },
-    GDBK: {
-        name: '广发银行',
-        tel: 95508
-    },
-    SPDB: {
-        name: '浦发银行',
-        tel: 95528
-    },
-    HXBK: {
-        name: '华夏银行',
-        tel: 95577
-    },
-    FJIB: {
-        name: '兴业银行',
-        tel: 95561
-    },
-    SZDB: {
-        name: '平安银行',
-        tel: 95511
-    },
-    PSBC: {
-        name: '邮储银行',
-        tel: 95580
-    },
-    BJCN: {
-        name: '北京银行',
-        tel: 95526
-    }
+core.Namespace('Bank')
+core.Bank.bankDetail = [{
+    code: 'ICBC',
+    name: '中国工商银行',
+    logocss: 'zggsyh',
+    tel: '95588'
+}, {
+    code: 'ABC',
+    name: '中国农业银行',
+    logocss: 'zgnyyh',
+    tel: '95599'
+}, {
+    code: 'BOC',
+    name: '中国银行',
+    logocss: 'zgyh',
+    tel: '95566'
+}, {
+    code: 'CCB',
+    name: '中国建设银行',
+    logocss: 'zgjsyh',
+    tel: '95533'
+}, {
+    code: 'BCOM',
+    name: '中国交通银行',
+    logocss: 'jtyh',
+    tel: '95559'
+}, {
+    code: 'PSBC',
+    name: '中国邮政储蓄银行',
+    logocss: 'zgyzcxyh',
+    tel: '95580'
+}, {
+    code: 'SPDB',
+    name: '浦发银行',
+    logocss: 'pfyh',
+    tel: '95528'
+}, {
+    code: 'HXB',
+    name: '华夏银行',
+    logocss: 'hxyh',
+    tel: '95577'
+}, {
+    code: 'CIB',
+    name: '兴业银行',
+    logocss: 'xyyh',
+    tel: '95561'
+}, {
+    code: 'CITIC',
+    name: '中信银行',
+    logocss: 'zxyh',
+    tel: '95558'
+}, {
+    code: 'CEB',
+    name: '中国光大银行',
+    logocss: 'zggdyh',
+    tel: '95595'
+}, {
+    code: 'PAB',
+    name: '平安银行',
+    logocss: 'payh',
+    tel: '95511'
+}, {
+    code: 'SHB',
+    name: '上海银行',
+    logocss: 'shyh',
+    tel: '95594'
+}, {
+    code: 'CMBC',
+    name: '民生银行',
+    logocss: 'zgmsyh',
+    tel: '95568'
+}, {
+    code: 'GDB',
+    name: '广发银行',
+    logocss: 'gfyh',
+    tel: '95508'
+}, {
+    code: 'CMB',
+    name: '招商银行',
+    logocss: 'zsyh',
+    tel: '95555'
+}]
+core.Namespace('scrollTop')
+core.scrollTop.config = {}
+core.scrollTop.init = function () {
+    core.Page.pageHeight() > 500 && void 0 === core.scrollTop.config.hide
 }
-FJW.Namespace('Service')
-FJW.Service.onlineCall = function () {
-    $('#UDESK_BTN a, #udesk_btn a').trigger('click')
-}
-FJW.Namespace('scrollTop')
-FJW.scrollTop.config = {}
-FJW.scrollTop.init = function () {
-    FJW.Page.pageHeight() > 500 && void 0 === FJW.scrollTop.config.hide
-}
-
 $(function () {
-    FJW.Config.init()
-    FJW.scrollTop.init()
+    core.Config.init()
+    core.scrollTop.init()
 
     // 用于普通页面的跨框架脚本攻击(CFS)防御
     if (top.location != self.location) top.location.href = self.location;
@@ -236,7 +235,7 @@ $(function () {
 
     function timeOut() {
         if (window.isLogin) {
-            FJW.User.logOut()
+            core.User.logOut()
             alert('您已超时 请重新登录')
         }
     }
@@ -250,4 +249,4 @@ $(function () {
     });
 });
 
-module.exports = FJW;
+module.exports = core;

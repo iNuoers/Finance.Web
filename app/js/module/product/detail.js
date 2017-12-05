@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-07 18:06:12 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-31 13:33:06
+ * @Last Modified time: 2017-12-04 15:38:29
  */
 'use strict';
 require('css_path/product/detail.css')
@@ -60,7 +60,7 @@ fjw.pc.product_detail = {
                 data: data,
                 type: 'post',
                 success: function (data) {
-                    callback && callback.call(this, JSON.parse(data))
+                    callback && callback.call(this, (data != '' && JSON.parse(data)))
                 },
                 error: function () {
 
