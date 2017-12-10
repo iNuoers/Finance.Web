@@ -4,14 +4,12 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-07-20 09:12:27
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-10-05 10:51:55
+ * @Last Modified time: 2017-12-09 16:06:25
  */
 
 // https://www.lianlianmoney.com/account/register
 'use strict';
 require('../../../css/user/register');
-var _user   = require('../../service/user-service.js');
-var _f      = require('../../lib/f.core.js');
 
 // 表单里的错误提示
 var formError = {

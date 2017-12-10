@@ -1,24 +1,23 @@
+<!-- https://www.duanrong.com/ -->
 <!doctype html>
-<html lang="zh-cn">
-
+<html lang="zh-CN">
 <head>
     <title>房金网</title>
     <%= require('html-loader!./layout/head-common.html')%>
 </head>
-
 <body>
     <div class="toptips f-hide">
-        <div class="toptips-wrap">
+        <div class="toptips-box">
             <strong>【温馨提醒】</strong>
-            <span>尊敬的小赢用户：接银行最新通知，自2017年11月16日开始，平台暂停民生银行添加银行卡和充值服务，恢复后另行通知。民生银行提现服务正常运行。&nbsp; &nbsp; &nbsp;&nbsp;如您有充值或还款需求，建议您更换银行卡或者通过微信充值、网银充值等方式进行操作。给您带来的不便，敬请谅解。感谢您对小赢理财的关注与支持！&nbsp;<a href="javascript:;" class="btn-close">关闭</a></span>
+            <span>尊敬的用户：接银行最新通知，自2017年11月16日开始，平台暂停民生银行添加银行卡和充值服务，恢复后另行通知。民生银行提现服务正常运行。&nbsp; &nbsp; &nbsp;&nbsp;如您有充值或还款需求，建议您更换银行卡或者通过微信充值、网银充值等方式进行操作。给您带来的不便，敬请谅解。感谢您的关注与支持！&nbsp;<a href="javascript:;" class="btn-close">关闭</a></span>
         </div>
     </div>
     <%= require('html-loader!./layout/nav.html')%>
     <%= require('html-loader!./layout/header.html')%>
-    <div class="main-wrap main-section">
+    <div class="main-wrap">
         <!--banner start https://www.fjw.cn/-->
-        <div class="fjw-banner rel f-cb">
-            <div class="bannner-container rel" id="banner-slidebox"></div>
+        <div class="banner rel f-cb">
+            <div class="bannner-box rel"></div>
             <div class="abs reg-zone z10">
                 <!--未登录状态-->
                 <div class="reg-zone-unlogin">
@@ -39,7 +38,7 @@
                             <span class="ads-icons i-guarantee">1亿+</span> 第三方担保
                         </a>
                     </div>
-                    <a class="reg-zone-btn" rel="nofollow" href="javascript:;" data-href="/user/register.html">领取新手礼包</a>
+                    <a class="btn btn-info reg-zone-btn" rel="nofollow" href="javascript:;" data-href="/user/register.html">领取新手礼包</a>
                     <div class="tc mt10">
                         已有账号？<a class="fz14 color-blue-text" rel="nofollow" href="javascript:;" data-href="/user/login.html">立即登录</a>
                     </div>
@@ -59,25 +58,27 @@
                         <div class="f-fl lastTime mb10">上次登录：<span></span></div>
                         <div class="f-fl lastDevice">登录设备：<span></span></div>
                     </dl>
-                    <a class="reg-zone-btn" rel="nofollow" href="javascript:;" data-href="/my/index.html">进入我的账户</a>
+                    <a class="btn btn-info reg-zone-btn" rel="nofollow" href="javascript:;" data-href="/my/index.html">进入我的账户</a>
                 </div>
             </div>
         </div>
         <!--banner end-->
-        <!--通知 start-->
-        <div class="fjw-notice">
-            <div class="main-section fjw-notice-container">
+
+        <!--公告 start-->
+        <div class="notice">
+            <div class="main-section notice-box">
                 <a class="f-fl fz14 text-aaa notice-item" href="javascript:;">
                     公告：<span></span>
                 </a>
                 <a class="f-fr fz14 text-aaa" href="javascript:;" data-href="/about/notice.html">查看更多</a>
             </div>
         </div>
-        <!--通知 end-->
+        <!--公告 end-->
+
         <!--资金数据滚动 start-->
-        <div class="fjw-databox">
+        <div class="circle">
             <div class="main-section">
-                <div class="fjw-circle">
+                <div class="circle-box">
                     <div class="col-lg-2">
                         <a rel="nofollow">
                             <dl>
@@ -134,9 +135,10 @@
             </div>
         </div>
         <!--资金数据滚动 end-->
+
         <div class="main-section">
             <!--新手引导区-->
-            <div class="main-section mt20 fjw-page1">
+            <div class="pages page1">
                 <div class="newer-list">
                     <ul>
                         <li class="newer-reward animate">
@@ -148,7 +150,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="newer-bid animate" id="J_newer_bid_content">
+                        <li class="newer-bid animate">
                             <a href="javascript:;" data-href="/product/detail.html?id=3">
                                 <div class="newer-bid-title">新手专享</div>
                                 <div class="newer-bid-content">
@@ -178,22 +180,22 @@
             </div>
 
             <!-- page2 热门产品 start-->
-            <div class="fjw-pages mt20 fjw-page2">
-                <h3 class="fjw-page-title">
+            <div class="pages page2">
+                <h3 class="page-tit">
                     开启财富之旅
                     <small class="fz14 text-999 ml5">多样选择&nbsp;&nbsp;多样选择</small>
                     <a class="fz14 text-aaa f-fr" href="javascript:;" data-href="/product/index.html">查看更多</a>
                 </h3>
-                <div class="fjw-page2-container national"></div>
-                <div class="fjw-page2-container current"></div>
+                <div class="national"></div>
+                <div class="current"></div>
             </div>
             <!-- page2 热门产品 end-->
 
             <!-- page3 新闻公告 start-->
-            <div class="fjw-pages fjw-page3">
+            <div class="pages page3">
                 <div class="fjw-page7-container">
                     <div class="col-lg-4 mr15">
-                        <h3 class="fjw-page-title1">
+                        <h3 class="page-tit-s">
                             <span class="f-fl">公司大事记</span>
                             <a class="fz14 text-aaa f-fr" href="javascript:;" data-href="/about/event.html">查看更多</a>
                         </h3>
@@ -229,7 +231,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <h3 class="fjw-page-title1">
+                        <h3 class="page-tit-s">
                             <span class="f-fl">媒体报道</span>
                             <a class="fz14 text-aaa f-fr" href="javascript:;" data-href="/about/media.html">查看更多</a>
                         </h3>
@@ -269,8 +271,8 @@
             <!-- page3 新闻公告 end-->
 
             <!-- page4 合作伙伴 start-->
-            <div class="fjw-pages main-section fjw-page4">
-                <h3 class="fjw-page-title">合作伙伴
+            <div class="pages main-section page4">
+                <h3 class="page-tit">合作伙伴
                     <small class="fz14 text-999 ml5">（房金网支持多家支付机构）</small>
                 </h3>
                 <div class="fjw-page4-container">
@@ -305,7 +307,7 @@
                 <div class="pic"></div>
                 <div class="text">新手礼包</div>
             </div>
-            <div class="gift-container" style="display: none;">
+            <div class="gift-container" style="display:none;">
                 <div class="mask"style="display: none;"></div>
                 <div class="dialog minDialog" style="width: 63px; height: 75px; top: 463px; left: 1588.5px;">
                     <div class="close"></div>
@@ -317,116 +319,9 @@
     <!--左侧AD-->
     <div class="left-banner" style="bottom:55px!important;display:block;">
         <div class="pic" style="height:320px!important;">
-            <i class="close fa fa-close" style="top:1px!important;left:117px!important;"></i>
+            <i class="close" style="top:1px!important;left:117px!important;"></i>
         </div>
     </div>
-    <style>
-    #gift {
-        width: 63px;
-        height: 75px;
-        position: fixed;
-        bottom: 100px;
-        right: 50%;
-        margin-right: -700px;
-        text-align: center;
-        cursor: pointer;
-        z-index: 9
-    }
-    #gift .pic {
-        width: 63px;
-        height: 59px;
-        background: url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift_e281967.png?__sprite) no-repeat;
-        background-size: 64px 53px
-    }
-    @media (-webkit-min-device-pixel-ratio: 1.5),(min--moz-device-pixel-ratio:1.5),(min-resolution:1.5dppx) {
-        #gift .pic {
-            background:url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift@2x_b9278f1.png?__sprite) no-repeat;
-            background-size: 64px 53px
-        }
-    }
-
-    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution:2 * 96dpi) {
-        #gift .pic {
-            background:url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift@2x_b9278f1.png?__sprite) no-repeat;
-            background-size: 64px 53px
-        }
-    }
-    #gift .text {
-        color: #fd5133;
-        font-size: 14px;
-        line-height: 16px;
-        height: 16px;
-        font-weight: 700
-    }
-    .gift-container {
-        z-index: 999;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: none
-    }
-    .gift-container .mask {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #000;
-        opacity: .8;
-        filter: alpha(opacity=80)
-    }
-    .gift-container .dialog {
-        width: 63px;
-        height: 75px;
-        background: url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift-dialog_9a8e161.png?__sprite) no-repeat;
-        background-size: 100% 100%;
-        position: fixed
-    }
-    @media (-webkit-min-device-pixel-ratio: 1.5),(min--moz-device-pixel-ratio:1.5),(min-resolution:1.5dppx) {
-        .gift-container .dialog {
-            background:url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift-dialog@2x_fe6e474.png?__sprite) no-repeat;
-            background-size: 100% 100%
-        }
-    }
-
-    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution:2 * 96dpi) {
-        .gift-container .dialog {
-            background:url(https://s2-8.bdimg.com/assets/pc/page/home/images/gift-dialog@2x_fe6e474.png?__sprite) no-repeat;
-            background-size: 100% 100%
-        }
-    }
-    .gift-container .dialog .close {
-        position: absolute;
-        right: 60px;
-        top: 44px;
-        width: 25px;
-        height: 25px;
-        cursor: pointer
-    }
-    .gift-container .dialog .button {
-        cursor: pointer;
-        position: absolute;
-        left: 126px;
-        bottom: 33px;
-        width: 250px;
-        height: 45px
-    }
-    @media screen and (max-width: 1450px) {
-        #gift {
-            right:20px;
-            margin-right: 20px
-        }
-    }
-
-    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) {
-        .product-current .btn-current {
-            line-height: 40px
-        }
-    }
-    
-    </style>
     <%= require('html-loader!./layout/footer.html')%>
 </body>
 

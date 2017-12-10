@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-23 11:30:40 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-12-04 15:39:16
+ * @Last Modified time: 2017-12-08 15:56:38
  */
 'use strict';
 require('css_path/about/about')
@@ -28,8 +28,26 @@ fjw.pc.notice = {
     onPageLoad: function () {
         var me = this;
         me.method.getList()
+        $("#about_nav_notice").parent().addClass('current');
+        
         var name = location.href.split('/').pop().replace(/\.html/, '');
-        $("#about_nav_" + name).parent().addClass('current');
+
+        if (Number(core.String.getQuery('id')) > 1) {
+            $('.time').html('发布时间： ' + core.Storage.getItem('notice_time'))
+            $('.title').html(core.Storage.getItem('notice_title'))
+            $('.notice-detail').html(core.Storage.getItem('notice_con'))
+        } else {
+            if (name.indexOf('detail') > 0)
+                window.location.href = core.Env.domain + core.Env.wwwRoot + '/about/notice.html';
+        }
+    },
+    bindEvent: function () {
+        var me = this;
+        $('.notice-item').on('click', function () {
+            core.Storage.setItem('notice_con', $(this).data('con'))
+            core.Storage.setItem('notice_time', $(this).data('time'))
+            core.Storage.setItem('notice_title', $(this).data('title'))
+        })
     },
     method: {
         ajax: function (data, callback) {
@@ -59,9 +77,9 @@ fjw.pc.notice = {
                 var tpl = '<%if(grid.length>0) {%>' +
                     '    <%for(i = 0; i < grid.length; i ++) {%>' +
                     '        <% var data = grid[i]; %>' +
-                    '        <p class="f-cb">' +
+                    '        <p class="notice-item f-cb" data-id="<%= data.ID %>" data-time="<%= data.CreateTimeStr%>" data-title="<%= data.Title %>" data-con="<%= data.Content %>">' +
                     '            <span><%= data.CreateTimeStr%></span>' +
-                    '            <a href="javascript:;" data-href="/about/notice-detail.html?id=<%= data.ID %>" target="_blank">• 【平台公告】<%= data.Title %></a>' +
+                    '            <a href="javascript:;" data-href="/about/notice-detail.html?id=<%= data.ID %>">• <%= data.Title %></a>' +
                     '        </p>' +
                     '     <%}%>' +
                     '<%}%>';
@@ -70,15 +88,14 @@ fjw.pc.notice = {
                 html = doT(tpl, data);
                 $listCon.html(html);
 
-
                 // 处理分页数据                
                 if (data.total > 1) {
                     me.method.setpager(data.records)
                 } else {
                     $('.page').hide();
                 }
-            }, function (errMsg) {
-                $listCon.html('<p class="err-tip">加载失败，请刷新后重试</p>');
+
+                me.bindEvent()
             });
         },
         setpager: function (records) {

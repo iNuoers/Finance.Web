@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-16 17:21:28 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-12-05 17:20:32
+ * @Last Modified time: 2017-12-09 16:11:51
  */
 'use strict';
 require('css_path/index.css')
@@ -40,6 +40,10 @@ fjw.pc.home = {
         var me = this;
 
         $('#nav_home').addClass('active');
+
+        $('.btn-close').on('click',function(){
+            $('.toptips').hide()
+        })
 
         var LeftBanner = '.left-banner';
         $(LeftBanner).find('.close').click(function () {
@@ -171,10 +175,10 @@ fjw.pc.home = {
                     '         </div>' +
                     '<%}%>';
                 var html = doT(tpl, data);
-                $('#banner-slidebox').html(html);
+                $('.bannner-box').html(html);
 
                 $('.memcount').html(data.statistical.totalMemberCountData)
-                $(".fjw-banner").slide({
+                $(".banner").slide({
                     mainCell: ".bd ul",
                     effect: "fold",
                     autoPlay: true,

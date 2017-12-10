@@ -63,8 +63,13 @@
 /* notice */
 .notice-list p{padding:0 30px 0 20px;line-height:45px;overflow:hidden;border-bottom:1px solid #e6e6e6}
 .notice-list p:first-child{border-top:none}
-.notice-list a{float:left}
+.notice-list a{float:left;color:#666}
 .notice-list span{float:right;color:#a5a5a5}
+.notice-box dl{text-align:center;border-bottom:1px dashed #ddd}
+.notice-box .title{font-size:26px;line-height:56px;font-weight:400}
+.notice-box .time{color:#666;font-size:16px;line-height:54px}
+.notice-detail{line-height:30px}
+.notice-detail img{width:100%;height:100%}
 
 /* commerce */
 .table-striped{display:block;width:80%;text-align:center;margin:0 auto}

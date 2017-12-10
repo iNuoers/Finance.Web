@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-07 18:06:12 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-12-04 15:38:29
+ * @Last Modified time: 2017-12-09 16:20:30
  */
 'use strict';
 require('css_path/product/detail.css')
@@ -17,7 +17,6 @@ var apps = require('js_path/lib/pc.apps.js')
 var header = require('js_path/lib/header.js')
 var api = require('js_path/lib/f.data.js')
 
-var _tips = require('js_path/lib/f.tips.js')
 var _product = require('js_path/service/product-service.js')
 var _pagination = require('js_path/plugins/pagination/jquery.pagination.js')
 
@@ -46,9 +45,6 @@ fjw.pc.product_detail = {
     },
     bindEvent: function () {
         var me = this;
-
-        // 气泡框
-        $('.tool-tips').tips();
 
         // tab选项卡添加事件
         me.method.tabAddEvent($('.tab-nav'), $('.tab-cont'));

@@ -34,7 +34,7 @@ const getHtmlConfig = function (name, title) {
 const config = {
     // 入口文件
     entry: {
-        'f.vendor': ['./app/js/app.js', './app/js/lib/f.data.js', './app/js/lib/f.core.js', './app/js/lib/f.head.js'],
+        'f.vendor': ['./app/js/app.js'],
 
         'index': ['./app/js/module/index.js'],
         'product/index': ['./app/js/module/product/list.js'],

@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 14:42:02 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-12-03 19:38:18
+ * @Last Modified time: 2017-12-09 16:09:37
  */
 'use strict'
 
@@ -955,6 +955,7 @@ FJW.User.setCache = function (data) {
 FJW.User.logOut = function () {
     FJW.Cookie.del('f.token', '/')
     FJW.Cookie.del('f.phone', '/')
+    FJW.Cookie.del('f.avator', '/')
     FJW.Cookie.del('f.login-time', '/')
     FJW.Cookie.del('f.login-device', '/')
 

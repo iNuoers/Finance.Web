@@ -1,9 +1,11 @@
 /*
-* @Author: mr.ben(66623978) https://github.com/iNuoers/
-* @Date:   2017-09-01 13:05:42
-* @Last Modified by:   mr.ben
-* @Last Modified time: 2017-09-01 13:05:42
-*/
+ * @Author: mr.ben (肖工)  
+ * @QQ：66623978 
+ * @Github：https://github.com/iNuoers/ 
+ * @Create time: 2017-09-01 13:05:42
+ * @Last Modified by: mr.ben
+ * @Last Modified time: 2017-12-09 16:01:50
+ */
 'use strict';
 
 // 采用闭包形式

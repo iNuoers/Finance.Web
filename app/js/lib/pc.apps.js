@@ -4,11 +4,14 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 20:02:00 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-12-05 10:57:56
+ * @Last Modified time: 2017-12-09 18:46:08
  */
 
 require('js_path/plugins/layer/skin/default/layer.css')
 require('js_path/plugins/layer/layer.js')
+
+// https://www.bxjr.com/lc/invest/detail/77687.html  全局 layer  定时器
+
 var core = require('js_path/lib/pc.core.js')
 core.Namespace('Config')
 core.Config.data = {}
@@ -16,7 +19,7 @@ core.Config.init = function () {
     $('[data-selector="online-service"]').on('click', function () {
 
     });
-    $(".main-section,.main-wrap").delegate("a[data-href],div[data-href]", "click", function (e) {
+    $("body").delegate("[data-href]", "click", function (e) {
         if ($(this).data("href") && !$(this).data("preventdefault")) {
             e.stopPropagation();
             var url = $(this).data("href");
@@ -35,15 +38,53 @@ core.Config.init = function () {
             }
         }
     });
-    $(window).scroll(function () {
-        $(document).scrollTop() > 100 ? ($("#fixed-tool-box").css("height", "auto"),
-            $("#fixed-tool-box .tool-top").show()) : ($("#fixed-tool-box").css("height", "210px"),
-                $("#fixed-tool-box .tool-top").hide())
+
+    $(window).bind('scroll', function () {
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > 525) {
+            $('.wdg-fjw-second-header').addClass('tdw-nav-suspension');
+            setTimeout(function () {
+                $('.wdg-fjw-second-header').addClass('tdw-nav-suspension-down');
+            }, 100)
+        } else if (scrollTop < 525) {
+            $('.wdg-fjw-second-header').removeClass('tdw-nav-suspension');
+            setTimeout(function () {
+                $('.wdg-fjw-second-header').removeClass('tdw-nav-suspension-down');
+            }, 100)
+        }
+    });
+
+    //返回顶部
+    $(window).bind('scroll', function () {
+        var scrollTop = $(window).scrollTop();
+
+        //显示返回顶部	
+        if (scrollTop > 500) {
+            $('.tool-backtop').fadeIn(300);
+        } else {
+            $('.tool-backtop').fadeOut(300);
+        }
     })
-    $("#fixed-tool-box .tool-top").click(function () {
-        $("html,body").animate({
-            "scrollTop": 0
-        }, 500)
+    $('#tool-backtop').on('click', function () {
+        $('html,body').stop().animate({
+            scrollTop: 0
+        }, 500);
+    });
+
+    //友情链接展开
+    $('.tdw-footer-links .hide-btn').on('click', function () {
+        var autoHeight = $(this).parents('.tdw-footer-links').find('ul').css('height', 'auto').height();
+        if ($(this).find('i').hasClass('i-arrow-up1')) {
+            $(this).html('隐藏<i class="tdw-icons i-arrow-down1"></i>');
+            $(this).parents('.tdw-footer-links').animate({
+                height: autoHeight
+            });
+        } else {
+            $(this).html('展开<i class="tdw-icons i-arrow-up1"></i>');
+            $(this).parents('.tdw-footer-links').animate({
+                height: '20px'
+            });;
+        }
     });
 }
 core.Config.generateId = function () {

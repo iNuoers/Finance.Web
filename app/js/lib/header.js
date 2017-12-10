@@ -4,13 +4,15 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 20:20:35 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-12-03 16:48:13
+ * @Last Modified time: 2017-12-09 16:03:10
  */
+'use strict'
+
 var core = require('js_path/lib/pc.core.js')
 !function ($) {
     var header = function () {
-        this.quickMenu = $('#header .site-nav');
-        this.root = $('#header');
+        this.quickMenu = $('.top-nav .site-nav');
+        this.root = $('.top-nav');
         this.isLogin = $('.F_isLogin');
         this.unLogin = $('.F_unLogin');
         this.userIcon = $('.F_userIcon');
