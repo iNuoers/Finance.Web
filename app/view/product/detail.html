@@ -9,192 +9,188 @@
 <body>
     <%= require('html-loader!../layout/nav.html')%>
     <%= require('html-loader!../layout/header.html')%>
-    <div class="main-wrap main pt10 pb15">
-        <div class="main-section">
-            <div class="f-product-cont f-cb">
-                <div class="cont-inner">
-                    <div class="p-cont-top">
-                        <div class="p-title">
-                            <div class="p-title-inner">
-                                <h2 class="productName">--</h2>
-                                <a class="link" href="javascript:;">购买协议（范本）</a>
+    <div class="main-wrap pt10 pb10">
+        <div class="product-box main-section">
+            <div class="product-info">
+                <div class="pro-tit">
+                    <div class="pro-tit-inner">
+                        <h2 class="productName">--</h2>
+                        <a class="link" href="javascript:;">购买协议（范本）</a>
+                    </div>
+                </div>
+                <div class="p-cont mb15 f-cb">
+                    <div class="d-r f-fr">
+                        <div class="dr-inner">
+                            <table class="proinfo">
+                                <tbody>
+                                    <tr>
+                                        <td class="d1">
+                                            <span>投资进度：</span>
+                                            <div class="jdt"><span></span></div><font>--%</font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="d2"><span>剩余份额：</span><strong>0.00元</strong></td>
+                                    </tr>
+                                    <tr class="f-hide">
+                                        <td class="d4">
+                                            <span>可用余额：</span>
+                                            <b>0.00元</b>
+                                            <a href="" class="link">充值</a>
+                                            <a href="javascript:;" class="link ml15" id="all">余额全部买入</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="dr-inputbar symbol-model f-hide">
+                                <input id="investAmount" type="text" class="i-text" placeholder="100元起投" maxlength="10">
+                                <span class="symbol">￥</span>
+                                <span id="ticketDesc" class="coupon-tag">
+                                    <span class="ctag-info jInfo"><i>+</i>-%</span>
+                                    <a href="javascript:;" class="ctag-close jClose" title="删除"></a>
+                                    <span class="clear"></span>
+                                </span>
                             </div>
-                        </div>
-                        <div class="p-cont mb15 f-cb">
-                            <div class="d-r f-fr">
-                                <div class="dr-inner">
-                                    <table class="proinfo">
-                                        <tbody>
-                                            <tr>
-                                                <td class="d1">
-                                                    <span>投资进度：</span>
-                                                    <div class="jdt"><span></span></div><font>--%</font>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="d2"><span>剩余份额：</span><strong>0.00元</strong></td>
-                                            </tr>
-                                            <tr class="f-hide">
-                                                <td class="d4">
-                                                    <span>可用余额：</span>
-                                                    <b>0.00元</b>
-                                                    <a href="" class="link">充值</a>
-                                                    <a href="javascript:;" class="link ml15" id="all">余额全部买入</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="dr-inputbar symbol-model f-hide">
-                                        <input id="investAmount" type="text" class="i-text" placeholder="100元起投" maxlength="10">
-                                        <span class="symbol">￥</span>
-                                        <span id="ticketDesc" class="coupon-tag">
-                                            <span class="ctag-info jInfo"><i>+</i>-%</span>
-                                            <a href="javascript:;" class="ctag-close jClose" title="删除"></a>
-                                            <span class="clear"></span>
-                                        </span>
+                            <div class="dr-tips">
+                                <!-- tips的模板扔这里 -->
+                                <div class="msg-box jInlineMsgBox f-hide">
+                                    <div class="msg-weak msg-inline">
+                                        <i class="icon-info-s"></i>
+                                        <div class="msg-cnt">您还未登录&nbsp;&nbsp;<a href="https://www.xiaoying.com/user/login" class="link" title="立即登录">立即登录</a></div>
                                     </div>
-                                    <div class="dr-tips">
-                                        <!-- tips的模板扔这里 -->
-                                        <div class="msg-box jInlineMsgBox f-hide">
-                                            <div class="msg-weak msg-inline">
-                                                <i class="icon-info-s"></i>
-                                                <div class="msg-cnt">您还未登录&nbsp;&nbsp;<a href="https://www.xiaoying.com/user/login" class="link" title="立即登录">立即登录</a></div>
-                                            </div>
-                                            <div id="expectedProfit" style="display: none"></div>
-                                        </div>
-                                        <!-- coupon selector -->
-                                        <div class="dr-coupon f-hide">
-                                            <div class="drc-change"><a id="ticketSelector" href="javascript:;">选择卡券<i class="arr"></i></a></div>
-                                            <div id="ticketContainer" class="drc-main f-hide">
-                                                <ul class="drc-list">
-                                                    <li class="drc-null">您没适用于当前项目的券</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="dr-btnbar">
-                                        <a href="javascript:;" class="btn btn-info disabled" title="立即购买">立即购买</a>
+                                    <div id="expectedProfit" style="display: none"></div>
+                                </div>
+                                <!-- coupon selector -->
+                                <div class="dr-coupon f-hide">
+                                    <div class="drc-change"><a id="ticketSelector" href="javascript:;">选择卡券<i class="arr"></i></a></div>
+                                    <div id="ticketContainer" class="drc-main f-hide">
+                                        <ul class="drc-list">
+                                            <li class="drc-null">您没适用于当前项目的券</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-l f-fl">
-                                <div class="dl-inner">
-                                    <ul class="proinfolist">
-                                        <li class="item p1">
-                                            <div class="name">
-                                                <b>预期年化收益率</b>
-                                                <i class="fa fa-question-circle-o" id="expectedRate" title=""></i></div>
-                                            <div class="info">
-                                                <strong>--%</strong>
-                                            </div>
-                                            <div class="line"></div>
-                                        </li>
-                                        <li class="item p2">
-                                            <div class="name"><b>项目期限</b></div>
-                                            <div class="info"><strong>--<span>天</span></strong></div>
-                                        </li>
-                                        <li class="item p3">
-                                            <div class="name"><b>起投金额</b></div>
-                                            <div class="info"><span>--元</span></div>
-                                        </li>
-                                        <li class="item p4">
-                                            <div class="name"><b>已成功投资</b></div>
-                                            <div class="info">--</div>
-                                            <div class="line"></div>
-                                        </li>
-                                        <li class="item p5">
-                                            <div class="name"><b>收益方式</b>
-                                                <i class="fa fa-question-circle-o"></i>
-                                            </div>
-                                            <div class="info"><strong><span class="fz18">--</span></strong></div>
-                                            <div class="line"></div>
-                                        </li>
-                                        <li class="item p6">
-                                            <div class="name"><b>起息时间</b></div>
-                                            <div class="info"><span>投资当日计息</span></div>
-                                            <div class="line"></div>
-                                        </li>
-                                        <li class="p-line"></li>
-                                    </ul>
-                                    <div class="dl-more">
-                                        <!-- 这里放更多的内容 -->
-                                        <div class="t-tips">
-                                            <span>房金网金额只显示小数点后两位，所有金额计算按小数点后六位计算！</span>
-                                        </div>
+                            <div class="dr-btnbar">
+                                <a href="javascript:;" class="btn btn-info disabled" title="立即购买">立即购买</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-l f-fl">
+                        <div class="dl-inner">
+                            <ul class="proinfolist">
+                                <li class="item p1">
+                                    <div class="name">
+                                        <b>预期年化收益率</b>
+                                        <i class="fa fa-question-circle-o" id="expectedRate" title=""></i></div>
+                                    <div class="info">
+                                        <strong>--%</strong>
                                     </div>
+                                    <div class="line"></div>
+                                </li>
+                                <li class="item p2">
+                                    <div class="name"><b>项目期限</b></div>
+                                    <div class="info"><strong>--<span>天</span></strong></div>
+                                </li>
+                                <li class="item p3">
+                                    <div class="name"><b>起投金额</b></div>
+                                    <div class="info"><span>--元</span></div>
+                                </li>
+                                <li class="item p4">
+                                    <div class="name"><b>已成功投资</b></div>
+                                    <div class="info">--</div>
+                                    <div class="line"></div>
+                                </li>
+                                <li class="item p5">
+                                    <div class="name"><b>收益方式</b>
+                                        <i class="fa fa-question-circle-o"></i>
+                                    </div>
+                                    <div class="info"><strong><span class="fz18">--</span></strong></div>
+                                    <div class="line"></div>
+                                </li>
+                                <li class="item p6">
+                                    <div class="name"><b>起息时间</b></div>
+                                    <div class="info"><span>投资当日计息</span></div>
+                                    <div class="line"></div>
+                                </li>
+                                <li class="p-line"></li>
+                            </ul>
+                            <div class="dl-more">
+                                <!-- 这里放更多的内容 -->
+                                <div class="t-tips">
+                                    <span>房金网金额只显示小数点后两位，所有金额计算按小数点后六位计算！</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="p-cont mb15 ">
-                        <div class="cont-inner">
-                            <ul class="tab-nav">
-                                <li class="tab-nav-item tab-nav-item-selected">
-                                    <div class="tab-title">项目描述</div>
-                                </li>
-                                <li class="tab-nav-item">
-                                    <div class="tab-title">资金保障</div>
-                                </li>
-                                <li class="tab-nav-item" id="investRecord">
-                                    <div class="tab-title">投资记录</div>
-                                </li>
-                            </ul>
-                            <div class="tab-cont p-cont mb30">
-                                <!-- 项目详情内容页 S -->
-                                <div id="investDetail" class="pro-info p-cont-main"></div>
-                                <!-- 项目详情内容页 E -->
+                </div>
+            </div>
+            <div class="p-cont mb15 ">
+                <div class="cont-inner">
+                    <ul class="tab-nav">
+                        <li class="tab-nav-item tab-nav-item-selected">
+                            <div class="tab-title">项目描述</div>
+                        </li>
+                        <li class="tab-nav-item">
+                            <div class="tab-title">资金保障</div>
+                        </li>
+                        <li class="tab-nav-item" id="investRecord">
+                            <div class="tab-title">投资记录</div>
+                        </li>
+                    </ul>
+                    <div class="tab-cont p-cont mb30">
+                        <!-- 项目详情内容页 S -->
+                        <div id="investDetail" class="pro-info p-cont-main"></div>
+                        <!-- 项目详情内容页 E -->
 
-                                <!-- 资金保障 S -->
-                                <div id="investRisk" class="pro-risk p-cont-main f-hide">
-                                    <h3 class="mb40">增信措施</h3>
-                                    <h3>可靠的项目渠道</h3>
-                                    <p>产品资金主要投资于一线城市地产优质项目，项目渠道可靠，房金网专业风控团队对项目实行跟踪管理，并对收益情况进行数据统计分析，多重风控审核保障资金安全。</p>
-                                    <h3>借款人足额房产抵押</h3>
-                                    <p>借款人以其自有的房产设定抵押，房产座落于上海金山区,总建筑面积为92.44平米，周边环境及基础设施良好，交通便利，有学校及购物商铺，房产流通性良好，房产市场估价为人民币 100万元，抵押物价值远远大于其借款金额</p>
-                                    <h3>360度尽责调查</h3>
-                                    <p>多家评估机构对比评估，确保评估价格合理；<br>经过完整的抵押流程，具备合法抵押手续；<br>借款人征信报告良好无不良拖欠记录，每月有缴纳社保记录显示，近5年来无任何借款逾期，相关银行资金流水正常；<br>借款人信用度高，诚实守信，无不良记录，抵押物经核查未做过其他抵押担保。</p>
-                                    <h3>专家权威认证</h3>
-                                    <p>律师已查明：抵押物为抵押人合法所有，且处于抵押人有效占有之下，抵押人对抵押物享有处分权，有权在抵押物上设定抵押。借款人与出借人签订的《房产抵押借款合同》合法有效，具有法律效力。根据《中华人民共和国合同法》、《中华人民共和国物权法》等相关法律法规的规定，对于已经合法设立的抵押权，借款人未履行还款义务时，出借人有权根据合同约定要求借款人承担逾期还款责任，并有权根据合同约定以抵押物折价或者以拍卖、变卖等方式处置抵押物，或请求法院强制执行抵押物。</p>
-                                    <h3>全额托底承诺</h3>
-                                </div>
-                                <!-- 资金保障 E -->
+                        <!-- 资金保障 S -->
+                        <div id="investRisk" class="pro-risk p-cont-main f-hide">
+                            <h3 class="mb40">增信措施</h3>
+                            <h3>可靠的项目渠道</h3>
+                            <p>产品资金主要投资于一线城市地产优质项目，项目渠道可靠，房金网专业风控团队对项目实行跟踪管理，并对收益情况进行数据统计分析，多重风控审核保障资金安全。</p>
+                            <h3>借款人足额房产抵押</h3>
+                            <p>借款人以其自有的房产设定抵押，房产座落于上海金山区,总建筑面积为92.44平米，周边环境及基础设施良好，交通便利，有学校及购物商铺，房产流通性良好，房产市场估价为人民币 100万元，抵押物价值远远大于其借款金额</p>
+                            <h3>360度尽责调查</h3>
+                            <p>多家评估机构对比评估，确保评估价格合理；<br>经过完整的抵押流程，具备合法抵押手续；<br>借款人征信报告良好无不良拖欠记录，每月有缴纳社保记录显示，近5年来无任何借款逾期，相关银行资金流水正常；<br>借款人信用度高，诚实守信，无不良记录，抵押物经核查未做过其他抵押担保。</p>
+                            <h3>专家权威认证</h3>
+                            <p>律师已查明：抵押物为抵押人合法所有，且处于抵押人有效占有之下，抵押人对抵押物享有处分权，有权在抵押物上设定抵押。借款人与出借人签订的《房产抵押借款合同》合法有效，具有法律效力。根据《中华人民共和国合同法》、《中华人民共和国物权法》等相关法律法规的规定，对于已经合法设立的抵押权，借款人未履行还款义务时，出借人有权根据合同约定要求借款人承担逾期还款责任，并有权根据合同约定以抵押物折价或者以拍卖、变卖等方式处置抵押物，或请求法院强制执行抵押物。</p>
+                            <h3>全额托底承诺</h3>
+                        </div>
+                        <!-- 资金保障 E -->
 
-                                <!-- 投资记录内容页 S -->
-                                <div id="investList" class="pro-investList p-cont-main f-hide">
-                                    <div>
-                                        <div class="invest-record-wrap f-fl">
-                                            <h3>投资实力榜</h3>
-                                            <div class="record-box">
-                                                <div class="record-title f-cb">
-                                                    <div class="left">序号</div>
-                                                    <div class="middle">用户</div>
-                                                    <div class="middle">金额（元）</div>
-                                                    <div class="middle">时间</div>
-                                                    <div class="right">方式</div>
-                                                </div>
-                                                <ul class="record-list"></ul>
-                                                <div class="ui-paginataion mt15">
-                                                    <div class="pagination page"></div>
-                                                </div>
-                                            </div>
+                        <!-- 投资记录内容页 S -->
+                        <div id="investList" class="pro-investList p-cont-main f-hide">
+                            <div>
+                                <div class="invest-record-wrap f-fl">
+                                    <h3>投资实力榜</h3>
+                                    <div class="record-box">
+                                        <div class="record-title f-cb">
+                                            <div class="left">序号</div>
+                                            <div class="middle">用户</div>
+                                            <div class="middle">金额（元）</div>
+                                            <div class="middle">时间</div>
+                                            <div class="right">方式</div>
                                         </div>
-
-                                        <div class="invest-rank-wrap f-fr">
-                                            <h3>投资实力榜</h3>
-                                            <div class="rank-box">
-                                                <div class="rank-title f-cb">
-                                                    <div class="left">排名</div>
-                                                    <div class="middle">用户</div>
-                                                    <div class="right">累计投资金额</div>
-                                                </div>
-                                                <ul class="rank-list"></ul>
-                                            </div>
+                                        <ul class="record-list"></ul>
+                                        <div class="ui-paginataion mt15">
+                                            <div class="pagination page"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- 投资记录内容页 E -->
+
+                                <div class="invest-rank-wrap f-fr">
+                                    <h3>投资实力榜</h3>
+                                    <div class="rank-box">
+                                        <div class="rank-title f-cb">
+                                            <div class="left">排名</div>
+                                            <div class="middle">用户</div>
+                                            <div class="right">累计投资金额</div>
+                                        </div>
+                                        <ul class="rank-list"></ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- 投资记录内容页 E -->
                     </div>
                 </div>
             </div>

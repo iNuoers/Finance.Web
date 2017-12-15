@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 20:02:00 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-12-09 18:46:08
+ * @Last Modified time: 2017-12-11 09:16:47
  */
 
 require('js_path/plugins/layer/skin/default/layer.css')
@@ -42,14 +42,14 @@ core.Config.init = function () {
     $(window).bind('scroll', function () {
         var scrollTop = $(window).scrollTop();
         if (scrollTop > 525) {
-            $('.wdg-fjw-second-header').addClass('tdw-nav-suspension');
+            $('.top-menu').addClass('tdw-nav-suspension');
             setTimeout(function () {
-                $('.wdg-fjw-second-header').addClass('tdw-nav-suspension-down');
+                $('.top-menu').addClass('tdw-nav-suspension-down');
             }, 100)
         } else if (scrollTop < 525) {
-            $('.wdg-fjw-second-header').removeClass('tdw-nav-suspension');
+            $('.top-menu').removeClass('tdw-nav-suspension');
             setTimeout(function () {
-                $('.wdg-fjw-second-header').removeClass('tdw-nav-suspension-down');
+                $('.top-menu').removeClass('tdw-nav-suspension-down');
             }, 100)
         }
     });

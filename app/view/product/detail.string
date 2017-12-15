@@ -23,9 +23,9 @@
     }
 
 %>
-<div class="p-title">
-    <div class="p-title-inner">
-        <h2 class="productName"><%= Title %></h2>
+<div class="pro-tit">
+    <div class="pro-tit-inner">
+        <h2><%= Title %></h2>
         <%if(IsPlusInCome == 1){%>
             <i class="u-tag u-tag-normal f-fl">加息</i>
         <%}%>
@@ -219,7 +219,7 @@
                 <!-- 这里放更多的内容 -->
                 <div class="t-tips">
                     <!-- 当无保险时 -->
-                    <i class="fa fa-shield"></i><span><font class="f-color-gray-text">购买规则：</font>
+                    <i class="fa fa-shield"></i><span><font class="f-fcgray3">购买规则：</font>
                     <%if(ProductTypeParentId == 1){%>
                         申购成功，当天产生收益，次日7:00前发放所产生收益。
                     <%}else if(ProductTypeParentId == 2){%>

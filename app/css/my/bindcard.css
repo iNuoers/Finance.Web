@@ -6,7 +6,7 @@
 .item .info .inputbox.disabled{border:1px solid transparent;text-indent:0;background-color:transparent}
 .item .info p{overflow:auto;height:30px;line-height:30px;}
 .item .info p .error{color:#ff4242}
-.item .info .btn{display:block;width:280px;height:40px;line-height:40px;-webkit-box-sizing:border-box;box-sizing:border-box;margin:0}
+.item .info .button{display:block;width:280px;height:40px;line-height:40px;-webkit-box-sizing:border-box;box-sizing:border-box;margin:0}
 .code .info .btn{width:165px;margin-left:10px}
 .code .info .inputbox{width:165px}
 .poptip{position:relative;margin-left:10px;cursor:pointer;color:#0a6feb}

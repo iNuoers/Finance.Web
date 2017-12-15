@@ -1,85 +1,75 @@
 <!doctype html>
 <html lang="zh-cn">
-        <!-- https://www.duanrong.com/lcjh/list  右侧工具  js适配 -->
 <head>
     <title><%= htmlWebpackPlugin.options.title%> - 房金网</title>
     <%= require('html-loader!../layout/head-common.html')%>
 </head>
-
 <body>
     <%= require('html-loader!../layout/nav.html')%>
     <%= require('html-loader!../layout/header.html')%>
-    <div class="main-wrap main pt10">
-        <div class="main-section">
-            <div class="f-product-list f-cb">
-                <div class="swiper-container f-fl">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a class="item-ctn" href="" target="_blank" tabindex="0" style="background-image:url(<%= require('../../image/pro_topbg.png') %>);"></a>
-                        </div>
+    <div class="main-wrap pt10">
+        <div class="product-ad main-section rel f-cb">
+            <div class="swiper-container f-fl">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a class="item-ctn"  href="javascript:;" data-href="/product/index.html" style="background-image:url(<%= require('../../image/pro_topbg.png') %>);"></a>
                     </div>
                 </div>
-                <a class="features f-fr" href="../about/index.html" target="_blank">
-                    <div class="strength f-cb">
-                        <i class="f-fl"></i>
-                        <div class="f-fl">
-                            <h1>平台实力</h1>
-                            <p>东方航空、平安银行跨域合作</p>
-                        </div>
-                    </div>
-                    <div class="safe f-cb">
-                        <i class="f-fl"></i>
-                        <div class="f-fl">
-                            <h1>专业风控</h1>
-                            <p>六重风控体系，银行资金存管</p>
-                        </div>
-                    </div>
-                    <div class="creative f-cb">
-                        <i class="f-fl"></i>
-                        <div class="f-fl">
-                            <h1>创新模式</h1>
-                            <p>"互联网+房地产"专业化财富管理</p>
-                        </div>
-                    </div>
-                </a>
             </div>
+            <a class="features f-fr" href="javascript:;" data-href="/about/about.html">
+                <div class="strength f-cb">
+                    <i class="f-fl"></i>
+                    <div class="f-fl">
+                        <h1>平台实力</h1>
+                        <p>东方航空、平安银行跨域合作</p>
+                    </div>
+                </div>
+                <div class="safe f-cb">
+                    <i class="f-fl"></i>
+                    <div class="f-fl">
+                        <h1>专业风控</h1>
+                        <p>六重风控体系，银行资金存管</p>
+                    </div>
+                </div>
+                <div class="creative f-cb">
+                    <i class="f-fl"></i>
+                    <div class="f-fl">
+                        <h1>创新模式</h1>
+                        <p>"互联网+房地产"专业化财富管理</p>
+                    </div>
+                </div>
+            </a>
         </div>
-        <div class="main-section pb20">
-            <div class="pro-section">
-                <section class="section">
-                    <h3 id="hot" class="hot">
-                        <span>热售产品</span>
-                        <span>售罄产品</span>
-                        <i class="slider-flag"></i>
-                    </h3>
-                    <div class="f-cb">
-                        <div class="borrow-list-title">
-                            <dl class="ctn f-cb row">
-                                <dd class="f-fl col-lg-6 borrow-name">项目名称</dd>
-                                <dd class="f-fl col-lg-3-5 borrow-apr">
-                                    <span>年化收益</span>
-                                    <a data-order="ASC" data-sort="1" data-orderby="1" class="rank-default on" title="年化收益排序">
-                                        <i class="fa fa-sort-up arrow"></i>
-                                        <b class="fa fa-sort-down arrow"></b>
-                                    </a>
-                                </dd>
-                                <dd class="f-fl col-lg-3-5 borrow-expire">
-                                    <span>投资期限</span>
-                                    <a data-order="ASC" data-sort="" data-orderby="2" class="rank-default" title="投资期限排序">
-                                        <i class="fa fa-sort-up arrow"></i>
-                                        <b class="fa fa-sort-down arrow"></b>
-                                    </a>
-                                </dd>
-                                <dd class="f-fl col-lg-3-5 borrow-style">还款方式</dd>
-                                <dd class="f-fl col-lg-3-5 borrow-scale">项目进度</dd>
-                            </dl>
-                        </div>
-                    </div>
-                    <div class="f-products">
-                        <ol class="paging-list"></ol>
-                        <div class="page pagination mt15 pb15"></div>
-                    </div>
-                </section>
+        <div class="product-box main-section pt10 pb10">
+            <h3 class="pro-type">
+                <span>热售产品</span>
+                <span>售罄产品</span>
+                <i class="slider-flag"></i>
+            </h3>
+            <div class="pro-tit f-cb">
+                <dl class="f-cb row">
+                    <dd class="f-fl col-lg-6 borrow-name">项目名称</dd>
+                    <dd class="f-fl col-lg-3-5 borrow-apr">
+                        <span>年化收益</span>
+                        <a data-order="ASC" data-sort="1" data-orderby="1" class="rank-default on" title="年化收益排序">
+                            <i class="fa fa-sort-up arrow"></i>
+                            <b class="fa fa-sort-down arrow"></b>
+                        </a>
+                    </dd>
+                    <dd class="f-fl col-lg-3-5 borrow-expire">
+                        <span>投资期限</span>
+                        <a data-order="ASC" data-sort="" data-orderby="2" class="rank-default" title="投资期限排序">
+                            <i class="fa fa-sort-up arrow"></i>
+                            <b class="fa fa-sort-down arrow"></b>
+                        </a>
+                    </dd>
+                    <dd class="f-fl col-lg-3-5 borrow-style">起投金额</dd>
+                    <dd class="f-fl col-lg-3-5 borrow-scale">项目进度</dd>
+                </dl>
+            </div>
+            <div class="product-list">
+                <ol class="paging-list"></ol>
+                <div class="page pagination mt15 pb15"></div>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 20:20:35 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-12-09 16:03:10
+ * @Last Modified time: 2017-12-11 09:17:15
  */
 'use strict'
 
@@ -23,6 +23,8 @@ var core = require('js_path/lib/pc.core.js')
     header.prototype.init = function () {
 
         var me = this, root = me.root;
+
+        this.adaptive()
 
         core.User.isLogin()
         window.user.isLogin ? this.setLoginedMenu() : this.setUnloginMenu();
@@ -63,6 +65,28 @@ var core = require('js_path/lib/pc.core.js')
             $('#sub_nav_bindcard a').attr('data-href', '/my/my-card.html')
         } else {
             $('#sub_nav_bindcard a').attr('data-href', '/my/bindcard.html')
+        }
+    }
+    header.prototype.adaptive = function () {
+        //不跳转
+        if (window.location.href.indexOf("goType=pcWeb") > 0) {
+            window.localStorage.noGoMweb = new Date().getTime() + 30 * 60 * 1000;
+        }
+
+        if (core.Browser.Mobile) {
+            var url = $("link[rel='alternate']").attr("href");
+            var isGo = true;
+            if (window.localStorage && window.localStorage.noGoMweb) {
+                //半个小时过期销毁
+                if (window.localStorage.noGoMweb > new Date().getTime()) {
+                    isGo = false;
+                } else {
+                    core.Storage.delItem('noGoMweb')
+                }
+            }
+            if (url != null && isGo) {
+                window.location.href = url;
+            }
         }
     }
     window.HeaderApply = new header

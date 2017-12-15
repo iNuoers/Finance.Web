@@ -1,0 +1,35 @@
+.fixed-assets-con{overflow:hidden}
+.fixed-assets-l{width:100%}
+.f-s-t{overflow:hidden}
+.f-s-t .joint {
+    float: left;
+    font-size: 24px;
+    color: #DDD;
+    margin-top: 78px
+}
+
+.f-s-t dl{float:left;padding:0 14px}
+.f-s-t dl dt {
+    padding-top: 45px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    color: #999
+}
+.f-s-t dl dd {
+    font-size: 18px;
+    color: #666
+}
+.f-s-t dl .usable {
+    color: #FF6200
+}
+.f-s-t .total-num {
+    margin-left: 26px
+}
+.f-s-t .total-num dt {
+    padding-top: 30px;
+    padding-bottom: 15px
+}
+.f-s-t .total-num dd {
+    font-size: 36px;
+    color: #333
+}

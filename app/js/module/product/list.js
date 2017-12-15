@@ -4,24 +4,18 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-07 15:23:37 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-12-04 15:38:25
+ * @Last Modified time: 2017-12-11 11:07:06
  */
 'use strict';
 
 require('css_path/product/list.css')
+require('js_path/lib/f.time.js')
 require('js_path/plugins/pagination/pagination.css')
 
+var api = require('js_path/lib/f.data.js')
 var core = require('js_path/lib/pc.core.js')
 var apps = require('js_path/lib/pc.apps.js')
 var header = require('js_path/lib/header.js')
-
-var _api = require('js_path/lib/f.data.js')
-var _time = require('js_path/lib/f.time.js')
-var _product = require('js_path/service/product-service.js')
-var _template = require('js_path/plugins/template/template.js')
-var _page = require('js_path/plugins/pagination/jquery.pagination.js')
-
-var itemTpl = require('view_path/product/index.string')
 
 fjw.pc.product = {
     orderByDes: {
@@ -55,7 +49,7 @@ fjw.pc.product = {
             , idx = core.String.getQuery("index") || 0;
 
         $('#nav_invest').addClass('active');
-        $('#hot span').eq(idx).addClass("active").siblings().removeClass("active");
+        $('.pro-type span').eq(idx).addClass("active").siblings().removeClass("active");
 
         me.param.ShowSellOut = idx > 0 ? 'T' : '';
         me.method.getList();
@@ -64,7 +58,7 @@ fjw.pc.product = {
         var me = this;
 
         // 在售 和 售罄 产品切换
-        $('#hot span').click(function (e) {
+        $('.pro-type span').click(function (e) {
             $(this).hasClass("active") || $(this).addClass("active").siblings().removeClass("active");
 
             me.param.ShowSellOut = $(this).index() > 0 ? 'T' : '';
@@ -72,7 +66,7 @@ fjw.pc.product = {
         });
 
         // 点击排序
-        $('.borrow-list-title a').click(function (e) {
+        $('.pro-tit a').click(function (e) {
             if ($(this).hasClass("rank-default")) {
                 $(".rank-default").removeClass("on").removeClass("up").removeClass("down");
                 $(".rank-default").each(function (idx) {
@@ -108,16 +102,18 @@ fjw.pc.product = {
         },
         getList: function () {
             var me = fjw.pc.product
+                , html = ''
                 , $listCon = $(".paging-list")
-                , html = '';
+                , tpl = require('view_path/product/index.string')
+                , doT = require('js_path/plugins/template/template.js');
 
             me.method.ajax(JSON.stringify({
-                M: _api.method.productList,
+                M: api.method.productList,
                 D: JSON.stringify(me.param)
             }), function (data) {
 
                 // 渲染html
-                html = _template(itemTpl, data);
+                html = doT(tpl, data);
                 $listCon.html(html);
 
                 // 倒计时
@@ -134,11 +130,11 @@ fjw.pc.product = {
                     $('.page').hide();
                 }
             });
-
-            
         },
         setpager: function (records) {
-            var me = fjw.pc.product;
+            var me = fjw.pc.product
+                , page = require('js_path/plugins/pagination/jquery.pagination.js');
+
             $('.page').show().pagination(records, {
                 current_page: me.param.PageIndex - 1,
                 num_edge_entries: 1,

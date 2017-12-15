@@ -4,7 +4,7 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-13 14:42:02 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-12-09 16:09:37
+ * @Last Modified time: 2017-12-11 09:15:57
  */
 'use strict'
 
@@ -576,32 +576,6 @@ FJW.Browser = {
                 e = r
         }
         return e
-    },
-    addFavorate: function (e, t) {
-        this.IE ? window.external.addFavorite(t, e) : window.sidebar && window.sidebar.addPanel(e, t, '')
-    },
-    setHomepage: function (e, t) {
-        try {
-            e.style.behavior = 'url(#default#homepage)',
-                e.setHomePage(t)
-        } catch (e) {
-            if (window.netscape) try {
-                netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect')
-            } catch (e) {
-                alert('此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为\'true\',双击即可。')
-            }
-        }
-    },
-    copy: function (e) {
-        var t;
-        return t = FJW.Object.isElement(e) ? e.value : e,
-            window.clipboardData && clipboardData.setData ? !!clipboardData.setData('text', t) || (alert('您的浏览器设置不允许脚本访问剪切板'), !1) : (alert('您的浏览器不支持脚本复制,请尝试手动复制'), !1)
-    },
-    bgiframe: function (e) {
-        if (!FJW.Browser.IE6) return e;
-        var t,
-            n = e.getElementsByTagName('iframe');
-        return n.length > 0 && 'bgiframe' == n[0].className ? e : (t = '<iframe class="bgiframe" frameborder="0" tabindex="-1" src="javascript:false;" style="display:block;position:absolute;z-index:-1;filter:Alpha(Opacity=\'0\');top:expression(((parseInt(this.parentNode.currentStyle.borderTopWidth)||0)*-1)+\'px\');left:expression(((parseInt(this.parentNode.currentStyle.borderLeftWidth)||0)*-1)+\'px\');width:expression(this.parentNode.offsetWidth+\'px\');height:expression(this.parentNode.offsetHeight+\'px\');"/>', e.insertBefore(document.createElement(t), e.firstChild), e)
     }
 }
 FJW.Cookie = {

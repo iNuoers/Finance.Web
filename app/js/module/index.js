@@ -4,10 +4,11 @@
  * @Github：https://github.com/iNuoers/ 
  * @Create time: 2017-10-16 17:21:28 
  * @Last Modified by: mr.ben
- * @Last Modified time: 2017-12-09 16:11:51
+ * @Last Modified time: 2017-12-12 11:00:56
  */
 'use strict';
 require('css_path/index.css')
+require('js_path/lib/f.time.js')
 require('js_path/plugins/slider/superSlide')
 
 var core = require('js_path/lib/pc.core.js')
@@ -41,7 +42,7 @@ fjw.pc.home = {
 
         $('#nav_home').addClass('active');
 
-        $('.btn-close').on('click',function(){
+        $('.btn-close').on('click', function () {
             $('.toptips').hide()
         })
 
@@ -223,20 +224,26 @@ fjw.pc.home = {
                     "      <% if(data.Id == 3){continue;}%>" +
                     "      <div class=\'col-lg-2 <%= i == grid.length-1 ? '' : 'mr15'%>\'>" +
                     "          <a class=\'fjw-subject-box tc animate\' href=\'javascript:;\' data-href=\'/product/detail.html?id=<%= data.Id %>\'>" +
-                    "              <h4 class=\'fz20 text-333\'><%= data.Title %></h4>" +
+                    "              <h4 class=\'fz20 fcgray\'><%= data.Title %></h4>" +
                     "              <div class=\'fjw-subject-rate\'>" +
                     "                  <p class=\'big-text\'><%= data.IncomeRate.toFixed(2) %><small class=\'fz18\'>%</small></p>" +
-                    "                  <p class=\'fz12 text-999\'>预期年化利率</p>" +
+                    "                  <p class=\'fz12 fcgray3\'>预期年化利率</p>" +
                     "              </div>" +
                     "              <div class=\'fjw-progress\'>" +
                     "                  <div class=\'fjw-progress-bar\' style=\'width:<%= progress %>%\'></div>" +
                     "              </div>" +
                     "              <div class=\'fjw-subject-limit fz12\'>" +
-                    "                  <p class=\'f-fl text-999\'>期限：<span class=\'text-333\'><%= data.TimeLimit %></span></p>" +
-                    "                  <p class=\'f-fr text-999\'>剩余：<span class=\'text-333\'><%= data.RemainingShares %></span></p>" +
+                    "                  <p class=\'f-fl fcgray3\'>期限：<span class=\'fcgray\'><%= data.TimeLimit %></span></p>" +
+                    "                  <p class=\'f-fr fcgray3\'>剩余：<span class=\'fcgray\'><%= data.RemainingShares %></span></p>" +
                     "              </div>" +
                     "              <div class=\'mt30 <%= data.CountDown >0 ? \"fjw-count-btn-lg\" : \"fjw-btn-lg\" %>\'>" +
-                    "                  <span rel=\'nofollow\' data-count=\"<%= data.CountDown %>\" class=\'<%= data.CountDown >0 ? \"timeSet\" : \"btn-text\" %>\' data-href=\'/product/detail.html?id=<%= data.Id %>\'><%= data.CountDown >0 ? \"\" : \"立即抢购\" %></span>" +
+                    "                  <span rel=\'nofollow\' timer=\"<%= data.CountDown %>\" class=\'<%= data.CountDown >0 ? \"national-time\" : \"btn-text\" %>\' data-href=\'/product/detail.html?id=<%= data.Id %>\'>" +
+                    "                  <% if(data.CountDown > 0){ %>" +
+                    "                      <i class=\"product-timer\"><i class=\"hour\">00</i>:<i class=\"minute\">00</i>:<i class=\"second\">00</i></i>" +
+                    "                  <% } else { %>" +
+                    "                      立即抢购" +
+                    "                  <% } %>" +
+                    "                  </span>" +
                     "              </div>" +
                     "          </a>" +
                     "      </div>" +
@@ -245,7 +252,11 @@ fjw.pc.home = {
 
                 var html = doT(tpl, data);
                 $('.national').html(html);
-                me.method.timeCountDown()
+                $.countdown($('.national-time'), {
+                    callback: function (ele) {
+                        $(ele).html('立即抢购');
+                    }
+                });
             });
 
             param.D = JSON.stringify({
@@ -260,22 +271,28 @@ fjw.pc.home = {
                     "      <% var data = grid[i]; var progress = (data.TotalShares - data.RemainingShares) / data.TotalShares * 100;if (progress == 0) {progress = 0;}if (progress > 0 && progress <= 1) {progress = 1;}progress = Math.floor(progress);%>" +
                     "      <div class=\'col-lg-4 mt15 <%= i == grid.length-1 ? '' : 'mr15'%>\'>" +
                     "          <a class=\'fjw-subject-box-lg animate\' href=\'javascript:;\' data-href=\'/product/detail.html?id=<%= data.Id %>\'>" +
-                    "              <h4 class=\'fz20 text-333\'><%= data.Title %></h4>" +
+                    "              <h4 class=\'fz20 fcgray\'><%= data.Title %></h4>" +
                     "              <div class=\'fjw-subject-data\'>" +
                     "                  <div class=\'f-fl subject-col-140\'>" +
                     "                      <p class=\'big-text\'><%= data.IncomeRate.toFixed(2) %><small class=\'fz18\'>%</small></p>" +
-                    "                      <p class=\'mt5 fz12 text-999\'>预期年化利率</p>" +
+                    "                      <p class=\'mt5 fz12 fcgray3\'>预期年化利率</p>" +
                     "                  </div>" +
                     "                  <div class=\'f-fl subject-col-80 tc\'>" +
-                    "                      <p class=\'mt25 fz18 text-333\'><%= data.TimeLimit %></p>" +
-                    "                      <p class=\'mt10 fz12 text-999\'>期限</p>" +
+                    "                      <p class=\'mt25 fz18 fcgray\'><%= data.TimeLimit %></p>" +
+                    "                      <p class=\'mt10 fz12 fcgray3\'>期限</p>" +
                     "                  </div>" +
                     "                  <div class=\'f-fl subject-col-150 tc\'>" +
-                    "                      <p class=\'mt25 fz18 text-333\'><%= data.RemainingShares %></p>" +
-                    "                      <p class=\'mt10 fz12 text-999\'>剩余</p>" +
+                    "                      <p class=\'mt25 fz18 fcgray\'><%= data.RemainingShares %></p>" +
+                    "                      <p class=\'mt10 fz12 fcgray3\'>剩余</p>" +
                     "                  </div>" +
                     "                  <div class=\'mt20 <%= data.CountDown >0 ? \"fjw-count-btn\" : \"fjw-btn\" %>\'>" +
-                    "                      <span rel=\'nofollow\' data-count=\"<%= data.CountDown %>\" class=\'<%= data.CountDown >0 ? \"timeSet\" : \"btn-text\" %>\' data-href=\'/product/detail.html?id=<%= data.Id %>\'><%= data.CountDown >0 ? \"\" : \"立即抢购\" %></span>" +
+                    "                      <span rel=\'nofollow\' timer=\"<%= data.CountDown %>\" class=\'<%= data.CountDown >0 ? \"current-time\" : \"btn-text\" %>\' data-href=\'/product/detail.html?id=<%= data.Id %>\'>" +
+                    "                      <% if(data.CountDown > 0){ %>" +
+                    "                          <i class=\"product-timer\"><i class=\"hour\">00</i>:<i class=\"minute\">00</i>:<i class=\"second\">00</i></i>" +
+                    "                      <% } else { %>" +
+                    "                          立即抢购" +
+                    "                      <% } %>" +
+                    "                      </span>" +
                     "                  </div>" +
                     "                  <div class=\'fjw-progress\'>" +
                     "                      <div class=\'fjw-progress-bar\' style=\'width:<%= progress %>%\'></div>" +
@@ -288,39 +305,13 @@ fjw.pc.home = {
 
                 var html = doT(tpl, data);
                 $('.current').html(html);
-                me.method.timeCountDown()
-            });
-        },
-        addZero: function (n) {
-            var n = parseInt(n, 10);
-            if (n > 0) {
-                if (n <= 9) {
-                    n = "0" + n;
-                }
-                return String(n);
-            } else {
-                return "00";
-            }
-        },
-        dateFormat: function (count) {
-            var sec = fjw.pc.home.method.addZero(count % 60);
-            var mini = Math.floor((count / 60)) > 0 ? fjw.pc.home.method.addZero(Math.floor((count / 60)) % 60) : "00";
-            var hour = Math.floor((count / 3600)) > 0 ? fjw.pc.home.method.addZero(parseInt(count / 3600)) : "00";
-            return "<span>" + hour + "</span>时<span >" + mini + "</span>分<span >" + sec + "</span>秒";
-        },
-        timeCountDown: function () {
-            $(".timeSet").each(function () {
-                var timecount = parseInt($(this).attr("data-count"));
-                if (timecount >= 0) {
-                    $(this).html(fjw.pc.home.method.dateFormat(timecount));
-                    if (timecount == 0) {
-                        $(this).html('立即抢购');
+
+                $.countdown($('.current-time'), {
+                    callback: function (ele) {
+                        $(ele).html('立即抢购');
                     }
-                    timecount--;
-                    $(this).attr("data-count", timecount);
-                }
+                });
             });
-            setTimeout(fjw.pc.home.method.timeCountDown, 1000);
         }
     }
 }
